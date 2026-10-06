@@ -363,14 +363,11 @@ def parse_riders(html):
 
     riders_by_race = []
 
-    # ページ内の全テーブルを調査
     for table in parser.tables:
 
         if not table:
             continue
 
-        # 「車番」「選手名」「期別」「府県」
-        # を持つテーブルを探す
         header_index = -1
 
         for i, row in enumerate(table):
@@ -396,34 +393,104 @@ def parse_riders(html):
             header_index + 1:
         ]:
 
-            if len(row) < 5:
+            if not row:
                 continue
 
-            # 通常
-            # 枠 / 車番 / 選手名 / 期別 / 府県
-            try:
+            car_no = None
+            car_index = None
 
-                car_no = int(
-                    row[1]
-                )
+            # 行の中から車番を探す
+            for i, value in enumerate(row):
 
-            except:
+                value = value.strip()
 
+                if re.fullmatch(
+                    r"[1-9]",
+                    value
+                ):
+
+                    car_no = int(value)
+                    car_index = i
+                    break
+
+            if car_no is None:
                 continue
 
-            name = row[2].strip()
+            # 期別を探す
+            period_index = None
+            period = ""
 
-            period = row[3].strip()
+            for i in range(
+                car_index + 1,
+                len(row)
+            ):
 
-            prefecture = row[4].strip()
+                value = row[i].strip()
+
+                if re.fullmatch(
+                    r"\d{2,3}",
+                    value
+                ):
+
+                    period = value
+                    period_index = i
+                    break
+
+            if period_index is None:
+                continue
+
+            # 選手名
+            name_parts = []
+
+            for i in range(
+                car_index + 1,
+                period_index
+            ):
+
+                value = row[i].strip()
+
+                if value:
+                    name_parts.append(
+                        value
+                    )
+
+            name = " ".join(
+                name_parts
+            ).strip()
 
             if not name:
                 continue
 
-            if not re.fullmatch(
-                r"\d+",
-                str(period)
+            # 府県
+            prefecture = ""
+
+            if (
+                period_index + 1
+                < len(row)
             ):
+
+                prefecture = row[
+                    period_index + 1
+                ].strip()
+
+            # 誘導選手などを除外
+            if name in (
+                "誘導",
+                "誘導員",
+            ):
+                continue
+
+            # 車番重複防止
+            duplicate = False
+
+            for existing in race_riders:
+
+                if existing["car"] == car_no:
+
+                    duplicate = True
+                    break
+
+            if duplicate:
                 continue
 
             race_riders.append({
@@ -432,6 +499,10 @@ def parse_riders(html):
                 "period": period,
                 "prefecture": prefecture,
             })
+
+        race_riders.sort(
+            key=lambda x: x["car"]
+        )
 
         if race_riders:
 
@@ -511,17 +582,9 @@ def get_venue_data(
             "status": "error",
         }
 
-    # ----------------------------------
-    # レース情報
-    # ----------------------------------
-
     race_info = find_race_info(
         html
     )
-
-    # ----------------------------------
-    # 選手情報
-    # ----------------------------------
 
     rider_tables = parse_riders(
         html
@@ -552,6 +615,20 @@ def get_venue_data(
             riders = rider_tables[
                 index
             ]
+
+        if len(riders) < 5:
+
+            print(
+                "  ⚠️ 選手データ不足"
+            )
+
+        elif len(riders) < 7:
+
+            print(
+                "  ⚠️ 7車未満:",
+                len(riders),
+                "人"
+            )
 
         races.append({
             "number": info["number"],
