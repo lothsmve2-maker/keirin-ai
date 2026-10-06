@@ -1,18 +1,12 @@
 import json
 import re
+import time
 import urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 JST = timezone(timedelta(hours=9))
 OUTPUT_FILE = Path("data/today.json")
-
-SALE_PLACE_URL = (
-    "https://sp.oddspark.com/keirin/"
-    "SpSalePlaceList.do"
-    "?gamenId=S101"
-    "&gamenKoumokuId=sideMenuKeirinSale"
-)
 
 VENUE_CODES = {
     "函館": "11",
@@ -60,26 +54,50 @@ VENUE_CODES = {
 }
 
 
-def fetch(url, timeout=8):
-    print("GET:", url)
+def fetch(url, timeout=10, retries=3):
+    for attempt in range(1, retries + 1):
+        try:
+            print(f"GET {attempt}/{retries}: {url}")
 
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": (
-                "Mozilla/5.0 "
-                "(iPhone; CPU iPhone OS 17_0 like Mac OS X) "
-                "AppleWebKit/605.1.15 "
-                "(KHTML, like Gecko) "
-                "Version/17.0 Mobile/15E148 Safari/604.1"
-            ),
-            "Accept-Language": "ja-JP,ja;q=0.9",
-        },
+            request = urllib.request.Request(
+                url,
+                headers={
+                    "User-Agent": (
+                        "Mozilla/5.0 "
+                        "(Windows NT 10.0; Win64; x64) "
+                        "AppleWebKit/537.36 "
+                        "(KHTML, like Gecko) "
+                        "Chrome/140.0 Safari/537.36"
+                    ),
+                    "Accept-Language": "ja-JP,ja;q=0.9",
+                    "Accept": "text/html,application/xhtml+xml",
+                },
+            )
+
+            with urllib.request.urlopen(
+                request,
+                timeout=timeout,
+            ) as response:
+
+                charset = (
+                    response.headers.get_content_charset()
+                    or "utf-8"
+                )
+
+                return response.read().decode(
+                    charset,
+                    errors="ignore",
+                )
+
+        except Exception as e:
+            print("取得失敗:", str(e))
+
+            if attempt < retries:
+                time.sleep(2)
+
+    raise RuntimeError(
+        f"ページ取得に失敗しました: {url}"
     )
-
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        charset = response.headers.get_content_charset() or "utf-8"
-        return response.read().decode(charset, errors="ignore")
 
 
 def clean_html(html):
@@ -112,12 +130,7 @@ def clean_html(html):
     return html.strip()
 
 
-def find_venues(html):
-    """
-    ページ内に存在する競輪場名を探す。
-    同じ競輪場は1回だけ登録する。
-    """
-
+def find_today_venues(html):
     text = clean_html(html)
 
     venues = []
@@ -125,7 +138,6 @@ def find_venues(html):
     for name, code in VENUE_CODES.items():
 
         if name in text:
-
             venues.append(
                 {
                     "name": name,
@@ -137,10 +149,6 @@ def find_venues(html):
 
 
 def find_races(html):
-    """
-    プログラムページから1R〜12Rを探す。
-    """
-
     text = clean_html(html)
 
     numbers = set()
@@ -171,7 +179,6 @@ def get_venue_program(
     venue,
     date_string,
 ):
-
     name = venue["name"]
     code = venue["code"]
 
@@ -183,16 +190,16 @@ def get_venue_program(
     )
 
     try:
-
         html = fetch(
             url,
             timeout=8,
+            retries=2,
         )
 
     except Exception as e:
 
         print(
-            "取得失敗:",
+            "プログラム取得失敗:",
             name,
             str(e),
         )
@@ -205,9 +212,7 @@ def get_venue_program(
             "status": "error",
         }
 
-    race_numbers = find_races(
-        html
-    )
+    race_numbers = find_races(html)
 
     races = []
 
@@ -231,7 +236,6 @@ def get_venue_program(
 
 
 def save(data):
-
     OUTPUT_FILE.parent.mkdir(
         parents=True,
         exist_ok=True,
@@ -272,29 +276,34 @@ def main():
     print("==============================")
     print(" KEIRIN AI DATA UPDATE")
     print("==============================")
-    print(
-        "対象日:",
-        date_display,
+    print("対象日:", date_display)
+    print("==============================")
+
+    # 日付を指定して開催場一覧を取得
+    sale_place_url = (
+        "https://www.oddspark.com/keirin/"
+        "RaceListInfo.do"
+        f"?kaisaiBi={date_string}"
     )
 
-    # 開催場一覧を取得
     try:
 
         html = fetch(
-            SALE_PLACE_URL,
-            timeout=8,
+            sale_place_url,
+            timeout=10,
+            retries=3,
         )
 
     except Exception as e:
 
-        print(
-            "開催場ページ取得失敗:",
-            str(e),
-        )
+        print("")
+        print("開催場取得に失敗しました。")
+        print(str(e))
+        print("")
 
-        return
+        raise
 
-    venues = find_venues(
+    venues = find_today_venues(
         html
     )
 
@@ -302,7 +311,6 @@ def main():
     print("検出した開催場:")
 
     for venue in venues:
-
         print(
             "-",
             venue["name"],
@@ -310,15 +318,19 @@ def main():
 
     if not venues:
 
-        print(
-            "開催場が見つかりませんでした。"
+        raise RuntimeError(
+            "開催場を1つも検出できませんでした。"
         )
-
-        return
 
     venue_data = []
 
     for venue in venues:
+
+        print("")
+        print(
+            "開催場処理:",
+            venue["name"],
+        )
 
         data = get_venue_program(
             venue,
