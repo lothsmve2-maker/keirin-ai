@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KEIRIN AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  background:#f4f6f8;
+  color:#17202a;
+}
+header{
+  background:#111827;
+  color:#fff;
+  padding:22px 16px 18px;
+}
+header h1{margin:0;font-size:26px}
+header p{margin:6px 0 0;color:#cbd5e1;font-size:13px}
+.container{max-width:760px;margin:auto;padding:14px}
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+.date{
+  font-size:14px;
+  color:#64748b;
+  margin-bottom:12px;
+}
+.track{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.track h2{margin:0;font-size:20px}
+.badge{
+  background:#e11d48;
+  color:#fff;
+  padding:5px 9px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:bold;
+}
+.small{font-size:13px;color:#64748b;margin-top:5px}
+button{
+  width:100%;
+  border:0;
+  border-radius:11px;
+  padding:13px;
+  margin-top:12px;
+  background:#111827;
+  color:#fff;
+  font-size:15px;
+  font-weight:bold;
+}
+.race{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid #e5e7eb;
+}
+.race:last-child{border-bottom:0}
+.race strong{font-size:17px}
+.predict{
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+.rank{
+  border-left:5px solid #111827;
+  padding:12px;
+  margin-top:10px;
+  background:#f8fafc;
+  border-radius:10px;
+}
+.rank .num{font-size:12px;color:#64748b}
+.rank .buy{font-size:23px;font-weight:900;margin:5px 0}
+.conf{font-size:13px;color:#475569}
+.reason{
+  background:#f8fafc;
+  padding:12px;
+  border-radius:10px;
+  margin-top:8px;
+  font-size:13px;
+  line-height:1.7;
+}
+.back{
+  background:#64748b;
+  margin-bottom:12px;
+}
+.section-title{
+  font-size:18px;
+  font-weight:800;
+  margin:18px 0 8px;
+}
+.player{
+  display:flex;
+  justify-content:space-between;
+  padding:11px 0;
+  border-bottom:1px solid #eee;
+}
+.player:last-child{border-bottom:0}
+.line{
+  color:#2563eb;
+  font-size:12px;
+}
+.notice{
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  color:#9a3412;
+  border-radius:12px;
+  padding:12px;
+  font-size:12px;
+  line-height:1.6;
+}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>KEIRIN AI</h1>
+  <p>競輪3連単 AI予想</p>
+</header>
+
+<div class="container">
+
+<div id="home">
+
+  <div class="card">
+    <div class="date">📅 2026年10月6日</div>
+    <h2>本日の開催</h2>
+    <p class="small">開催情報は自動更新対応予定</p>
+  </div>
+
+  <div id="tracks"></div>
+
+  <div class="notice">
+    ※現在はアプリ本体の動作確認用データを表示しています。
+    実際の出走表・コメント・上がりタイム等はデータ取得機能接続後に自動更新されます。
+  </div>
+
+</div>
+
+<div id="races" class="hidden"></div>
+
+<div id="detail" class="hidden"></div>
+
+</div>
+
+<script>
+
+const data = {
+
+tracks:[
+  {
+    name:"松山",
+    grade:"FI",
+    day:"最終日",
+    races:12
+  },
+  {
+    name:"奈良",
+    grade:"FI",
+    day:"最終日",
+    races:12
+  },
+  {
+    name:"いわき平",
+    grade:"FI",
+    day:"2日目",
+    races:12
+  },
+  {
+    name:"前橋",
+    grade:"FII",
+    day:"最終日",
+    races:12
+  },
+  {
+    name:"大垣",
+    grade:"FII",
+    day:"2日目",
+    races:12
+  },
+  {
+    name:"大宮",
+    grade:"FII",
+    day:"2日目",
+    races:12
+  },
+  {
+    name:"防府",
+    grade:"FII",
+    day:"最終日",
+    races:12
+  }
+],
+
+players:[
+ {no:1,name:"選手A",point:"92.31",style:"自在",line:"北日本"},
+ {no:2,name:"選手B",point:"89.72",style:"自力",line:"関東"},
+ {no:3,name:"選手C",point:"94.18",style:"先行",line:"南関"},
+ {no:4,name:"選手D",point:"87.54",style:"追込",line:"南関"},
+ {no:5,name:"選手E",point:"91.05",style:"捲り",line:"関東"},
+ {no:6,name:"選手F",point:"85.44",style:"追込",line:"北日本"},
+ {no:7,name:"選手G",point:"88.63",style:"自在",line:"単騎"}
+]
+
+};
+
+const tracks=document.getElementById("tracks");
+
+data.tracks.forEach((t,i)=>{
+  tracks.innerHTML += `
+  <div class="card">
+    <div class="track">
+      <h2>🏟 ${t.name}競輪</h2>
+      <span class="badge">${t.grade}</span>
+    </div>
+    <div class="small">${t.day}　${t.races}R</div>
+    <button onclick="showRaces(${i})">レースを見る</button>
+  </div>`;
+});
+
+function showRaces(index){
+
+ const t=data.tracks[index];
+
+ document.getElementById("home").classList.add("hidden");
+ const box=document.getElementById("races");
+ box.classList.remove("hidden");
+
+ let html=`
+ <button class="back" onclick="goHome()">← 開催一覧へ戻る</button>
+ <div class="card">
+   <h2>🏟 ${t.name}競輪</h2>
+   <div class="small">${t.day}　${t.grade}</div>
+ </div>`;
+
+ for(let i=1;i<=12;i++){
+   html+=`
+   <div class="card race" onclick="showDetail('${t.name}',${i})">
+     <div>
+       <strong>${i}R</strong>
+       <div class="small">発走予定　${10+i}:00</div>
+     </div>
+     <div class="predict">③→①→⑤</div>
+   </div>`;
+ }
+
+ box.innerHTML=html;
+}
+
+function showDetail(track,race){
+
+ document.getElementById("races").classList.add("hidden");
+
+ const box=document.getElementById("detail");
+ box.classList.remove("hidden");
+
+ box.innerHTML=`
+
+ <button class="back" onclick="backRaces()">← レース一覧へ</button>
+
+ <div class="card">
+   <h2>${track} ${race}R</h2>
+   <div class="small">3連単 AI予想</div>
+ </div>
+
+ <div class="card">
+   <div class="section-title">🎯 推奨買い目</div>
+
+   <div class="rank">
+     <div class="num">1位</div>
+     <div class="buy">③ → ① → ⑤</div>
+     <div class="conf">信頼度 84%</div>
+   </div>
+
+   <div class="rank">
+     <div class="num">2位</div>
+     <div class="buy">③ → ⑤ → ①</div>
+     <div class="conf">信頼度 78%</div>
+   </div>
+
+   <div class="rank">
+     <div class="num">3位</div>
+     <div class="buy">① → ③ → ⑤</div>
+     <div class="conf">信頼度 71%</div>
+   </div>
+
+   <div class="rank">
+     <div class="num">4位</div>
+     <div class="buy">③ → ① → ⑦</div>
+     <div class="conf">信頼度 65%</div>
+   </div>
+
+   <div class="rank">
+     <div class="num">5位</div>
+     <div class="buy">⑤ → ③ → ①</div>
+     <div class="conf">信頼度 59%</div>
+   </div>
+
+   <div class="reason">
+     <strong>推奨：5点</strong><br>
+     可能な限り買い目を絞り、最大10点までの範囲で予想します。
+   </div>
+ </div>
+
+ <div class="card">
+
+   <div class="section-title">🧠 AI分析</div>
+
+   <div class="reason">
+   <strong>① 選手コメント</strong><br>
+   先行・捲りなどの作戦、ラインへの意欲を評価。
+   </div>
+
+   <div class="reason">
+   <strong>② 直近の調子</strong><br>
+   直近成績・着順・競走得点を評価。
+   </div>
+
+   <div class="reason">
+   <strong>③ 競輪場適性</strong><br>
+   バンク特性と脚質の相性を評価。
+   </div>
+
+   <div class="reason">
+   <strong>④ 周長別成績</strong><br>
+   今回のバンク周長との相性を評価。
+   </div>
+
+   <div class="reason">
+   <strong>⑤ 対戦成績</strong><br>
+   選手同士の過去の先着関係を評価。
+   </div>
+
+   <div class="reason">
+   <strong>⑥ 位置別成績</strong><br>
+   先頭・番手・3番手・単騎・競りを評価。
+   </div>
+
+   <div class="reason">
+   <strong>⑦ ライン関係</strong><br>
+   同県・師弟・ライン構成を評価。
+   </div>
+
+   <div class="reason">
+   <strong>⑧ 前日の上がりタイム</strong><br>
+   同会場での前日の脚の状態を評価。
+   </div>
+
+   <div class="reason">
+   <strong>⑨ 前々日の上がりタイム</strong><br>
+   開催序盤からの脚の推移を評価。
+   </div>
+
+   <div class="reason">
+   <strong>⑩ 開催中の傾向</strong><br>
+   逃げ・捲り・差しと上がりタイムの傾向を評価。
+   </div>
+
+ </div>
+
+ <div class="card">
+   <div class="section-title">🚴 出走選手</div>
+
+   ${data.players.map(p=>`
+     <div class="player">
+       <div>
+         <strong>${p.no}　${p.name}</strong>
+         <div class="small">${p.style}　${p.line}</div>
+       </div>
+       <div>${p.point}</div>
+     </div>
+   `).join("")}
+
+ </div>
+
+ `;
+
+}
+
+function backRaces(){
+ document.getElementById("detail").classList.add("hidden");
+ document.getElementById("races").classList.remove("hidden");
+}
+
+function goHome(){
+ document.getElementById("races").classList.add("hidden");
+ document.getElementById("detail").classList.add("hidden");
+ document.getElementById("home").classList.remove("hidden");
+}
+
+</script>
+
+</body>
+</html>
