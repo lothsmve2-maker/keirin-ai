@@ -1,60 +1,838 @@
 {
-  "updated_at": "2026-10-07T00:34:01.866434+09:00",
+  "updated_at": "2026-10-07T00:42:59.697929+09:00",
   "source": "OddsPark",
   "date": "2026-10-07",
   "status": "ok",
   "venue_count": 7,
-  "race_count": 0,
-  "entry_count": 0,
+  "race_count": 72,
+  "entry_count": 50,
   "venues": [
     {
       "name": "前橋",
       "code": "22",
-      "races": [],
-      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=22&shonichi=20261007",
-      "status": "error"
+      "races": [
+        {
+          "number": 1,
+          "start_time": "20:50",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 2,
+          "start_time": "21:10",
+          "riders": [
+            {
+              "car": 3,
+              "name": "渡口まりあ",
+              "period": "114",
+              "prefecture": "山口"
+            },
+            {
+              "car": 6,
+              "name": "佐々木恵理",
+              "period": "110",
+              "prefecture": "愛知"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 3,
+          "start_time": "21:30",
+          "riders": [
+            {
+              "car": 7,
+              "name": "福森慎太郎",
+              "period": "84",
+              "prefecture": "千葉"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 4,
+          "start_time": "21:50",
+          "riders": [
+            {
+              "car": 4,
+              "name": "伊早坂駿一",
+              "period": "105",
+              "prefecture": "茨城"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 5,
+          "start_time": "22:10",
+          "riders": [
+            {
+              "car": 3,
+              "name": "鈴木小次廊",
+              "period": "127",
+              "prefecture": "静岡"
+            },
+            {
+              "car": 6,
+              "name": "成清謙二郎",
+              "period": "90",
+              "prefecture": "千葉"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 6,
+          "start_time": "22:30",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 7,
+          "start_time": "22:50",
+          "riders": [
+            {
+              "car": 6,
+              "name": "新井僚太郎",
+              "period": "100",
+              "prefecture": "山梨"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 8,
+          "start_time": "23:10",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 9,
+          "start_time": "23:30",
+          "riders": [
+            {
+              "car": 1,
+              "name": "蕗澤鴻太郎",
+              "period": "111",
+              "prefecture": "群馬"
+            }
+          ],
+          "status": "scheduled"
+        }
+      ],
+      "source": "https://www.oddspark.com/keirin/AllRaceList.do?joCode=22&kaisaiBi=20261007",
+      "status": "ok"
     },
     {
       "name": "大宮",
       "code": "25",
-      "races": [],
-      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=25&shonichi=20261007",
-      "status": "error"
+      "races": [
+        {
+          "number": 1,
+          "start_time": "10:45",
+          "riders": [
+            {
+              "car": 1,
+              "name": "吉田夢希斗",
+              "period": "127",
+              "prefecture": "埼玉"
+            },
+            {
+              "car": 5,
+              "name": "金子周一郎",
+              "period": "78",
+              "prefecture": "埼玉"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 2,
+          "start_time": "11:10",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 3,
+          "start_time": "11:37",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 4,
+          "start_time": "12:05",
+          "riders": [
+            {
+              "car": 2,
+              "name": "佐々木省司",
+              "period": "86",
+              "prefecture": "青森"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 5,
+          "start_time": "12:35",
+          "riders": [
+            {
+              "car": 5,
+              "name": "上遠野拓馬",
+              "period": "119",
+              "prefecture": "宮城"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 6,
+          "start_time": "13:05",
+          "riders": [
+            {
+              "car": 1,
+              "name": "藤原亜衣里",
+              "period": "102",
+              "prefecture": "新潟"
+            },
+            {
+              "car": 6,
+              "name": "田野口佳奈",
+              "period": "126",
+              "prefecture": "香川"
+            },
+            {
+              "car": 7,
+              "name": "中村由香里",
+              "period": "102",
+              "prefecture": "東京"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 7,
+          "start_time": "13:35",
+          "riders": [
+            {
+              "car": 1,
+              "name": "國村美留莉",
+              "period": "118",
+              "prefecture": "山口"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 8,
+          "start_time": "14:05",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 9,
+          "start_time": "14:35",
+          "riders": [
+            {
+              "car": 3,
+              "name": "前反祐一郎",
+              "period": "81",
+              "prefecture": "広島"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 10,
+          "start_time": "15:05",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 11,
+          "start_time": "15:36",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 12,
+          "start_time": "16:11",
+          "riders": [],
+          "status": "scheduled"
+        }
+      ],
+      "source": "https://www.oddspark.com/keirin/AllRaceList.do?joCode=25&kaisaiBi=20261007",
+      "status": "ok"
     },
     {
       "name": "静岡",
       "code": "38",
-      "races": [],
-      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=38&shonichi=20261007",
-      "status": "error"
+      "races": [
+        {
+          "number": 1,
+          "start_time": "11:01",
+          "riders": [
+            {
+              "car": 7,
+              "name": "佐藤譲士郎",
+              "period": "123",
+              "prefecture": "埼玉"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 2,
+          "start_time": "11:28",
+          "riders": [
+            {
+              "car": 4,
+              "name": "木曽田晃大",
+              "period": "129",
+              "prefecture": "京都"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 3,
+          "start_time": "11:55",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 4,
+          "start_time": "12:25",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 5,
+          "start_time": "12:55",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 6,
+          "start_time": "13:25",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 7,
+          "start_time": "13:55",
+          "riders": [
+            {
+              "car": 2,
+              "name": "坂木田雄介",
+              "period": "78",
+              "prefecture": "千葉"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 8,
+          "start_time": "14:25",
+          "riders": [
+            {
+              "car": 6,
+              "name": "牛田樹希斗",
+              "period": "119",
+              "prefecture": "愛知"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 9,
+          "start_time": "14:55",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 10,
+          "start_time": "15:25",
+          "riders": [
+            {
+              "car": 6,
+              "name": "松岡晋乃介",
+              "period": "109",
+              "prefecture": "岐阜"
+            },
+            {
+              "car": 7,
+              "name": "高谷進太郎",
+              "period": "85",
+              "prefecture": "三重"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 11,
+          "start_time": "15:56",
+          "riders": [
+            {
+              "car": 3,
+              "name": "阿部架惟都",
+              "period": "115",
+              "prefecture": "宮城"
+            }
+          ],
+          "status": "scheduled"
+        }
+      ],
+      "source": "https://www.oddspark.com/keirin/AllRaceList.do?joCode=38&kaisaiBi=20261007",
+      "status": "ok"
     },
     {
       "name": "大垣",
       "code": "44",
-      "races": [],
-      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=44&shonichi=20261007",
-      "status": "error"
+      "races": [
+        {
+          "number": 1,
+          "start_time": "20:40",
+          "riders": [
+            {
+              "car": 4,
+              "name": "戸ノ下太郎",
+              "period": "76",
+              "prefecture": "千葉"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 2,
+          "start_time": "21:00",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 3,
+          "start_time": "21:20",
+          "riders": [
+            {
+              "car": 3,
+              "name": "児玉東次郎",
+              "period": "129",
+              "prefecture": "岐阜"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 4,
+          "start_time": "21:40",
+          "riders": [
+            {
+              "car": 6,
+              "name": "金田健一郎",
+              "period": "60",
+              "prefecture": "大阪"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 5,
+          "start_time": "22:00",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 6,
+          "start_time": "22:20",
+          "riders": [
+            {
+              "car": 7,
+              "name": "阿久津浩之",
+              "period": "94",
+              "prefecture": "東京"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 7,
+          "start_time": "22:40",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 8,
+          "start_time": "23:00",
+          "riders": [
+            {
+              "car": 2,
+              "name": "太刀川一成",
+              "period": "100",
+              "prefecture": "千葉"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 9,
+          "start_time": "23:20",
+          "riders": [],
+          "status": "scheduled"
+        }
+      ],
+      "source": "https://www.oddspark.com/keirin/AllRaceList.do?joCode=44&kaisaiBi=20261007",
+      "status": "ok"
     },
     {
       "name": "四日市",
       "code": "48",
-      "races": [],
-      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=48&shonichi=20261007",
-      "status": "error"
+      "races": [
+        {
+          "number": 1,
+          "start_time": "16:04",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 2,
+          "start_time": "16:27",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 3,
+          "start_time": "16:50",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 4,
+          "start_time": "17:13",
+          "riders": [
+            {
+              "car": 3,
+              "name": "山口幸太郎",
+              "period": "99",
+              "prefecture": "長崎"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 5,
+          "start_time": "17:36",
+          "riders": [
+            {
+              "car": 3,
+              "name": "秋本耀太郎",
+              "period": "117",
+              "prefecture": "栃木"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 6,
+          "start_time": "18:00",
+          "riders": [
+            {
+              "car": 5,
+              "name": "小川三士郎",
+              "period": "125",
+              "prefecture": "徳島"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 7,
+          "start_time": "18:24",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 8,
+          "start_time": "18:48",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 9,
+          "start_time": "19:13",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 10,
+          "start_time": "19:38",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 11,
+          "start_time": "20:04",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 12,
+          "start_time": "20:30",
+          "riders": [
+            {
+              "car": 7,
+              "name": "塩島嵩一朗",
+              "period": "125",
+              "prefecture": "神奈"
+            }
+          ],
+          "status": "scheduled"
+        }
+      ],
+      "source": "https://www.oddspark.com/keirin/AllRaceList.do?joCode=48&kaisaiBi=20261007",
+      "status": "ok"
     },
     {
       "name": "奈良",
       "code": "53",
-      "races": [],
-      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=53&shonichi=20261007",
-      "status": "error"
+      "races": [
+        {
+          "number": 1,
+          "start_time": "10:53",
+          "riders": [
+            {
+              "car": 5,
+              "name": "太田黒大心",
+              "period": "74",
+              "prefecture": "熊本"
+            },
+            {
+              "car": 6,
+              "name": "奥出健士郎",
+              "period": "99",
+              "prefecture": "福井"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 2,
+          "start_time": "11:19",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 3,
+          "start_time": "11:46",
+          "riders": [
+            {
+              "car": 3,
+              "name": "白井優太朗",
+              "period": "119",
+              "prefecture": "広島"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 4,
+          "start_time": "12:15",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 5,
+          "start_time": "12:45",
+          "riders": [
+            {
+              "car": 4,
+              "name": "齋藤登志信",
+              "period": "80",
+              "prefecture": "宮城"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 6,
+          "start_time": "13:15",
+          "riders": [
+            {
+              "car": 3,
+              "name": "伊藤慶太郎",
+              "period": "107",
+              "prefecture": "埼玉"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 7,
+          "start_time": "13:45",
+          "riders": [
+            {
+              "car": 3,
+              "name": "八日市屋浩",
+              "period": "79",
+              "prefecture": "石川"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 8,
+          "start_time": "14:15",
+          "riders": [
+            {
+              "car": 1,
+              "name": "原田研太朗",
+              "period": "98",
+              "prefecture": "徳島"
+            },
+            {
+              "car": 4,
+              "name": "佐藤愼太郎",
+              "period": "83",
+              "prefecture": "福島"
+            },
+            {
+              "car": 7,
+              "name": "佐々木則幸",
+              "period": "79",
+              "prefecture": "高知"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 9,
+          "start_time": "14:45",
+          "riders": [
+            {
+              "car": 5,
+              "name": "松本秀之慎",
+              "period": "121",
+              "prefecture": "熊本"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 10,
+          "start_time": "15:15",
+          "riders": [
+            {
+              "car": 4,
+              "name": "川口公太朗",
+              "period": "98",
+              "prefecture": "岐阜"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 11,
+          "start_time": "15:47",
+          "riders": [
+            {
+              "car": 3,
+              "name": "小笠原一真",
+              "period": "123",
+              "prefecture": "青森"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 12,
+          "start_time": "16:20",
+          "riders": [
+            {
+              "car": 4,
+              "name": "和田健太郎",
+              "period": "87",
+              "prefecture": "千葉"
+            }
+          ],
+          "status": "scheduled"
+        }
+      ],
+      "source": "https://www.oddspark.com/keirin/AllRaceList.do?joCode=53&kaisaiBi=20261007",
+      "status": "ok"
     },
     {
       "name": "高知",
       "code": "74",
-      "races": [],
-      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=74&shonichi=20261007",
-      "status": "error"
+      "races": [
+        {
+          "number": 1,
+          "start_time": "08:30",
+          "riders": [
+            {
+              "car": 1,
+              "name": "柳沼鼓太朗",
+              "period": "129",
+              "prefecture": "福島"
+            },
+            {
+              "car": 5,
+              "name": "與古田龍門",
+              "period": "125",
+              "prefecture": "沖縄"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 2,
+          "start_time": "08:50",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 3,
+          "start_time": "09:11",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 4,
+          "start_time": "09:32",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 5,
+          "start_time": "09:53",
+          "riders": [],
+          "status": "scheduled"
+        },
+        {
+          "number": 6,
+          "start_time": "10:14",
+          "riders": [
+            {
+              "car": 2,
+              "name": "沢田桂太郎",
+              "period": "129",
+              "prefecture": "大分"
+            },
+            {
+              "car": 6,
+              "name": "鈴木雄一朗",
+              "period": "94",
+              "prefecture": "東京"
+            }
+          ],
+          "status": "scheduled"
+        },
+        {
+          "number": 7,
+          "start_time": "10:35",
+          "riders": [],
+          "status": "scheduled"
+        }
+      ],
+      "source": "https://www.oddspark.com/keirin/AllRaceList.do?joCode=74&kaisaiBi=20261007",
+      "status": "ok"
     }
   ]
 }
