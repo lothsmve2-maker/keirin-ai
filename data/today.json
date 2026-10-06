@@ -1,58 +1,60 @@
 {
-  "updated_at": "2026-10-06T20:16:46.821976+09:00",
+  "updated_at": "2026-10-07T00:34:01.866434+09:00",
   "source": "OddsPark",
-  "date": "2026-10-06",
+  "date": "2026-10-07",
+  "status": "ok",
+  "venue_count": 7,
+  "race_count": 0,
+  "entry_count": 0,
   "venues": [
-    "函館",
-    "青森",
-    "いわき平",
-    "弥彦",
-    "前橋",
-    "取手",
-    "宇都宮",
-    "大宮",
-    "西武園",
-    "京王閣",
-    "立川",
-    "松戸",
-    "川崎",
-    "平塚",
-    "小田原",
-    "伊東",
-    "静岡",
-    "名古屋",
-    "岐阜",
-    "大垣",
-    "豊橋",
-    "富山",
-    "松阪",
-    "四日市",
-    "福井",
-    "奈良",
-    "向日町",
-    "和歌山",
-    "岸和田",
-    "玉野",
-    "広島",
-    "防府",
-    "高松",
-    "小松島",
-    "高知",
-    "松山",
-    "小倉",
-    "久留米",
-    "武雄",
-    "佐世保",
-    "別府",
-    "熊本"
-  ],
-  "races": [
-    1,
-    4,
-    5,
-    8,
-    12
-  ],
-  "status": "partial",
-  "message": "開催情報取得済み。出走表詳細取得処理を追加予定。"
+    {
+      "name": "前橋",
+      "code": "22",
+      "races": [],
+      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=22&shonichi=20261007",
+      "status": "error"
+    },
+    {
+      "name": "大宮",
+      "code": "25",
+      "races": [],
+      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=25&shonichi=20261007",
+      "status": "error"
+    },
+    {
+      "name": "静岡",
+      "code": "38",
+      "races": [],
+      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=38&shonichi=20261007",
+      "status": "error"
+    },
+    {
+      "name": "大垣",
+      "code": "44",
+      "races": [],
+      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=44&shonichi=20261007",
+      "status": "error"
+    },
+    {
+      "name": "四日市",
+      "code": "48",
+      "races": [],
+      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=48&shonichi=20261007",
+      "status": "error"
+    },
+    {
+      "name": "奈良",
+      "code": "53",
+      "races": [],
+      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=53&shonichi=20261007",
+      "status": "error"
+    },
+    {
+      "name": "高知",
+      "code": "74",
+      "races": [],
+      "source": "https://www.oddspark.com/keirin/RaceProgram.do?joCode=74&shonichi=20261007",
+      "status": "error"
+    }
+  ]
 }
