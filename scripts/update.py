@@ -8,7 +8,7 @@ from pathlib import Path
 
 # ============================================
 # KEIRIN AI
-# 無料・公開ページから実開催データを取得
+# 無料・公開ページから実データを取得
 # ============================================
 
 JST = timezone(timedelta(hours=9))
@@ -94,8 +94,11 @@ class TextParser(HTMLParser):
 
 
 def html_to_text(html):
+
     parser = TextParser()
+
     parser.feed(html)
+
     return parser.get_text()
 
 
@@ -121,7 +124,10 @@ def fetch(url):
         }
     )
 
-    with urllib.request.urlopen(request, timeout=30) as response:
+    with urllib.request.urlopen(
+        request,
+        timeout=30
+    ) as response:
 
         charset = response.headers.get_content_charset()
 
@@ -142,21 +148,17 @@ def find_today_venues(text):
 
     venues = []
 
-    # OddsParkの
-    # 「本日(10/6)の発売場（競輪）」
-    # より後ろを中心に判定する
-
-    marker = "本日"
-
-    if marker in text:
-
-        text = text[text.find(marker):]
+    # OddsParkの開催情報から
+    # 競輪場名を探す
 
     for name, code in VENUE_CODES.items():
 
         if name in text:
 
-            if name not in venues:
+            if name not in [
+                v["name"]
+                for v in venues
+            ]:
 
                 venues.append({
                     "name": name,
@@ -167,18 +169,12 @@ def find_today_venues(text):
 
 
 # ============================================
-# レース番号・発走時刻を取得
+# レース番号・発走時刻
 # ============================================
 
 def find_races(text):
 
     races = []
-
-    # 例
-    # 1R
-    # 20:50
-    #
-    # のような情報を拾う
 
     pattern = re.compile(
         r"(\d{1,2})R.*?"
@@ -188,7 +184,10 @@ def find_races(text):
 
     for match in pattern.finditer(text):
 
-        race_no = int(match.group(1))
+        race_no = int(
+            match.group(1)
+        )
+
         start_time = match.group(2)
 
         if 1 <= race_no <= 12:
@@ -199,6 +198,7 @@ def find_races(text):
             }
 
             if item not in races:
+
                 races.append(item)
 
     races.sort(
@@ -209,20 +209,12 @@ def find_races(text):
 
 
 # ============================================
-# 選手情報を抽出
+# 選手情報
 # ============================================
 
 def parse_entries(text):
 
     entries = []
-
-    # OddsPark出走表では
-    #
-    # 車番
-    # 選手名
-    # 年齢/期別/級班
-    #
-    # がまとまって表示される。
 
     pattern = re.compile(
         r"(?P<number>[1-9])\s+"
@@ -240,17 +232,25 @@ def parse_entries(text):
             match.group("number")
         )
 
-        name = match.group("name").strip()
+        name = match.group(
+            "name"
+        ).strip()
 
-        pref = match.group("pref").strip()
+        pref = match.group(
+            "pref"
+        ).strip()
 
-        age = match.group("age")
+        age = int(
+            match.group("age")
+        )
 
-        period = match.group("period")
+        period = int(
+            match.group("period")
+        )
 
-        class_name = match.group("class")
-
-        # 周辺テキストから追加情報を探す
+        class_name = match.group(
+            "class"
+        )
 
         start = match.end()
 
@@ -268,6 +268,7 @@ def parse_entries(text):
         )
 
         if score_match:
+
             score = score_match.group(1)
 
         gear_match = re.search(
@@ -276,6 +277,7 @@ def parse_entries(text):
         )
 
         if gear_match:
+
             gear = gear_match.group(1)
 
         style_match = re.search(
@@ -284,31 +286,45 @@ def parse_entries(text):
         )
 
         if style_match:
+
             style = style_match.group(1)
 
         entry = {
+
             "number": number,
+
             "name": name,
-            "age": int(age),
-            "period": int(period),
+
+            "age": age,
+
+            "period": period,
+
             "prefecture": pref,
+
             "class": class_name,
+
             "score": score,
+
             "gear": gear,
+
             "style": style,
+
             "comment": "",
+
             "recent_results": [],
+
             "last_race": {},
+
             "second_last_race": {},
+
             "line": ""
         }
-
-        # 重複防止
 
         if not any(
             e["number"] == number
             for e in entries
         ):
+
             entries.append(entry)
 
     entries.sort(
@@ -319,16 +335,18 @@ def parse_entries(text):
 
 
 # ============================================
-# コメント抽出
+# コメント
 # ============================================
 
-def parse_comments(text, entries):
-
-    # コメント欄の周辺を探す
+def parse_comments(
+    text,
+    entries
+):
 
     marker = "コメント"
 
     if marker not in text:
+
         return entries
 
     comment_text = text[
@@ -339,28 +357,32 @@ def parse_comments(text, entries):
 
         name = entry["name"]
 
-        # 苗字・名前の一部だけでも探す
-        short_name = name.split("　")[0]
+        short_name = name.split(
+            "　"
+        )[0]
 
         pos = comment_text.find(
             short_name
         )
 
         if pos < 0:
+
             continue
 
         block = comment_text[
             pos:pos + 150
         ]
 
-        # 「自力。」「前々。」などを拾う
         parts = block.split("\n")
 
         if len(parts) >= 2:
 
             comment = parts[-1].strip()
 
-            if comment and len(comment) < 80:
+            if (
+                comment
+                and len(comment) < 80
+            ):
 
                 entry["comment"] = comment
 
@@ -404,23 +426,27 @@ def fetch_race(
 
     text = html_to_text(html)
 
-    entries = parse_entries(text)
+    entries = parse_entries(
+        text
+    )
 
     entries = parse_comments(
         text,
         entries
     )
 
-    # 7車・9車など、実際に取得できた人数を保存
-
     race = {
+
         "number": race_no,
+
         "entries": entries,
-        "entry_count": len(entries),
+
+        "entry_count": len(
+            entries
+        ),
+
         "source": url
     }
-
-    # 発走時刻
 
     time_match = re.search(
         r"(\d{1,2}:\d{2})\s+発走",
@@ -432,40 +458,18 @@ def fetch_race(
         race["start_time"] = (
             time_match.group(1)
         )
+
     else:
 
         race["start_time"] = ""
 
-    # レース名
-
-    race_title = ""
-
-    title_patterns = [
-        r"\d{4}年\d{1,2}月\d{1,2}日.*?\n(.*?)\n",
-        r"\d{1,2}R\s+(.*?)\n"
-    ]
-
-    for pattern in title_patterns:
-
-        m = re.search(
-            pattern,
-            text
-        )
-
-        if m:
-
-            race_title = m.group(1).strip()
-
-            if len(race_title) < 100:
-                break
-
-    race["title"] = race_title
+    race["title"] = ""
 
     return race
 
 
 # ============================================
-# 開催場の全レース取得
+# 開催場取得
 # ============================================
 
 def fetch_venue(
@@ -474,21 +478,23 @@ def fetch_venue(
 ):
 
     name = venue["name"]
+
     code = venue["code"]
 
     print("")
+
     print(
         "=============================="
     )
+
     print(
         "開催場:",
         name
     )
+
     print(
         "=============================="
     )
-
-    # まずレースプログラムを取得
 
     program_url = (
         "https://www.oddspark.com/keirin/"
@@ -501,11 +507,17 @@ def fetch_venue(
 
     try:
 
-        html = fetch(program_url)
+        html = fetch(
+            program_url
+        )
 
-        text = html_to_text(html)
+        text = html_to_text(
+            html
+        )
 
-        races = find_races(text)
+        races = find_races(
+            text
+        )
 
     except Exception as e:
 
@@ -514,8 +526,7 @@ def fetch_venue(
             e
         )
 
-    # プログラムから取得できなかった場合
-    # 1～12Rを順番に試す
+    # プログラム取得失敗時
 
     if not races:
 
@@ -524,6 +535,7 @@ def fetch_venue(
                 "number": i,
                 "start_time": ""
             }
+
             for i in range(1, 13)
         ]
 
@@ -531,12 +543,18 @@ def fetch_venue(
 
     for race_info in races:
 
-        race_no = race_info["number"]
+        race_no = race_info[
+            "number"
+        ]
 
         race = fetch_race(
+
             name,
+
             code,
+
             date_string,
+
             race_no
         )
 
@@ -546,18 +564,23 @@ def fetch_venue(
                 "start_time"
             ):
 
-                race["start_time"] = (
-                    race_info.get(
-                        "start_time",
-                        ""
-                    )
+                race[
+                    "start_time"
+                ] = race_info.get(
+                    "start_time",
+                    ""
                 )
 
-            result_races.append(race)
+            result_races.append(
+                race
+            )
 
     return {
+
         "name": name,
+
         "code": code,
+
         "races": result_races
     }
 
@@ -586,7 +609,6 @@ def save_json(data):
             indent=2
         )
 
-    print("")
     print(
         "保存完了:",
         OUTPUT_FILE
@@ -599,7 +621,9 @@ def save_json(data):
 
 def main():
 
-    now = datetime.now(JST)
+    now = datetime.now(
+        JST
+    )
 
     date_string = now.strftime(
         "%Y%m%d"
@@ -610,15 +634,19 @@ def main():
     )
 
     print("")
+
     print(
         "================================"
     )
+
     print(
         " KEIRIN AI REAL DATA UPDATE"
     )
+
     print(
         "================================"
     )
+
     print(
         "日時:",
         now.strftime(
@@ -627,7 +655,7 @@ def main():
     )
 
     # ----------------------------------------
-    # 今日の開催場取得
+    # 今日の開催場
     # ----------------------------------------
 
     try:
@@ -645,13 +673,16 @@ def main():
 
         return
 
-    text = html_to_text(html)
+    text = html_to_text(
+        html
+    )
 
     venues = find_today_venues(
         text
     )
 
     print("")
+
     print(
         "今日の開催場:"
     )
@@ -664,7 +695,7 @@ def main():
         )
 
     # ----------------------------------------
-    # 開催場が取れなかった場合
+    # 開催場なし
     # ----------------------------------------
 
     if not venues:
@@ -676,7 +707,7 @@ def main():
         return
 
     # ----------------------------------------
-    # 各開催場を取得
+    # 各開催場
     # ----------------------------------------
 
     venue_data = []
@@ -686,7 +717,9 @@ def main():
         try:
 
             data = fetch_venue(
+
                 venue,
+
                 date_string
             )
 
@@ -707,6 +740,7 @@ def main():
     # ----------------------------------------
 
     total_races = 0
+
     total_entries = 0
 
     for venue in venue_data:
@@ -715,14 +749,16 @@ def main():
             venue["races"]
         )
 
-        for race in venue["races"]:
+        for race in venue[
+            "races"
+        ]:
 
             total_entries += race[
                 "entry_count"
             ]
 
     # ----------------------------------------
-    # JSON
+    # 保存データ
     # ----------------------------------------
 
     data = {
@@ -750,34 +786,42 @@ def main():
 
         "venues":
             venue_data
-
     }
 
-    save_json(data)
+    save_json(
+        data
+    )
 
     print("")
+
     print(
         "================================"
     )
+
     print(
         " 更新完了"
     )
+
     print(
         "開催場:",
         len(venue_data)
     )
+
     print(
         "レース:",
         total_races
     )
+
     print(
         "選手:",
         total_entries
     )
+
     print(
         "================================"
     )
 
 
 if __name__ == "__main__":
+
     main()
