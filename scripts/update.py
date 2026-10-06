@@ -4,9 +4,14 @@ import time
 import urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from html import unescape
 
 JST = timezone(timedelta(hours=9))
+
 OUTPUT_FILE = Path("data/today.json")
+
+BASE_URL = "https://www.oddspark.com/keirin/"
+
 
 VENUE_CODES = {
     "函館": "11",
@@ -54,9 +59,12 @@ VENUE_CODES = {
 }
 
 
-def fetch(url, timeout=10, retries=3):
+def fetch(url, timeout=30, retries=3):
+
     for attempt in range(1, retries + 1):
+
         try:
+
             print(f"GET {attempt}/{retries}: {url}")
 
             request = urllib.request.Request(
@@ -70,7 +78,12 @@ def fetch(url, timeout=10, retries=3):
                         "Chrome/140.0 Safari/537.36"
                     ),
                     "Accept-Language": "ja-JP,ja;q=0.9",
-                    "Accept": "text/html,application/xhtml+xml",
+                    "Accept": (
+                        "text/html,"
+                        "application/xhtml+xml,"
+                        "application/xml;q=0.9,"
+                        "*/*;q=0.8"
+                    ),
                 },
             )
 
@@ -84,122 +97,237 @@ def fetch(url, timeout=10, retries=3):
                     or "utf-8"
                 )
 
-                return response.read().decode(
+                data = response.read()
+
+                return data.decode(
                     charset,
                     errors="ignore",
                 )
 
         except Exception as e:
+
             print("取得失敗:", str(e))
 
             if attempt < retries:
-                time.sleep(2)
+                time.sleep(3)
 
     raise RuntimeError(
         f"ページ取得に失敗しました: {url}"
     )
 
 
-def clean_html(html):
-    html = re.sub(
+def clean_text(text):
+
+    text = unescape(text)
+
+    text = re.sub(
         r"<script.*?</script>",
         " ",
-        html,
+        text,
         flags=re.S | re.I,
     )
 
-    html = re.sub(
+    text = re.sub(
         r"<style.*?</style>",
         " ",
-        html,
+        text,
         flags=re.S | re.I,
     )
 
-    html = re.sub(
+    text = re.sub(
         r"<[^>]+>",
         " ",
-        html,
+        text,
     )
 
-    html = re.sub(
+    text = re.sub(
         r"\s+",
         " ",
-        html,
+        text,
     )
 
-    return html.strip()
+    return text.strip()
 
 
 def find_today_venues(html):
-    text = clean_html(html)
+
+    text = clean_text(html)
 
     venues = []
 
     for name, code in VENUE_CODES.items():
 
         if name in text:
-            venues.append(
-                {
-                    "name": name,
-                    "code": code,
-                }
-            )
+
+            venues.append({
+                "name": name,
+                "code": code,
+            })
 
     return venues
 
 
-def find_races(html):
-    text = clean_html(html)
+def find_all_race_urls(html, target_date):
 
-    numbers = set()
+    html = unescape(html)
 
-    patterns = [
-        r"([1-9]|1[0-2])R",
-        r"([1-9]|1[0-2]) レース",
-    ]
+    pattern = re.compile(
+        r'href=["\']([^"\']*AllRaceList\.do\?[^"\']*)["\']',
+        re.I
+    )
 
-    for pattern in patterns:
+    urls = []
 
-        for match in re.finditer(
-            pattern,
-            text,
-        ):
+    for match in pattern.finditer(html):
 
-            number = int(
-                match.group(1)
+        url = match.group(1)
+
+        url = url.replace("&amp;", "&")
+
+        if f"kaisaiBi={target_date}" not in url:
+            continue
+
+        if url.startswith("/"):
+            url = "https://www.oddspark.com" + url
+
+        elif url.startswith("http") is False:
+            url = BASE_URL + url
+
+        if url not in urls:
+            urls.append(url)
+
+    return urls
+
+
+def parse_races(html):
+
+    text = clean_text(html)
+
+    races = []
+
+    # 「第1R」「第2R」などを検出
+    race_matches = list(
+        re.finditer(
+            r"第\s*(1[0-2]|[1-9])R",
+            text
+        )
+    )
+
+    for i, match in enumerate(race_matches):
+
+        number = int(match.group(1))
+
+        start = match.start()
+
+        if i + 1 < len(race_matches):
+            end = race_matches[i + 1].start()
+        else:
+            end = len(text)
+
+        section = text[start:end]
+
+        # 発走時間
+        start_time = ""
+
+        time_match = re.search(
+            r"発走時間\s*([0-9]{1,2}:[0-9]{2})",
+            section
+        )
+
+        if time_match:
+            start_time = time_match.group(1)
+
+        # 車番・選手情報
+        riders = []
+
+        rider_pattern = re.compile(
+            r"([1-9])\s+([^\s]{2,12})\s+([0-9]{2,3})\s+([^\s]{1,5})"
+        )
+
+        for rider_match in rider_pattern.finditer(section):
+
+            car_no = int(
+                rider_match.group(1)
             )
 
-            if 1 <= number <= 12:
-                numbers.add(number)
+            name = rider_match.group(2)
 
-    return sorted(numbers)
+            period = rider_match.group(3)
+
+            prefecture = rider_match.group(4)
+
+            riders.append({
+                "car": car_no,
+                "name": name,
+                "period": period,
+                "prefecture": prefecture,
+            })
+
+        races.append({
+            "number": number,
+            "start_time": start_time,
+            "riders": riders,
+            "status": "scheduled",
+        })
+
+    return races
 
 
-def get_venue_program(
+def get_venue_data(
     venue,
-    date_string,
+    target_date,
+    race_list_html,
 ):
+
     name = venue["name"]
     code = venue["code"]
 
-    url = (
-        "https://www.oddspark.com/keirin/"
-        "RaceProgram.do"
-        f"?joCode={code}"
-        f"&shonichi={date_string}"
+    all_race_urls = find_all_race_urls(
+        race_list_html,
+        target_date,
     )
 
+    # 開催場コードで絞る
+    venue_urls = []
+
+    for url in all_race_urls:
+
+        if (
+            f"joCode={code}" in url
+            or f"joCode%3D{code}" in url
+        ):
+            venue_urls.append(url)
+
+    # URLが見つからなかった場合は直接生成
+    if not venue_urls:
+
+        venue_urls = [
+            (
+                f"{BASE_URL}"
+                f"AllRaceList.do"
+                f"?joCode={code}"
+                f"&kaisaiBi={target_date}"
+            )
+        ]
+
+    url = venue_urls[0]
+
+    print("")
+    print("開催場:", name)
+    print("出走表:", url)
+
     try:
+
         html = fetch(
             url,
-            timeout=8,
+            timeout=30,
             retries=2,
         )
 
     except Exception as e:
 
         print(
-            "プログラム取得失敗:",
+            "出走表取得失敗:",
             name,
             str(e),
         )
@@ -212,18 +340,20 @@ def get_venue_program(
             "status": "error",
         }
 
-    race_numbers = find_races(html)
+    races = parse_races(html)
 
-    races = []
+    print(
+        "取得レース数:",
+        len(races)
+    )
 
-    for number in race_numbers:
+    for race in races:
 
-        races.append(
-            {
-                "number": number,
-                "start_time": "",
-                "status": "scheduled",
-            }
+        print(
+            f"  {race['number']}R",
+            race["start_time"],
+            "選手:",
+            len(race["riders"])
         )
 
     return {
@@ -236,6 +366,7 @@ def get_venue_program(
 
 
 def save(data):
+
     OUTPUT_FILE.parent.mkdir(
         parents=True,
         exist_ok=True,
@@ -254,9 +385,10 @@ def save(data):
             indent=2,
         )
 
+    print("")
     print(
         "保存完了:",
-        OUTPUT_FILE,
+        OUTPUT_FILE
     )
 
 
@@ -264,11 +396,11 @@ def main():
 
     now = datetime.now(JST)
 
-    date_string = now.strftime(
+    target_date = now.strftime(
         "%Y%m%d"
     )
 
-    date_display = now.strftime(
+    display_date = now.strftime(
         "%Y-%m-%d"
     )
 
@@ -276,32 +408,24 @@ def main():
     print("==============================")
     print(" KEIRIN AI DATA UPDATE")
     print("==============================")
-    print("対象日:", date_display)
+    print("対象日:", display_date)
     print("==============================")
 
-    # 日付を指定して開催場一覧を取得
-    sale_place_url = (
-        "https://www.oddspark.com/keirin/"
-        "RaceListInfo.do"
-        f"?kaisaiBi={date_string}"
+    # --------------------------------
+    # 1. 今日の開催一覧
+    # --------------------------------
+
+    race_list_url = (
+        f"{BASE_URL}"
+        f"RaceListInfo.do"
+        f"?kaisaiBi={target_date}"
     )
 
-    try:
-
-        html = fetch(
-            sale_place_url,
-            timeout=10,
-            retries=3,
-        )
-
-    except Exception as e:
-
-        print("")
-        print("開催場取得に失敗しました。")
-        print(str(e))
-        print("")
-
-        raise
+    html = fetch(
+        race_list_url,
+        timeout=30,
+        retries=3,
+    )
 
     venues = find_today_venues(
         html
@@ -313,52 +437,67 @@ def main():
     for venue in venues:
         print(
             "-",
-            venue["name"],
+            venue["name"]
         )
 
     if not venues:
 
         raise RuntimeError(
-            "開催場を1つも検出できませんでした。"
+            "今日の開催場を検出できませんでした。"
         )
+
+    # --------------------------------
+    # 2. 各開催の全レース出走表
+    # --------------------------------
 
     venue_data = []
 
     for venue in venues:
 
-        print("")
-        print(
-            "開催場処理:",
-            venue["name"],
-        )
-
-        data = get_venue_program(
+        data = get_venue_data(
             venue,
-            date_string,
+            target_date,
+            html,
         )
 
         venue_data.append(
             data
         )
 
+        # サーバーへの連続アクセスを少し避ける
+        time.sleep(1)
+
+    # --------------------------------
+    # 3. 集計
+    # --------------------------------
+
     race_count = 0
+    rider_count = 0
 
     for venue in venue_data:
 
-        race_count += len(
-            venue["races"]
-        )
+        for race in venue["races"]:
+
+            race_count += 1
+
+            rider_count += len(
+                race["riders"]
+            )
+
+    # --------------------------------
+    # 4. 保存
+    # --------------------------------
 
     result = {
         "updated_at": now.isoformat(),
         "source": "OddsPark",
-        "date": date_display,
+        "date": display_date,
         "status": "ok",
         "venue_count": len(
             venue_data
         ),
         "race_count": race_count,
-        "entry_count": 0,
+        "entry_count": rider_count,
         "venues": venue_data,
     }
 
@@ -370,11 +509,15 @@ def main():
     print("==============================")
     print(
         "開催場:",
-        len(venue_data),
+        len(venue_data)
     )
     print(
         "レース:",
-        race_count,
+        race_count
+    )
+    print(
+        "選手:",
+        rider_count
     )
     print("==============================")
 
