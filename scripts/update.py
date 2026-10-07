@@ -10,28 +10,34 @@ from html.parser import HTMLParser
 
 # ============================================================
 # KEIRIN AI DATA UPDATE
-# AI 1.3
+# AI VERSION 1.3 FINAL
 # ============================================================
 
 JST = timezone(timedelta(hours=9))
 
-OUTPUT_FILE = Path("data/today.json")
-
 BASE_URL = "https://www.oddspark.com/keirin/"
+
+OUTPUT_FILE = Path("data/today.json")
 
 HEADERS = {
     "User-Agent": (
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) "
-        "AppleWebKit/605.1.15 (KHTML, like Gecko) "
-        "Version/17.0 Mobile/15E148 Safari/604.1"
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/128.0 Safari/537.36"
     ),
     "Accept": (
-        "text/html,application/xhtml+xml,application/xml;q=0.9,"
-        "image/avif,image/webp,*/*;q=0.8"
+        "text/html,application/xhtml+xml,"
+        "application/xml;q=0.9,*/*;q=0.8"
     ),
-    "Accept-Language": "ja-JP,ja;q=0.9,en-US;q=0.7,en;q=0.5",
+    "Accept-Language": "ja-JP,ja;q=0.9",
     "Connection": "keep-alive",
 }
+
+# サイトへの負荷を抑える
+REQUEST_SLEEP = 0.15
+
+# 各競輪場の最大レース数
+MAX_RACE_NO = 12
 
 
 # ============================================================
@@ -85,37 +91,52 @@ VENUE_CODES = {
 
 
 # ============================================================
-# HTTP
+# HTTP取得
 # ============================================================
 
-def fetch(url, retries=2, sleep_sec=0.15):
-    """
-    ページ取得
-    """
-    last_error = None
+def fetch(url, retries=2):
 
     for attempt in range(retries + 1):
-        try:
-            req = urllib.request.Request(url, headers=HEADERS)
 
-            with urllib.request.urlopen(req, timeout=25) as response:
+        try:
+
+            req = urllib.request.Request(
+                url,
+                headers=HEADERS
+            )
+
+            with urllib.request.urlopen(
+                req,
+                timeout=20
+            ) as response:
+
                 raw = response.read()
 
-            # OddsParkはUTF-8が基本
-            text = raw.decode("utf-8", errors="ignore")
+            text = raw.decode(
+                "utf-8",
+                errors="ignore"
+            )
 
             if text:
-                time.sleep(sleep_sec)
+
+                time.sleep(REQUEST_SLEEP)
+
                 return text
 
         except Exception as e:
-            last_error = e
 
-            if attempt < retries:
-                time.sleep(1.0)
+            if attempt >= retries:
 
-    print(f"  ERROR: {url}")
-    print(f"  {last_error}")
+                print(
+                    f"    取得失敗: {url}"
+                )
+                print(
+                    f"    {e}"
+                )
+
+            else:
+
+                time.sleep(1)
 
     return ""
 
@@ -127,14 +148,14 @@ def fetch(url, retries=2, sleep_sec=0.15):
 class TableParser(HTMLParser):
 
     def __init__(self):
+
         super().__init__()
 
         self.tables = []
 
         self.in_table = False
         self.in_tr = False
-        self.in_td = False
-        self.in_th = False
+        self.in_cell = False
 
         self.current_table = []
         self.current_row = []
@@ -145,35 +166,42 @@ class TableParser(HTMLParser):
         tag = tag.lower()
 
         if tag == "table":
+
             self.in_table = True
             self.current_table = []
 
         elif tag == "tr" and self.in_table:
+
             self.in_tr = True
             self.current_row = []
 
         elif tag in ("td", "th") and self.in_tr:
-            self.in_td = True
-            self.in_th = tag == "th"
+
+            self.in_cell = True
             self.current_cell = []
 
     def handle_endtag(self, tag):
 
         tag = tag.lower()
 
-        if tag in ("td", "th") and self.in_td:
+        if tag in ("td", "th") and self.in_cell:
 
-            text = clean_text("".join(self.current_cell))
-            self.current_row.append(text)
+            value = clean_text(
+                "".join(self.current_cell)
+            )
+
+            self.current_row.append(value)
 
             self.current_cell = []
-            self.in_td = False
-            self.in_th = False
+            self.in_cell = False
 
         elif tag == "tr" and self.in_tr:
 
             if self.current_row:
-                self.current_table.append(self.current_row)
+
+                self.current_table.append(
+                    self.current_row
+                )
 
             self.current_row = []
             self.in_tr = False
@@ -181,14 +209,18 @@ class TableParser(HTMLParser):
         elif tag == "table" and self.in_table:
 
             if self.current_table:
-                self.tables.append(self.current_table)
+
+                self.tables.append(
+                    self.current_table
+                )
 
             self.current_table = []
             self.in_table = False
 
     def handle_data(self, data):
 
-        if self.in_td:
+        if self.in_cell:
+
             self.current_cell.append(data)
 
 
@@ -197,159 +229,110 @@ class TableParser(HTMLParser):
 # ============================================================
 
 def clean_text(text):
+
     text = unescape(text or "")
 
     text = text.replace("\xa0", " ")
     text = text.replace("\u3000", " ")
 
-    text = re.sub(r"\s+", " ", text)
+    text = re.sub(
+        r"\s+",
+        " ",
+        text
+    )
 
     return text.strip()
 
 
 # ============================================================
-# TODAY
+# 今日の日付
 # ============================================================
 
 def today_jst():
-    return datetime.now(JST).strftime("%Y%m%d")
+
+    return datetime.now(
+        JST
+    ).strftime("%Y%m%d")
 
 
 # ============================================================
 # 開催場取得
 # ============================================================
 
-def find_today_venues(html, date_str):
+def get_today_venues(date_str):
+
+    url = (
+        f"{BASE_URL}"
+        f"RaceListInfo.do"
+        f"?kaisaiBi={date_str}"
+    )
+
+    print(
+        f"開催場一覧取得: {url}"
+    )
+
+    html = fetch(url)
+
+    if not html:
+
+        return []
 
     venues = []
 
-    for venue, code in VENUE_CODES.items():
+    for name, code in VENUE_CODES.items():
 
-        # 会場コード＋開催日が存在するか確認
-        pattern1 = rf"joCode={code}&kaisaiBi={date_str}"
-        pattern2 = rf"joCd={code}.*?kaisaiBi={date_str}"
+        if name in html:
 
-        if re.search(pattern1, html) or re.search(pattern2, html):
             venues.append({
-                "name": venue,
-                "code": code,
+                "name": name,
+                "code": code
             })
 
     return venues
 
 
 # ============================================================
-# レースURL取得
-# ============================================================
-
-def get_race_urls(venue_code, date_str):
-
-    url = (
-        f"{BASE_URL}AllRaceList.do"
-        f"?joCode={venue_code}"
-        f"&kaisaiBi={date_str}"
-    )
-
-    html = fetch(url)
-
-    if not html:
-        return []
-
-    urls = []
-
-    # RaceList.do のリンクを探す
-    pattern = (
-        r"(?:https?://www\.oddspark\.com)?"
-        r"/keirin/RaceList\.do"
-        r"\?joCode="
-        + re.escape(venue_code)
-        + r"&kaisaiBi="
-        + re.escape(date_str)
-        + r"&raceNo=(\d+)"
-    )
-
-    for match in re.finditer(pattern, html):
-
-        race_no = int(match.group(1))
-
-        race_url = (
-            f"{BASE_URL}RaceList.do"
-            f"?joCode={venue_code}"
-            f"&kaisaiBi={date_str}"
-            f"&raceNo={race_no}"
-        )
-
-        if race_url not in urls:
-            urls.append(race_url)
-
-    # リンク形式が違う場合の保険
-    if not urls:
-
-        pattern2 = (
-            r"RaceList\.do\?[^\"']*?"
-            r"joCode="
-            + re.escape(venue_code)
-            + r"[^\"']*?"
-            r"kaisaiBi="
-            + re.escape(date_str)
-            + r"[^\"']*?"
-            r"raceNo=(\d+)"
-        )
-
-        race_numbers = set()
-
-        for match in re.finditer(pattern2, html):
-            race_numbers.add(int(match.group(1)))
-
-        for race_no in sorted(race_numbers):
-
-            urls.append(
-                f"{BASE_URL}RaceList.do"
-                f"?joCode={venue_code}"
-                f"&kaisaiBi={date_str}"
-                f"&raceNo={race_no}"
-            )
-
-    return sorted(
-        urls,
-        key=lambda x: int(
-            re.search(r"raceNo=(\d+)", x).group(1)
-        )
-    )
-
-
-# ============================================================
 # 数値
 # ============================================================
 
-def to_float(value):
+def to_float(text):
 
-    if value is None:
+    if not text:
         return None
 
-    m = re.search(r"(\d+(?:\.\d+)?)", value)
+    m = re.search(
+        r"(\d+(?:\.\d+)?)",
+        text
+    )
 
     if not m:
         return None
 
     try:
-        return float(m.group(1))
+        return float(
+            m.group(1)
+        )
     except:
         return None
 
 
-def to_int(value):
+def to_int(text):
 
-    if value is None:
+    if not text:
         return None
 
-    m = re.search(r"(\d+)", value)
+    m = re.search(
+        r"(\d+)",
+        text
+    )
 
     if not m:
         return None
 
     try:
-        return int(m.group(1))
+        return int(
+            m.group(1)
+        )
     except:
         return None
 
@@ -361,17 +344,23 @@ def to_int(value):
 def extract_race_point(text):
 
     patterns = [
-        r"競走得点[:：]?\s*(\d+(?:\.\d+)?)",
-        r"得点[:：]?\s*(\d+(?:\.\d+)?)",
+        r"競走得点\s*[:：]\s*(\d+(?:\.\d+)?)",
+        r"競走得点\s*(\d+(?:\.\d+)?)",
     ]
 
     for pattern in patterns:
 
-        m = re.search(pattern, text)
+        m = re.search(
+            pattern,
+            text
+        )
 
         if m:
+
             try:
-                return float(m.group(1))
+                return float(
+                    m.group(1)
+                )
             except:
                 pass
 
@@ -384,9 +373,6 @@ def extract_race_point(text):
 
 def extract_finish_stats(text):
 
-    # 例:
-    # 着順：9-3-3-12
-    # 着順：9- 3- 3- 12
     m = re.search(
         r"着\s*順\s*[:：]?\s*"
         r"(\d+)\s*[-－]\s*"
@@ -397,46 +383,19 @@ def extract_finish_stats(text):
     )
 
     if not m:
+
         return {
             "first": None,
             "second": None,
             "third": None,
-            "other": None,
+            "other": None
         }
 
     return {
         "first": int(m.group(1)),
         "second": int(m.group(2)),
         "third": int(m.group(3)),
-        "other": int(m.group(4)),
-    }
-
-
-# ============================================================
-# 勝率
-# ============================================================
-
-def extract_rates(text):
-
-    # 例
-    # 16.6% 36.6% 36.7%
-    values = re.findall(r"(\d+(?:\.\d+)?)\s*%", text)
-
-    if len(values) >= 3:
-
-        try:
-            return {
-                "win_rate": float(values[0]),
-                "quinella_rate": float(values[1]),
-                "trifecta_rate": float(values[2]),
-            }
-        except:
-            pass
-
-    return {
-        "win_rate": None,
-        "quinella_rate": None,
-        "trifecta_rate": None,
+        "other": int(m.group(4))
     }
 
 
@@ -446,8 +405,6 @@ def extract_rates(text):
 
 def extract_decisive(text):
 
-    # 例
-    # 決まり手：5-4-1-2
     m = re.search(
         r"決まり手\s*[:：]?\s*"
         r"(\d+)\s*[-－]\s*"
@@ -458,44 +415,20 @@ def extract_decisive(text):
     )
 
     if not m:
+
         return {
             "escape": None,
             "sweep": None,
             "difference": None,
-            "mark": None,
+            "mark": None
         }
 
     return {
         "escape": int(m.group(1)),
         "sweep": int(m.group(2)),
         "difference": int(m.group(3)),
-        "mark": int(m.group(4)),
+        "mark": int(m.group(4))
     }
-
-
-# ============================================================
-# S H B
-# ============================================================
-
-def extract_shb(text):
-
-    result = {
-        "S": None,
-        "H": None,
-        "B": None,
-    }
-
-    for key in ("S", "H", "B"):
-
-        m = re.search(
-            rf"\b{key}\s*[:：]?\s*(\d+)",
-            text
-        )
-
-        if m:
-            result[key] = int(m.group(1))
-
-    return result
 
 
 # ============================================================
@@ -504,30 +437,111 @@ def extract_shb(text):
 
 def extract_style(text):
 
-    styles = [
-        "逃",
-        "追",
-        "両",
-        "自在",
-    ]
+    # 出走表では「逃」「追」「両」などが
+    # 独立した項目として存在する
 
-    for style in styles:
-
-        if re.search(
-            rf"(?:脚質|脚\s*質)\s*[:：]?\s*{style}",
-            text
-        ):
-            return style
-
-    # 出走表では単独の「逃」「追」になっている場合がある
-    if re.search(r"\b逃\b", text):
+    if re.search(
+        r"(?:脚質\s*)[:：]?\s*逃",
+        text
+    ):
         return "逃"
 
-    if re.search(r"\b追\b", text):
+    if re.search(
+        r"(?:脚質\s*)[:：]?\s*追",
+        text
+    ):
         return "追"
 
-    if re.search(r"\b両\b", text):
+    if re.search(
+        r"(?:脚質\s*)[:：]?\s*両",
+        text
+    ):
         return "両"
+
+    # 表記が「3.92 逃」のようになっている場合
+    if re.search(
+        r"\d+\.\d+\s+逃",
+        text
+    ):
+        return "逃"
+
+    if re.search(
+        r"\d+\.\d+\s+追",
+        text
+    ):
+        return "追"
+
+    if re.search(
+        r"\d+\.\d+\s+両",
+        text
+    ):
+        return "両"
+
+    return None
+
+
+# ============================================================
+# 選手名
+# ============================================================
+
+def extract_rider_name(row):
+
+    for cell in row:
+
+        cell = clean_text(cell)
+
+        if not cell:
+            continue
+
+        if re.fullmatch(
+            r"\d+",
+            cell
+        ):
+            continue
+
+        if (
+            "競走得点" in cell
+            or "着順" in cell
+            or "決まり手" in cell
+        ):
+            continue
+
+        # 年齢／期別が入る選手情報
+        m = re.match(
+            r"(.+?)\s*\d+歳[／/]",
+            cell
+        )
+
+        if m:
+
+            name = clean_text(
+                m.group(1)
+            )
+
+            if name:
+                return name
+
+    return None
+
+
+# ============================================================
+# 車番
+# ============================================================
+
+def extract_car_number(row):
+
+    # 最初の1～3列から車番を探す
+
+    for cell in row[:4]:
+
+        cell = clean_text(cell)
+
+        if re.fullmatch(
+            r"[1-9]",
+            cell
+        ):
+
+            return int(cell)
 
     return None
 
@@ -541,474 +555,559 @@ def is_rider_row(row):
     text = " ".join(row)
 
     if "誘導" in text:
+
         return False
 
-    # 競走得点がある行
+    # 競走得点がある
     if "競走得点" in text:
+
         return True
 
-    # 車番＋選手名っぽい行
-    if len(row) >= 3:
+    # 「○歳／○期」がある
+    if re.search(
+        r"\d+歳[／/]\d+期",
+        text
+    ):
 
-        if re.fullmatch(r"\d+", row[0] or ""):
-            return True
-
-        if re.fullmatch(r"\d+", row[1] or ""):
-            return True
+        return True
 
     return False
 
 
 # ============================================================
-# 選手名抽出
+# 選手解析
 # ============================================================
 
-def extract_name(row):
+def parse_riders(html):
 
-    # よくあるパターン:
-    # [枠番, 車番, 選手名, ...]
-    #
-    # 先頭の番号を除き、
-    # 府県・年齢・期別などが入っている列を探す。
+    parser = TableParser()
 
-    for cell in row:
-
-        cell = clean_text(cell)
-
-        if not cell:
-            continue
-
-        if re.fullmatch(r"\d+", cell):
-            continue
-
-        if "競走得点" in cell:
-            continue
-
-        if "着順" in cell:
-            continue
-
-        if "決まり手" in cell:
-            continue
-
-        if "％" in cell or "%" in cell:
-            continue
-
-        # 年齢/期別/級班を含むセルは選手情報セル
-        if re.search(r"\d+歳", cell):
-
-            # 「佐藤譲士郎 26歳／123期／A級3班」
-            name = re.split(r"\d+歳", cell)[0]
-
-            name = clean_text(name)
-
-            if name:
-                return name
-
-        # 府県付きの選手名
-        if re.search(
-            r"[北海道青森岩手宮城秋田山形福島"
-            r"茨城栃木群馬埼玉千葉東京神奈川"
-            r"新潟富山石川福井山梨長野岐阜静岡愛知三重"
-            r"滋賀京都大阪兵庫奈良和歌山"
-            r"鳥取島根岡山広島山口徳島香川愛媛高知"
-            r"福岡佐賀長崎熊本大分宮崎鹿児島沖縄]",
-            cell
-        ):
-
-            # 府県の後ろを削る
-            parts = re.split(
-                r"[（(]",
-                cell
-            )
-
-            candidate = clean_text(parts[0])
-
-            if candidate and len(candidate) <= 20:
-                return candidate
-
-    return None
-
-
-# ============================================================
-# 車番
-# ============================================================
-
-def extract_car_number(row):
-
-    for i, cell in enumerate(row[:4]):
-
-        m = re.fullmatch(r"\s*([1-9])\s*", cell or "")
-
-        if m:
-            return int(m.group(1))
-
-    return None
-
-
-# ============================================================
-# 選手データ解析
-# ============================================================
-
-def parse_riders_from_tables(tables):
+    parser.feed(html)
 
     riders = []
 
-    for table in tables:
-
-        if not table:
-            continue
+    for table in parser.tables:
 
         for row in table:
 
             if not is_rider_row(row):
+
+                continue
+
+            car_number = (
+                extract_car_number(row)
+            )
+
+            if car_number is None:
+
+                continue
+
+            name = (
+                extract_rider_name(row)
+            )
+
+            if not name:
+
                 continue
 
             text = " ".join(row)
 
-            car_no = extract_car_number(row)
+            point = (
+                extract_race_point(text)
+            )
 
-            if car_no is None:
-                continue
+            finish = (
+                extract_finish_stats(text)
+            )
 
-            name = extract_name(row)
+            decisive = (
+                extract_decisive(text)
+            )
 
-            if not name:
-                continue
-
-            point = extract_race_point(text)
-
-            finish = extract_finish_stats(text)
-
-            rates = extract_rates(text)
-
-            decisive = extract_decisive(text)
-
-            shb = extract_shb(text)
-
-            style = extract_style(text)
+            style = (
+                extract_style(text)
+            )
 
             rider = {
-                "car_number": car_no,
+                "car_number": car_number,
                 "name": name,
+
                 "race_point": point,
 
                 "finish_stats": finish,
 
-                "win_rate": rates["win_rate"],
-                "quinella_rate": rates["quinella_rate"],
-                "trifecta_rate": rates["trifecta_rate"],
-
                 "decisive": decisive,
-
-                "S": shb["S"],
-                "H": shb["H"],
-                "B": shb["B"],
 
                 "style": style,
 
-                "raw": row,
+                "raw": row
             }
 
-            # 同じ車番を二重登録しない
-            duplicate = False
+            # 車番＋名前で重複排除
+            exists = False
 
             for old in riders:
 
                 if (
-                    old["car_number"] == rider["car_number"]
-                    and old["name"] == rider["name"]
+                    old["car_number"]
+                    == rider["car_number"]
+                    and
+                    old["name"]
+                    == rider["name"]
                 ):
-                    duplicate = True
+
+                    exists = True
                     break
 
-            if not duplicate:
-                riders.append(rider)
+            if not exists:
 
-    riders.sort(key=lambda x: x["car_number"])
+                riders.append(
+                    rider
+                )
+
+    riders.sort(
+        key=lambda x:
+        x["car_number"]
+    )
 
     return riders
 
 
 # ============================================================
-# AI スコア
+# 直近成績抽出
+# ============================================================
+
+def extract_recent_results(html):
+
+    # 出走表に含まれる
+    # 「今場所」「前場所」「前々場所」
+    # の着順を簡易的に抽出する。
+
+    text = clean_text(html)
+
+    results = []
+
+    matches = re.findall(
+        r"(\d+/\s*\d+)\s+"
+        r"[^\d]{0,30}"
+        r"([１-９\d]+)着",
+        text
+    )
+
+    for date_text, result in matches:
+
+        result = (
+            result
+            .replace("１", "1")
+            .replace("２", "2")
+            .replace("３", "3")
+            .replace("４", "4")
+            .replace("５", "5")
+            .replace("６", "6")
+            .replace("７", "7")
+            .replace("８", "8")
+            .replace("９", "9")
+        )
+
+        try:
+
+            results.append({
+                "date": clean_text(
+                    date_text
+                ),
+                "finish": int(
+                    result
+                )
+            })
+
+        except:
+            pass
+
+    return results[:12]
+
+
+# ============================================================
+# AIスコア
 # ============================================================
 
 def calculate_ai_score(rider):
 
-    point = rider.get("race_point")
+    point = rider.get(
+        "race_point"
+    )
 
     if point is None:
+
         return None
 
     score = 0.0
 
-    # --------------------------------------------------------
+    # ----------------------------------------
     # 競走得点
-    # --------------------------------------------------------
+    # ----------------------------------------
 
     score += point * 1.00
 
-    # --------------------------------------------------------
-    # 勝率
-    # --------------------------------------------------------
+    # ----------------------------------------
+    # 直近成績
+    # ----------------------------------------
 
-    win_rate = rider.get("win_rate")
+    finish = (
+        rider.get(
+            "finish_stats"
+        )
+        or {}
+    )
 
-    if win_rate is not None:
-        score += win_rate * 0.25
+    first = finish.get(
+        "first"
+    )
 
-    # --------------------------------------------------------
-    # 2連対率
-    # --------------------------------------------------------
+    second = finish.get(
+        "second"
+    )
 
-    quinella = rider.get("quinella_rate")
+    third = finish.get(
+        "third"
+    )
 
-    if quinella is not None:
-        score += quinella * 0.12
+    other = finish.get(
+        "other"
+    )
 
-    # --------------------------------------------------------
-    # 3連対率
-    # --------------------------------------------------------
+    if first is not None:
 
-    trifecta = rider.get("trifecta_rate")
+        score += first * 0.30
 
-    if trifecta is not None:
-        score += trifecta * 0.08
+    if second is not None:
 
-    # --------------------------------------------------------
-    # 逃げ・捲り・差し
-    # --------------------------------------------------------
+        score += second * 0.12
 
-    decisive = rider.get("decisive") or {}
+    if third is not None:
 
-    escape = decisive.get("escape")
-    sweep = decisive.get("sweep")
-    difference = decisive.get("difference")
+        score += third * 0.06
+
+    # ----------------------------------------
+    # 決まり手
+    # ----------------------------------------
+
+    decisive = (
+        rider.get(
+            "decisive"
+        )
+        or {}
+    )
+
+    escape = decisive.get(
+        "escape"
+    )
+
+    sweep = decisive.get(
+        "sweep"
+    )
+
+    difference = decisive.get(
+        "difference"
+    )
+
+    mark = decisive.get(
+        "mark"
+    )
 
     if escape is not None:
+
         score += escape * 0.10
 
     if sweep is not None:
-        score += sweep * 0.08
+
+        score += sweep * 0.10
 
     if difference is not None:
-        score += difference * 0.05
 
-    # --------------------------------------------------------
-    # B数
-    # --------------------------------------------------------
+        score += difference * 0.06
 
-    B = rider.get("B")
+    if mark is not None:
 
-    if B is not None:
-        score += B * 0.03
+        score += mark * 0.03
 
-    return round(score, 3)
+    # ----------------------------------------
+    # 脚質補正
+    # ----------------------------------------
+
+    style = rider.get(
+        "style"
+    )
+
+    if style == "逃":
+
+        score += 0.8
+
+    elif style == "両":
+
+        score += 0.5
+
+    elif style == "追":
+
+        score += 0.2
+
+    return round(
+        score,
+        3
+    )
 
 
 # ============================================================
-# AI 評価
+# AI評価
 # ============================================================
 
-def add_ai_evaluation(riders):
+def evaluate_race(riders):
 
     valid = []
 
     for rider in riders:
 
-        score = calculate_ai_score(rider)
+        score = (
+            calculate_ai_score(
+                rider
+            )
+        )
 
         rider["ai_score"] = score
 
         if score is not None:
-            valid.append(rider)
+
+            valid.append(
+                rider
+            )
+
+        rider["ai_rank"] = None
+        rider["ai_label"] = (
+            "評価データ不足"
+        )
 
     valid.sort(
-        key=lambda x: x["ai_score"],
+        key=lambda x:
+        x["ai_score"],
         reverse=True
     )
 
-    # 全選手の順位
-    for rank, rider in enumerate(valid, start=1):
+    for rank, rider in enumerate(
+        valid,
+        start=1
+    ):
+
         rider["ai_rank"] = rank
 
-    # ラベル
-    for rider in riders:
-
-        rider["ai_label"] = "評価データ不足"
-
     if len(valid) >= 1:
-        valid[0]["ai_label"] = "本命"
+
+        valid[0][
+            "ai_label"
+        ] = "本命"
 
     if len(valid) >= 2:
-        valid[1]["ai_label"] = "対抗"
+
+        valid[1][
+            "ai_label"
+        ] = "対抗"
 
     if len(valid) >= 3:
-        valid[2]["ai_label"] = "単穴"
 
-    # 穴候補
+        valid[2][
+            "ai_label"
+        ] = "単穴"
+
+    # 穴は4～6位から選ぶ
     if len(valid) >= 4:
 
-        # 4～6位から穴候補を選ぶ
-        hole_candidates = valid[3:6]
+        candidates = valid[3:6]
 
-        if hole_candidates:
+        if candidates:
+
             hole = max(
-                hole_candidates,
+                candidates,
                 key=lambda x: (
-                    x.get("trifecta_rate") or 0
+                    x.get(
+                        "decisive",
+                        {}
+                    ).get(
+                        "sweep"
+                    ) or 0
                 )
             )
 
-            hole["ai_label"] = "穴"
-
-    # 消し候補
-    if len(valid) >= 5:
-
-        # 下位選手
-        bottom = valid[-1]
-
-        if bottom["ai_label"] == "評価データ不足":
-            bottom["ai_label"] = "消し"
+            hole[
+                "ai_label"
+            ] = "穴"
 
     return len(valid)
 
 
 # ============================================================
-# レース詳細取得
+# レースページ
 # ============================================================
 
-def get_race_data(
+def get_race(
     venue_name,
     venue_code,
     date_str,
-    race_no,
-    url
+    race_no
 ):
 
+    url = (
+        f"{BASE_URL}"
+        f"RaceList.do"
+        f"?joCode={venue_code}"
+        f"&kaisaiBi={date_str}"
+        f"&raceNo={race_no}"
+    )
+
     print(
-        f"    詳細取得: "
-        f"{venue_name} {race_no}R"
+        f"    {venue_name} "
+        f"{race_no}R"
     )
 
     html = fetch(url)
 
     if not html:
+
         return None
 
-    parser = TableParser()
-    parser.feed(html)
+    # 存在しないレースを除外
+    if "出走表" not in html:
 
-    tables = parser.tables
+        return None
 
-    riders = parse_riders_from_tables(tables)
-
-    # 詳細ページに存在する主要データ
-    race_point_count = sum(
-        1
-        for r in riders
-        if r.get("race_point") is not None
+    riders = parse_riders(
+        html
     )
 
-    ai_count = add_ai_evaluation(riders)
+    # 7選手前後が取れなければ
+    # 無効ページとして扱う
+    if len(riders) < 3:
 
-    race = {
+        return None
+
+    # 直近成績
+    recent_results = (
+        extract_recent_results(
+            html
+        )
+    )
+
+    ai_count = evaluate_race(
+        riders
+    )
+
+    point_count = sum(
+        1
+        for rider in riders
+        if rider.get(
+            "race_point"
+        ) is not None
+    )
+
+    return {
         "race_no": race_no,
+
         "url": url,
+
         "riders": riders,
 
-        "race_point_count": race_point_count,
-        "ai_rider_count": ai_count,
+        "recent_results": (
+            recent_results
+        ),
+
+        "race_point_count": (
+            point_count
+        ),
+
+        "ai_rider_count": (
+            ai_count
+        )
     }
 
-    return race
-
 
 # ============================================================
-# 開催場データ
+# 開催場
 # ============================================================
 
-def get_venue_data(
-    venue_name,
-    venue_code,
+def get_venue(
+    venue,
     date_str
 ):
 
+    venue_name = venue["name"]
+    venue_code = venue["code"]
+
+    print()
     print(
-        f"\n[{venue_name}] "
+        f"=============================="
+    )
+    print(
+        f"[{venue_name}] "
         f"コード={venue_code}"
     )
-
-    race_urls = get_race_urls(
-        venue_code,
-        date_str
-    )
-
     print(
-        f"  レース数: {len(race_urls)}"
+        f"=============================="
     )
 
     races = []
 
-    total_points = 0
-    total_riders = 0
-    total_ai = 0
+    for race_no in range(
+        1,
+        MAX_RACE_NO + 1
+    ):
 
-    for url in race_urls:
-
-        m = re.search(
-            r"raceNo=(\d+)",
-            url
-        )
-
-        if not m:
-            continue
-
-        race_no = int(m.group(1))
-
-        race = get_race_data(
+        race = get_race(
             venue_name,
             venue_code,
             date_str,
-            race_no,
-            url
+            race_no
         )
 
-        if not race:
-            continue
+        if race is not None:
 
-        races.append(race)
+            races.append(
+                race
+            )
 
-        total_points += race[
-            "race_point_count"
-        ]
+    rider_count = sum(
+        len(r["riders"])
+        for r in races
+    )
 
-        total_riders += len(
-            race["riders"]
-        )
+    point_count = sum(
+        r["race_point_count"]
+        for r in races
+    )
 
-        total_ai += race[
-            "ai_rider_count"
-        ]
-
-    print(
-        f"  選手数: {total_riders}"
+    ai_count = sum(
+        r["ai_rider_count"]
+        for r in races
     )
 
     print(
-        f"  競走得点取得: "
-        f"{total_points}人"
+        f"  → {len(races)}レース"
     )
 
     print(
-        f"  AI評価: "
-        f"{total_ai}人"
+        f"  → {rider_count}選手"
+    )
+
+    print(
+        f"  → 競走得点取得 "
+        f"{point_count}人"
+    )
+
+    print(
+        f"  → AI評価 "
+        f"{ai_count}人"
     )
 
     return {
         "name": venue_name,
         "code": venue_code,
-        "races": races,
+        "races": races
     }
 
 
@@ -1046,42 +1145,33 @@ def main():
     date_str = today_jst()
 
     print()
-    print("==============================")
-    print(" KEIRIN AI DATA UPDATE")
-    print("==============================")
+    print(
+        "=============================="
+    )
+    print(
+        " KEIRIN AI DATA UPDATE"
+    )
+    print(
+        "=============================="
+    )
+
     print(
         f"対象日: {date_str}"
     )
-    print("==============================")
-
-    # --------------------------------------------------------
-    # TOP
-    # --------------------------------------------------------
-
-    top_url = (
-        f"{BASE_URL}KeirinTop.do"
-    )
 
     print(
-        f"TOP取得: {top_url}"
+        "=============================="
     )
-
-    top_html = fetch(top_url)
-
-    if not top_html:
-        print(
-            "TOPページ取得失敗"
-        )
-        return
 
     # --------------------------------------------------------
     # 開催場
     # --------------------------------------------------------
 
-    venues = find_today_venues(
-        top_html,
+    venues = get_today_venues(
         date_str
     )
+
+    print()
 
     print(
         f"開催場数: {len(venues)}"
@@ -1095,8 +1185,16 @@ def main():
 
         return
 
+    print(
+        "開催場: "
+        + ", ".join(
+            v["name"]
+            for v in venues
+        )
+    )
+
     # --------------------------------------------------------
-    # 全開催場
+    # データ取得
     # --------------------------------------------------------
 
     venue_data = []
@@ -1108,13 +1206,14 @@ def main():
 
     for venue in venues:
 
-        data = get_venue_data(
-            venue["name"],
-            venue["code"],
+        data = get_venue(
+            venue,
             date_str
         )
 
-        venue_data.append(data)
+        venue_data.append(
+            data
+        )
 
         total_races += len(
             data["races"]
@@ -1126,63 +1225,92 @@ def main():
                 race["riders"]
             )
 
-            total_points += race[
-                "race_point_count"
-            ]
+            total_points += (
+                race[
+                    "race_point_count"
+                ]
+            )
 
-            total_ai += race[
-                "ai_rider_count"
-            ]
+            total_ai += (
+                race[
+                    "ai_rider_count"
+                ]
+            )
 
     # --------------------------------------------------------
-    # 出力
+    # 保存データ
     # --------------------------------------------------------
 
     output = {
-        "updated_at": datetime.now(
-            JST
-        ).isoformat(),
 
-        "date": date_str,
+        "updated_at":
+            datetime.now(
+                JST
+            ).isoformat(),
 
-        "ai_version": "1.3",
+        "date":
+            date_str,
 
-        "source": "OddsPark",
+        "ai_version":
+            "1.3",
 
-        "venues": venue_data,
+        "source":
+            "OddsPark",
+
+        "venues":
+            venue_data,
 
         "summary": {
-            "venue_count": len(
-                venue_data
-            ),
-            "race_count": total_races,
-            "rider_count": total_riders,
-            "race_point_count": total_points,
-            "ai_rider_count": total_ai,
-        },
+
+            "venue_count":
+                len(venue_data),
+
+            "race_count":
+                total_races,
+
+            "rider_count":
+                total_riders,
+
+            "race_point_count":
+                total_points,
+
+            "ai_rider_count":
+                total_ai
+        }
     }
 
-    save(output)
+    save(
+        output
+    )
 
     # --------------------------------------------------------
     # 結果
     # --------------------------------------------------------
 
     print()
-    print("==============================")
-    print(" UPDATE COMPLETE")
-    print("==============================")
-
     print(
-        f"開催場: {len(venue_data)}"
+        "=============================="
+    )
+    print(
+        " UPDATE COMPLETE"
+    )
+    print(
+        "=============================="
     )
 
     print(
-        f"レース: {total_races}"
+        f"開催場: "
+        f"{len(venue_data)}"
     )
 
     print(
-        f"選手: {total_riders}"
+        f"レース: "
+        f"{total_races}"
+    )
+
+    print(
+        f"選手: "
+        f"{total_riders}"
     )
 
     print(
@@ -1200,11 +1328,19 @@ def main():
     )
 
     print(
-        f"保存先: {OUTPUT_FILE}"
+        f"保存先: "
+        f"{OUTPUT_FILE}"
     )
 
-    print("==============================")
+    print(
+        "=============================="
+    )
 
+
+# ============================================================
+# START
+# ============================================================
 
 if __name__ == "__main__":
+
     main()
