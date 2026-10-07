@@ -1,18 +1,18 @@
 {
-  "version": "5.3",
-  "updated_at": "2026-10-07T11:15:53.825328",
+  "version": "5.4",
+  "updated_at": "2026-10-07T11:42:06.162204",
   "target_date": "2026-10-07",
   "data_complete": false,
   "venue_count": 7,
-  "race_count": 70,
-  "rider_count": 490,
-  "correct_name_count": 490,
-  "prediction_race_count": 70,
-  "comment_count": 490,
-  "line_race_count": 70,
-  "development_count": 38,
-  "ai_race_count": 70,
-  "ai_rider_count": 490,
+  "race_count": 72,
+  "rider_count": 500,
+  "correct_name_count": 500,
+  "prediction_race_count": 72,
+  "comment_count": 500,
+  "line_race_count": 72,
+  "development_count": 41,
+  "ai_race_count": 72,
+  "ai_rider_count": 500,
   "failed_race_count": 0,
   "venues": [
     {
@@ -71,8 +71,10 @@
     {
       "venue_code": "44",
       "venue_name": "大垣",
-      "race_count": 7,
+      "race_count": 9,
       "race_numbers": [
+        1,
+        2,
         3,
         4,
         5,
@@ -8612,7 +8614,7 @@
           7
         ]
       ],
-      "development": "",
+      "development": "スタート争いが鍵を握るが、(4)溝口がバック数でも断然上回り、ペースを握りパワー全開。(1)愛敬が徹底ガード。(2)小野が同県、同期(5)根藤に任せて決め脚鋭く",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1007_9.html",
       "ai": {
         "main": 2,
@@ -9234,6 +9236,426 @@
       "venue_code": "44",
       "venue_name": "大垣",
       "venue_slug": "ogaki",
+      "race_no": 1,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=44&kaisaiBi=20261007&raceNo=1",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "兵庫",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 71,
+          "finish_2": 83,
+          "finish_3": 6,
+          "finish_out": 2,
+          "kimari_nige": 10,
+          "kimari_makuri": 6,
+          "kimari_sashi": 5,
+          "kimari_mark": 11,
+          "comment": "自在にやる。",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 230.9
+        },
+        {
+          "car_no": 2,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 69,
+          "finish_2": 4,
+          "finish_3": 1,
+          "finish_out": 1,
+          "kimari_nige": 10,
+          "kimari_makuri": 6,
+          "kimari_sashi": 6,
+          "kimari_mark": 11,
+          "comment": "伊藤君に付く。",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 160.2
+        },
+        {
+          "car_no": 3,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "岐阜",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 68,
+          "finish_2": 36,
+          "finish_3": 2,
+          "finish_out": 3,
+          "kimari_nige": 2,
+          "kimari_makuri": 9,
+          "kimari_sashi": 25,
+          "kimari_mark": 4,
+          "comment": "コメントなし。",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 211.2
+        },
+        {
+          "car_no": 4,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "千葉",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 68,
+          "finish_2": 208,
+          "finish_3": 0,
+          "finish_out": 3,
+          "kimari_nige": 10,
+          "kimari_makuri": 6,
+          "kimari_sashi": 4,
+          "kimari_mark": 11,
+          "comment": "藤縄君に付ける。",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 332.6
+        },
+        {
+          "car_no": 5,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "大阪",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 64,
+          "finish_2": 555,
+          "finish_3": 1,
+          "finish_out": 0,
+          "kimari_nige": 10,
+          "kimari_makuri": 6,
+          "kimari_sashi": 7,
+          "kimari_mark": 11,
+          "comment": "注 単騎で。",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 636.1
+        }
+      ],
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "藤縄 洋介",
+          "mark": "△",
+          "comment": "自在にやる。",
+          "prediction_score": 5
+        },
+        "2": {
+          "name": "志村 正洋",
+          "mark": "○",
+          "comment": "伊藤君に付く。",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "伊藤 嘉浩",
+          "mark": "◎",
+          "comment": "コメントなし。",
+          "prediction_score": 18
+        },
+        "4": {
+          "name": "戸ノ下太郎",
+          "mark": "×",
+          "comment": "藤縄君に付ける。",
+          "prediction_score": 1
+        },
+        "5": {
+          "name": "中嶋 響",
+          "mark": "",
+          "comment": "注 単騎で。",
+          "prediction_score": 0
+        }
+      },
+      "line": [
+        1,
+        4,
+        3,
+        2,
+        5
+      ],
+      "line_groups": [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5
+        ]
+      ],
+      "development": "補充の地元(3)伊藤がペースに持ち込み末脚良く押し切る。(2)志村が番手を主張。近畿勢は別々を選択。(1)藤縄が内枠を活かして好位から反撃。単騎(5)中嶋に注意",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1007.html",
+      "ai": {
+        "main": 5,
+        "opponent": 4,
+        "dark_horse": 1,
+        "ranking": [
+          {
+            "car_no": 5,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 636.1,
+            "mark": ""
+          },
+          {
+            "car_no": 4,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 332.6,
+            "mark": "×"
+          },
+          {
+            "car_no": 1,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 230.9,
+            "mark": "△"
+          },
+          {
+            "car_no": 3,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 211.2,
+            "mark": "◎"
+          },
+          {
+            "car_no": 2,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 160.2,
+            "mark": "○"
+          }
+        ]
+      }
+    },
+    {
+      "venue_code": "44",
+      "venue_name": "大垣",
+      "venue_slug": "ogaki",
+      "race_no": 2,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=44&kaisaiBi=20261007&raceNo=2",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "京都",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 72,
+          "finish_2": 454,
+          "finish_3": 3,
+          "finish_out": 6,
+          "kimari_nige": 2,
+          "kimari_makuri": 9,
+          "kimari_sashi": 30,
+          "kimari_mark": 7,
+          "comment": "コメントなし。",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 600.0
+        },
+        {
+          "car_no": 2,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "兵庫",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 71,
+          "finish_2": 962,
+          "finish_3": 4,
+          "finish_out": 3,
+          "kimari_nige": 2,
+          "kimari_makuri": 9,
+          "kimari_sashi": 30,
+          "kimari_mark": 3,
+          "comment": "コメントなし。",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 1051.8
+        },
+        {
+          "car_no": 3,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "青森",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 68,
+          "finish_2": 285,
+          "finish_3": 3,
+          "finish_out": 0,
+          "kimari_nige": 10,
+          "kimari_makuri": 6,
+          "kimari_sashi": 6,
+          "kimari_mark": 13,
+          "comment": "亀井さんの後ろです。",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 401.1
+        },
+        {
+          "car_no": 4,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "宮城",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 67,
+          "finish_2": 826,
+          "finish_3": 1,
+          "finish_out": 2,
+          "kimari_nige": 10,
+          "kimari_makuri": 6,
+          "kimari_sashi": 5,
+          "kimari_mark": 12,
+          "comment": "山崎君-川本さんの後ろへ。",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 890.4
+        },
+        {
+          "car_no": 5,
+          "name": "◎ ○ ▲ △ × 注",
+          "age": null,
+          "period": null,
+          "prefecture": "",
+          "grade": "",
+          "style": "",
+          "score": null,
+          "finish_1": 66,
+          "finish_2": 541,
+          "finish_3": 1,
+          "finish_out": 1,
+          "kimari_nige": 10,
+          "kimari_makuri": 6,
+          "kimari_sashi": 7,
+          "kimari_mark": 13,
+          "comment": "注 前々ですね。",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 627.1
+        }
+      ],
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "山崎 光展",
+          "mark": "◎",
+          "comment": "コメントなし。",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "川本 恵二",
+          "mark": "○",
+          "comment": "コメントなし。",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "千澤 大輔",
+          "mark": "×",
+          "comment": "亀井さんの後ろです。",
+          "prediction_score": 1
+        },
+        "4": {
+          "name": "亀井 道佳",
+          "mark": "△",
+          "comment": "山崎君-川本さんの後ろへ。",
+          "prediction_score": 5
+        },
+        "5": {
+          "name": "遠澤 健二",
+          "mark": "",
+          "comment": "注 前々ですね。",
+          "prediction_score": 0
+        }
+      },
+      "line": [
+        1,
+        2,
+        4,
+        3,
+        5
+      ],
+      "line_groups": [
+        [
+          1,
+          2,
+          4,
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      "development": "先行タイプではないが補充(1)山崎の自力一車。型通りのペース駆けで(2)川本とのＧ前勝負に持ち込む。(4)亀井が三番手から直線勝負。(3)千沢が四番手を固める。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1007_2.html",
+      "ai": {
+        "main": 2,
+        "opponent": 4,
+        "dark_horse": 5,
+        "ranking": [
+          {
+            "car_no": 2,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 1051.8,
+            "mark": "○"
+          },
+          {
+            "car_no": 4,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 890.4,
+            "mark": "△"
+          },
+          {
+            "car_no": 5,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 627.1,
+            "mark": ""
+          },
+          {
+            "car_no": 1,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 600.0,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 401.1,
+            "mark": "×"
+          }
+        ]
+      }
+    },
+    {
+      "venue_code": "44",
+      "venue_name": "大垣",
+      "venue_slug": "ogaki",
       "race_no": 3,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=44&kaisaiBi=20261007&raceNo=3",
       "riders": [
@@ -9461,7 +9883,7 @@
           6
         ]
       ],
-      "development": "初日の分までしっかり出し切れるように。自力です。",
+      "development": "２角から上がっていくイメージで踏み切れた。自力です。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1007_3.html",
       "ai": {
         "main": 3,
@@ -10595,7 +11017,7 @@
           7
         ]
       ],
-      "development": "土田君を残せず情けなかった。関東の三番手。",
+      "development": "距離は踏めたけど捲られてるんで、どうしようもない。自力。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1007_7.html",
       "ai": {
         "main": 4,
@@ -11163,7 +11585,7 @@
           6
         ]
       ],
-      "development": "初日の走りでは新車の感じは掴めない。自力です。",
+      "development": "踏み直す脚は残ってたけどキツかった。自力です。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1007_9.html",
       "ai": {
         "main": 6,
