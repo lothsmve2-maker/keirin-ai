@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-07T06:50:00.874761",
+  "updated_at": "2026-10-07T07:03:52.847462",
   "target_date": "20261007",
-  "version": "4.4",
+  "version": "4.5",
   "venues": [
     {
       "code": "25",
@@ -8175,7 +8175,7 @@
             "mark": 1
           },
           "recent_results": [],
-          "comment": "山崎 光展",
+          "comment": "コメントなし。",
           "line": [],
           "role": "",
           "jump_probability": 0.0,
@@ -8208,7 +8208,7 @@
             "mark": 1
           },
           "recent_results": [],
-          "comment": "川本 恵二",
+          "comment": "コメントなし。",
           "line": [],
           "role": "",
           "jump_probability": 0.0,
