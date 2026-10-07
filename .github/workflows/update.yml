@@ -5,7 +5,6 @@ on:
   schedule:
     - cron: "0 * * * *"
 
-# 同じWorkflowを同時実行させない
 concurrency:
   group: keirin-data-update
   cancel-in-progress: false
@@ -16,6 +15,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout latest main
@@ -35,7 +35,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 実行前に必ず最新のmainへ同期
       - name: Sync latest main
         run: |
           git fetch origin main
@@ -45,7 +44,7 @@ jobs:
         run: |
           python scripts/update.py
 
-      - name: Commit data
+      - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -59,4 +58,36 @@ jobs:
 
           git commit -m "Update keirin data"
 
-          git push origin HEAD:main
+          for i in 1 2 3; do
+            git fetch origin main
+
+            if git merge-base --is-ancestor HEAD origin/main; then
+              echo "最新mainと同期済み"
+            else
+              echo "mainに新しい変更があります。同期して再実行します。"
+
+              git reset --hard origin/main
+
+              python scripts/update.py
+
+              git add data/today.json
+
+              if git diff --cached --quiet; then
+                echo "同期後、データ変更なし"
+                exit 0
+              fi
+
+              git commit -m "Update keirin data"
+            fi
+
+            if git push origin HEAD:main; then
+              echo "Push成功"
+              exit 0
+            fi
+
+            echo "Push失敗。${i}回目の再試行..."
+            sleep 5
+          done
+
+          echo "Pushに3回失敗しました"
+          exit 1
