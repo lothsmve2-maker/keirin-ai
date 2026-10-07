@@ -40,7 +40,11 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "データ変更なし"
-          else
-            git commit -m "Update keirin data"
-            git push
+            exit 0
           fi
+
+          git commit -m "Updateは keirin data"
+
+          git pull --rebase origin main
+
+          git push origin main
