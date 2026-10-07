@@ -62,9 +62,14 @@ VENUE_CODES = {
 
 
 def fetch(url, timeout=30, retries=3):
+
     for attempt in range(1, retries + 1):
+
         try:
-            print(f"GET {attempt}/{retries}: {url}")
+
+            print(
+                f"GET {attempt}/{retries}: {url}"
+            )
 
             request = urllib.request.Request(
                 url,
@@ -107,7 +112,10 @@ def fetch(url, timeout=30, retries=3):
 
         except Exception as e:
 
-            print("取得失敗:", str(e))
+            print(
+                "取得失敗:",
+                str(e)
+            )
 
             if attempt < retries:
                 time.sleep(3)
@@ -135,7 +143,11 @@ class TableParser(HTMLParser):
         self.in_row = False
         self.in_cell = False
 
-    def handle_starttag(self, tag, attrs):
+    def handle_starttag(
+        self,
+        tag,
+        attrs
+    ):
 
         tag = tag.lower()
 
@@ -144,7 +156,10 @@ class TableParser(HTMLParser):
             self.in_table = True
             self.current_table = []
 
-        elif tag == "tr" and self.in_table:
+        elif (
+            tag == "tr"
+            and self.in_table
+        ):
 
             self.in_row = True
             self.current_row = []
@@ -285,7 +300,9 @@ def find_race_info(html):
 
     for i, match in enumerate(matches):
 
-        number = int(match.group(1))
+        number = int(
+            match.group(1)
+        )
 
         start = match.start()
 
@@ -318,6 +335,159 @@ def find_race_info(html):
     return races
 
 
+def to_float(value):
+
+    if value is None:
+        return None
+
+    text = str(value)
+
+    text = text.replace(
+        ",",
+        ""
+    )
+
+    text = text.replace(
+        "点",
+        ""
+    )
+
+    text = text.strip()
+
+    match = re.search(
+        r"\d+(?:\.\d+)?",
+        text
+    )
+
+    if not match:
+        return None
+
+    try:
+
+        return float(
+            match.group(0)
+        )
+
+    except Exception:
+
+        return None
+
+
+def calculate_ai_base_score(
+    rider
+):
+
+    score = 50.0
+
+    # --------------------------------
+    # 競走得点
+    # --------------------------------
+
+    race_point = rider.get(
+        "race_point"
+    )
+
+    if race_point is not None:
+
+        # 競走得点を基準値90として評価
+        score += (
+            race_point - 90.0
+        ) * 0.35
+
+    # --------------------------------
+    # 車番補正
+    # --------------------------------
+
+    car = rider.get(
+        "car"
+    )
+
+    if isinstance(
+        car,
+        int
+    ):
+
+        # 4番を基準に、ごく小さく補正
+        score += (
+            4 - abs(car - 4)
+        ) * 0.2
+
+    # --------------------------------
+    # 0～100に制限
+    # --------------------------------
+
+    score = max(
+        0.0,
+        min(
+            100.0,
+            score
+        )
+    )
+
+    return round(
+        score,
+        2
+    )
+
+
+def add_ai_evaluation(
+    riders
+):
+
+    if not riders:
+        return riders
+
+    for rider in riders:
+
+        rider["ai_base_score"] = (
+            calculate_ai_base_score(
+                rider
+            )
+        )
+
+    ranked = sorted(
+        riders,
+        key=lambda x: x.get(
+            "ai_base_score",
+            0
+        ),
+        reverse=True,
+    )
+
+    for rank, rider in enumerate(
+        ranked,
+        start=1
+    ):
+
+        rider["ai_rank"] = rank
+
+        if rank == 1:
+
+            rider["ai_label"] = (
+                "本命候補"
+            )
+
+        elif rank == 2:
+
+            rider["ai_label"] = (
+                "対抗候補"
+            )
+
+        elif rank == 3:
+
+            rider["ai_label"] = (
+                "穴候補"
+            )
+
+        else:
+
+            rider["ai_label"] = (
+                "相手候補"
+            )
+
+    return riders
+
+
 def parse_riders(html):
 
     parser = TableParser()
@@ -333,6 +503,8 @@ def parse_riders(html):
 
         header_index = -1
 
+        race_point_index = None
+
         for i, row in enumerate(table):
 
             joined = " ".join(row)
@@ -346,6 +518,19 @@ def parse_riders(html):
 
                 header_index = i
 
+                # 競走得点の列位置を探す
+                for j, value in enumerate(row):
+
+                    if (
+                        "競走得点" in value
+                        or value == "得点"
+                        or "得点" in value
+                    ):
+
+                        race_point_index = j
+
+                        break
+
                 break
 
         if header_index < 0:
@@ -353,7 +538,9 @@ def parse_riders(html):
 
         race_riders = []
 
-        for row in table[header_index + 1:]:
+        for row in table[
+            header_index + 1:
+        ]:
 
             if not row:
                 continue
@@ -412,7 +599,9 @@ def parse_riders(html):
 
                 if value:
 
-                    name_parts.append(value)
+                    name_parts.append(
+                        value
+                    )
 
             name = " ".join(
                 name_parts
@@ -423,24 +612,81 @@ def parse_riders(html):
 
             prefecture = ""
 
-            if period_index + 1 < len(row):
+            if (
+                period_index + 1
+                < len(row)
+            ):
 
                 prefecture = (
-                    row[period_index + 1]
-                    .strip()
+                    row[
+                        period_index + 1
+                    ].strip()
                 )
 
             if name in (
                 "誘導",
                 "誘導員"
             ):
+
                 continue
+
+            # ----------------------------
+            # 競走得点
+            # ----------------------------
+
+            race_point = None
+
+            if (
+                race_point_index
+                is not None
+                and race_point_index
+                < len(row)
+            ):
+
+                race_point = to_float(
+                    row[
+                        race_point_index
+                    ]
+                )
+
+            # 列位置が合わない場合の保険
+            if race_point is None:
+
+                for value in row:
+
+                    value = value.strip()
+
+                    # 競走得点は通常
+                    # 70～130程度なので
+                    # 小数を優先して探す
+                    if re.fullmatch(
+                        r"\d{2,3}\.\d{1,2}",
+                        value
+                    ):
+
+                        candidate = (
+                            to_float(value)
+                        )
+
+                        if (
+                            candidate is not None
+                            and 50 <= candidate <= 150
+                        ):
+
+                            race_point = (
+                                candidate
+                            )
+
+                            break
 
             duplicate = False
 
             for existing in race_riders:
 
-                if existing["car"] == car_no:
+                if (
+                    existing["car"]
+                    == car_no
+                ):
 
                     duplicate = True
 
@@ -450,14 +696,26 @@ def parse_riders(html):
                 continue
 
             race_riders.append({
+
                 "car": car_no,
+
                 "name": name,
+
                 "period": period,
+
                 "prefecture": prefecture,
+
+                "race_point": race_point,
+
             })
 
         race_riders.sort(
             key=lambda x: x["car"]
+        )
+
+        # AI評価追加
+        race_riders = add_ai_evaluation(
+            race_riders
         )
 
         if race_riders:
@@ -488,6 +746,7 @@ def get_venue_data(
 ):
 
     name = venue["name"]
+
     code = venue["code"]
 
     url = get_all_race_url(
@@ -496,8 +755,16 @@ def get_venue_data(
     )
 
     print("")
-    print("開催場:", name)
-    print("出走表:", url)
+
+    print(
+        "開催場:",
+        name
+    )
+
+    print(
+        "出走表:",
+        url
+    )
 
     try:
 
@@ -551,7 +818,9 @@ def get_venue_data(
 
         if index < len(rider_tables):
 
-            riders = rider_tables[index]
+            riders = rider_tables[
+                index
+            ]
 
         if len(riders) < 5:
 
@@ -567,11 +836,63 @@ def get_venue_data(
                 "人"
             )
 
+        # ----------------------------
+        # AI候補
+        # ----------------------------
+
+        ai = {
+            "本命": None,
+            "対抗": None,
+            "穴": None,
+        }
+
+        if riders:
+
+            ranked = sorted(
+                riders,
+                key=lambda x: x.get(
+                    "ai_base_score",
+                    0
+                ),
+                reverse=True,
+            )
+
+            if len(ranked) >= 1:
+                ai["本命"] = ranked[0]["car"]
+
+            if len(ranked) >= 2:
+                ai["対抗"] = ranked[1]["car"]
+
+            if len(ranked) >= 3:
+                ai["穴"] = ranked[2]["car"]
+
+            print(
+                "  AI候補:",
+                "本命",
+                ai["本命"],
+                "対抗",
+                ai["対抗"],
+                "穴",
+                ai["穴"],
+            )
+
         races.append({
-            "number": info["number"],
-            "start_time": info["start_time"],
-            "riders": riders,
-            "status": "scheduled",
+
+            "number":
+                info["number"],
+
+            "start_time":
+                info["start_time"],
+
+            "riders":
+                riders,
+
+            "ai":
+                ai,
+
+            "status":
+                "scheduled",
+
         })
 
         print(
@@ -581,11 +902,22 @@ def get_venue_data(
         )
 
     return {
-        "name": name,
-        "code": code,
-        "races": races,
-        "source": url,
-        "status": "ok",
+
+        "name":
+            name,
+
+        "code":
+            code,
+
+        "races":
+            races,
+
+        "source":
+            url,
+
+        "status":
+            "ok",
+
     }
 
 
@@ -610,6 +942,7 @@ def save(data):
         )
 
     print("")
+
     print(
         "保存完了:",
         OUTPUT_FILE
@@ -618,7 +951,9 @@ def save(data):
 
 def main():
 
-    now = datetime.now(JST)
+    now = datetime.now(
+        JST
+    )
 
     target_date = now.strftime(
         "%Y%m%d"
@@ -629,14 +964,27 @@ def main():
     )
 
     print("")
-    print("==============================")
-    print(" KEIRIN AI DATA UPDATE")
-    print("==============================")
+
+    print(
+        "=============================="
+    )
+
+    print(
+        " KEIRIN AI DATA UPDATE"
+    )
+
+    print(
+        "=============================="
+    )
+
     print(
         "対象日:",
         display_date
     )
-    print("==============================")
+
+    print(
+        "=============================="
+    )
 
     race_list_url = (
         f"{BASE_URL}"
@@ -655,7 +1003,10 @@ def main():
     )
 
     print("")
-    print("検出した開催場:")
+
+    print(
+        "検出した開催場:"
+    )
 
     for venue in venues:
 
@@ -686,11 +1037,18 @@ def main():
         time.sleep(1)
 
     race_count = 0
+
     rider_count = 0
+
+    ai_race_count = 0
+
+    ai_rider_count = 0
 
     for venue in venue_data:
 
-        for race in venue["races"]:
+        for race in venue[
+            "races"
+        ]:
 
             race_count += 1
 
@@ -698,39 +1056,124 @@ def main():
                 race["riders"]
             )
 
+            ai = race.get(
+                "ai"
+            )
+
+            if (
+                ai
+                and ai.get("本命")
+                is not None
+            ):
+
+                ai_race_count += 1
+
+            for rider in race[
+                "riders"
+            ]:
+
+                if (
+                    rider.get(
+                        "ai_base_score"
+                    )
+                    is not None
+                ):
+
+                    ai_rider_count += 1
+
     result = {
-        "updated_at": now.isoformat(),
-        "source": "OddsPark",
-        "date": display_date,
-        "status": "ok",
-        "venue_count": len(
-            venue_data
-        ),
-        "race_count": race_count,
-        "entry_count": rider_count,
-        "venues": venue_data,
+
+        "updated_at":
+            now.isoformat(),
+
+        "source":
+            "OddsPark",
+
+        "date":
+            display_date,
+
+        "status":
+            "ok",
+
+        "ai_version":
+            "1.1",
+
+        "ai_description":
+            "競走得点を中心とした暫定AI評価",
+
+        "venue_count":
+            len(venue_data),
+
+        "race_count":
+            race_count,
+
+        "entry_count":
+            rider_count,
+
+        "ai_race_count":
+            ai_race_count,
+
+        "ai_rider_count":
+            ai_rider_count,
+
+        "venues":
+            venue_data,
+
     }
 
-    save(result)
+    save(
+        result
+    )
 
     print("")
-    print("==============================")
-    print(" UPDATE COMPLETE")
-    print("==============================")
+
+    print(
+        "=============================="
+    )
+
+    print(
+        " UPDATE COMPLETE"
+    )
+
+    print(
+        "=============================="
+    )
+
     print(
         "開催場:",
         len(venue_data)
     )
+
     print(
         "レース:",
         race_count
     )
+
     print(
         "選手:",
         rider_count
     )
-    print("==============================")
+
+    print(
+        "AI評価レース:",
+        ai_race_count
+    )
+
+    print(
+        "AI評価選手:",
+        ai_rider_count
+    )
+
+    print(
+        "AIバージョン:",
+        "1.1"
+    )
+
+    print(
+        "=============================="
+    )
 
 
 if __name__ == "__main__":
+
     main()
