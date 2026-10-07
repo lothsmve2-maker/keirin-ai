@@ -1,6 +1,6 @@
 {
   "version": "6.1",
-  "updated_at": "2026-10-07T14:02:34.321405",
+  "updated_at": "2026-10-07T14:21:40.900964",
   "target_date": "2026-10-07",
   "data_complete": true,
   "venue_count": 7,
@@ -14,24 +14,24 @@
   "ai_race_count": 72,
   "ai_rider_count": 500,
   "frozen_prediction_count": 72,
-  "result_count": 68,
+  "result_count": 69,
   "odds_count": 72,
   "summary": {
     "races": 72,
-    "settled_races": 68,
-    "pending_races": 4,
-    "investment": 66800,
+    "settled_races": 69,
+    "pending_races": 3,
+    "investment": 67800,
     "payout": 0,
-    "profit": -66800,
-    "hits": 11,
+    "profit": -67800,
+    "hits": 12,
     "roi": 0.0,
     "by_rank": {
       "S": {
-        "races": 52,
-        "investment": 50800,
+        "races": 53,
+        "investment": 51800,
         "payout": 0,
-        "profit": -50800,
-        "hits": 10
+        "profit": -51800,
+        "hits": 11
       },
       "A": {
         "races": 15,
@@ -78,11 +78,11 @@
         "hits": 3
       },
       "大垣": {
-        "races": 7,
-        "investment": 6800,
+        "races": 8,
+        "investment": 7800,
         "payout": 0,
-        "profit": -6800,
-        "hits": 2
+        "profit": -7800,
+        "hits": 3
       },
       "四日市": {
         "races": 12,
@@ -4059,10 +4059,18 @@
       },
       "result": {
         "finished": true,
-        "finish": [],
+        "finish": [
+          7,
+          5,
+          4,
+          3,
+          1,
+          2,
+          6
+        ],
         "payout_3tan": "7-5-4",
-        "payout_3tan_yen": 246000,
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=22&joCode=22&kaisaiBi=20261007&raceNo=7"
+        "payout_3tan_yen": 0,
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=22&kaisaiBi=20261007&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -22305,9 +22313,17 @@
         ]
       },
       "result": {
-        "finished": false,
-        "finish": [],
-        "payout_3tan": null,
+        "finished": true,
+        "finish": [
+          6,
+          1,
+          2,
+          7,
+          4,
+          5,
+          3
+        ],
+        "payout_3tan": "6-1-2",
         "payout_3tan_yen": 0,
         "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=44&kaisaiBi=20261007&raceNo=8"
       },
@@ -22348,14 +22364,14 @@
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=44&joCode=44&kaisaiBi=20261007&raceNo=8"
       },
       "settlement": {
-        "status": "pending",
+        "status": "settled",
         "bet_count": 10,
         "investment": 1000,
-        "hit": false,
-        "hit_ticket": "",
+        "hit": true,
+        "hit_ticket": "6-1-2",
         "payout": 0,
-        "profit": 0,
-        "roi": 0
+        "profit": -1000,
+        "roi": 0.0
       }
     },
     {
