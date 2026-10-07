@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 # VERSION
 # =========================================================
 
-VERSION = "6.3"
+VERSION = "6.2"
 
 BASE_URL = "https://www.oddspark.com"
 SP_BASE_URL = "https://sp.oddspark.com"
@@ -94,6 +94,7 @@ PREFECTURES = {
     "徳島", "香川", "愛媛", "高知", "福岡", "佐賀", "長崎",
     "熊本", "大分", "宮崎", "鹿児島", "沖縄",
 }
+
 
 GRADES = {
     "S1",
@@ -2132,10 +2133,6 @@ def parse_ticket_text(text):
 
     text = clean(text)
 
-    if not text:
-        return None
-
-    # 矢印・ハイフン形式
     patterns = [
         r"([1-7])\s*[→＞>]\s*([1-7])\s*[→＞>]\s*([1-7])",
         r"([1-7])\s*[-−]\s*([1-7])\s*[-−]\s*([1-7])",
@@ -2154,104 +2151,6 @@ def parse_ticket_text(text):
                 f"{m.group(1)}-"
                 f"{m.group(2)}-"
                 f"{m.group(3)}"
-            )
-
-    return None
-
-
-def parse_ticket_from_cells(cells):
-
-    """
-    3連単のHTMLで、
-
-      6
-      1
-      3
-      12,180円
-
-    のように車番が別セルになっているケースを補完。
-    """
-
-    if not cells:
-        return None
-
-    # まず通常形式
-    for cell in cells:
-
-        ticket = parse_ticket_text(
-            cell
-        )
-
-        if ticket:
-            return ticket
-
-    # 3連単が含まれる場所を探す
-    for i, cell in enumerate(cells):
-
-        if "3連単" not in cell:
-            continue
-
-        nearby = cells[
-            max(0, i - 2):
-            min(len(cells), i + 8)
-        ]
-
-        nums = []
-
-        for part in nearby:
-
-            if re.fullmatch(
-                r"[1-7]",
-                clean(part)
-            ):
-
-                nums.append(
-                    int(clean(part))
-                )
-
-                if len(nums) == 3:
-                    break
-
-        if len(nums) == 3:
-
-            if len(set(nums)) == 3:
-
-                return (
-                    f"{nums[0]}-"
-                    f"{nums[1]}-"
-                    f"{nums[2]}"
-                )
-
-    # 3連単がなくても払戻表の近辺で
-    # 3つの単独車番を探す
-    for i in range(
-        len(cells)
-    ):
-
-        nums = []
-
-        for part in cells[
-            i:i + 6
-        ]:
-
-            if re.fullmatch(
-                r"[1-7]",
-                clean(part)
-            ):
-
-                nums.append(
-                    int(clean(part))
-                )
-
-        if (
-            len(nums) >= 3
-            and len(set(nums[:3])) == 3
-        ):
-
-            return (
-                f"{nums[0]}-"
-                f"{nums[1]}-"
-                f"{nums[2]}"
             )
 
     return None
@@ -2299,11 +2198,11 @@ def find_payout_from_table(sp):
         "tr"
     )
 
-    # =====================================================
-    # ① 同じ行に全部ある
-    # =====================================================
+    # -----------------------------------------------------
+    # ① 同じ行に3連単・車番・払戻があるケース
+    # -----------------------------------------------------
 
-    for tr in rows:
+    for i, tr in enumerate(rows):
 
         cells = [
             clean(
@@ -2324,20 +2223,12 @@ def find_payout_from_table(sp):
             cells
         )
 
-        if (
-            "3連単" not in row_text
-            and "払戻" not in row_text
-        ):
+        if "3連単" not in row_text:
             continue
 
         ticket = parse_ticket_text(
             row_text
         )
-
-        if not ticket:
-            ticket = parse_ticket_from_cells(
-                cells
-            )
 
         yen_values = parse_yen_text(
             row_text
@@ -2351,9 +2242,9 @@ def find_payout_from_table(sp):
                 row_text,
             )
 
-    # =====================================================
-    # ② 3連単の行から周辺行を見る
-    # =====================================================
+    # -----------------------------------------------------
+    # ② 別セル・別行に分かれているケース
+    # -----------------------------------------------------
 
     for i, tr in enumerate(rows):
 
@@ -2364,20 +2255,15 @@ def find_payout_from_table(sp):
             )
         )
 
-        if (
-            "3連単" not in row_text
-            and "払戻" not in row_text
-            and "払戻金" not in row_text
-        ):
+        if "3連単" not in row_text:
             continue
 
         nearby_parts = []
 
         for target in rows[
-            max(0, i - 2):
-            min(
+            i:min(
                 len(rows),
-                i + 7
+                i + 5
             )
         ]:
 
@@ -2401,11 +2287,6 @@ def find_payout_from_table(sp):
             nearby
         )
 
-        if not ticket:
-            ticket = parse_ticket_from_cells(
-                nearby_parts
-            )
-
         yen_values = parse_yen_text(
             nearby
         )
@@ -2418,79 +2299,34 @@ def find_payout_from_table(sp):
                 nearby,
             )
 
-    # =====================================================
-    # ③ 表の全セルをまとめて解析
-    # =====================================================
+        # 車番と払戻を個別に探す
+        ticket = None
 
-    all_cells = []
+        for part in nearby_parts:
 
-    for tr in rows:
-
-        for c in tr.find_all(
-            ["th", "td"]
-        ):
-
-            txt = clean(
-                c.get_text(
-                    " ",
-                    strip=True
-                )
-            )
-
-            if txt:
-                all_cells.append(
-                    txt
-                )
-
-    for i, cell in enumerate(
-        all_cells
-    ):
-
-        if (
-            "3連単" not in cell
-            and "払戻" not in cell
-            and "払戻金" not in cell
-        ):
-            continue
-
-        nearby = all_cells[
-            max(0, i - 4):
-            min(
-                len(all_cells),
-                i + 12
-            )
-        ]
-
-        ticket = parse_ticket_from_cells(
-            nearby
-        )
-
-        if not ticket:
-
-            ticket = parse_ticket_text(
-                " ".join(nearby)
-            )
-
-        yen = 0
-
-        for part in nearby:
-
-            values = parse_yen_text(
+            candidate = parse_ticket_text(
                 part
             )
 
-            if values:
-
-                yen = values[0]
+            if candidate:
+                ticket = candidate
                 break
 
-        if ticket and yen > 0:
+        if ticket:
 
-            return (
-                ticket,
-                yen,
-                " ".join(nearby),
-            )
+            for part in nearby_parts:
+
+                yen_values = parse_yen_text(
+                    part
+                )
+
+                if yen_values:
+
+                    return (
+                        ticket,
+                        yen_values[0],
+                        nearby,
+                    )
 
     return None, 0, ""
 
@@ -2499,31 +2335,28 @@ def find_payout_from_text(text):
 
     text = clean(text)
 
-    if not text:
-        return None, 0, ""
-
-    # =====================================================
-    # ① 矢印
-    # =====================================================
+    # -----------------------------------------------------
+    # ① 3連単 + 車番 + 円
+    # -----------------------------------------------------
 
     patterns = [
 
-        r"3連単.{0,220}?"
+        r"3連単.{0,180}?"
         r"([1-7])\s*[→＞>]\s*"
         r"([1-7])\s*[→＞>]\s*"
-        r"([1-7]).{0,150}?"
+        r"([1-7]).{0,100}?"
         r"([\d,]+)\s*円",
 
-        r"3連単.{0,220}?"
+        r"3連単.{0,180}?"
         r"([1-7])\s*[-−]\s*"
         r"([1-7])\s*[-−]\s*"
-        r"([1-7]).{0,150}?"
+        r"([1-7]).{0,100}?"
         r"([\d,]+)\s*円",
 
-        r"3連単.{0,220}?"
+        r"3連単.{0,180}?"
         r"([1-7])\s*[→＞>\-−]\s*"
         r"([1-7])\s*[→＞>\-−]\s*"
-        r"([1-7]).{0,150}?"
+        r"([1-7]).{0,120}?"
         r"([\d,]+)\s*円",
     ]
 
@@ -2563,69 +2396,9 @@ def find_payout_from_text(text):
                     m.group(0),
                 )
 
-    # =====================================================
-    # ② 3連単の後に単独数字3つ
-    # =====================================================
-
-    patterns_single = [
-
-        r"3連単.{0,180}?"
-        r"(?<!\d)([1-7])(?!\d)"
-        r".{0,20}?"
-        r"(?<!\d)([1-7])(?!\d)"
-        r".{0,20}?"
-        r"(?<!\d)([1-7])(?!\d)"
-        r".{0,150}?"
-        r"([\d,]+)\s*円",
-
-    ]
-
-    for pattern in patterns_single:
-
-        for m in re.finditer(
-            pattern,
-            text
-        ):
-
-            nums = [
-                int(m.group(1)),
-                int(m.group(2)),
-                int(m.group(3)),
-            ]
-
-            if len(set(nums)) != 3:
-                continue
-
-            try:
-
-                yen = int(
-                    m.group(4).replace(
-                        ",",
-                        ""
-                    )
-                )
-
-            except ValueError:
-
-                continue
-
-            if yen > 0:
-
-                ticket = (
-                    f"{nums[0]}-"
-                    f"{nums[1]}-"
-                    f"{nums[2]}"
-                )
-
-                return (
-                    ticket,
-                    yen,
-                    m.group(0),
-                )
-
-    # =====================================================
-    # ③ 「払戻金」周辺
-    # =====================================================
+    # -----------------------------------------------------
+    # ② 「3連単」「払戻金」周辺
+    # -----------------------------------------------------
 
     keywords = [
         "3連単",
@@ -2648,10 +2421,10 @@ def find_payout_from_text(text):
                 break
 
             window = text[
-                max(0, pos - 100):
+                max(0, pos - 80):
                 min(
                     len(text),
-                    pos + 500
+                    pos + 350
                 )
             ]
 
@@ -2671,49 +2444,6 @@ def find_payout_from_text(text):
                     window,
                 )
 
-            # 単独数字3つ
-            m = re.search(
-                r"(?<!\d)([1-7])(?!\d)"
-                r".{0,20}?"
-                r"(?<!\d)([1-7])(?!\d)"
-                r".{0,20}?"
-                r"(?<!\d)([1-7])(?!\d)"
-                r".{0,150}?"
-                r"([\d,]+)\s*円",
-                window
-            )
-
-            if m:
-
-                nums = [
-                    int(m.group(1)),
-                    int(m.group(2)),
-                    int(m.group(3)),
-                ]
-
-                if len(set(nums)) == 3:
-
-                    yen = int(
-                        m.group(4).replace(
-                            ",",
-                            ""
-                        )
-                    )
-
-                    if yen > 0:
-
-                        ticket = (
-                            f"{nums[0]}-"
-                            f"{nums[1]}-"
-                            f"{nums[2]}"
-                        )
-
-                        return (
-                            ticket,
-                            yen,
-                            window,
-                        )
-
             start = pos + len(
                 keyword
             )
@@ -2730,18 +2460,10 @@ def parse_result_page(
 ):
 
     empty_result = {
-        # 結果が取れたか
-        "result_finished": False,
-
-        # 払戻まで取れて完全精算可能か
         "finished": False,
-
         "finish": [],
-
         "payout_3tan": None,
-
         "payout_3tan_yen": 0,
-
         "payout_source": "",
     }
 
@@ -2764,9 +2486,9 @@ def parse_result_page(
 
     finish = []
 
-    # =====================================================
-    # 着順解析
-    # =====================================================
+    # -----------------------------------------------------
+    # 着順
+    # -----------------------------------------------------
 
     for tr in sp.find_all(
         "tr"
@@ -2790,18 +2512,11 @@ def parse_result_page(
         place = None
         car = None
 
-        # 「着順」「車番」などの見出しがある行は
-        # 可能な限りそれを優先
-        for i, v in enumerate(cells):
+        for v in cells:
 
-            if v in (
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
+            if re.fullmatch(
+                r"[1-7]",
+                v
             ):
 
                 if place is None:
@@ -2815,7 +2530,6 @@ def parse_result_page(
             and car is not None
             and 1 <= place <= 7
             and 1 <= car <= 7
-            and place != car
         ):
 
             finish.append(
@@ -2841,9 +2555,9 @@ def parse_result_page(
         if 1 <= p <= 7
     ]
 
-    # =====================================================
+    # -----------------------------------------------------
     # 着順テキストによる補完
-    # =====================================================
+    # -----------------------------------------------------
 
     if len(ordered_finish) < 3:
 
@@ -2867,44 +2581,22 @@ def parse_result_page(
 
             if m:
 
-                values = [
+                ordered_finish = [
                     int(x)
                     for x in m.groups()
                 ]
 
-                if len(
-                    set(values)
-                ) == 3:
+                break
 
-                    ordered_finish = values
-
-                    break
-
-    # =====================================================
-    # 結果取得判定
-    #
-    # ここをv6.2から分離。
-    # 払戻がなくても着順3着まで取れれば
-    # 「結果取得」として扱う。
-    # =====================================================
-
-    result_finished = (
-        len(ordered_finish) >= 3
-        and len(
-            set(
-                ordered_finish[:3]
-            )
-        ) == 3
-    )
-
-    # =====================================================
-    # 払戻解析
-    # =====================================================
+    # -----------------------------------------------------
+    # 払戻金解析
+    # -----------------------------------------------------
 
     payout_ticket = None
     payout_yen = 0
     payout_source = ""
 
+    # まずHTMLテーブルを優先
     (
         payout_ticket,
         payout_yen,
@@ -2936,10 +2628,10 @@ def parse_result_page(
             payout_yen = text_yen
             payout_source = text_source
 
-    # =====================================================
-    # 払戻金だけ取れて車番がない場合
-    # 着順から補完
-    # =====================================================
+    # -----------------------------------------------------
+    # 払戻の組み合わせが取れず、
+    # 払戻金だけ取れた場合は着順から補完
+    # -----------------------------------------------------
 
     if (
         not payout_ticket
@@ -2953,38 +2645,25 @@ def parse_result_page(
             f"{ordered_finish[2]}"
         )
 
-        payout_source = (
-            "finish_from_result"
-        )
-
-    # =====================================================
-    # 完全精算可能判定
-    # =====================================================
+    # -----------------------------------------------------
+    # 結果確定判定
+    #
+    # v6.2では「着順だけ取れた」状態を
+    # 収支確定とは扱わない。
+    # -----------------------------------------------------
 
     finished = (
-        result_finished
+        len(ordered_finish) >= 3
         and bool(payout_ticket)
         and payout_yen > 0
     )
 
     return {
-        "result_finished":
-            result_finished,
-
-        "finished":
-            finished,
-
-        "finish":
-            ordered_finish,
-
-        "payout_3tan":
-            payout_ticket,
-
-        "payout_3tan_yen":
-            payout_yen,
-
-        "payout_source":
-            payout_source,
+        "finished": finished,
+        "finish": ordered_finish,
+        "payout_3tan": payout_ticket,
+        "payout_3tan_yen": payout_yen,
+        "payout_source": payout_source,
     }
 
 
@@ -3017,8 +2696,6 @@ def fetch_result(
 
     checked = set()
 
-    best_result = None
-
     for url in urls:
 
         if not url:
@@ -3033,53 +2710,50 @@ def fetch_result(
             url
         )
 
-        if not html:
-            continue
-
         result = parse_result_page(
             html
         )
 
-        result["url"] = url
-
-        # 完全結果なら即採用
+        # v6.2では払戻まで取得できたものだけ
+        # 「確定」として返す
         if (
-            result.get(
-                "result_finished"
-            )
+            result.get("finished")
             and result.get(
                 "payout_3tan_yen",
                 0
             ) > 0
         ):
 
+            result["url"] = url
+
             return result
 
-        # 着順だけでも保持
+        # 着順だけ取れた場合も
+        # 情報として保持する
         if (
-            result.get(
-                "result_finished"
-            )
+            result.get("finish")
+            and len(
+                result.get(
+                    "finish",
+                    []
+                )
+            ) >= 3
         ):
 
-            best_result = result
+            result["url"] = url
 
-    if best_result:
-
-        return best_result
+            # ただしfinished=Falseのまま
+            return result
 
     return {
-        "result_finished": False,
         "finished": False,
         "finish": [],
         "payout_3tan": None,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": (
-            urls[0]
-            if urls
-            else ""
-        ),
+        "url": urls[0]
+        if urls
+        else "",
     }
 
 
@@ -3343,9 +3017,7 @@ def fetch_odds(
     urls.append(
         f"{SP_BASE_URL}/keirin/"
         f"SpOddsInfo.do"
-        f"?betType=9"
-        f"&dispMode=1"
-        f"&joCd={code}"
+        f"?joCd={code}"
         f"&joCode={code}"
         f"&kaisaiBi={TODAY}"
         f"&raceNo={race_no}"
@@ -3519,6 +3191,11 @@ def settle_bets(
         for b in bets
     )
 
+    # -----------------------------------------------------
+    # v6.2
+    # 結果だけでなく払戻まで必要
+    # -----------------------------------------------------
+
     payout_ticket = result.get(
         "payout_3tan"
     )
@@ -3531,14 +3208,8 @@ def settle_bets(
         or 0
     )
 
-    # =====================================================
-    # 結果または払戻が未取得なら保留
-    # =====================================================
-
     if (
-        not result.get(
-            "result_finished"
-        )
+        not result.get("finished")
         or not payout_ticket
         or payout_yen <= 0
     ):
@@ -3546,7 +3217,7 @@ def settle_bets(
         return {
             "status": "pending",
             "bet_count": len(bets),
-            "investment": 0,
+            "investment": total_bet,
             "hit": False,
             "hit_ticket": "",
             "payout": 0,
@@ -3571,11 +3242,6 @@ def settle_bets(
             ]
 
             break
-
-    # =====================================================
-    # 10点買いなので、
-    # 払戻は的中したときだけ受け取る
-    # =====================================================
 
     payout = (
         payout_yen
@@ -3916,78 +3582,6 @@ def calculate_summary(
         else 0
     )
 
-    # =====================================================
-    # 的中率
-    # =====================================================
-
-    hit_rate = (
-        hit_races
-        / settled_races
-        * 100
-        if settled_races > 0
-        else 0
-    )
-
-    # =====================================================
-    # S/A/B/C別
-    # =====================================================
-
-    for rank in by_rank:
-
-        s = by_rank[rank]
-
-        s["hit_rate"] = round(
-            (
-                s["hits"]
-                / s["races"]
-                * 100
-            )
-            if s["races"] > 0
-            else 0,
-            1
-        )
-
-        s["roi"] = round(
-            (
-                s["payout"]
-                / s["investment"]
-                * 100
-            )
-            if s["investment"] > 0
-            else 0,
-            1
-        )
-
-    # =====================================================
-    # 開催場別
-    # =====================================================
-
-    for venue in by_venue:
-
-        v = by_venue[venue]
-
-        v["hit_rate"] = round(
-            (
-                v["hits"]
-                / v["races"]
-                * 100
-            )
-            if v["races"] > 0
-            else 0,
-            1
-        )
-
-        v["roi"] = round(
-            (
-                v["payout"]
-                / v["investment"]
-                * 100
-            )
-            if v["investment"] > 0
-            else 0,
-            1
-        )
-
     return {
 
         "races":
@@ -4010,12 +3604,6 @@ def calculate_summary(
 
         "hits":
             hit_races,
-
-        "hit_rate":
-            round(
-                hit_rate,
-                1
-            ),
 
         "roi":
             round(
@@ -4295,7 +3883,6 @@ def main():
             ),
         )
 
-        # 既存のAI予想を完全凍結
         freeze_prediction(
             race,
             existing_races.get(
@@ -4311,10 +3898,7 @@ def main():
         "レース結果を確認中..."
     )
 
-    # 結果だけ取れたレース
     result_count = 0
-
-    # 払戻まで取れたレース
     payout_count = 0
 
     result_failed = []
@@ -4368,7 +3952,6 @@ def main():
             except Exception:
 
                 result = {
-                    "result_finished": False,
                     "finished": False,
                     "finish": [],
                     "payout_3tan": None,
@@ -4377,15 +3960,9 @@ def main():
                     "url": "",
                 }
 
-            old_finish = old_result.get(
-                "finish",
-                []
-            )
-
-            new_finish = result.get(
-                "finish",
-                []
-            )
+            # -------------------------------------------------
+            # 既存の確定結果を保護
+            # -------------------------------------------------
 
             old_payout = int(
                 old_result.get(
@@ -4403,39 +3980,28 @@ def main():
                 or 0
             )
 
-            # =================================================
-            # 既存データ保護
-            #
-            # 既に確定している結果・払戻は
-            # 新しい取得失敗で消さない。
-            # =================================================
-
             if (
-                old_result.get(
-                    "result_finished"
-                )
-                and len(old_finish) >= 3
+                old_result.get("finished")
+                and old_payout > 0
             ):
 
-                # 新しい結果が完全なら新しいもの
-                if (
-                    result.get(
-                        "result_finished"
-                    )
-                    and new_payout > 0
-                ):
-
-                    pass
-
-                else:
-
-                    # 既存の結果を基本的に維持
-                    result = old_result
+                result = old_result
 
             elif (
-                old_result.get(
-                    "finished"
-                )
+                result.get("finished")
+                and new_payout > 0
+            ):
+
+                pass
+
+            elif (
+                old_result.get("finish")
+                and len(
+                    old_result.get(
+                        "finish",
+                        []
+                    )
+                ) >= 3
                 and old_payout > 0
             ):
 
@@ -4445,56 +4011,44 @@ def main():
                 "result"
             ] = result
 
-            # =================================================
-            # 結果カウント
-            # =================================================
-
-            if (
-                result.get(
-                    "result_finished"
-                )
-                and len(
-                    result.get(
-                        "finish",
-                        []
-                    )
-                ) >= 3
+            if result.get(
+                "finished"
             ):
 
                 result_count += 1
 
-            else:
-
-                result_failed.append(
-                    f"{race['venue_name']} "
-                    f"{race['race_no']}R"
-                )
-
-            # =================================================
-            # 払戻カウント
-            # =================================================
-
-            if (
+            if int(
                 result.get(
-                    "payout_3tan"
+                    "payout_3tan_yen",
+                    0
                 )
-                and int(
-                    result.get(
-                        "payout_3tan_yen",
-                        0
-                    )
-                    or 0
-                ) > 0
-            ):
+                or 0
+            ) > 0:
 
                 payout_count += 1
 
             else:
 
-                payout_failed.append(
+                label = (
                     f"{race['venue_name']} "
                     f"{race['race_no']}R"
                 )
+
+                # 結果そのものがない
+                if not result.get(
+                    "finish"
+                ):
+
+                    result_failed.append(
+                        label
+                    )
+
+                # 結果はあるが払戻なし
+                else:
+
+                    payout_failed.append(
+                        label
+                    )
 
     print(
         f"結果取得: "
@@ -4573,7 +4127,6 @@ def main():
                     "error": str(e),
                 }
 
-            # 既存オッズを保護
             if (
                 old_odds.get(
                     "available"
@@ -4613,6 +4166,15 @@ def main():
         f"{odds_count}/"
         f"{len(all_races)}"
     )
+
+    if odds_failed:
+
+        print(
+            "オッズ未取得: "
+            + ", ".join(
+                odds_failed
+            )
+        )
 
     # =====================================================
     # 買い目へオッズ情報
@@ -5035,20 +4597,17 @@ def main():
 
     print(
         f"結果取得: "
-        f"{result_count}/"
-        f"{len(all_races)}"
+        f"{result_count}"
     )
 
     print(
         f"払戻取得: "
-        f"{payout_count}/"
-        f"{len(all_races)}"
+        f"{payout_count}"
     )
 
     print(
         f"オッズ取得: "
-        f"{odds_count}/"
-        f"{len(all_races)}"
+        f"{odds_count}"
     )
 
     print(
@@ -5094,11 +4653,6 @@ def main():
     )
 
     print(
-        f"的中率: "
-        f"{summary['hit_rate']:.1f}%"
-    )
-
-    print(
         f"回収率: "
         f"{summary['roi']:.1f}%"
     )
@@ -5129,12 +4683,10 @@ def main():
         print(
             f"{rank}: "
             f"{s['races']}R / "
-            f"的中{s['hits']}R / "
-            f"的中率{s['hit_rate']:.1f}% / "
             f"投資¥{s['investment']:,} / "
             f"払戻¥{s['payout']:,} / "
             f"収支{s['profit']:+,}円 / "
-            f"回収率{s['roi']:.1f}%"
+            f"的中{s['hits']}"
         )
 
     print(
