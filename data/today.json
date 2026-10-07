@@ -1,53 +1,139 @@
 {
-  "version": "4.8",
-  "updated_at": "2026-10-07T08:24:50.311532",
+  "version": "5.0",
+  "updated_at": "2026-10-07T08:41:09.421350",
   "target_date": "2026-10-07",
   "venue_count": 7,
-  "race_count": 75,
+  "race_count": 72,
   "rider_count": 500,
   "correct_name_count": 500,
-  "prediction_race_count": 59,
-  "comment_count": 423,
+  "prediction_race_count": 58,
+  "comment_count": 416,
   "line_race_count": 59,
-  "development_count": 68,
-  "ai_race_count": 75,
+  "development_count": 67,
+  "ai_race_count": 72,
   "ai_rider_count": 500,
-  "failed_race_count": 5,
+  "failed_race_count": 2,
   "venues": [
     {
       "venue_code": "22",
       "venue_name": "前橋",
-      "race_count": 10
+      "race_count": 9,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
     },
     {
       "venue_code": "25",
       "venue_name": "大宮",
-      "race_count": 12
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "venue_code": "38",
       "venue_name": "静岡",
-      "race_count": 11
+      "race_count": 11,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
     },
     {
       "venue_code": "44",
       "venue_name": "大垣",
-      "race_count": 10
+      "race_count": 9,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
     },
     {
       "venue_code": "48",
       "venue_name": "四日市",
-      "race_count": 12
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "venue_code": "53",
       "venue_name": "奈良",
-      "race_count": 12
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "venue_code": "74",
       "venue_name": "高知",
-      "race_count": 8
+      "race_count": 7,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
     }
   ],
   "races": [
@@ -1236,10 +1322,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 3,
           "kimari_mark": 9,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 176.6
+          "comment": "平山君。",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 184.6
         },
         {
           "car_no": 2,
@@ -1258,10 +1344,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 5,
           "kimari_mark": 10,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 178.6
+          "comment": "前々。",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 183.6
         },
         {
           "car_no": 3,
@@ -1280,10 +1366,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 5,
           "kimari_mark": 10,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 260.5
+          "comment": "自力。",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 280.5
         },
         {
           "car_no": 4,
@@ -1302,10 +1388,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 3,
           "kimari_mark": 10,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 588.0
+          "comment": "鈴木君。",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 604.0
         },
         {
           "car_no": 5,
@@ -1324,7 +1410,7 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 10,
-          "comment": "",
+          "comment": "江連さん。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 860.8
@@ -1346,10 +1432,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 9,
-          "comment": "",
+          "comment": "南関３番手。",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 540.0
+          "ai_score": 542.0
         },
         {
           "car_no": 7,
@@ -1368,26 +1454,91 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 10,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 339.6
+          "comment": "自由自在。",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 340.6
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/maebashi/2026/1007_5.html",
+      "comments": {
+        "1": {
+          "name": "外崎 一成",
+          "mark": "▲",
+          "comment": "平山君。",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "江連 和洋",
+          "mark": "△",
+          "comment": "前々。",
+          "prediction_score": 5
+        },
+        "3": {
+          "name": "鈴木小次廊",
+          "mark": "◎",
+          "comment": "自力。",
+          "prediction_score": 18
+        },
+        "4": {
+          "name": "赤井 学",
+          "mark": "○",
+          "comment": "鈴木君。",
+          "prediction_score": 12
+        },
+        "5": {
+          "name": "齋藤 昌弘",
+          "mark": "",
+          "comment": "江連さん。",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "成清謙二郎",
+          "mark": "",
+          "comment": "南関３番手。",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "平山 優太",
+          "mark": "×",
+          "comment": "自由自在。",
+          "prediction_score": 1
+        }
+      },
+      "line": [
+        3,
+        4,
+        6,
+        2,
+        5,
+        7,
+        1
+      ],
+      "line_groups": [
+        [
+          3,
+          4,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          7,
+          1
+        ]
+      ],
+      "development": "同型不在となった鈴木が終始ペースを掴んで押し切る。番手は赤井で連独占に期待。外崎や江連の連対も妙味で。",
       "ai": {
         "main": 5,
         "opponent": 4,
         "dark_horse": 3,
         "eliminate": [
           3,
-          2,
-          1
+          1,
+          2
         ],
         "ranking": [
           {
@@ -1399,38 +1550,38 @@
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 588.0,
-            "mark": ""
+            "score": 604.0,
+            "mark": "○"
           },
           {
             "car_no": 6,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 540.0,
+            "score": 542.0,
             "mark": ""
           },
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 339.6,
-            "mark": ""
+            "score": 340.6,
+            "mark": "×"
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 260.5,
-            "mark": ""
-          },
-          {
-            "car_no": 2,
-            "name": "◎ ○ ▲ △ × 注",
-            "score": 178.6,
-            "mark": ""
+            "score": 280.5,
+            "mark": "◎"
           },
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 176.6,
-            "mark": ""
+            "score": 184.6,
+            "mark": "▲"
+          },
+          {
+            "car_no": 2,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 183.6,
+            "mark": "△"
           }
         ]
       }
@@ -1458,10 +1609,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 3,
           "kimari_mark": 10,
-          "comment": "自力。",
-          "prediction_mark": "◎",
-          "prediction_score": 18,
-          "ai_score": 200.6
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 180.6
         },
         {
           "car_no": 2,
@@ -1480,10 +1631,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 3,
           "kimari_mark": 10,
-          "comment": "小田君。",
-          "prediction_mark": "○",
-          "prediction_score": 12,
-          "ai_score": 191.6
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 175.6
         },
         {
           "car_no": 3,
@@ -1502,10 +1653,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 5,
           "kimari_mark": 9,
-          "comment": "自力自在。",
-          "prediction_mark": "▲",
-          "prediction_score": 8,
-          "ai_score": 582.6
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 574.6
         },
         {
           "car_no": 4,
@@ -1524,10 +1675,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 5,
           "kimari_mark": 9,
-          "comment": "前々。",
-          "prediction_mark": "△",
-          "prediction_score": 5,
-          "ai_score": 254.3
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 249.3
         },
         {
           "car_no": 5,
@@ -1546,10 +1697,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 9,
-          "comment": "北日本３番手。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 941.5
+          "ai_score": 939.5
         },
         {
           "car_no": 6,
@@ -1568,7 +1719,7 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 10,
-          "comment": "鈴木君。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 200.2
@@ -1590,122 +1741,51 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 10,
-          "comment": "田中君。",
-          "prediction_mark": "×",
-          "prediction_score": 1,
-          "ai_score": 722.7
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 721.7
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/maebashi/2026/1007_6.html",
-      "comments": {
-        "1": {
-          "name": "小田 恭介",
-          "mark": "◎",
-          "comment": "自力。",
-          "prediction_score": 18
-        },
-        "2": {
-          "name": "田原 大広",
-          "mark": "○",
-          "comment": "小田君。",
-          "prediction_score": 12
-        },
-        "3": {
-          "name": "田中 誇士",
-          "mark": "▲",
-          "comment": "自力自在。",
-          "prediction_score": 8
-        },
-        "4": {
-          "name": "鈴木 謙二",
-          "mark": "△",
-          "comment": "前々。",
-          "prediction_score": 5
-        },
-        "5": {
-          "name": "大崎 智久",
-          "mark": "",
-          "comment": "北日本３番手。",
-          "prediction_score": 0
-        },
-        "6": {
-          "name": "新井 剛央",
-          "mark": "",
-          "comment": "鈴木君。",
-          "prediction_score": 0
-        },
-        "7": {
-          "name": "深澤 伸介",
-          "mark": "×",
-          "comment": "田中君。",
-          "prediction_score": 1
-        }
-      },
-      "line": [
-        1,
-        2,
-        5,
-        4,
-        6,
-        3,
-        7
-      ],
-      "line_groups": [
-        [
-          1,
-          2,
-          5
-        ],
-        [
-          4,
-          6
-        ],
-        [
-          3,
-          7
-        ]
-      ],
-      "development": "先行力ある小田がペース配分を修正して押し切りへ。田原が援護から差し迫る。捲りシャープな田中が逆転候補。",
+      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
+      "comments": {},
+      "line": [],
+      "line_groups": [],
+      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
       "ai": {
         "main": 5,
         "opponent": 7,
-        "dark_horse": 1,
+        "dark_horse": 3,
         "eliminate": [
-          1,
           6,
+          1,
           2
         ],
         "ranking": [
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 941.5,
+            "score": 939.5,
             "mark": ""
           },
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 722.7,
-            "mark": "×"
+            "score": 721.7,
+            "mark": ""
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 582.6,
-            "mark": "▲"
+            "score": 574.6,
+            "mark": ""
           },
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 254.3,
-            "mark": "△"
-          },
-          {
-            "car_no": 1,
-            "name": "◎ ○ ▲ △ × 注",
-            "score": 200.6,
-            "mark": "◎"
+            "score": 249.3,
+            "mark": ""
           },
           {
             "car_no": 6,
@@ -1714,10 +1794,16 @@
             "mark": ""
           },
           {
+            "car_no": 1,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 180.6,
+            "mark": ""
+          },
+          {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 191.6,
-            "mark": "○"
+            "score": 175.6,
+            "mark": ""
           }
         ]
       }
@@ -2583,26 +2669,6 @@
             "mark": "▲"
           }
         ]
-      }
-    },
-    {
-      "venue_code": "22",
-      "venue_name": "前橋",
-      "race_no": 11,
-      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=22&kaisaiBi=20261007&raceNo=11",
-      "riders": [],
-      "success": false,
-      "prediction_url": "https://sp.oddspark.com/keiba/SpRaceList.do?joCd=33&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeibaRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "",
-      "ai": {
-        "main": null,
-        "opponent": null,
-        "dark_horse": null,
-        "eliminate": [],
-        "ranking": []
       }
     },
     {
@@ -3780,10 +3846,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 2,
           "kimari_mark": 13,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 198.8
+          "comment": "何かする。",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 218.8
         },
         {
           "car_no": 2,
@@ -3802,10 +3868,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 7,
           "kimari_mark": 16,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 251.5
+          "comment": "上遠野君。",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 252.5
         },
         {
           "car_no": 3,
@@ -3824,10 +3890,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 13,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 488.3
+          "comment": "自力自在。",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 496.3
         },
         {
           "car_no": 4,
@@ -3846,10 +3912,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 14,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 183.5
+          "comment": "古賀君。",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 199.5
         },
         {
           "car_no": 5,
@@ -3868,10 +3934,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 2,
           "kimari_mark": 14,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 591.6
+          "comment": "自力。",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 598.6
         },
         {
           "car_no": 6,
@@ -3890,7 +3956,7 @@
           "kimari_makuri": 6,
           "kimari_sashi": 3,
           "kimari_mark": 14,
-          "comment": "",
+          "comment": "久樹君。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 208.8
@@ -3912,24 +3978,89 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 14,
-          "comment": "",
+          "comment": "上遠野君の３番手",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 182.2
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/omiya/2026/1007_5.html",
+      "comments": {
+        "1": {
+          "name": "古賀 勝大",
+          "mark": "◎",
+          "comment": "何かする。",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "中井 達郎",
+          "mark": "×",
+          "comment": "上遠野君。",
+          "prediction_score": 1
+        },
+        "3": {
+          "name": "久樹 克門",
+          "mark": "▲",
+          "comment": "自力自在。",
+          "prediction_score": 8
+        },
+        "4": {
+          "name": "吉村 和之",
+          "mark": "○",
+          "comment": "古賀君。",
+          "prediction_score": 12
+        },
+        "5": {
+          "name": "上遠野拓馬",
+          "mark": "△",
+          "comment": "自力。",
+          "prediction_score": 5
+        },
+        "6": {
+          "name": "森岡 正臣",
+          "mark": "",
+          "comment": "久樹君。",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "落合 達彦",
+          "mark": "",
+          "comment": "上遠野君の３番手",
+          "prediction_score": 0
+        }
+      },
+      "line": [
+        1,
+        4,
+        5,
+        2,
+        7,
+        3,
+        6
+      ],
+      "line_groups": [
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          2,
+          7
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "development": "初日特選は豪快な捲りを放った古賀。今日も捲りで勝つ走り！ 久樹の一撃もあるし上遠野-中井も仕掛け次第だ",
       "ai": {
         "main": 5,
         "opponent": 3,
-        "dark_horse": 2,
+        "dark_horse": 1,
         "eliminate": [
-          1,
+          6,
           4,
           7
         ],
@@ -3937,20 +4068,26 @@
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 591.6,
-            "mark": ""
+            "score": 598.6,
+            "mark": "△"
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 488.3,
-            "mark": ""
+            "score": 496.3,
+            "mark": "▲"
           },
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 251.5,
-            "mark": ""
+            "score": 252.5,
+            "mark": "×"
+          },
+          {
+            "car_no": 1,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 218.8,
+            "mark": "◎"
           },
           {
             "car_no": 6,
@@ -3959,16 +4096,10 @@
             "mark": ""
           },
           {
-            "car_no": 1,
-            "name": "◎ ○ ▲ △ × 注",
-            "score": 198.8,
-            "mark": ""
-          },
-          {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 183.5,
-            "mark": ""
+            "score": 199.5,
+            "mark": "○"
           },
           {
             "car_no": 7,
@@ -4002,10 +4133,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 7,
-          "comment": "前々。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 104.6
+          "ai_score": 100.6
         },
         {
           "car_no": 2,
@@ -4024,10 +4155,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 5,
-          "comment": "自在。",
-          "prediction_mark": "×",
-          "prediction_score": 1,
-          "ai_score": 857.9
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 854.9
         },
         {
           "car_no": 3,
@@ -4046,10 +4177,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 1,
-          "comment": "自力。",
-          "prediction_mark": "◎",
-          "prediction_score": 18,
-          "ai_score": 217.7
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 197.7
         },
         {
           "car_no": 4,
@@ -4068,10 +4199,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 3,
-          "comment": "取れた位置から。",
-          "prediction_mark": "△",
-          "prediction_score": 5,
-          "ai_score": 176.9
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 171.9
         },
         {
           "car_no": 5,
@@ -4090,10 +4221,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 2,
-          "comment": "自力自在。",
-          "prediction_mark": "○",
-          "prediction_score": 12,
-          "ai_score": 168.9
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 156.9
         },
         {
           "car_no": 6,
@@ -4112,7 +4243,7 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 6,
-          "comment": "自在。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 234.2
@@ -4134,95 +4265,22 @@
           "kimari_makuri": 6,
           "kimari_sashi": 1,
           "kimari_mark": 4,
-          "comment": "自在。",
-          "prediction_mark": "▲",
-          "prediction_score": 8,
-          "ai_score": 265.8
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 257.8
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/omiya/2026/1007_6.html",
-      "comments": {
-        "1": {
-          "name": "藤原亜衣里",
-          "mark": "",
-          "comment": "前々。",
-          "prediction_score": 0
-        },
-        "2": {
-          "name": "赤池 七虹",
-          "mark": "×",
-          "comment": "自在。",
-          "prediction_score": 1
-        },
-        "3": {
-          "name": "柳原 真緒",
-          "mark": "◎",
-          "comment": "自力。",
-          "prediction_score": 18
-        },
-        "4": {
-          "name": "山本 知佳",
-          "mark": "△",
-          "comment": "取れた位置から。",
-          "prediction_score": 5
-        },
-        "5": {
-          "name": "永禮 美瑠",
-          "mark": "○",
-          "comment": "自力自在。",
-          "prediction_score": 12
-        },
-        "6": {
-          "name": "田野口佳奈",
-          "mark": "",
-          "comment": "自在。",
-          "prediction_score": 0
-        },
-        "7": {
-          "name": "中村由香里",
-          "mark": "▲",
-          "comment": "自在。",
-          "prediction_score": 8
-        }
-      },
-      "line": [
-        2,
-        1,
-        3,
-        4,
-        5,
-        7,
-        6
-      ],
-      "line_groups": [
-        [
-          2
-        ],
-        [
-          1
-        ],
-        [
-          3
-        ],
-        [
-          4
-        ],
-        [
-          5
-        ],
-        [
-          7
-        ],
-        [
-          6
-        ]
-      ],
-      "development": "今日も柳原がカマシ捲りで首位進出。タテ脚ある永禮が相手。ガールズ１期生である中村もまだまだ元気だ！",
+      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
+      "comments": {},
+      "line": [],
+      "line_groups": [],
+      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
       "ai": {
         "main": 2,
         "opponent": 7,
-        "dark_horse": 3,
+        "dark_horse": 6,
         "eliminate": [
           4,
           5,
@@ -4232,14 +4290,14 @@
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 857.9,
-            "mark": "×"
+            "score": 854.9,
+            "mark": ""
           },
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 265.8,
-            "mark": "▲"
+            "score": 257.8,
+            "mark": ""
           },
           {
             "car_no": 6,
@@ -4250,25 +4308,25 @@
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 217.7,
-            "mark": "◎"
+            "score": 197.7,
+            "mark": ""
           },
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 176.9,
-            "mark": "△"
+            "score": 171.9,
+            "mark": ""
           },
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 168.9,
-            "mark": "○"
+            "score": 156.9,
+            "mark": ""
           },
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 104.6,
+            "score": 100.6,
             "mark": ""
           }
         ]
@@ -7110,10 +7168,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 24,
           "kimari_mark": 1,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 231.9
+          "comment": "練習は十分に。自力。",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 251.9
         },
         {
           "car_no": 2,
@@ -7132,7 +7190,7 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 2,
-          "comment": "",
+          "comment": "小川君を目標。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 175.5
@@ -7154,10 +7212,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 20,
           "kimari_mark": 5,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 659.3
+          "comment": "肥後君へ。",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 660.3
         },
         {
           "car_no": 4,
@@ -7176,10 +7234,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 17,
           "kimari_mark": 2,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 165.2
+          "comment": "初連係の鈴木君へ。",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 181.2
         },
         {
           "car_no": 5,
@@ -7198,7 +7256,7 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 6,
-          "comment": "",
+          "comment": "自力。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 424.5
@@ -7220,10 +7278,10 @@
           "kimari_makuri": 8,
           "kimari_sashi": 16,
           "kimari_mark": 7,
-          "comment": "",
+          "comment": "南関の三番手で。",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 793.8
+          "ai_score": 795.8
         },
         {
           "car_no": 7,
@@ -7242,39 +7300,104 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 3,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 363.0
+          "comment": "自力自在に走る。",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 368.0
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1007_5.html",
+      "comments": {
+        "1": {
+          "name": "鈴木 那樹",
+          "mark": "◎",
+          "comment": "練習は十分に。自力。",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "沼川 夢久",
+          "mark": "",
+          "comment": "小川君を目標。",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "木本 賢二",
+          "mark": "×",
+          "comment": "肥後君へ。",
+          "prediction_score": 1
+        },
+        "4": {
+          "name": "安藤 宜明",
+          "mark": "○",
+          "comment": "初連係の鈴木君へ。",
+          "prediction_score": 12
+        },
+        "5": {
+          "name": "小川 辰徳",
+          "mark": "",
+          "comment": "自力。",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "吉澤 賢",
+          "mark": "",
+          "comment": "南関の三番手で。",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "肥後 公允",
+          "mark": "△",
+          "comment": "自力自在に走る。",
+          "prediction_score": 5
+        }
+      },
+      "line": [
+        1,
+        4,
+        6,
+        7,
+        3,
+        5,
+        2
+      ],
+      "line_groups": [
+        [
+          1,
+          4,
+          6
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "development": "(1)鈴木は在所時から果敢に先行。ここは前受けからの突っ張りを含めて強地脚を発揮。(4)安藤が食らい付くが、(7)肥後が追い上げ、自力と気合い良く前々へ。",
       "ai": {
         "main": 6,
         "opponent": 3,
-        "dark_horse": 5,
+        "dark_horse": 1,
         "eliminate": [
           1,
-          2,
-          4
+          4,
+          2
         ],
         "ranking": [
           {
             "car_no": 6,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 793.8,
+            "score": 795.8,
             "mark": ""
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 659.3,
-            "mark": ""
+            "score": 660.3,
+            "mark": "×"
           },
           {
             "car_no": 5,
@@ -7285,25 +7408,25 @@
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 363.0,
-            "mark": ""
+            "score": 368.0,
+            "mark": "△"
           },
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 231.9,
-            "mark": ""
+            "score": 251.9,
+            "mark": "◎"
+          },
+          {
+            "car_no": 4,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 181.2,
+            "mark": "○"
           },
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
             "score": 175.5,
-            "mark": ""
-          },
-          {
-            "car_no": 4,
-            "name": "◎ ○ ▲ △ × 注",
-            "score": 165.2,
             "mark": ""
           }
         ]
@@ -7332,10 +7455,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 6,
-          "comment": "前回は展開。中川君へ。",
-          "prediction_mark": "×",
-          "prediction_score": 1,
-          "ai_score": 785.5
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 780.5
         },
         {
           "car_no": 2,
@@ -7354,7 +7477,7 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 4,
-          "comment": "山本君を目標に。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 545.6
@@ -7376,10 +7499,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 10,
           "kimari_mark": 4,
-          "comment": "自力。",
-          "prediction_mark": "◎",
-          "prediction_score": 18,
-          "ai_score": 667.3
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 649.3
         },
         {
           "car_no": 4,
@@ -7398,7 +7521,7 @@
           "kimari_makuri": 9,
           "kimari_sashi": 17,
           "kimari_mark": 5,
-          "comment": "もう動いてない。南関の三番手。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 998.0
@@ -7420,10 +7543,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 24,
           "kimari_mark": 4,
-          "comment": "川田君にしっかり。",
-          "prediction_mark": "△",
-          "prediction_score": 5,
-          "ai_score": 406.9
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 401.9
         },
         {
           "car_no": 6,
@@ -7442,10 +7565,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 7,
-          "comment": "自力で。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 487.7
+          "ai_score": 485.7
         },
         {
           "car_no": 7,
@@ -7464,87 +7587,22 @@
           "kimari_makuri": 9,
           "kimari_sashi": 28,
           "kimari_mark": 1,
-          "comment": "自力。先行するか位置取ってから動くか。",
-          "prediction_mark": "○",
-          "prediction_score": 12,
-          "ai_score": 918.3
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 904.3
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1007_6.html",
-      "comments": {
-        "1": {
-          "name": "志水 祐彦",
-          "mark": "×",
-          "comment": "前回は展開。中川君へ。",
-          "prediction_score": 1
-        },
-        "2": {
-          "name": "植草 亮介",
-          "mark": "",
-          "comment": "山本君を目標に。",
-          "prediction_score": 0
-        },
-        "3": {
-          "name": "川田 真也",
-          "mark": "◎",
-          "comment": "自力。",
-          "prediction_score": 18
-        },
-        "4": {
-          "name": "亀井 久幸",
-          "mark": "",
-          "comment": "もう動いてない。南関の三番手。",
-          "prediction_score": 0
-        },
-        "5": {
-          "name": "須藤 直道",
-          "mark": "△",
-          "comment": "川田君にしっかり。",
-          "prediction_score": 5
-        },
-        "6": {
-          "name": "山本 和瑳",
-          "mark": "",
-          "comment": "自力で。",
-          "prediction_score": 0
-        },
-        "7": {
-          "name": "中川 繁樹",
-          "mark": "○",
-          "comment": "自力。先行するか位置取ってから動くか。",
-          "prediction_score": 12
-        }
-      },
-      "line": [
-        7,
-        1,
-        6,
-        2,
-        4,
-        3,
-        5
-      ],
-      "line_groups": [
-        [
-          7,
-          1
-        ],
-        [
-          6,
-          2,
-          4
-        ],
-        [
-          3,
-          5
-        ]
-      ],
-      "development": "二転、三転の叩き合い。バック数で上回る(3)川田が(5)須藤を連れて積極的に勝機掴む。(7)中川のパワーも互角、タイミング良くスパート決め(1)志水との一戦へ。",
+      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
+      "comments": {},
+      "line": [],
+      "line_groups": [],
+      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
       "ai": {
         "main": 4,
         "opponent": 7,
-        "dark_horse": 3,
+        "dark_horse": 1,
         "eliminate": [
           2,
           6,
@@ -7560,20 +7618,20 @@
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 918.3,
-            "mark": "○"
+            "score": 904.3,
+            "mark": ""
           },
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 785.5,
-            "mark": "×"
+            "score": 780.5,
+            "mark": ""
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 667.3,
-            "mark": "◎"
+            "score": 649.3,
+            "mark": ""
           },
           {
             "car_no": 2,
@@ -7584,14 +7642,14 @@
           {
             "car_no": 6,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 487.7,
+            "score": 485.7,
             "mark": ""
           },
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 406.9,
-            "mark": "△"
+            "score": 401.9,
+            "mark": ""
           }
         ]
       }
@@ -9955,10 +10013,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 7,
           "kimari_mark": 12,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 1016.5
+          "comment": "金田君がやる気だった。それでも捲れればいいんだけど。自力。",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 1036.5
         },
         {
           "car_no": 2,
@@ -9977,10 +10035,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 5,
           "kimari_mark": 11,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 885.5
+          "comment": "引地君に付きます。",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 901.5
         },
         {
           "car_no": 3,
@@ -9999,10 +10057,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 6,
           "kimari_mark": 12,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 774.4
+          "comment": "枠元君の番手。",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 779.4
         },
         {
           "car_no": 4,
@@ -10021,10 +10079,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 6,
           "kimari_mark": 12,
-          "comment": "",
+          "comment": "土屋さんの後ろ。",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 388.8
+          "ai_score": 390.8
         },
         {
           "car_no": 5,
@@ -10043,10 +10101,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 7,
           "kimari_mark": 16,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 303.6
+          "comment": "自力です。",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 304.6
         },
         {
           "car_no": 6,
@@ -10065,7 +10123,7 @@
           "kimari_makuri": 6,
           "kimari_sashi": 7,
           "kimari_mark": 11,
-          "comment": "",
+          "comment": "決めずにいく。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 768.8
@@ -10087,22 +10145,87 @@
           "kimari_makuri": 6,
           "kimari_sashi": 5,
           "kimari_mark": 12,
-          "comment": "",
+          "comment": "近畿の三番手。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 536.3
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1007_5.html",
+      "comments": {
+        "1": {
+          "name": "引地 正人",
+          "mark": "◎",
+          "comment": "金田君がやる気だった。それでも捲れればいいんだけど。自力。",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "土屋 宏",
+          "mark": "○",
+          "comment": "引地君に付きます。",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "吉川 悟",
+          "mark": "△",
+          "comment": "枠元君の番手。",
+          "prediction_score": 5
+        },
+        "4": {
+          "name": "山崎 悟",
+          "mark": "",
+          "comment": "土屋さんの後ろ。",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "枠元 一葵",
+          "mark": "×",
+          "comment": "自力です。",
+          "prediction_score": 1
+        },
+        "6": {
+          "name": "岩崎 大和",
+          "mark": "",
+          "comment": "決めずにいく。",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "西郷 剛",
+          "mark": "",
+          "comment": "近畿の三番手。",
+          "prediction_score": 0
+        }
+      },
+      "line": [
+        1,
+        2,
+        4,
+        5,
+        3,
+        7,
+        6
+      ],
+      "line_groups": [
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          5,
+          3,
+          7
+        ],
+        [
+          6
+        ]
+      ],
+      "development": "点数を下げている(1)引地は踏ん張り所。積極的な近畿勢を射程圏に首位を狙う。(2)土屋が番手を主張。(5)枠元の機動力も侮れない。(3)吉川が援護して押し切るか",
       "ai": {
         "main": 1,
         "opponent": 2,
-        "dark_horse": 6,
+        "dark_horse": 3,
         "eliminate": [
           7,
           4,
@@ -10112,20 +10235,20 @@
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 1016.5,
-            "mark": ""
+            "score": 1036.5,
+            "mark": "◎"
           },
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 885.5,
-            "mark": ""
+            "score": 901.5,
+            "mark": "○"
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 774.4,
-            "mark": ""
+            "score": 779.4,
+            "mark": "△"
           },
           {
             "car_no": 6,
@@ -10142,14 +10265,14 @@
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 388.8,
+            "score": 390.8,
             "mark": ""
           },
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 303.6,
-            "mark": ""
+            "score": 304.6,
+            "mark": "×"
           }
         ]
       }
@@ -10177,10 +10300,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 6,
           "kimari_mark": 12,
-          "comment": "出られたし内を空けてしまったし中途半端だった。自力です。",
-          "prediction_mark": "◎",
-          "prediction_score": 18,
-          "ai_score": 843.8
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 823.8
         },
         {
           "car_no": 2,
@@ -10199,10 +10322,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 11,
-          "comment": "阿久津君に付きます。",
-          "prediction_mark": "△",
-          "prediction_score": 5,
-          "ai_score": 676.3
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 671.3
         },
         {
           "car_no": 3,
@@ -10221,10 +10344,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 5,
           "kimari_mark": 11,
-          "comment": "地元だし勝ち上がりたかったんだけどね。秋末君の番手。",
-          "prediction_mark": "○",
-          "prediction_score": 12,
-          "ai_score": 450.7
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 434.7
         },
         {
           "car_no": 4,
@@ -10243,7 +10366,7 @@
           "kimari_makuri": 6,
           "kimari_sashi": 5,
           "kimari_mark": 12,
-          "comment": "梅原君の後ろ。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 171.4
@@ -10265,10 +10388,10 @@
           "kimari_makuri": 6,
           "kimari_sashi": 4,
           "kimari_mark": 11,
-          "comment": "中近の三番手。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 207.1
+          "ai_score": 205.1
         },
         {
           "car_no": 6,
@@ -10287,7 +10410,7 @@
           "kimari_makuri": 6,
           "kimari_sashi": 7,
           "kimari_mark": 12,
-          "comment": "決めずにやる。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 185.1
@@ -10309,87 +10432,22 @@
           "kimari_makuri": 6,
           "kimari_sashi": 6,
           "kimari_mark": 11,
-          "comment": "自力です。",
-          "prediction_mark": "×",
-          "prediction_score": 1,
-          "ai_score": 233.7
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 232.7
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1007_6.html",
-      "comments": {
-        "1": {
-          "name": "秋末 蓮",
-          "mark": "◎",
-          "comment": "出られたし内を空けてしまったし中途半端だった。自力です。",
-          "prediction_score": 18
-        },
-        "2": {
-          "name": "梅原 大治",
-          "mark": "△",
-          "comment": "阿久津君に付きます。",
-          "prediction_score": 5
-        },
-        "3": {
-          "name": "竹田 和幸",
-          "mark": "○",
-          "comment": "地元だし勝ち上がりたかったんだけどね。秋末君の番手。",
-          "prediction_score": 12
-        },
-        "4": {
-          "name": "佐藤 明",
-          "mark": "",
-          "comment": "梅原君の後ろ。",
-          "prediction_score": 0
-        },
-        "5": {
-          "name": "朝日 勇",
-          "mark": "",
-          "comment": "中近の三番手。",
-          "prediction_score": 0
-        },
-        "6": {
-          "name": "阿部 宏之",
-          "mark": "",
-          "comment": "決めずにやる。",
-          "prediction_score": 0
-        },
-        "7": {
-          "name": "阿久津浩之",
-          "mark": "×",
-          "comment": "自力です。",
-          "prediction_score": 1
-        }
-      },
-      "line": [
-        1,
-        3,
-        5,
-        7,
-        2,
-        4,
-        6
-      ],
-      "line_groups": [
-        [
-          1,
-          3,
-          5
-        ],
-        [
-          7,
-          2,
-          4
-        ],
-        [
-          6
-        ]
-      ],
-      "development": "勝ち上がりは逃した(1)秋末だが評価は変わらない。タイミング良く仕掛けて首位を狙う。地元(3)竹田が続いて中近独占。(7)阿久津が主導権を握れば(2)梅原が浮上",
+      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
+      "comments": {},
+      "line": [],
+      "line_groups": [],
+      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
       "ai": {
         "main": 1,
         "opponent": 2,
-        "dark_horse": 3,
+        "dark_horse": 6,
         "eliminate": [
           5,
           6,
@@ -10399,31 +10457,31 @@
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 843.8,
-            "mark": "◎"
+            "score": 823.8,
+            "mark": ""
           },
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 676.3,
-            "mark": "△"
+            "score": 671.3,
+            "mark": ""
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 450.7,
-            "mark": "○"
+            "score": 434.7,
+            "mark": ""
           },
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 233.7,
-            "mark": "×"
+            "score": 232.7,
+            "mark": ""
           },
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 207.1,
+            "score": 205.1,
             "mark": ""
           },
           {
@@ -11302,26 +11360,6 @@
             "mark": "◎"
           }
         ]
-      }
-    },
-    {
-      "venue_code": "44",
-      "venue_name": "大垣",
-      "race_no": 11,
-      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=44&kaisaiBi=20261007&raceNo=11",
-      "riders": [],
-      "success": false,
-      "prediction_url": "https://sp.oddspark.com/keiba/SpRaceList.do?joCd=33&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeibaRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "",
-      "ai": {
-        "main": null,
-        "opponent": null,
-        "dark_horse": null,
-        "eliminate": [],
-        "ranking": []
       }
     },
     {
@@ -12520,7 +12558,7 @@
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 205.6
+          "ai_score": 207.6
         },
         {
           "car_no": 3,
@@ -12564,7 +12602,7 @@
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 919.7
+          "ai_score": 921.7
         },
         {
           "car_no": 5,
@@ -12630,15 +12668,39 @@
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 255.6
+          "ai_score": 259.6
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1007_5.html",
       "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
+      "line": [
+        2,
+        7,
+        4,
+        1,
+        3,
+        5,
+        6
+      ],
+      "line_groups": [
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "development": "",
       "ai": {
         "main": 4,
         "opponent": 3,
@@ -12652,7 +12714,7 @@
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 919.7,
+            "score": 921.7,
             "mark": ""
           },
           {
@@ -12664,7 +12726,7 @@
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 255.6,
+            "score": 259.6,
             "mark": ""
           },
           {
@@ -12682,7 +12744,7 @@
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 205.6,
+            "score": 207.6,
             "mark": ""
           },
           {
@@ -12717,10 +12779,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 22,
           "kimari_mark": 4,
-          "comment": "話して四国勢へ。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 304.5
+          "ai_score": 302.5
         },
         {
           "car_no": 2,
@@ -12739,10 +12801,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 19,
           "kimari_mark": 3,
-          "comment": "自力でいく。",
-          "prediction_mark": "◎",
-          "prediction_score": 18,
-          "ai_score": 354.4
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 336.4
         },
         {
           "car_no": 3,
@@ -12761,10 +12823,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 27,
           "kimari_mark": 5,
-          "comment": "小川君の番手。",
-          "prediction_mark": "△",
-          "prediction_score": 5,
-          "ai_score": 265.9
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 256.9
         },
         {
           "car_no": 4,
@@ -12783,7 +12845,7 @@
           "kimari_makuri": 9,
           "kimari_sashi": 23,
           "kimari_mark": 3,
-          "comment": "南関の三番手。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 772.9
@@ -12805,10 +12867,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 13,
           "kimari_mark": 7,
-          "comment": "自力でいく。",
-          "prediction_mark": "×",
-          "prediction_score": 1,
-          "ai_score": 757.8
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 754.8
         },
         {
           "car_no": 6,
@@ -12827,7 +12889,7 @@
           "kimari_makuri": 10,
           "kimari_sashi": 1,
           "kimari_mark": 6,
-          "comment": "決めずに。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 245.5
@@ -12849,87 +12911,22 @@
           "kimari_makuri": 9,
           "kimari_sashi": 15,
           "kimari_mark": 6,
-          "comment": "堀内君の番手。",
-          "prediction_mark": "○",
-          "prediction_score": 12,
-          "ai_score": 297.4
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 285.4
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1007_6.html",
-      "comments": {
-        "1": {
-          "name": "山口 泰生",
-          "mark": "",
-          "comment": "話して四国勢へ。",
-          "prediction_score": 0
-        },
-        "2": {
-          "name": "堀内 俊介",
-          "mark": "◎",
-          "comment": "自力でいく。",
-          "prediction_score": 18
-        },
-        "3": {
-          "name": "原 誠宏",
-          "mark": "△",
-          "comment": "小川君の番手。",
-          "prediction_score": 5
-        },
-        "4": {
-          "name": "土屋 裕二",
-          "mark": "",
-          "comment": "南関の三番手。",
-          "prediction_score": 0
-        },
-        "5": {
-          "name": "小川三士郎",
-          "mark": "×",
-          "comment": "自力でいく。",
-          "prediction_score": 1
-        },
-        "6": {
-          "name": "高橋 成英",
-          "mark": "",
-          "comment": "決めずに。",
-          "prediction_score": 0
-        },
-        "7": {
-          "name": "成清 貴之",
-          "mark": "○",
-          "comment": "堀内君の番手。",
-          "prediction_score": 12
-        }
-      },
-      "line": [
-        5,
-        3,
-        1,
-        2,
-        7,
-        4,
-        6
-      ],
-      "line_groups": [
-        [
-          5,
-          3,
-          1
-        ],
-        [
-          2,
-          7,
-          4
-        ],
-        [
-          6
-        ]
-      ],
-      "development": "初心者にもオススメ！AI予想 的中率重視 回収率重視 大穴的中重視",
+      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
+      "comments": {},
+      "line": [],
+      "line_groups": [],
+      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
       "ai": {
         "main": 4,
         "opponent": 5,
-        "dark_horse": 2,
+        "dark_horse": 3,
         "eliminate": [
           7,
           3,
@@ -12945,32 +12942,32 @@
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 757.8,
-            "mark": "×"
+            "score": 754.8,
+            "mark": ""
           },
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 354.4,
-            "mark": "◎"
+            "score": 336.4,
+            "mark": ""
           },
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 304.5,
+            "score": 302.5,
             "mark": ""
           },
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 297.4,
-            "mark": "○"
+            "score": 285.4,
+            "mark": ""
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 265.9,
-            "mark": "△"
+            "score": 256.9,
+            "mark": ""
           },
           {
             "car_no": 6,
@@ -15821,10 +15818,10 @@
           "kimari_makuri": 5,
           "kimari_sashi": 4,
           "kimari_mark": 9,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 665.9
+          "comment": "中村さんへ。",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 681.9
         },
         {
           "car_no": 2,
@@ -15843,10 +15840,10 @@
           "kimari_makuri": 5,
           "kimari_sashi": 3,
           "kimari_mark": 9,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 263.3
+          "comment": "自力、自在に。",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 264.3
         },
         {
           "car_no": 3,
@@ -15865,10 +15862,10 @@
           "kimari_makuri": 5,
           "kimari_sashi": 4,
           "kimari_mark": 9,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 327.4
+          "comment": "自力、自在に。",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 335.4
         },
         {
           "car_no": 4,
@@ -15887,10 +15884,10 @@
           "kimari_makuri": 5,
           "kimari_sashi": 7,
           "kimari_mark": 10,
-          "comment": "",
+          "comment": "単騎で流れ見て。",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 752.1
+          "ai_score": 754.1
         },
         {
           "car_no": 5,
@@ -15909,7 +15906,7 @@
           "kimari_makuri": 5,
           "kimari_sashi": 7,
           "kimari_mark": 9,
-          "comment": "",
+          "comment": "不破君へ。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 433.1
@@ -15931,7 +15928,7 @@
           "kimari_makuri": 5,
           "kimari_sashi": 7,
           "kimari_mark": 9,
-          "comment": "",
+          "comment": "山本君へ。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 191.0
@@ -15953,22 +15950,89 @@
           "kimari_makuri": 5,
           "kimari_sashi": 6,
           "kimari_mark": 9,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 264.5
+          "comment": "自力。",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 284.5
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1007_5.html",
+      "comments": {
+        "1": {
+          "name": "内山 貴裕",
+          "mark": "○",
+          "comment": "中村さんへ。",
+          "prediction_score": 12
+        },
+        "2": {
+          "name": "不破 将登",
+          "mark": "×",
+          "comment": "自力、自在に。",
+          "prediction_score": 1
+        },
+        "3": {
+          "name": "山本 直",
+          "mark": "▲",
+          "comment": "自力、自在に。",
+          "prediction_score": 8
+        },
+        "4": {
+          "name": "齋藤登志信",
+          "mark": "",
+          "comment": "単騎で流れ見て。",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "宝満 大作",
+          "mark": "",
+          "comment": "不破君へ。",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "加倉 正義",
+          "mark": "",
+          "comment": "山本君へ。",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "中村 一将",
+          "mark": "◎",
+          "comment": "自力。",
+          "prediction_score": 18
+        }
+      },
+      "line": [
+        7,
+        1,
+        4,
+        3,
+        6,
+        2,
+        5
+      ],
+      "line_groups": [
+        [
+          7,
+          1
+        ],
+        [
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "development": "初心者にもオススメ！AI予想 的中率重視 回収率重視 大穴的中重視",
       "ai": {
         "main": 4,
         "opponent": 1,
-        "dark_horse": 5,
+        "dark_horse": 7,
         "eliminate": [
           7,
           2,
@@ -15978,14 +16042,14 @@
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 752.1,
+            "score": 754.1,
             "mark": ""
           },
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 665.9,
-            "mark": ""
+            "score": 681.9,
+            "mark": "○"
           },
           {
             "car_no": 5,
@@ -15996,20 +16060,20 @@
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 327.4,
-            "mark": ""
+            "score": 335.4,
+            "mark": "▲"
           },
           {
             "car_no": 7,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 264.5,
-            "mark": ""
+            "score": 284.5,
+            "mark": "◎"
           },
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 263.3,
-            "mark": ""
+            "score": 264.3,
+            "mark": "×"
           },
           {
             "car_no": 6,
@@ -16043,10 +16107,10 @@
           "kimari_makuri": 5,
           "kimari_sashi": 3,
           "kimari_mark": 9,
-          "comment": "坂田康君へ。",
-          "prediction_mark": "○",
-          "prediction_score": 12,
-          "ai_score": 306.9
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 290.9
         },
         {
           "car_no": 2,
@@ -16065,10 +16129,10 @@
           "kimari_makuri": 5,
           "kimari_sashi": 6,
           "kimari_mark": 9,
-          "comment": "自力、自在に。",
-          "prediction_mark": "▲",
-          "prediction_score": 8,
-          "ai_score": 688.7
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 680.7
         },
         {
           "car_no": 3,
@@ -16087,10 +16151,10 @@
           "kimari_makuri": 5,
           "kimari_sashi": 5,
           "kimari_mark": 9,
-          "comment": "坂田康君ジカ。",
-          "prediction_mark": "×",
-          "prediction_score": 1,
-          "ai_score": 674.2
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 671.2
         },
         {
           "car_no": 4,
@@ -16109,10 +16173,10 @@
           "kimari_makuri": 5,
           "kimari_sashi": 6,
           "kimari_mark": 9,
-          "comment": "自力。",
-          "prediction_mark": "◎",
-          "prediction_score": 18,
-          "ai_score": 251.5
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 231.5
         },
         {
           "car_no": 5,
@@ -16131,7 +16195,7 @@
           "kimari_makuri": 5,
           "kimari_sashi": 4,
           "kimari_mark": 9,
-          "comment": "塩崎君へ。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 750.5
@@ -16153,7 +16217,7 @@
           "kimari_makuri": 5,
           "kimari_sashi": 3,
           "kimari_mark": 9,
-          "comment": "九州勢から。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 579.4
@@ -16175,91 +16239,22 @@
           "kimari_makuri": 5,
           "kimari_sashi": 6,
           "kimari_mark": 9,
-          "comment": "単騎で。",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 550.9
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1007_6.html",
-      "comments": {
-        "1": {
-          "name": "菅原 晃",
-          "mark": "○",
-          "comment": "坂田康君へ。",
-          "prediction_score": 12
-        },
-        "2": {
-          "name": "塩崎 隼秀",
-          "mark": "▲",
-          "comment": "自力、自在に。",
-          "prediction_score": 8
-        },
-        "3": {
-          "name": "伊藤慶太郎",
-          "mark": "×",
-          "comment": "坂田康君ジカ。",
-          "prediction_score": 1
-        },
-        "4": {
-          "name": "坂田 康季",
-          "mark": "◎",
-          "comment": "自力。",
-          "prediction_score": 18
-        },
-        "5": {
-          "name": "坂田 章",
-          "mark": "",
-          "comment": "塩崎君へ。",
-          "prediction_score": 0
-        },
-        "6": {
-          "name": "谷田 泰平",
-          "mark": "",
-          "comment": "九州勢から。",
-          "prediction_score": 0
-        },
-        "7": {
-          "name": "望月 永悟",
-          "mark": "",
-          "comment": "単騎で。",
-          "prediction_score": 0
-        }
-      },
-      "line": [
-        4,
-        1,
-        3,
-        6,
-        2,
-        5,
-        7
-      ],
-      "line_groups": [
-        [
-          4
-        ],
-        [
-          1,
-          3
-        ],
-        [
-          6
-        ],
-        [
-          2,
-          5
-        ],
-        [
-          7
-        ]
-      ],
-      "development": "初心者にもオススメ！AI予想 的中率重視 回収率重視 大穴的中重視",
+      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
+      "comments": {},
+      "line": [],
+      "line_groups": [],
+      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
       "ai": {
         "main": 5,
         "opponent": 2,
-        "dark_horse": 1,
+        "dark_horse": 7,
         "eliminate": [
           7,
           1,
@@ -16275,14 +16270,14 @@
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 688.7,
-            "mark": "▲"
+            "score": 680.7,
+            "mark": ""
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 674.2,
-            "mark": "×"
+            "score": 671.2,
+            "mark": ""
           },
           {
             "car_no": 6,
@@ -16299,14 +16294,14 @@
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 306.9,
-            "mark": "○"
+            "score": 290.9,
+            "mark": ""
           },
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 251.5,
-            "mark": "◎"
+            "score": 231.5,
+            "mark": ""
           }
         ]
       }
@@ -19139,10 +19134,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 28,
           "kimari_mark": 3,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 912.9
+          "comment": "自力",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 917.9
         },
         {
           "car_no": 2,
@@ -19161,7 +19156,7 @@
           "kimari_makuri": 9,
           "kimari_sashi": 19,
           "kimari_mark": 6,
-          "comment": "",
+          "comment": "一人で",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 278.6
@@ -19183,10 +19178,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 21,
           "kimari_mark": 1,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 980.8
+          "comment": "自力",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 1000.8
         },
         {
           "car_no": 4,
@@ -19205,10 +19200,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 2,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 550.3
+          "comment": "中野君へ",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 566.3
         },
         {
           "car_no": 5,
@@ -19227,10 +19222,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 7,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 1038.2
+          "comment": "岡崎君へ",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 1046.2
         },
         {
           "car_no": 6,
@@ -19249,10 +19244,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 7,
-          "comment": "",
+          "comment": "東の３番手",
           "prediction_mark": "",
           "prediction_score": 0,
-          "ai_score": 509.6
+          "ai_score": 511.6
         },
         {
           "car_no": 7,
@@ -19271,24 +19266,91 @@
           "kimari_makuri": 9,
           "kimari_sashi": 24,
           "kimari_mark": 5,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 554.8
+          "comment": "一人で",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 555.8
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/kochi/2026/1007_5.html",
+      "comments": {
+        "1": {
+          "name": "岡崎 克政",
+          "mark": "△",
+          "comment": "自力",
+          "prediction_score": 5
+        },
+        "2": {
+          "name": "東 隆之",
+          "mark": "",
+          "comment": "一人で",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "中野 楚樂",
+          "mark": "◎",
+          "comment": "自力",
+          "prediction_score": 18
+        },
+        "4": {
+          "name": "佐藤 和典",
+          "mark": "○",
+          "comment": "中野君へ",
+          "prediction_score": 12
+        },
+        "5": {
+          "name": "高嶋 一朗",
+          "mark": "▲",
+          "comment": "岡崎君へ",
+          "prediction_score": 8
+        },
+        "6": {
+          "name": "小林 宏年",
+          "mark": "",
+          "comment": "東の３番手",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "松田 直也",
+          "mark": "×",
+          "comment": "一人で",
+          "prediction_score": 1
+        }
+      },
+      "line": [
+        3,
+        4,
+        6,
+        1,
+        5,
+        7,
+        2
+      ],
+      "line_groups": [
+        [
+          3,
+          4,
+          6
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          7
+        ],
+        [
+          2
+        ]
+      ],
+      "development": "５場所連続Ｖと勢いある中野に佐藤が巧追。岡崎利す高嶋の台頭や松田の出方に警戒いる。",
       "ai": {
         "main": 5,
         "opponent": 3,
         "dark_horse": 4,
         "eliminate": [
-          4,
+          7,
           6,
           2
         ],
@@ -19296,37 +19358,37 @@
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 1038.2,
-            "mark": ""
+            "score": 1046.2,
+            "mark": "▲"
           },
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 980.8,
-            "mark": ""
+            "score": 1000.8,
+            "mark": "◎"
           },
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 912.9,
-            "mark": ""
-          },
-          {
-            "car_no": 7,
-            "name": "◎ ○ ▲ △ × 注",
-            "score": 554.8,
-            "mark": ""
+            "score": 917.9,
+            "mark": "△"
           },
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 550.3,
-            "mark": ""
+            "score": 566.3,
+            "mark": "○"
+          },
+          {
+            "car_no": 7,
+            "name": "◎ ○ ▲ △ × 注",
+            "score": 555.8,
+            "mark": "×"
           },
           {
             "car_no": 6,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 509.6,
+            "score": 511.6,
             "mark": ""
           },
           {
@@ -19361,10 +19423,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 22,
           "kimari_mark": 3,
-          "comment": "沢田君のハコ勝負",
-          "prediction_mark": "×",
-          "prediction_score": 1,
-          "ai_score": 997.5
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 994.5
         },
         {
           "car_no": 2,
@@ -19383,10 +19445,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 24,
           "kimari_mark": 1,
-          "comment": "自力",
-          "prediction_mark": "◎",
-          "prediction_score": 18,
-          "ai_score": 507.7
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 487.7
         },
         {
           "car_no": 3,
@@ -19405,10 +19467,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 24,
           "kimari_mark": 3,
-          "comment": "牧田君へ",
-          "prediction_mark": "△",
-          "prediction_score": 5,
-          "ai_score": 168.1
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 163.1
         },
         {
           "car_no": 4,
@@ -19427,10 +19489,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 17,
           "kimari_mark": 2,
-          "comment": "自力",
-          "prediction_mark": "▲",
-          "prediction_score": 8,
-          "ai_score": 1020.8
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 1012.8
         },
         {
           "car_no": 5,
@@ -19449,10 +19511,10 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 2,
-          "comment": "沢田君へ",
-          "prediction_mark": "○",
-          "prediction_score": 12,
-          "ai_score": 592.2
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 576.2
         },
         {
           "car_no": 6,
@@ -19471,7 +19533,7 @@
           "kimari_makuri": 9,
           "kimari_sashi": 28,
           "kimari_mark": 7,
-          "comment": "自分で",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 998.5
@@ -19493,91 +19555,22 @@
           "kimari_makuri": 9,
           "kimari_sashi": 30,
           "kimari_mark": 6,
-          "comment": "九州３番手",
+          "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 172.6
         }
       ],
       "success": true,
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/kochi/2026/1007_6.html",
-      "comments": {
-        "1": {
-          "name": "吉田 英二",
-          "mark": "×",
-          "comment": "沢田君のハコ勝負",
-          "prediction_score": 1
-        },
-        "2": {
-          "name": "沢田桂太郎",
-          "mark": "◎",
-          "comment": "自力",
-          "prediction_score": 18
-        },
-        "3": {
-          "name": "真船 拓磨",
-          "mark": "△",
-          "comment": "牧田君へ",
-          "prediction_score": 5
-        },
-        "4": {
-          "name": "牧田 賢也",
-          "mark": "▲",
-          "comment": "自力",
-          "prediction_score": 8
-        },
-        "5": {
-          "name": "瀬口 匠",
-          "mark": "○",
-          "comment": "沢田君へ",
-          "prediction_score": 12
-        },
-        "6": {
-          "name": "鈴木雄一朗",
-          "mark": "",
-          "comment": "自分で",
-          "prediction_score": 0
-        },
-        "7": {
-          "name": "瓦田 勝也",
-          "mark": "",
-          "comment": "九州３番手",
-          "prediction_score": 0
-        }
-      },
-      "line": [
-        2,
-        5,
-        1,
-        7,
-        6,
-        4,
-        3
-      ],
-      "line_groups": [
-        [
-          2
-        ],
-        [
-          5,
-          1
-        ],
-        [
-          7
-        ],
-        [
-          6
-        ],
-        [
-          4,
-          3
-        ]
-      ],
-      "development": "本格デビュー後Ｖ７の沢田に瀬口がマークも吉田がジカ勝負へ。牧田ー真船で好機に一撃。",
+      "prediction_url": "https://sp.oddspark.com/keirin/SpRaceList.do?joCd=48&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeirinRaceList",
+      "comments": {},
+      "line": [],
+      "line_groups": [],
+      "development": "このブラウザはvideoタグをサポートしていません。 このブラウザはframeタグをサポートしていません。 開催場選択 前橋 大宮 静岡 大垣 四日市 奈良 高知 とじる",
       "ai": {
         "main": 4,
         "opponent": 6,
-        "dark_horse": 2,
+        "dark_horse": 5,
         "eliminate": [
           2,
           7,
@@ -19587,8 +19580,8 @@
           {
             "car_no": 4,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 1020.8,
-            "mark": "▲"
+            "score": 1012.8,
+            "mark": ""
           },
           {
             "car_no": 6,
@@ -19599,20 +19592,20 @@
           {
             "car_no": 1,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 997.5,
-            "mark": "×"
+            "score": 994.5,
+            "mark": ""
           },
           {
             "car_no": 5,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 592.2,
-            "mark": "○"
+            "score": 576.2,
+            "mark": ""
           },
           {
             "car_no": 2,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 507.7,
-            "mark": "◎"
+            "score": 487.7,
+            "mark": ""
           },
           {
             "car_no": 7,
@@ -19623,8 +19616,8 @@
           {
             "car_no": 3,
             "name": "◎ ○ ▲ △ × 注",
-            "score": 168.1,
-            "mark": "△"
+            "score": 163.1,
+            "mark": ""
           }
         ]
       }
@@ -19916,26 +19909,6 @@
             "mark": "▲"
           }
         ]
-      }
-    },
-    {
-      "venue_code": "74",
-      "venue_name": "高知",
-      "race_no": 11,
-      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=74&kaisaiBi=20261007&raceNo=11",
-      "riders": [],
-      "success": false,
-      "prediction_url": "https://sp.oddspark.com/keiba/SpRaceList.do?joCd=33&kaisaiBi=20261007&gamenId=&gamenKoumokuId=timelineKeibaRaceList",
-      "comments": {},
-      "line": [],
-      "line_groups": [],
-      "development": "",
-      "ai": {
-        "main": null,
-        "opponent": null,
-        "dark_horse": null,
-        "eliminate": [],
-        "ranking": []
       }
     }
   ]
