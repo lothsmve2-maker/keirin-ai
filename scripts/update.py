@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 """
-KEIRIN AI DATA UPDATE v4.4
+KEIRIN AI DATA UPDATE v4.5
 
 ・開催場自動取得
 ・全レース取得
 ・全選手データ取得
-・レース別予想ページ取得
+・OddsPark予想ページから実際のレース別URLを自動検出
 ・選手コメント取得
 ・予想の並び取得
 ・展開コメント取得
@@ -15,6 +15,7 @@ KEIRIN AI DATA UPDATE v4.4
 """
 
 import json
+import os
 import re
 import time
 from datetime import datetime
@@ -88,8 +89,10 @@ def get_html(url, timeout=REQUEST_TIMEOUT):
 
             r.raise_for_status()
 
-            # OddsParkはページによってcharset指定が弱いので補正
-            if not r.encoding or r.encoding.lower() in ("iso-8859-1", "ascii"):
+            if (
+                not r.encoding
+                or r.encoding.lower() in ("iso-8859-1", "ascii")
+            ):
                 r.encoding = r.apparent_encoding or "utf-8"
 
             return r.text
@@ -100,6 +103,7 @@ def get_html(url, timeout=REQUEST_TIMEOUT):
 
     print(f"    GET失敗: {url}")
     print(f"    {last_error}")
+
     return ""
 
 
@@ -118,11 +122,9 @@ def japanese_name(text):
     if not text:
         return False
 
-    # 日本語名らしい文字を含むか
     if not re.search(r"[一-龯ぁ-んァ-ヶ]", text):
         return False
 
-    # 明らかな不要文字を除外
     bad = [
         "選手名",
         "競走得点",
@@ -143,6 +145,7 @@ def japanese_name(text):
 # ============================================================
 
 def get_venues():
+
     url = (
         f"{BASE_URL}/keirin/RaceListInfo.do"
         f"?kaisaiBi={TODAY}"
@@ -158,6 +161,7 @@ def get_venues():
     venues = {}
 
     for a in soup.find_all("a", href=True):
+
         href = a.get("href", "")
 
         m = re.search(
@@ -174,11 +178,9 @@ def get_venues():
         if code not in VENUE_CODE_TO_NAME:
             continue
 
-        name = VENUE_CODE_TO_NAME[code]
-
         venues[code] = {
             "code": code,
-            "name": name,
+            "name": VENUE_CODE_TO_NAME[code],
         }
 
     return venues
@@ -189,6 +191,7 @@ def get_venues():
 # ============================================================
 
 def get_race_numbers(venue_code):
+
     url = (
         f"{BASE_URL}/keirin/AllRaceList.do"
         f"?joCode={venue_code}"
@@ -205,6 +208,7 @@ def get_race_numbers(venue_code):
     races = set()
 
     for a in soup.find_all("a", href=True):
+
         href = a.get("href", "")
 
         if "RaceList.do" not in href:
@@ -217,16 +221,21 @@ def get_race_numbers(venue_code):
         )
 
         if m:
+
             race_no = int(m.group(1))
 
             if 1 <= race_no <= 12:
                 races.add(race_no)
 
-    # 念のためページ本文からも取得
     if not races:
+
         text = soup.get_text(" ", strip=True)
 
-        for m in re.finditer(r"(\d{1,2})R", text):
+        for m in re.finditer(
+            r"(\d{1,2})R",
+            text,
+        ):
+
             race_no = int(m.group(1))
 
             if 1 <= race_no <= 12:
@@ -236,10 +245,11 @@ def get_race_numbers(venue_code):
 
 
 # ============================================================
-# 選手データ取得
+# 選手データ
 # ============================================================
 
 def parse_finish(text):
+
     m = re.search(
         r"着\s*順[:：]?\s*"
         r"(\d+)\s*[-－]\s*"
@@ -250,6 +260,7 @@ def parse_finish(text):
     )
 
     if not m:
+
         return {
             "1": 0,
             "2": 0,
@@ -266,6 +277,7 @@ def parse_finish(text):
 
 
 def parse_kimari(text):
+
     m = re.search(
         r"決まり手[:：]?\s*"
         r"(\d+)\s*[-－]\s*"
@@ -276,6 +288,7 @@ def parse_kimari(text):
     )
 
     if not m:
+
         return {
             "nige": 0,
             "maki": 0,
@@ -292,13 +305,16 @@ def parse_kimari(text):
 
 
 def parse_rider_row(row):
+
     cells = row.find_all(["td", "th"])
 
     if not cells:
         return None
 
     cell_texts = [
-        clean_text(c.get_text(" ", strip=True))
+        clean_text(
+            c.get_text(" ", strip=True)
+        )
         for c in cells
     ]
 
@@ -313,14 +329,22 @@ def parse_rider_row(row):
     car_no = None
 
     for text in cell_texts[:4]:
-        m = re.fullmatch(r"([1-9])", text)
+
+        m = re.fullmatch(
+            r"([1-9])",
+            text,
+        )
 
         if m:
             car_no = int(m.group(1))
             break
 
     if car_no is None:
-        m = re.search(r"^\s*([1-9])\s+", row_text)
+
+        m = re.search(
+            r"^\s*([1-9])\s+",
+            row_text,
+        )
 
         if m:
             car_no = int(m.group(1))
@@ -334,18 +358,23 @@ def parse_rider_row(row):
 
     name = ""
 
-    # まずリンク
     for a in row.find_all("a"):
-        t = clean_text(a.get_text(" ", strip=True))
 
-        if japanese_name(t) and len(t) <= 20:
-            name = t
+        text = clean_text(
+            a.get_text(" ", strip=True)
+        )
+
+        if japanese_name(text) and len(text) <= 20:
+
+            name = text
             break
 
-    # リンクで取れなければセルから探す
     if not name:
+
         for text in cell_texts:
+
             if japanese_name(text) and len(text) <= 20:
+
                 name = text
                 break
 
@@ -365,6 +394,7 @@ def parse_rider_row(row):
     )
 
     if m:
+
         age = int(m.group(1))
         period = int(m.group(2))
 
@@ -390,7 +420,15 @@ def parse_rider_row(row):
     style = ""
 
     for text in cell_texts:
-        if text in ("逃", "捲", "差", "追", "両"):
+
+        if text in (
+            "逃",
+            "捲",
+            "差",
+            "追",
+            "両",
+        ):
+
             style = text
             break
 
@@ -406,31 +444,26 @@ def parse_rider_row(row):
     )
 
     if m:
+
         score = float(m.group(1))
 
     else:
-        # セル単位のフォールバック
+
         for text in cell_texts:
-            m2 = re.fullmatch(r"\d{2,3}(?:\.\d+)?", text)
+
+            m2 = re.fullmatch(
+                r"\d{2,3}(?:\.\d+)?",
+                text,
+            )
 
             if m2:
+
                 value = float(text)
 
                 if 70 <= value <= 130:
+
                     score = value
                     break
-
-    # --------------------------------------------------------
-    # 成績
-    # --------------------------------------------------------
-
-    finish = parse_finish(row_text)
-
-    # --------------------------------------------------------
-    # 決まり手
-    # --------------------------------------------------------
-
-    kimari = parse_kimari(row_text)
 
     return {
         "car_no": car_no,
@@ -441,8 +474,8 @@ def parse_rider_row(row):
         "grade": grade,
         "style": style,
         "score": score,
-        "finish": finish,
-        "kimari": kimari,
+        "finish": parse_finish(row_text),
+        "kimari": parse_kimari(row_text),
         "recent_results": [],
         "comment": "",
         "line": [],
@@ -455,15 +488,16 @@ def parse_rider_row(row):
 
 
 def extract_riders(html):
-    soup = BeautifulSoup(html, "html.parser")
+
+    soup = BeautifulSoup(
+        html,
+        "html.parser",
+    )
 
     riders = {}
 
-    # --------------------------------------------------------
-    # まずtr単位で探す
-    # --------------------------------------------------------
-
     for row in soup.find_all("tr"):
+
         rider = parse_rider_row(row)
 
         if not rider:
@@ -473,10 +507,6 @@ def extract_riders(html):
 
         if car_no not in riders:
             riders[car_no] = rider
-
-    # --------------------------------------------------------
-    # table単位のフォールバック
-    # --------------------------------------------------------
 
     if len(riders) < 5:
 
@@ -500,7 +530,11 @@ def extract_riders(html):
     ]
 
 
-def get_race_data(venue_code, race_no):
+def get_race_data(
+    venue_code,
+    race_no,
+):
+
     url = (
         f"{BASE_URL}/keirin/RaceList.do"
         f"?joCode={venue_code}"
@@ -527,23 +561,178 @@ def get_race_data(venue_code, race_no):
 
 
 # ============================================================
-# 予想ページURL
+# 予想ページ入口
 # ============================================================
 
-def get_prediction_url(venue_name, race_no):
-    slug = VENUE_NAME_TO_SLUG.get(venue_name)
+def get_prediction_index_url(venue_name):
+
+    slug = VENUE_NAME_TO_SLUG.get(
+        venue_name
+    )
 
     if not slug:
         return None
 
     mmdd = TODAY[4:]
 
-    # OddsPark SPのレース別ページ
     return (
         f"{SP_BASE_URL}/keirin/yosou/"
         f"{slug}/{TODAY[:4]}/"
-        f"{mmdd}_{race_no}.html"
+        f"{mmdd}.html"
     )
+
+
+# ============================================================
+# 実際のレース別URLを探す
+# ============================================================
+
+def discover_prediction_urls(venue_name):
+
+    index_url = get_prediction_index_url(
+        venue_name
+    )
+
+    if not index_url:
+        return {}
+
+    html = get_html(index_url)
+
+    if not html:
+        return {}
+
+    soup = BeautifulSoup(
+        html,
+        "html.parser",
+    )
+
+    found = {}
+
+    # --------------------------------------------------------
+    # ページ内の全リンクから探す
+    # --------------------------------------------------------
+
+    for a in soup.find_all("a", href=True):
+
+        href = a.get("href", "")
+        text = clean_text(
+            a.get_text(" ", strip=True)
+        )
+
+        # 1R ～ 12R を検出
+        race_numbers = []
+
+        for m in re.finditer(
+            r"(?<!\d)(1[0-2]|[1-9])R(?!\d)",
+            text,
+        ):
+
+            race_numbers.append(
+                int(m.group(1))
+            )
+
+        if not race_numbers:
+            continue
+
+        # URLを絶対URL化
+        if href.startswith("http"):
+
+            full_url = href
+
+        elif href.startswith("/"):
+
+            full_url = (
+                SP_BASE_URL + href
+            )
+
+        else:
+
+            full_url = (
+                index_url.rsplit("/", 1)[0]
+                + "/"
+                + href
+            )
+
+        # OddsPark予想ページだけ採用
+        if "oddspark.com" not in full_url:
+            continue
+
+        if "/keirin/yosou/" not in full_url:
+            continue
+
+        for race_no in race_numbers:
+
+            if 1 <= race_no <= 12:
+
+                found[race_no] = full_url
+
+    # --------------------------------------------------------
+    # URLそのものに race number が入る場合
+    # --------------------------------------------------------
+
+    for a in soup.find_all("a", href=True):
+
+        href = a.get("href", "")
+
+        if "/keirin/yosou/" not in href:
+            continue
+
+        text = clean_text(
+            a.get_text(" ", strip=True)
+        )
+
+        patterns = [
+            r"_(1[0-2]|[1-9])\.html",
+            r"-(1[0-2]|[1-9])\.html",
+            r"/(1[0-2]|[1-9])R",
+        ]
+
+        race_no = None
+
+        for pattern in patterns:
+
+            m = re.search(
+                pattern,
+                href,
+                re.I,
+            )
+
+            if m:
+
+                race_no = int(
+                    m.group(1)
+                )
+
+                break
+
+        if race_no is None:
+
+            m = re.search(
+                r"(?<!\d)(1[0-2]|[1-9])R(?!\d)",
+                text,
+            )
+
+            if m:
+
+                race_no = int(
+                    m.group(1)
+                )
+
+        if race_no is None:
+            continue
+
+        if 1 <= race_no <= 12:
+
+            if href.startswith("http"):
+
+                found[race_no] = href
+
+            elif href.startswith("/"):
+
+                found[race_no] = (
+                    SP_BASE_URL + href
+                )
+
+    return found
 
 
 # ============================================================
@@ -551,27 +740,35 @@ def get_prediction_url(venue_name, race_no):
 # ============================================================
 
 def parse_prediction_page(html):
+
     if not html:
+
         return {
             "comments": {},
             "line": [],
             "development": "",
         }
 
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(
+        html,
+        "html.parser",
+    )
 
     comments = {}
     line = []
     development = ""
 
     # --------------------------------------------------------
-    # 選手コメント
+    # コメント
     # --------------------------------------------------------
 
     for table in soup.find_all("table"):
 
         text = clean_text(
-            table.get_text(" ", strip=True)
+            table.get_text(
+                " ",
+                strip=True,
+            )
         )
 
         if "選手名" not in text:
@@ -582,14 +779,19 @@ def parse_prediction_page(html):
 
         for row in table.find_all("tr"):
 
-            cells = row.find_all(["td", "th"])
+            cells = row.find_all(
+                ["td", "th"]
+            )
 
             if len(cells) < 3:
                 continue
 
             values = [
                 clean_text(
-                    c.get_text(" ", strip=True)
+                    c.get_text(
+                        " ",
+                        strip=True,
+                    )
                 )
                 for c in cells
             ]
@@ -597,10 +799,18 @@ def parse_prediction_page(html):
             car = None
 
             for value in values:
-                m = re.fullmatch(r"([1-9])", value)
+
+                m = re.fullmatch(
+                    r"([1-9])",
+                    value,
+                )
 
                 if m:
-                    car = int(m.group(1))
+
+                    car = int(
+                        m.group(1)
+                    )
+
                     break
 
             if car is None:
@@ -608,35 +818,51 @@ def parse_prediction_page(html):
 
             comment = ""
 
+            # コメント欄は最後の長い文字列を優先
             for value in reversed(values):
-                if (
-                    value
-                    and value != str(car)
-                    and "コメント" not in value
-                    and "選手名" not in value
+
+                if not value:
+                    continue
+
+                if value == str(car):
+                    continue
+
+                if value in (
+                    "選手名",
+                    "コメント",
                 ):
+                    continue
+
+                if len(value) >= 2:
+
                     comment = value
                     break
 
             if comment:
+
                 comments[car] = comment
 
     # --------------------------------------------------------
-    # 並び
+    # ページ全体から並びを探す
     # --------------------------------------------------------
 
-    all_text = []
+    texts = []
 
     for element in soup.find_all(
         ["p", "div", "td", "th", "li"]
     ):
+
         t = clean_text(
-            element.get_text(" ", strip=True)
+            element.get_text(
+                " ",
+                strip=True,
+            )
         )
 
         if t:
-            all_text.append(t)
+            texts.append(t)
 
+    # 典型的な脚質表記
     style_words = (
         "逃捲",
         "追込",
@@ -644,31 +870,44 @@ def parse_prediction_page(html):
         "逃げ",
         "捲り",
         "差し",
-        "追込",
     )
 
-    # 例:
-    # 1 5 2 6 4 7 3
-    # ← 逃捲 追込 ...
-    for i, text in enumerate(all_text):
+    for text in texts:
 
-        if not any(x in text for x in style_words):
+        if not any(
+            word in text
+            for word in style_words
+        ):
             continue
 
-        nums = re.findall(r"(?<!\d)([1-7])(?!\d)", text)
+        nums = re.findall(
+            r"(?<!\d)([1-7])(?!\d)",
+            text,
+        )
 
-        if len(nums) >= 5:
-            candidate = [int(x) for x in nums]
+        if len(nums) < 5:
+            continue
 
-            # 同じ車番が大量に並ぶ場合は除外
-            if len(set(candidate)) >= 5:
+        candidate = [
+            int(x)
+            for x in nums
+        ]
 
-                line = candidate
+        # 同じ数字だけのノイズを除外
+        if len(set(candidate)) < 5:
+            continue
 
-                # 7車を超えない
-                line = line[:7]
+        # 車番は最大7車
+        candidate = candidate[:7]
 
-                break
+        # 1～7が中心になっているものだけ採用
+        if all(
+            1 <= x <= 7
+            for x in candidate
+        ):
+
+            line = candidate
+            break
 
     # --------------------------------------------------------
     # 展開コメント
@@ -676,16 +915,27 @@ def parse_prediction_page(html):
 
     candidates = []
 
-    for p in soup.find_all(["p", "div"]):
+    for element in soup.find_all(
+        ["p", "div"]
+    ):
 
         t = clean_text(
-            p.get_text(" ", strip=True)
+            element.get_text(
+                " ",
+                strip=True,
+            )
         )
 
         if len(t) < 20:
             continue
 
-        bad_words = [
+        if not re.search(
+            r"[。！!]",
+            t,
+        ):
+            continue
+
+        bad = [
             "選手名",
             "車番",
             "コメント",
@@ -693,17 +943,16 @@ def parse_prediction_page(html):
             "出走表",
         ]
 
-        if any(x in t for x in bad_words):
+        if any(
+            x in t
+            for x in bad
+        ):
             continue
 
-        if re.search(
-            r"[。！!]",
-            t,
-        ):
-            candidates.append(t)
+        candidates.append(t)
 
     if candidates:
-        # 最後の長めの文章を展開コメント候補
+
         candidates.sort(
             key=len,
             reverse=True,
@@ -718,11 +967,15 @@ def parse_prediction_page(html):
     }
 
 
-def get_prediction_data(venue_name, race_no):
-    url = get_prediction_url(
-        venue_name,
-        race_no,
-    )
+# ============================================================
+# 予想情報取得
+# ============================================================
+
+def get_prediction_data(
+    venue_name,
+    race_no,
+    url,
+):
 
     if not url:
         return None
@@ -732,7 +985,9 @@ def get_prediction_data(venue_name, race_no):
     if not html:
         return None
 
-    data = parse_prediction_page(html)
+    data = parse_prediction_page(
+        html
+    )
 
     data["url"] = url
 
@@ -740,17 +995,34 @@ def get_prediction_data(venue_name, race_no):
 
 
 # ============================================================
-# AI計算
+# AI
 # ============================================================
 
 def calc_probabilities(rider):
-    score = float(rider.get("score") or 0)
 
-    kimari = rider.get("kimari", {})
+    score = float(
+        rider.get("score") or 0
+    )
 
-    nige = kimari.get("nige", 0)
-    maki = kimari.get("maki", 0)
-    sashi = kimari.get("sashi", 0)
+    kimari = rider.get(
+        "kimari",
+        {},
+    )
+
+    nige = kimari.get(
+        "nige",
+        0,
+    )
+
+    maki = kimari.get(
+        "maki",
+        0,
+    )
+
+    sashi = kimari.get(
+        "sashi",
+        0,
+    )
 
     total = nige + maki + sashi
 
@@ -758,20 +1030,28 @@ def calc_probabilities(rider):
         total = 1
 
     front = (
-        nige / total * 100
+        nige
+        / total
+        * 100
     )
 
     attack = (
-        (nige + maki) / total * 100
+        (nige + maki)
+        / total
+        * 100
     )
 
     jump = 0.0
 
-    if rider.get("style") in ("逃", "捲"):
+    if rider.get("style") in (
+        "逃",
+        "捲",
+    ):
         jump += 25
 
     if score >= 95:
         jump += 10
+
     elif score >= 90:
         jump += 5
 
@@ -792,6 +1072,7 @@ def calc_probabilities(rider):
 
 
 def calc_ai_score(rider):
+
     score = float(
         rider.get("score") or 0
     )
@@ -801,12 +1082,32 @@ def calc_ai_score(rider):
         {},
     )
 
-    first = finish.get("1", 0)
-    second = finish.get("2", 0)
-    third = finish.get("3", 0)
-    out = finish.get("out", 0)
+    first = finish.get(
+        "1",
+        0,
+    )
 
-    total = first + second + third + out
+    second = finish.get(
+        "2",
+        0,
+    )
+
+    third = finish.get(
+        "3",
+        0,
+    )
+
+    out = finish.get(
+        "out",
+        0,
+    )
+
+    total = (
+        first
+        + second
+        + third
+        + out
+    )
 
     if total <= 0:
         total = 1
@@ -831,25 +1132,34 @@ def calc_ai_score(rider):
     value = (
         score
         + finish_rate * 10
-        + min(attack_count, 20) * 0.15
+        + min(
+            attack_count,
+            20,
+        ) * 0.15
     )
 
-    return round(value, 2)
+    return round(
+        value,
+        2,
+    )
 
 
 def apply_ai(race):
+
     riders = race["riders"]
 
     for rider in riders:
 
-        probabilities = calc_probabilities(
-            rider
+        rider.update(
+            calc_probabilities(
+                rider
+            )
         )
 
-        rider.update(probabilities)
-
-        rider["ai_score"] = calc_ai_score(
-            rider
+        rider["ai_score"] = (
+            calc_ai_score(
+                rider
+            )
         )
 
     riders.sort(
@@ -866,12 +1176,16 @@ def apply_ai(race):
 
         if rank == 1:
             rider["ai_label"] = "本命"
+
         elif rank == 2:
             rider["ai_label"] = "対抗"
+
         elif rank == 3:
             rider["ai_label"] = "単穴"
+
         elif rank <= 5:
             rider["ai_label"] = "連下"
+
         else:
             rider["ai_label"] = "穴"
 
@@ -887,7 +1201,7 @@ def main():
     started = time.time()
 
     print("==============================")
-    print(" KEIRIN AI DATA UPDATE v4.4")
+    print(" KEIRIN AI DATA UPDATE v4.5")
     print("==============================")
     print(f"対象日: {TODAY}")
     print("==============================")
@@ -899,16 +1213,24 @@ def main():
     venues = get_venues()
 
     if not venues:
-        print("開催場を取得できませんでした")
+
+        print(
+            "開催場を取得できませんでした"
+        )
+
         return
 
-    print(f"開催場数: {len(venues)}")
+    print(
+        f"開催場数: {len(venues)}"
+    )
 
     all_races = []
 
     for code, venue in venues.items():
 
-        races = get_race_numbers(code)
+        races = get_race_numbers(
+            code
+        )
 
         print(
             f"  {code} {venue['name']}: "
@@ -932,7 +1254,9 @@ def main():
     # 選手データ
     # --------------------------------------------------------
 
-    print("選手データ取得中...")
+    print(
+        "選手データ取得中..."
+    )
 
     results = []
 
@@ -952,27 +1276,37 @@ def main():
 
             futures[future] = race
 
-        for future in as_completed(futures):
+        for future in as_completed(
+            futures
+        ):
 
-            base = futures[future]
+            base = futures[
+                future
+            ]
 
             try:
+
                 data = future.result()
 
                 if data:
 
-                    data["venue_name"] = (
-                        base["venue_name"]
-                    )
+                    data[
+                        "venue_name"
+                    ] = base[
+                        "venue_name"
+                    ]
 
-                    results.append(data)
+                    results.append(
+                        data
+                    )
 
             except Exception as e:
 
                 print(
                     f"  選手取得エラー "
                     f"{base['venue_name']} "
-                    f"{base['race_no']}R: {e}"
+                    f"{base['race_no']}R: "
+                    f"{e}"
                 )
 
     results.sort(
@@ -988,6 +1322,33 @@ def main():
     )
 
     # --------------------------------------------------------
+    # 予想ページURLを実際のページから探す
+    # --------------------------------------------------------
+
+    print(
+        "予想ページURLを確認中..."
+    )
+
+    prediction_urls = {}
+
+    for venue in venues.values():
+
+        venue_name = venue["name"]
+
+        urls = discover_prediction_urls(
+            venue_name
+        )
+
+        prediction_urls[
+            venue_name
+        ] = urls
+
+        print(
+            f"  {venue_name}: "
+            f"{len(urls)}レース予想URL"
+        )
+
+    # --------------------------------------------------------
     # 予想情報
     # --------------------------------------------------------
 
@@ -1001,11 +1362,39 @@ def main():
     development_count = 0
 
     def prediction_job(race):
+
+        venue_name = race[
+            "venue_name"
+        ]
+
+        race_no = race[
+            "race_no"
+        ]
+
+        url = (
+            prediction_urls
+            .get(
+                venue_name,
+                {},
+            )
+            .get(
+                race_no
+            )
+        )
+
+        if not url:
+
+            return (
+                race,
+                None,
+            )
+
         return (
             race,
             get_prediction_data(
-                race["venue_name"],
-                race["race_no"],
+                venue_name,
+                race_no,
+                url,
             ),
         )
 
@@ -1021,65 +1410,98 @@ def main():
             for race in results
         ]
 
-        for future in as_completed(futures):
+        for future in as_completed(
+            futures
+        ):
 
             try:
 
-                race, pred = future.result()
+                race, pred = (
+                    future.result()
+                )
 
                 if not pred:
                     continue
 
                 prediction_success += 1
 
+                # ------------------------------------------------
                 # コメント
+                # ------------------------------------------------
+
                 comments = pred.get(
                     "comments",
                     {},
                 )
 
-                for rider in race["riders"]:
+                for rider in race[
+                    "riders"
+                ]:
 
-                    car = rider["car_no"]
+                    car = rider[
+                        "car_no"
+                    ]
 
                     if car in comments:
 
-                        rider["comment"] = (
-                            comments[car]
-                        )
+                        rider[
+                            "comment"
+                        ] = comments[
+                            car
+                        ]
 
                         comment_count += 1
 
+                # ------------------------------------------------
                 # 並び
+                # ------------------------------------------------
+
                 line = pred.get(
                     "line",
                     [],
                 )
 
-                if line:
+                race["line"] = line
 
-                    race["line"] = line
+                if line:
 
                     line_count += 1
 
-                    # 車番から役割を推定
-                    for index, car in enumerate(line):
+                    for index, car in enumerate(
+                        line
+                    ):
 
-                        for rider in race["riders"]:
+                        for rider in race[
+                            "riders"
+                        ]:
 
-                            if rider["car_no"] == car:
+                            if rider[
+                                "car_no"
+                            ] != car:
+                                continue
 
-                                if index == 0:
-                                    rider["role"] = "先頭"
-                                elif index == 1:
-                                    rider["role"] = "番手"
-                                else:
-                                    rider["role"] = "追走"
+                            if index == 0:
 
-                else:
-                    race["line"] = []
+                                rider[
+                                    "role"
+                                ] = "先頭"
 
+                            elif index == 1:
+
+                                rider[
+                                    "role"
+                                ] = "番手"
+
+                            else:
+
+                                rider[
+                                    "role"
+                                ] = "追走"
+
+                # ------------------------------------------------
                 # 展開
+                # ------------------------------------------------
+
                 development = pred.get(
                     "development",
                     "",
@@ -1087,14 +1509,17 @@ def main():
 
                 if development:
 
-                    race["development_comment"] = (
-                        development
-                    )
+                    race[
+                        "development_comment"
+                    ] = development
 
                     development_count += 1
 
-                race["prediction_url"] = (
-                    pred.get("url", "")
+                race[
+                    "prediction_url"
+                ] = pred.get(
+                    "url",
+                    "",
                 )
 
             except Exception as e:
@@ -1107,13 +1532,18 @@ def main():
     # AI
     # --------------------------------------------------------
 
-    print("AI評価計算中...")
+    print(
+        "AI評価計算中..."
+    )
 
     for race in results:
-        apply_ai(race)
+
+        apply_ai(
+            race
+        )
 
     # --------------------------------------------------------
-    # 出力
+    # 集計
     # --------------------------------------------------------
 
     total_riders = sum(
@@ -1128,15 +1558,25 @@ def main():
         if rider.get("name")
     )
 
+    # --------------------------------------------------------
+    # 保存
+    # --------------------------------------------------------
+
     output = {
         "updated_at": datetime.now().isoformat(),
         "target_date": TODAY,
-        "version": "4.4",
-        "venues": list(venues.values()),
+        "version": "4.5",
+        "venues": list(
+            venues.values()
+        ),
         "races": results,
         "summary": {
-            "venue_count": len(venues),
-            "race_count": len(results),
+            "venue_count": len(
+                venues
+            ),
+            "race_count": len(
+                results
+            ),
             "rider_count": total_riders,
             "correct_name_count": correct_names,
             "prediction_race_count": prediction_success,
@@ -1145,12 +1585,6 @@ def main():
             "development_count": development_count,
         },
     }
-
-    # --------------------------------------------------------
-    # 保存
-    # --------------------------------------------------------
-
-    import os
 
     os.makedirs(
         "data",
@@ -1170,55 +1604,77 @@ def main():
             indent=2,
         )
 
-    elapsed = time.time() - started
+    elapsed = (
+        time.time()
+        - started
+    )
+
+    # --------------------------------------------------------
+    # 結果
+    # --------------------------------------------------------
 
     print("==============================")
-    print(" 更新完了 v4.4")
+    print(" 更新完了 v4.5")
     print("==============================")
+
     print(
         f"開催場: {len(venues)}"
     )
+
     print(
         f"レース: {len(results)}"
     )
+
     print(
         f"選手: {total_riders}"
     )
+
     print(
         f"正しい選手名: {correct_names}"
     )
+
     print("【取得状況】")
+
     print(
         f"選手データ成功: "
         f"{len(results)}/{len(all_races)}"
     )
+
     print(
         f"予想情報レース: "
         f"{prediction_success}/{len(results)}"
     )
+
     print(
         f"選手コメント: "
         f"{comment_count}"
     )
+
     print(
         f"並び取得レース: "
         f"{line_count}"
     )
+
     print(
         f"展開コメント: "
         f"{development_count}"
     )
+
     print(
         f"AI評価レース: "
         f"{len(results)}"
     )
+
     print(
         f"AI評価選手: "
         f"{total_riders}"
     )
+
     print(
-        f"処理時間: {elapsed:.1f}秒"
+        f"処理時間: "
+        f"{elapsed:.1f}秒"
     )
+
     print(
         "保存先: data/today.json"
     )
