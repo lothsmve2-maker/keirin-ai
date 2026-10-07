@@ -81,9 +81,7 @@ def fetch(url, timeout=30, retries=3):
                         "(KHTML, like Gecko) "
                         "Chrome/140.0 Safari/537.36"
                     ),
-                    "Accept-Language": (
-                        "ja-JP,ja;q=0.9"
-                    ),
+                    "Accept-Language": "ja-JP,ja;q=0.9",
                     "Accept": (
                         "text/html,"
                         "application/xhtml+xml,"
@@ -373,9 +371,127 @@ def to_float(value):
         return None
 
 
-def calculate_ai_base_score(
-    rider
-):
+def extract_race_point(row):
+
+    """
+    競走得点をセル位置に依存せず取得する。
+
+    例:
+    競走得点：77.562
+    競走得点:71.115
+    """
+
+    for value in row:
+
+        text = str(value).strip()
+
+        match = re.search(
+            r"競走得点\s*[:：]\s*([0-9]{2,3}(?:\.[0-9]+)?)",
+            text
+        )
+
+        if match:
+
+            try:
+
+                point = float(
+                    match.group(1)
+                )
+
+                if 50 <= point <= 150:
+
+                    return point
+
+            except Exception:
+
+                pass
+
+    return None
+
+
+def extract_win_stats(row):
+
+    """
+    直近成績から
+    1着率・2連対率・3連対率を取得。
+    """
+
+    for value in row:
+
+        text = str(value)
+
+        match = re.search(
+            r"([0-9]+(?:\.[0-9]+)?)%\s*"
+            r"([0-9]+(?:\.[0-9]+)?)%\s*"
+            r"([0-9]+(?:\.[0-9]+)?)%",
+            text
+        )
+
+        if match:
+
+            return {
+                "win_rate":
+                    float(match.group(1)),
+                "quinella_rate":
+                    float(match.group(2)),
+                "trifecta_rate":
+                    float(match.group(3)),
+            }
+
+    return {
+        "win_rate": None,
+        "quinella_rate": None,
+        "trifecta_rate": None,
+    }
+
+
+def extract_style(row):
+
+    """
+    脚質を取得。
+    """
+
+    styles = (
+        "逃",
+        "捲",
+        "追",
+        "両",
+    )
+
+    for value in row:
+
+        text = str(value).strip()
+
+        for style in styles:
+
+            if text == style:
+
+                return style
+
+    return ""
+
+
+def calculate_ai_base_score(rider):
+
+    """
+    AI 1.2
+
+    競走得点を中心に評価。
+    競走得点が取得できない場合は
+    無理に車番だけで順位を作らない。
+    """
+
+    race_point = rider.get(
+        "race_point"
+    )
+
+    if race_point is None:
+
+        return None
+
+    # --------------------------------
+    # 基準点
+    # --------------------------------
 
     score = 50.0
 
@@ -383,37 +499,54 @@ def calculate_ai_base_score(
     # 競走得点
     # --------------------------------
 
-    race_point = rider.get(
-        "race_point"
+    score += (
+        race_point - 70.0
+    ) * 1.8
+
+    # --------------------------------
+    # 勝率
+    # --------------------------------
+
+    win_rate = rider.get(
+        "win_rate"
     )
 
-    if race_point is not None:
+    if win_rate is not None:
 
-        # 競走得点を基準値90として評価
         score += (
-            race_point - 90.0
-        ) * 0.35
+            win_rate * 0.20
+        )
 
     # --------------------------------
-    # 車番補正
+    # 2連対率
     # --------------------------------
 
-    car = rider.get(
-        "car"
+    quinella_rate = rider.get(
+        "quinella_rate"
     )
 
-    if isinstance(
-        car,
-        int
-    ):
+    if quinella_rate is not None:
 
-        # 4番を基準に、ごく小さく補正
         score += (
-            4 - abs(car - 4)
-        ) * 0.2
+            quinella_rate * 0.08
+        )
 
     # --------------------------------
-    # 0～100に制限
+    # 3連対率
+    # --------------------------------
+
+    trifecta_rate = rider.get(
+        "trifecta_rate"
+    )
+
+    if trifecta_rate is not None:
+
+        score += (
+            trifecta_rate * 0.04
+        )
+
+    # --------------------------------
+    # 0～100
     # --------------------------------
 
     score = max(
@@ -430,12 +563,13 @@ def calculate_ai_base_score(
     )
 
 
-def add_ai_evaluation(
-    riders
-):
+def add_ai_evaluation(riders):
 
     if not riders:
+
         return riders
+
+    valid = []
 
     for rider in riders:
 
@@ -445,8 +579,37 @@ def add_ai_evaluation(
             )
         )
 
+        if (
+            rider["ai_base_score"]
+            is not None
+        ):
+
+            valid.append(
+                rider
+            )
+
+    # --------------------------------
+    # 競走得点が取れていない場合
+    # --------------------------------
+
+    if not valid:
+
+        for rider in riders:
+
+            rider["ai_rank"] = None
+
+            rider["ai_label"] = (
+                "評価データ不足"
+            )
+
+        return riders
+
+    # --------------------------------
+    # AI順位
+    # --------------------------------
+
     ranked = sorted(
-        riders,
+        valid,
         key=lambda x: x.get(
             "ai_base_score",
             0
@@ -485,6 +648,19 @@ def add_ai_evaluation(
                 "相手候補"
             )
 
+    # 取得できなかった選手
+    for rider in riders:
+
+        if rider.get(
+            "ai_base_score"
+        ) is None:
+
+            rider["ai_rank"] = None
+
+            rider["ai_label"] = (
+                "得点取得失敗"
+            )
+
     return riders
 
 
@@ -496,14 +672,17 @@ def parse_riders(html):
 
     riders_by_race = []
 
+    total_points = 0
+
+    total_riders = 0
+
     for table in parser.tables:
 
         if not table:
+
             continue
 
         header_index = -1
-
-        race_point_index = None
 
         for i, row in enumerate(table):
 
@@ -518,22 +697,10 @@ def parse_riders(html):
 
                 header_index = i
 
-                # 競走得点の列位置を探す
-                for j, value in enumerate(row):
-
-                    if (
-                        "競走得点" in value
-                        or value == "得点"
-                        or "得点" in value
-                    ):
-
-                        race_point_index = j
-
-                        break
-
                 break
 
         if header_index < 0:
+
             continue
 
         race_riders = []
@@ -543,10 +710,16 @@ def parse_riders(html):
         ]:
 
             if not row:
+
                 continue
 
             car_no = None
+
             car_index = None
+
+            # --------------------------------
+            # 車番
+            # --------------------------------
 
             for i, value in enumerate(row):
 
@@ -558,14 +731,21 @@ def parse_riders(html):
                 ):
 
                     car_no = int(value)
+
                     car_index = i
 
                     break
 
             if car_no is None:
+
                 continue
 
+            # --------------------------------
+            # 期別
+            # --------------------------------
+
             period_index = None
+
             period = ""
 
             for i in range(
@@ -581,12 +761,18 @@ def parse_riders(html):
                 ):
 
                     period = value
+
                     period_index = i
 
                     break
 
             if period_index is None:
+
                 continue
+
+            # --------------------------------
+            # 選手名
+            # --------------------------------
 
             name_parts = []
 
@@ -608,7 +794,12 @@ def parse_riders(html):
             ).strip()
 
             if not name:
+
                 continue
+
+            # --------------------------------
+            # 府県
+            # --------------------------------
 
             prefecture = ""
 
@@ -630,54 +821,33 @@ def parse_riders(html):
 
                 continue
 
-            # ----------------------------
+            # --------------------------------
             # 競走得点
-            # ----------------------------
+            # --------------------------------
 
-            race_point = None
+            race_point = extract_race_point(
+                row
+            )
 
-            if (
-                race_point_index
-                is not None
-                and race_point_index
-                < len(row)
-            ):
+            # --------------------------------
+            # 勝率系
+            # --------------------------------
 
-                race_point = to_float(
-                    row[
-                        race_point_index
-                    ]
-                )
+            stats = extract_win_stats(
+                row
+            )
 
-            # 列位置が合わない場合の保険
-            if race_point is None:
+            # --------------------------------
+            # 脚質
+            # --------------------------------
 
-                for value in row:
+            style = extract_style(
+                row
+            )
 
-                    value = value.strip()
-
-                    # 競走得点は通常
-                    # 70～130程度なので
-                    # 小数を優先して探す
-                    if re.fullmatch(
-                        r"\d{2,3}\.\d{1,2}",
-                        value
-                    ):
-
-                        candidate = (
-                            to_float(value)
-                        )
-
-                        if (
-                            candidate is not None
-                            and 50 <= candidate <= 150
-                        ):
-
-                            race_point = (
-                                candidate
-                            )
-
-                            break
+            # --------------------------------
+            # 重複
+            # --------------------------------
 
             duplicate = False
 
@@ -693,27 +863,58 @@ def parse_riders(html):
                     break
 
             if duplicate:
+
                 continue
 
-            race_riders.append({
+            rider = {
 
-                "car": car_no,
+                "car":
+                    car_no,
 
-                "name": name,
+                "name":
+                    name,
 
-                "period": period,
+                "period":
+                    period,
 
-                "prefecture": prefecture,
+                "prefecture":
+                    prefecture,
 
-                "race_point": race_point,
+                "race_point":
+                    race_point,
 
-            })
+                "win_rate":
+                    stats["win_rate"],
+
+                "quinella_rate":
+                    stats[
+                        "quinella_rate"
+                    ],
+
+                "trifecta_rate":
+                    stats[
+                        "trifecta_rate"
+                    ],
+
+                "style":
+                    style,
+
+            }
+
+            race_riders.append(
+                rider
+            )
+
+            total_riders += 1
+
+            if race_point is not None:
+
+                total_points += 1
 
         race_riders.sort(
             key=lambda x: x["car"]
         )
 
-        # AI評価追加
         race_riders = add_ai_evaluation(
             race_riders
         )
@@ -723,6 +924,13 @@ def parse_riders(html):
             riders_by_race.append(
                 race_riders
             )
+
+    print(
+        "  競走得点取得:",
+        total_points,
+        "/",
+        total_riders
+    )
 
     return riders_by_race
 
@@ -836,9 +1044,9 @@ def get_venue_data(
                 "人"
             )
 
-        # ----------------------------
+        # --------------------------------
         # AI候補
-        # ----------------------------
+        # --------------------------------
 
         ai = {
             "本命": None,
@@ -846,25 +1054,36 @@ def get_venue_data(
             "穴": None,
         }
 
-        if riders:
+        ranked = sorted(
+            [
+                r for r in riders
+                if r.get(
+                    "ai_base_score"
+                ) is not None
+            ],
+            key=lambda x: x[
+                "ai_base_score"
+            ],
+            reverse=True,
+        )
 
-            ranked = sorted(
-                riders,
-                key=lambda x: x.get(
-                    "ai_base_score",
-                    0
-                ),
-                reverse=True,
-            )
+        if len(ranked) >= 1:
 
-            if len(ranked) >= 1:
-                ai["本命"] = ranked[0]["car"]
+            ai["本命"] = ranked[0]["car"]
 
-            if len(ranked) >= 2:
-                ai["対抗"] = ranked[1]["car"]
+        if len(ranked) >= 2:
 
-            if len(ranked) >= 3:
-                ai["穴"] = ranked[2]["car"]
+            ai["対抗"] = ranked[1]["car"]
+
+        if len(ranked) >= 3:
+
+            ai["穴"] = ranked[2]["car"]
+
+        # --------------------------------
+        # ログ
+        # --------------------------------
+
+        if ai["本命"] is not None:
 
             print(
                 "  AI候補:",
@@ -874,6 +1093,12 @@ def get_venue_data(
                 ai["対抗"],
                 "穴",
                 ai["穴"],
+            )
+
+        else:
+
+            print(
+                "  ⚠️ AI評価データ不足"
             )
 
         races.append({
@@ -1044,6 +1269,8 @@ def main():
 
     ai_rider_count = 0
 
+    race_point_count = 0
+
     for venue in venue_data:
 
         for race in venue[
@@ -1052,32 +1279,36 @@ def main():
 
             race_count += 1
 
+            riders = race[
+                "riders"
+            ]
+
             rider_count += len(
-                race["riders"]
+                riders
             )
 
             ai = race.get(
-                "ai"
+                "ai",
+                {}
             )
 
-            if (
-                ai
-                and ai.get("本命")
-                is not None
-            ):
+            if ai.get(
+                "本命"
+            ) is not None:
 
                 ai_race_count += 1
 
-            for rider in race[
-                "riders"
-            ]:
+            for rider in riders:
 
-                if (
-                    rider.get(
-                        "ai_base_score"
-                    )
-                    is not None
-                ):
+                if rider.get(
+                    "race_point"
+                ) is not None:
+
+                    race_point_count += 1
+
+                if rider.get(
+                    "ai_base_score"
+                ) is not None:
 
                     ai_rider_count += 1
 
@@ -1096,10 +1327,13 @@ def main():
             "ok",
 
         "ai_version":
-            "1.1",
+            "1.2",
 
         "ai_description":
-            "競走得点を中心とした暫定AI評価",
+            (
+                "競走得点・勝率・連対率を"
+                "利用した基礎AI評価"
+            ),
 
         "venue_count":
             len(venue_data),
@@ -1109,6 +1343,9 @@ def main():
 
         "entry_count":
             rider_count,
+
+        "race_point_count":
+            race_point_count,
 
         "ai_race_count":
             ai_race_count,
@@ -1155,6 +1392,11 @@ def main():
     )
 
     print(
+        "競走得点取得:",
+        race_point_count
+    )
+
+    print(
         "AI評価レース:",
         ai_race_count
     )
@@ -1166,7 +1408,7 @@ def main():
 
     print(
         "AIバージョン:",
-        "1.1"
+        "1.2"
     )
 
     print(
