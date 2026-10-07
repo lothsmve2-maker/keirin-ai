@@ -1,1210 +1,1025 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
-  <title>KEIRIN AI</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: #f3f6fa;
-      color: #172033;
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Helvetica Neue",
-        "Yu Gothic",
-        "Hiragino Kaku Gothic ProN",
-        Arial,
-        sans-serif;
-    }
-
-    button {
-      font: inherit;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* =========================
-       ヘッダー
-    ========================= */
-
-    .header {
-      background: linear-gradient(135deg, #0b4ea2, #1677d2);
-      color: white;
-      padding:
-        calc(18px + env(safe-area-inset-top))
-        18px
-        18px;
-
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .header-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    .subtitle {
-      margin-top: 4px;
-      font-size: 12px;
-      opacity: 0.9;
-    }
-
-    /* =========================
-       全体
-    ========================= */
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 16px;
-      padding-bottom: 50px;
-    }
-
-    /* =========================
-       更新情報
-    ========================= */
-
-    .update-card {
-      background: white;
-      border-radius: 16px;
-      padding: 14px 16px;
-      margin-bottom: 18px;
-
-      box-shadow: 0 3px 12px rgba(20,40,70,0.08);
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .update-label {
-      font-size: 12px;
-      color: #7b8494;
-    }
-
-    .update-date {
-      font-size: 16px;
-      font-weight: 800;
-      margin-top: 2px;
-    }
-
-    .status {
-      background: #e9f9ef;
-      color: #168344;
-      border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    /* =========================
-       セクション
-    ========================= */
-
-    .section-title {
-      font-size: 19px;
-      font-weight: 900;
-      margin: 22px 2px 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .section-title::before {
-      content: "";
-      width: 5px;
-      height: 21px;
-      border-radius: 4px;
-      background: #1677d2;
-    }
-
-    /* =========================
-       開催場
-    ========================= */
-
-    .venue-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .venue-button {
-      border: none;
-      background: white;
-      border-radius: 15px;
-      padding: 16px 12px;
-      text-align: left;
-      cursor: pointer;
-
-      box-shadow: 0 3px 12px rgba(20,40,70,0.08);
-      transition: 0.15s;
-    }
-
-    .venue-button:active {
-      transform: scale(0.97);
-    }
-
-    .venue-button.active {
-      background: linear-gradient(135deg, #1267bd, #1e83e5);
-      color: white;
-      box-shadow: 0 6px 18px rgba(22,119,210,0.28);
-    }
-
-    .venue-name {
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .venue-count {
-      font-size: 12px;
-      margin-top: 5px;
-      opacity: 0.7;
-    }
-
-    .venue-button.active .venue-count {
-      opacity: 0.9;
-    }
-
-    /* =========================
-       レース
-    ========================= */
-
-    .race-area {
-      margin-top: 18px;
-    }
-
-    .race-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    .race-button {
-      border: 0;
-      background: white;
-      border-radius: 13px;
-      padding: 13px 5px;
-      box-shadow: 0 2px 9px rgba(20,40,70,0.07);
-      cursor: pointer;
-    }
-
-    .race-button:active {
-      transform: scale(0.96);
-    }
-
-    .race-number {
-      font-size: 17px;
-      font-weight: 900;
-    }
-
-    .race-time {
-      font-size: 11px;
-      color: #687386;
-      margin-top: 3px;
-    }
-
-    .race-button.active {
-      background: #172033;
-      color: white;
-    }
-
-    .race-button.active .race-time {
-      color: #dce5f0;
-    }
-
-    /* =========================
-       レース詳細
-    ========================= */
-
-    .race-header {
-      margin-top: 22px;
-
-      background: linear-gradient(135deg, #172033, #29374d);
-      color: white;
-      border-radius: 18px;
-      padding: 18px;
-
-      box-shadow: 0 6px 20px rgba(20,30,50,0.18);
-    }
-
-    .race-header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .race-title {
-      font-size: 25px;
-      font-weight: 900;
-    }
-
-    .start-time {
-      background: white;
-      color: #172033;
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-weight: 900;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .race-info {
-      margin-top: 8px;
-      font-size: 12px;
-      opacity: 0.8;
-    }
-
-    /* =========================
-       選手
-    ========================= */
-
-    .riders {
-      margin-top: 12px;
-      display: grid;
-      gap: 9px;
-    }
-
-    .rider-card {
-      background: white;
-      border-radius: 15px;
-      padding: 12px;
-
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      box-shadow: 0 3px 11px rgba(20,40,70,0.08);
-    }
-
-    .car-number {
-      width: 43px;
-      height: 43px;
-      flex: 0 0 43px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 9px;
-
-      color: #111;
-      font-size: 20px;
-      font-weight: 900;
-    }
-
-    .car-1 {
-      background: #ffffff;
-      border: 2px solid #d8dce2;
-    }
-
-    .car-2 {
-      background: #222;
-      color: white;
-    }
-
-    .car-3 {
-      background: #f04444;
-      color: white;
-    }
-
-    .car-4 {
-      background: #2878d1;
-      color: white;
-    }
-
-    .car-5 {
-      background: #f5df22;
-    }
-
-    .car-6 {
-      background: #28a765;
-      color: white;
-    }
-
-    .car-7 {
-      background: #ed7d24;
-      color: white;
-    }
-
-    .rider-main {
-      min-width: 0;
-      flex: 1;
-    }
-
-    .rider-name {
-      font-size: 17px;
-      font-weight: 900;
-
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .rider-meta {
-      margin-top: 4px;
-      font-size: 12px;
-      color: #70798a;
-    }
-
-    .rider-arrow {
-      color: #a4acb8;
-      font-size: 20px;
-    }
-
-    /* =========================
-       AI
-    ========================= */
-
-    .ai-box {
-      margin-top: 20px;
-
-      background: linear-gradient(135deg, #fff4f4, #fff);
-      border: 2px solid #ff5a5a;
-      border-radius: 18px;
-
-      padding: 17px;
-
-      box-shadow: 0 5px 18px rgba(230,60,60,0.08);
-    }
-
-    .ai-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      font-size: 20px;
-      font-weight: 900;
-      color: #d62f2f;
-    }
-
-    .ai-badge {
-      background: #e33b3b;
-      color: white;
-
-      border-radius: 7px;
-      padding: 4px 7px;
-
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-    .ai-message {
-      margin-top: 10px;
-      color: #737b89;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .ai-button {
-      width: 100%;
-      margin-top: 13px;
-
-      border: none;
-
-      background: linear-gradient(135deg, #e52f2f, #ff5757);
-      color: white;
-
-      border-radius: 13px;
-      padding: 14px;
-
-      font-size: 16px;
-      font-weight: 900;
-
-      cursor: pointer;
-
-      box-shadow: 0 5px 13px rgba(220,50,50,0.22);
-    }
-
-    .ai-button:active {
-      transform: scale(0.98);
-    }
-
-    /* =========================
-       その他
-    ========================= */
-
-    .empty {
-      background: white;
-      border-radius: 16px;
-      padding: 30px 18px;
-      text-align: center;
-      color: #7c8594;
-
-      box-shadow: 0 3px 12px rgba(20,40,70,0.07);
-    }
-
-    .empty-icon {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
-
-    .loading {
-      text-align: center;
-      padding: 50px 10px;
-      color: #778193;
-    }
-
-    .error {
-      background: #fff0f0;
-      border: 1px solid #ffb4b4;
-      color: #b22d2d;
-
-      border-radius: 14px;
-      padding: 16px;
-
-      line-height: 1.6;
-    }
-
-    /* =========================
-       PC
-    ========================= */
-
-    @media (min-width: 700px) {
-
-      .venue-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .race-grid {
-        grid-template-columns: repeat(6, 1fr);
-      }
-
-      .riders {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>競輪AI予想</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f5f8;
+  color: #17202a;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    Meiryo,
+    sans-serif;
+}
+
+header {
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: white;
+  padding: 22px 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 3px 12px rgba(0,0,0,.18);
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.subtitle {
+  margin-top: 5px;
+  font-size: 12px;
+  opacity: .72;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 14px 12px 50px;
+}
+
+/* 開催場 */
+
+.section-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 10px 2px;
+}
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+}
+
+.venue-card {
+  background: white;
+  border-radius: 14px;
+  padding: 14px;
+  border: 2px solid transparent;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  cursor: pointer;
+  transition: .15s;
+}
+
+.venue-card:active {
+  transform: scale(.98);
+}
+
+.venue-card.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.venue-name {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.venue-count {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* レース */
+
+.race-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.race-btn {
+  border: 0;
+  background: white;
+  border-radius: 12px;
+  padding: 12px 5px;
+  font-weight: 800;
+  box-shadow: 0 2px 7px rgba(0,0,0,.07);
+  cursor: pointer;
+  color: #1f2937;
+}
+
+.race-btn.active {
+  background: #2563eb;
+  color: white;
+}
+
+.race-btn .race-number {
+  font-size: 17px;
+}
+
+.race-btn .race-info {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+  opacity: .7;
+}
+
+/* メイン */
+
+.race-panel {
+  margin-top: 16px;
+}
+
+.race-header {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 9px rgba(0,0,0,.08);
+}
+
+.race-title {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.race-meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* AI */
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ai-card {
+  background: white;
+  border-radius: 15px;
+  padding: 13px 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.ai-label {
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.ai-car {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.ai-name {
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai-score {
+  margin-top: 5px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.main-card {
+  border-top: 5px solid #dc2626;
+}
+
+.opponent-card {
+  border-top: 5px solid #2563eb;
+}
+
+.dark-card {
+  border-top: 5px solid #7c3aed;
+}
+
+/* セクション */
+
+.info-card {
+  background: white;
+  border-radius: 16px;
+  margin-top: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+}
+
+.info-title {
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 11px;
+}
+
+/* 並び */
+
+.line-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.line-group {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  padding: 7px 8px;
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.line-car {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: white;
+  font-size: 14px;
+}
+
+.arrow {
+  color: #6b7280;
+  font-weight: 900;
+}
+
+/* 車番色 */
+
+.car-1 { background:#ffffff; color:#111827; border:1px solid #bbb; }
+.car-2 { background:#111827; }
+.car-3 { background:#dc2626; }
+.car-4 { background:#2563eb; }
+.car-5 { background:#facc15; color:#111827; }
+.car-6 { background:#16a34a; }
+.car-7 { background:#111827; }
+
+/* 選手 */
+
+.rider {
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  margin-top: 9px;
+  padding: 11px;
+  background: #fff;
+}
+
+.rider-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.rider-car {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.rider-name {
+  font-size: 15px;
+  font-weight: 900;
+  flex: 1;
+}
+
+.mark {
+  min-width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.mark-main {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.mark-second {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.mark-third {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.mark-other {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.rider-meta {
+  margin-top: 5px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.rider-comment {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.55;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.score-box {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.score {
+  background: #f1f5f9;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* 展開 */
+
+.development {
+  background: #fff7ed;
+  border-left: 4px solid #f97316;
+  border-radius: 8px;
+  padding: 11px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* 更新情報 */
+
+.status {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* 読み込み */
+
+.loading {
+  text-align: center;
+  padding: 50px 10px;
+  color: #6b7280;
+}
+
+.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+/* PC */
+
+@media (min-width: 700px) {
+  .venue-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .race-list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* スマホ */
+
+@media (max-width: 430px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .ai-car {
+    font-size: 26px;
+  }
+
+  .ai-name {
+    font-size: 11px;
+  }
+
+  .race-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header class="header">
-    <div class="header-inner">
-
-      <div class="logo">
-        🚴 KEIRIN AI
-      </div>
-
-      <div class="subtitle">
-        今日の競輪をAIで分析
-      </div>
-
+<header>
+  <div class="header-inner">
+    <div class="title">🏇 競輪AI予想</div>
+    <div class="subtitle">
+      今日のレースをAIデータから分析
     </div>
-  </header>
+  </div>
+</header>
 
+<main class="container">
 
-  <main class="container">
+  <div id="loading" class="loading">
+    データを読み込んでいます…
+  </div>
 
-    <!-- 更新情報 -->
-    <div class="update-card">
+  <div id="app" style="display:none;">
 
-      <div>
-        <div class="update-label">
-          データ更新日
-        </div>
+    <div class="section-title">🏟 開催場</div>
+    <div id="venues" class="venue-grid"></div>
 
-        <div
-          class="update-date"
-          id="updateDate"
-        >
-          読み込み中...
-        </div>
-      </div>
-
-      <div class="status">
-        ● 最新データ
-      </div>
-
+    <div class="section-title" style="margin-top:18px;">
+      🏁 レース
     </div>
 
+    <div id="races" class="race-list"></div>
 
-    <!-- 開催場 -->
-    <div class="section-title">
-      今日の開催
-    </div>
+    <div id="racePanel" class="race-panel"></div>
 
-    <div
-      id="venueGrid"
-      class="venue-grid"
-    >
-      <div class="loading">
-        開催情報を読み込んでいます...
-      </div>
-    </div>
+    <div id="status" class="status"></div>
 
+  </div>
 
-    <!-- レース -->
-    <div
-      id="raceArea"
-      class="race-area"
-      style="display:none;"
-    >
+  <div id="error" style="display:none;"></div>
 
-      <div class="section-title">
-        レースを選択
-      </div>
-
-      <div
-        id="raceGrid"
-        class="race-grid"
-      ></div>
-
-    </div>
-
-
-    <!-- レース詳細 -->
-    <div
-      id="raceDetail"
-      style="display:none;"
-    >
-
-      <div
-        id="raceHeader"
-        class="race-header"
-      ></div>
-
-      <div
-        id="riders"
-        class="riders"
-      ></div>
-
-
-      <!-- AI予想 -->
-      <div class="ai-box">
-
-        <div class="ai-title">
-
-          <span class="ai-badge">
-            AI
-          </span>
-
-          3連単予想
-
-        </div>
-
-        <div class="ai-message">
-          現在は選手データ表示の確認段階です。
-          次の段階で競走得点・脚質・直近成績などを追加し、
-          実データからAI予想を作成します。
-        </div>
-
-        <button
-          class="ai-button"
-          onclick="showComingSoon()"
-        >
-          🔥 AI予想を見る
-        </button>
-
-      </div>
-
-    </div>
-
-  </main>
-
+</main>
 
 <script>
 
-  let appData = null;
-  let selectedVenue = null;
-  let selectedRace = null;
+let DATA = null;
+let selectedVenue = null;
+let selectedRace = null;
 
+const DATA_URL = "./data/today.json";
 
-  /* =========================
-     データ読み込み
-  ========================= */
+async function loadData() {
 
-  async function loadData() {
+  try {
 
-    const venueGrid =
-      document.getElementById("venueGrid");
+    const response = await fetch(DATA_URL + "?t=" + Date.now());
 
-    try {
-
-      /*
-       * GitHub Pagesでは
-       * index.htmlとdataフォルダが
-       * 同じ階層なので ./data/today.json
-       */
-
-      const response = await fetch(
-        "./data/today.json?time=" + Date.now(),
-        {
-          cache: "no-store"
-        }
-      );
-
-      if (!response.ok) {
-
-        throw new Error(
-          "HTTP " + response.status
-        );
-
-      }
-
-      const data =
-        await response.json();
-
-      appData = data;
-
-      initialize();
-
-    } catch (error) {
-
-      console.error(
-        "KEIRIN AI DATA ERROR:",
-        error
-      );
-
-      document.getElementById(
-        "updateDate"
-      ).textContent = "読み込みエラー";
-
-      venueGrid.innerHTML = `
-
-        <div class="error">
-
-          <strong>
-            ❌ データを読み込めませんでした
-          </strong>
-
-          <br><br>
-
-          today.jsonは存在していますが、
-          アプリから取得できませんでした。
-
-          <br><br>
-
-          エラー：
-          ${escapeHtml(error.message)}
-
-          <br><br>
-
-          ページを再読み込みしてください。
-
-        </div>
-
-      `;
-
+    if (!response.ok) {
+      throw new Error("today.json を取得できませんでした");
     }
 
-  }
+    DATA = await response.json();
 
-
-  /* =========================
-     初期化
-  ========================= */
-
-  function initialize() {
-
-    if (!appData) {
-      return;
+    if (!DATA.races || !DATA.races.length) {
+      throw new Error("レースデータがありません");
     }
 
-    document.getElementById(
-      "updateDate"
-    ).textContent =
-      appData.date
-        ? formatDate(appData.date)
-        : "本日";
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("app").style.display = "block";
 
     renderVenues();
 
+    const firstVenue =
+      DATA.venues && DATA.venues.length
+        ? DATA.venues[0].venue_code
+        : DATA.races[0].venue_code;
+
+    selectVenue(firstVenue);
+
+    document.getElementById("status").textContent =
+      `${DATA.target_date || ""} / ${DATA.race_count || DATA.races.length}レース / ${DATA.rider_count || 0}選手`;
+
+  } catch (error) {
+
+    document.getElementById("loading").style.display = "none";
+
+    const box = document.getElementById("error");
+
+    box.style.display = "block";
+    box.className = "error";
+    box.innerHTML =
+      "⚠️ データの読み込みに失敗しました。<br><br>" +
+      escapeHtml(error.message) +
+      "<br><br>GitHub Actionsでデータ更新が完了しているか確認してください。";
   }
+}
 
+/* -------------------------
+   開催場
+------------------------- */
 
-  /* =========================
-     日付表示
-  ========================= */
+function renderVenues() {
 
-  function formatDate(dateString) {
+  const container = document.getElementById("venues");
+  container.innerHTML = "";
 
-    const parts =
-      String(dateString).split("-");
+  DATA.venues.forEach(venue => {
 
-    if (parts.length !== 3) {
-      return dateString;
-    }
+    const div = document.createElement("div");
 
-    return (
-      parts[0] +
-      "年" +
-      Number(parts[1]) +
-      "月" +
-      Number(parts[2]) +
-      "日"
-    );
+    div.className = "venue-card";
+    div.dataset.code = venue.venue_code;
 
-  }
-
-
-  /* =========================
-     開催場表示
-  ========================= */
-
-  function renderVenues() {
-
-    const grid =
-      document.getElementById(
-        "venueGrid"
-      );
-
-    grid.innerHTML = "";
-
-    if (
-      !appData.venues ||
-      !Array.isArray(appData.venues) ||
-      appData.venues.length === 0
-    ) {
-
-      grid.innerHTML = `
-
-        <div class="empty">
-
-          <div class="empty-icon">
-            🚴
-          </div>
-
-          本日の開催はありません。
-
-        </div>
-
-      `;
-
-      return;
-
-    }
-
-
-    appData.venues.forEach(
-      (venue, index) => {
-
-        const button =
-          document.createElement("button");
-
-        button.className =
-          "venue-button";
-
-        button.innerHTML = `
-
-          <div class="venue-name">
-            ${escapeHtml(venue.name)}
-          </div>
-
-          <div class="venue-count">
-            ${
-              Array.isArray(venue.races)
-                ? venue.races.length
-                : 0
-            }レース
-          </div>
-
-        `;
-
-        button.onclick = function() {
-
-          selectVenue(
-            index,
-            button
-          );
-
-        };
-
-        grid.appendChild(button);
-
-      }
-    );
-
-  }
-
-
-  /* =========================
-     開催場選択
-  ========================= */
-
-  function selectVenue(
-    index,
-    button
-  ) {
-
-    selectedVenue =
-      appData.venues[index];
-
-    selectedRace = null;
-
-
-    document
-      .querySelectorAll(".venue-button")
-      .forEach(function(btn) {
-
-        btn.classList.remove("active");
-
-      });
-
-
-    button.classList.add("active");
-
-
-    renderRaces();
-
-
-    document.getElementById(
-      "raceArea"
-    ).style.display = "block";
-
-
-    document.getElementById(
-      "raceDetail"
-    ).style.display = "none";
-
-
-    document.getElementById(
-      "raceArea"
-    ).scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-  }
-
-
-  /* =========================
-     レース表示
-  ========================= */
-
-  function renderRaces() {
-
-    const grid =
-      document.getElementById(
-        "raceGrid"
-      );
-
-    grid.innerHTML = "";
-
-    if (
-      !selectedVenue ||
-      !Array.isArray(selectedVenue.races)
-    ) {
-
-      return;
-
-    }
-
-
-    selectedVenue.races.forEach(
-      function(race, index) {
-
-        const button =
-          document.createElement("button");
-
-        button.className =
-          "race-button";
-
-
-        button.innerHTML = `
-
-          <div class="race-number">
-            ${escapeHtml(race.number)}R
-          </div>
-
-          <div class="race-time">
-            ${escapeHtml(
-              race.start_time || "--:--"
-            )}
-          </div>
-
-        `;
-
-
-        button.onclick = function() {
-
-          selectRace(
-            index,
-            button
-          );
-
-        };
-
-
-        grid.appendChild(button);
-
-      }
-    );
-
-  }
-
-
-  /* =========================
-     レース選択
-  ========================= */
-
-  function selectRace(
-    index,
-    button
-  ) {
-
-    selectedRace =
-      selectedVenue.races[index];
-
-
-    document
-      .querySelectorAll(".race-button")
-      .forEach(function(btn) {
-
-        btn.classList.remove("active");
-
-      });
-
-
-    button.classList.add("active");
-
-
-    renderRaceDetail();
-
-
-    document.getElementById(
-      "raceDetail"
-    ).style.display = "block";
-
-
-    setTimeout(function() {
-
-      document.getElementById(
-        "raceDetail"
-      ).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-
-    }, 50);
-
-  }
-
-
-  /* =========================
-     レース詳細
-  ========================= */
-
-  function renderRaceDetail() {
-
-    if (!selectedVenue || !selectedRace) {
-      return;
-    }
-
-
-    const raceHeader =
-      document.getElementById(
-        "raceHeader"
-      );
-
-
-    raceHeader.innerHTML = `
-
-      <div class="race-header-top">
-
-        <div class="race-title">
-          ${escapeHtml(selectedVenue.name)}
-          ${escapeHtml(selectedRace.number)}R
-        </div>
-
-        <div class="start-time">
-          ${escapeHtml(
-            selectedRace.start_time || "--:--"
-          )}
-        </div>
-
+    div.innerHTML = `
+      <div class="venue-name">
+        ${escapeHtml(venue.venue_name)}
       </div>
-
-      <div class="race-info">
-        出走選手 ${
-          Array.isArray(selectedRace.riders)
-            ? selectedRace.riders.length
-            : 0
-        }名
+      <div class="venue-count">
+        ${venue.race_count}レース
       </div>
-
     `;
 
+    div.onclick = () => selectVenue(venue.venue_code);
 
-    renderRiders();
+    container.appendChild(div);
+  });
+}
 
+function selectVenue(code) {
+
+  selectedVenue = String(code);
+
+  document.querySelectorAll(".venue-card").forEach(card => {
+    card.classList.toggle(
+      "active",
+      String(card.dataset.code) === selectedVenue
+    );
+  });
+
+  const races = DATA.races.filter(
+    r => String(r.venue_code) === selectedVenue
+  );
+
+  renderRaceButtons(races);
+
+  if (races.length) {
+    selectRace(races[0]);
   }
+}
 
+/* -------------------------
+   レースボタン
+------------------------- */
 
-  /* =========================
-     選手表示
-  ========================= */
+function renderRaceButtons(races) {
 
-  function renderRiders() {
+  const container = document.getElementById("races");
+  container.innerHTML = "";
 
-    const container =
-      document.getElementById(
-        "riders"
-      );
+  races
+    .sort((a,b) => a.race_no - b.race_no)
+    .forEach(race => {
 
-    container.innerHTML = "";
+      const button = document.createElement("button");
 
+      button.className = "race-btn";
 
-    if (
-      !selectedRace ||
-      !Array.isArray(selectedRace.riders)
-    ) {
+      button.dataset.race =
+        `${race.venue_code}-${race.race_no}`;
 
-      container.innerHTML = `
-
-        <div class="error">
-          選手データがありません。
-        </div>
-
+      button.innerHTML = `
+        <span class="race-number">${race.race_no}R</span>
+        <span class="race-info">
+          ${race.riders.length}車
+        </span>
       `;
 
-      return;
+      button.onclick = () => selectRace(race);
 
-    }
+      container.appendChild(button);
+    });
+}
 
+function selectRace(race) {
 
-    selectedRace.riders.forEach(
-      function(rider) {
+  selectedRace = race;
 
-        const card =
-          document.createElement("div");
+  document.querySelectorAll(".race-btn").forEach(btn => {
 
-        card.className =
-          "rider-card";
+    btn.classList.toggle(
+      "active",
+      btn.dataset.race ===
+      `${race.venue_code}-${race.race_no}`
+    );
 
+  });
 
-        const car =
-          Number(rider.car);
+  renderRace(race);
 
+  window.scrollTo({
+    top: document.getElementById("racePanel").offsetTop - 80,
+    behavior: "smooth"
+  });
+}
 
-        const carClass =
-          car >= 1 && car <= 7
-            ? "car-" + car
-            : "";
+/* -------------------------
+   レース表示
+------------------------- */
 
+function renderRace(race) {
 
-        card.innerHTML = `
+  const panel = document.getElementById("racePanel");
 
-          <div class="car-number ${carClass}">
-            ${escapeHtml(car)}
-          </div>
+  const ai = race.ai || {};
 
-          <div class="rider-main">
+  const ranking = ai.ranking || [];
 
-            <div class="rider-name">
-              ${cleanRiderName(rider.name)}
+  const main =
+    findRider(race, ai.main);
+
+  const opponent =
+    findRider(race, ai.opponent);
+
+  const dark =
+    findRider(race, ai.dark_horse);
+
+  panel.innerHTML = `
+
+    <div class="race-header">
+
+      <div class="race-title">
+        ${escapeHtml(race.venue_name)}
+        ${race.race_no}R
+      </div>
+
+      <div class="race-meta">
+        ${race.riders.length}車立て
+        ${race.prediction_url ? " / AI予想データ取得済み" : ""}
+      </div>
+
+    </div>
+
+    <div class="ai-grid">
+
+      ${renderAICard(
+        "🔥 本命",
+        main,
+        "main-card"
+      )}
+
+      ${renderAICard(
+        "⭐ 対抗",
+        opponent,
+        "opponent-card"
+      )}
+
+      ${renderAICard(
+        "💥 穴",
+        dark,
+        "dark-card"
+      )}
+
+    </div>
+
+    ${renderLine(race)}
+
+    ${renderDevelopment(race)}
+
+    ${renderRiders(race, ranking)}
+
+  `;
+}
+
+/* -------------------------
+   AIカード
+------------------------- */
+
+function renderAICard(label, rider, className) {
+
+  if (!rider) {
+
+    return `
+      <div class="ai-card ${className}">
+        <div class="ai-label">${label}</div>
+        <div class="ai-car">-</div>
+        <div class="ai-name">---</div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="ai-card ${className}">
+
+      <div class="ai-label">
+        ${label}
+      </div>
+
+      <div class="ai-car">
+        ${rider.car_no}番
+      </div>
+
+      <div class="ai-name">
+        ${escapeHtml(rider.name)}
+      </div>
+
+      <div class="ai-score">
+        AI ${formatScore(rider.ai_score)}点
+      </div>
+
+    </div>
+  `;
+}
+
+/* -------------------------
+   並び
+------------------------- */
+
+function renderLine(race) {
+
+  const groups = race.line_groups || [];
+
+  let content = "";
+
+  if (groups.length) {
+
+    content = groups.map(group => {
+
+      return `
+        <div class="line-group">
+
+          ${group.map((car, index) => `
+
+            ${index > 0
+              ? `<span class="arrow">→</span>`
+              : ""
+            }
+
+            <div class="line-car car-${car}">
+              ${car}
             </div>
 
-            <div class="rider-meta">
-              ${escapeHtml(
-                rider.period
-                  ? rider.period + "期"
-                  : "期不明"
-              )}
-              ・
-              ${escapeHtml(
-                rider.prefecture || "府県不明"
-              )}
-            </div>
+          `).join("")}
 
+        </div>
+      `;
+
+    }).join("");
+
+  } else if (race.line && race.line.length) {
+
+    content = `
+      <div class="line-group">
+
+        ${race.line.map((car, index) => `
+
+          ${index > 0
+            ? `<span class="arrow">→</span>`
+            : ""
+          }
+
+          <div class="line-car car-${car}">
+            ${car}
           </div>
 
-          <div class="rider-arrow">
-            ›
+        `).join("")}
+
+      </div>
+    `;
+
+  } else {
+
+    content = "並び情報なし";
+
+  }
+
+  return `
+    <div class="info-card">
+
+      <div class="info-title">
+        🚴 予想ライン
+      </div>
+
+      <div class="line-display">
+        ${content}
+      </div>
+
+    </div>
+  `;
+}
+
+/* -------------------------
+   展開
+------------------------- */
+
+function renderDevelopment(race) {
+
+  if (!race.development) {
+    return "";
+  }
+
+  return `
+    <div class="info-card">
+
+      <div class="info-title">
+        🧠 展開予想
+      </div>
+
+      <div class="development">
+        ${escapeHtml(race.development)}
+      </div>
+
+    </div>
+  `;
+}
+
+/* -------------------------
+   選手
+------------------------- */
+
+function renderRiders(race, ranking) {
+
+  const riders =
+    [...race.riders].sort(
+      (a,b) => (b.ai_score || 0) - (a.ai_score || 0)
+    );
+
+  return `
+    <div class="info-card">
+
+      <div class="info-title">
+        👤 AI選手評価
+      </div>
+
+      ${riders.map((rider, index) =>
+        renderRider(rider, index)
+      ).join("")}
+
+    </div>
+  `;
+}
+
+function renderRider(rider, index) {
+
+  let markClass = "mark-other";
+
+  if (index === 0) {
+    markClass = "mark-main";
+  } else if (index === 1) {
+    markClass = "mark-second";
+  } else if (index === 2) {
+    markClass = "mark-third";
+  }
+
+  const mark =
+    rider.prediction_mark ||
+    ["◎","○","▲"][index] ||
+    "";
+
+  const finish =
+    [
+      rider.finish_1,
+      rider.finish_2,
+      rider.finish_3,
+      rider.finish_out
+    ]
+    .filter(v => v !== null && v !== undefined)
+    .join("-");
+
+  return `
+    <div class="rider">
+
+      <div class="rider-top">
+
+        <div class="rider-car car-${rider.car_no}">
+          ${rider.car_no}
+        </div>
+
+        <div class="rider-name">
+          ${escapeHtml(rider.name)}
+        </div>
+
+        <div class="mark ${markClass}">
+          ${escapeHtml(mark)}
+        </div>
+
+      </div>
+
+      <div class="rider-meta">
+
+        ${rider.age ? rider.age + "歳" : ""}
+        ${rider.period ? " / " + rider.period + "期" : ""}
+        ${rider.prefecture ? " / " + escapeHtml(rider.prefecture) : ""}
+        ${rider.grade ? " / " + escapeHtml(rider.grade) : ""}
+        ${rider.style ? " / " + escapeHtml(rider.style) : ""}
+
+      </div>
+
+      <div class="score-box">
+
+        <span class="score">
+          AI ${formatScore(rider.ai_score)}
+        </span>
+
+        ${
+          rider.score != null
+          ? `<span class="score">競走得点 ${rider.score}</span>`
+          : ""
+        }
+
+        ${
+          finish
+          ? `<span class="score">着順 ${finish}</span>`
+          : ""
+        }
+
+      </div>
+
+      ${
+        rider.comment
+        ? `
+          <div class="rider-comment">
+            💬 ${escapeHtml(rider.comment)}
           </div>
-
-        `;
-
-
-        container.appendChild(card);
-
+        `
+        : ""
       }
-    );
 
+    </div>
+  `;
+}
+
+/* -------------------------
+   共通
+------------------------- */
+
+function findRider(race, carNo) {
+
+  if (
+    carNo === null ||
+    carNo === undefined
+  ) {
+    return null;
   }
 
+  return race.riders.find(
+    r => Number(r.car_no) === Number(carNo)
+  ) || null;
+}
 
-  /* =========================
-     選手名
-     「1 那須 萌美」
-     ↓
-     「那須 萌美」
-  ========================= */
+function formatScore(value) {
 
-  function cleanRiderName(name) {
-
-    if (!name) {
-      return "選手名不明";
-    }
-
-    return escapeHtml(
-      String(name)
-        .replace(/^[1-7]\s*/, "")
-        .trim()
-    );
-
+  if (
+    value === null ||
+    value === undefined ||
+    isNaN(value)
+  ) {
+    return "-";
   }
 
+  return Number(value).toFixed(1);
+}
 
-  /* =========================
-     HTMLエスケープ
-  ========================= */
+function escapeHtml(value) {
 
-  function escapeHtml(value) {
-
-    return String(value ?? "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-
+  if (value === null || value === undefined) {
+    return "";
   }
 
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
-  /* =========================
-     AI予想
-  ========================= */
-
-  function showComingSoon() {
-
-    alert(
-      "現在は準備中です。\n\n" +
-      "次の段階で競走得点・脚質・直近成績・上がり・前開催などを追加し、\n" +
-      "実データから3連単AI予想を作ります。"
-    );
-
-  }
-
-
-  /* =========================
-     起動
-  ========================= */
-
-  loadData();
+loadData();
 
 </script>
 
