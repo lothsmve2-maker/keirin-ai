@@ -8,317 +8,208 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
- background:#f3f5f8;
- color:#17202a;
- font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
- padding-bottom:90px
+margin:0;
+background:#f3f5f8;
+color:#17202a;
+font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+padding-bottom:90px
 }
-button{font:inherit}
+button{font:inherit;cursor:pointer}
 .header{
- position:sticky;
- top:0;
- z-index:50;
- background:linear-gradient(135deg,#111827,#1f2937);
- color:#fff;
- box-shadow:0 3px 12px rgba(0,0,0,.18)
+position:sticky;
+top:0;
+z-index:50;
+background:linear-gradient(135deg,#111827,#1f2937);
+color:#fff;
+box-shadow:0 3px 12px rgba(0,0,0,.18)
 }
 .header-inner{
- max-width:980px;
- margin:auto;
- padding:14px 12px;
- display:flex;
- justify-content:space-between;
- align-items:center
+max-width:980px;
+margin:auto;
+padding:14px 12px;
+display:flex;
+justify-content:space-between;
+align-items:center
 }
 .title{font-size:21px;font-weight:1000}
 .date{font-size:11px;opacity:.7;margin-top:3px}
 .header-status{font-size:11px;opacity:.75}
-main{
- max-width:980px;
- margin:auto;
- padding:10px
-}
+main{max-width:980px;margin:auto;padding:10px}
 .page{display:none}
 .page.active{display:block}
 .card{
- background:#fff;
- border-radius:16px;
- padding:13px;
- margin-bottom:10px;
- box-shadow:0 2px 8px rgba(0,0,0,.07)
+background:#fff;
+border-radius:16px;
+padding:13px;
+margin-bottom:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.07)
 }
-.card-title{
- font-size:16px;
- font-weight:1000;
- margin-bottom:9px
-}
-.small{
- font-size:11px;
- color:#64748b;
- line-height:1.6
-}
+.card-title{font-size:16px;font-weight:1000;margin-bottom:9px}
+.small{font-size:11px;color:#64748b;line-height:1.6}
 .venue-scroll{
- display:flex;
- gap:7px;
- overflow-x:auto;
- padding-bottom:2px
+display:flex;
+gap:7px;
+overflow-x:auto;
+padding-bottom:2px;
+-webkit-overflow-scrolling:touch
 }
 .venue-btn{
- border:1px solid #e2e8f0;
- background:#fff;
- border-radius:999px;
- padding:8px 13px;
- font-weight:900;
- white-space:nowrap
+border:1px solid #e2e8f0;
+background:#fff;
+border-radius:999px;
+padding:8px 13px;
+font-weight:900;
+white-space:nowrap;
+flex:0 0 auto
 }
 .venue-btn.active{
- background:#2563eb;
- color:#fff;
- border-color:#2563eb
+background:#2563eb;
+color:#fff;
+border-color:#2563eb
 }
 .race-grid{
- display:grid;
- grid-template-columns:repeat(8,1fr);
- gap:6px
+display:grid;
+grid-template-columns:repeat(8,1fr);
+gap:6px
 }
 .race-btn{
- border:0;
- background:#f8fafc;
- border-radius:10px;
- padding:9px 3px;
- font-weight:1000;
- color:#334155
+border:0;
+background:#f8fafc;
+border-radius:10px;
+padding:9px 3px;
+font-weight:1000;
+color:#334155
 }
-.race-btn.active{
- background:#2563eb;
- color:#fff
-}
+.race-btn.active{background:#2563eb;color:#fff}
 .race-btn.settled{box-shadow:inset 0 -3px #16a34a}
 .race-btn.confirmed{box-shadow:inset 0 -3px #2563eb}
 .race-btn.result{box-shadow:inset 0 -3px #f59e0b}
 .race-btn.error{box-shadow:inset 0 -3px #ef4444}
 .race-head{
- display:flex;
- justify-content:space-between;
- align-items:flex-start;
- gap:8px
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:8px
 }
-.race-name{
- font-size:21px;
- font-weight:1000
-}
-.race-meta{
- font-size:11px;
- color:#64748b;
- margin-top:4px
-}
+.race-name{font-size:21px;font-weight:1000}
+.race-meta{font-size:11px;color:#64748b;margin-top:4px}
 .grade{
- padding:7px 10px;
- border-radius:9px;
- font-weight:1000;
- white-space:nowrap
+padding:7px 10px;
+border-radius:9px;
+font-weight:1000;
+white-space:nowrap
 }
 .grade-S{background:#fee2e2;color:#991b1b}
 .grade-A{background:#ffedd5;color:#9a3412}
 .grade-B{background:#dbeafe;color:#1d4ed8}
 .grade-C{background:#e5e7eb;color:#4b5563}
 .key-box{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:7px;
- margin-top:10px
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:7px;
+margin-top:10px
 }
-.key-item{
- text-align:center;
- background:#f8fafc;
- border-radius:12px;
- padding:9px
-}
-.key-label{
- font-size:10px;
- color:#64748b;
- font-weight:900
-}
-.key-num{
- font-size:25px;
- font-weight:1000;
- margin-top:2px
-}
+.key-item{text-align:center;background:#f8fafc;border-radius:12px;padding:9px}
+.key-label{font-size:10px;color:#64748b;font-weight:900}
+.key-num{font-size:25px;font-weight:1000;margin-top:2px}
 .main-num{color:#dc2626}
 .opp-num{color:#2563eb}
 .dark-num{color:#ea580c}
-.verdict{
- margin-top:10px;
- border-radius:13px;
- padding:11px;
- color:#fff
-}
+.verdict{margin-top:10px;border-radius:13px;padding:11px;color:#fff}
 .verdict.S{background:linear-gradient(135deg,#991b1b,#dc2626)}
 .verdict.A{background:linear-gradient(135deg,#c2410c,#f97316)}
 .verdict.B{background:linear-gradient(135deg,#1d4ed8,#2563eb)}
 .verdict.C{background:linear-gradient(135deg,#4b5563,#6b7280)}
 .verdict-top{
- display:flex;
- justify-content:space-between;
- font-weight:1000
+display:flex;
+justify-content:space-between;
+font-weight:1000
 }
-.bet-list{
- display:grid;
- gap:7px
-}
+.bet-list{display:grid;gap:7px}
 .bet{
- display:grid;
- grid-template-columns:28px 1fr auto;
- gap:8px;
- align-items:center;
- border:1px solid #e2e8f0;
- border-radius:11px;
- padding:8px
+display:grid;
+grid-template-columns:28px 1fr auto;
+gap:8px;
+align-items:center;
+border:1px solid #e2e8f0;
+border-radius:11px;
+padding:8px
 }
-.bet.main{
- border:2px solid #ef4444;
- background:#fff7f7
-}
+.bet.main{border:2px solid #ef4444;background:#fff7f7}
 .bet-no{
- width:27px;
- height:27px;
- border-radius:50%;
- display:flex;
- align-items:center;
- justify-content:center;
- background:#f1f5f9;
- font-size:11px;
- font-weight:1000
+width:27px;
+height:27px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f1f5f9;
+font-size:11px;
+font-weight:1000
 }
-.bet.main .bet-no{
- background:#dc2626;
- color:#fff
-}
-.ticket{
- font-size:18px;
- font-weight:1000;
- letter-spacing:1px
-}
-.bet-type{
- font-size:10px;
- color:#64748b;
- margin-top:2px
-}
+.bet.main .bet-no{background:#dc2626;color:#fff}
+.ticket{font-size:18px;font-weight:1000;letter-spacing:1px}
+.bet-type{font-size:10px;color:#64748b;margin-top:2px}
 .bet-right{text-align:right}
-.bet-yen{
- font-size:11px;
- font-weight:900
-}
-.odds{
- font-size:12px;
- font-weight:1000;
- color:#2563eb;
- margin-top:2px
-}
+.bet-yen{font-size:11px;font-weight:900}
+.odds{font-size:12px;font-weight:1000;color:#2563eb;margin-top:2px}
 .odds.missing{color:#94a3b8}
-.expected{
- font-size:10px;
- color:#64748b;
- margin-top:1px
-}
-.value{
- font-size:9px;
- color:#64748b;
- margin-top:2px
-}
-.result-box{
- border-radius:14px;
- padding:12px;
- margin-top:8px
-}
-.result-pre{
- background:#f8fafc;
- border:1px solid #e2e8f0
-}
-.result-confirmed{
- background:#eff6ff;
- border:1px solid #bfdbfe
-}
-.result-settled{
- background:#ecfdf5;
- border:1px solid #bbf7d0
-}
-.result-error{
- background:#fff7ed;
- border:1px solid #fed7aa
-}
-.result-ticket{
- font-size:27px;
- font-weight:1000;
- letter-spacing:2px
-}
-.payout{
- font-size:19px;
- font-weight:1000;
- color:#047857;
- margin-top:3px
-}
+.expected{font-size:10px;color:#64748b;margin-top:1px}
+.value{font-size:9px;color:#64748b;margin-top:2px}
+.result-box{border-radius:14px;padding:12px;margin-top:8px}
+.result-pre{background:#f8fafc;border:1px solid #e2e8f0}
+.result-confirmed{background:#eff6ff;border:1px solid #bfdbfe}
+.result-settled{background:#ecfdf5;border:1px solid #bbf7d0}
+.result-error{background:#fff7ed;border:1px solid #fed7aa}
+.result-ticket{font-size:27px;font-weight:1000;letter-spacing:2px}
+.payout{font-size:19px;font-weight:1000;color:#047857;margin-top:3px}
 .settlement-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:6px;
- margin-top:9px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:6px;
+margin-top:9px
 }
 .stat{
- background:rgba(255,255,255,.75);
- border-radius:9px;
- padding:8px 4px;
- text-align:center
+background:rgba(255,255,255,.75);
+border-radius:9px;
+padding:8px 4px;
+text-align:center
 }
-.stat-label{
- font-size:9px;
- color:#64748b
-}
-.stat-value{
- font-size:14px;
- font-weight:1000;
- margin-top:2px
-}
+.stat-label{font-size:9px;color:#64748b}
+.stat-value{font-size:14px;font-weight:1000;margin-top:2px}
 .dev{
- background:#fff7ed;
- border-left:4px solid #f97316;
- border-radius:8px;
- padding:10px;
- font-size:12px;
- line-height:1.65
+background:#fff7ed;
+border-left:4px solid #f97316;
+border-radius:8px;
+padding:10px;
+font-size:12px;
+line-height:1.65
 }
-.line-box{
- display:flex;
- flex-wrap:wrap;
- gap:6px
-}
+.line-box{display:flex;flex-wrap:wrap;gap:6px}
 .line-group{
- background:#f8fafc;
- border-radius:9px;
- padding:7px;
- font-size:11px
+background:#f8fafc;
+border-radius:9px;
+padding:7px;
+font-size:11px
 }
-.rider-list{
- display:grid;
- gap:6px
-}
+.rider-list{display:grid;gap:6px}
 .rider{
- display:grid;
- grid-template-columns:37px 1fr auto;
- gap:8px;
- align-items:center;
- border:1px solid #e5e7eb;
- border-radius:12px;
- padding:8px
+display:grid;
+grid-template-columns:37px 1fr auto;
+gap:8px;
+align-items:center;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:8px
 }
 .car{
- width:37px;
- height:37px;
- border-radius:8px;
- display:flex;
- align-items:center;
- justify-content:center;
- font-weight:1000
+width:37px;
+height:37px;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:1000
 }
 .car-1{background:#fff;color:#111827;border:1px solid #94a3b8}
 .car-2{background:#111827;color:#fff}
@@ -328,213 +219,147 @@ main{
 .car-6{background:#16a34a;color:#fff}
 .car-7{background:#f97316;color:#fff}
 .rider-name{font-weight:1000;font-size:13px}
-.rider-info{
- font-size:10px;
- color:#64748b;
- margin-top:2px
-}
+.rider-info{font-size:10px;color:#64748b;margin-top:2px}
 .rider-score{text-align:right}
-.ai-score{
- font-weight:1000;
- font-size:15px
-}
-.rider-finish{
- font-size:10px;
- color:#64748b
-}
+.ai-score{font-weight:1000;font-size:15px}
+.rider-finish{font-size:10px;color:#64748b}
 .state-pill{
- display:inline-block;
- border-radius:999px;
- padding:4px 8px;
- font-size:10px;
- font-weight:1000
+display:inline-block;
+border-radius:999px;
+padding:4px 8px;
+font-size:10px;
+font-weight:1000
 }
 .pill-pre{background:#e2e8f0;color:#475569}
 .pill-confirmed{background:#dbeafe;color:#1d4ed8}
 .pill-settled{background:#dcfce7;color:#166534}
 .pill-error{background:#ffedd5;color:#9a3412}
 .notice{
- padding:9px 11px;
- border-radius:10px;
- background:#eff6ff;
- color:#1e40af;
- font-size:10px;
- line-height:1.6
+padding:9px 11px;
+border-radius:10px;
+background:#eff6ff;
+color:#1e40af;
+font-size:10px;
+line-height:1.6
 }
 .profit-hero{
- background:#111827;
- color:#fff;
- border-radius:18px;
- padding:16px;
- margin-bottom:10px
+background:#111827;
+color:#fff;
+border-radius:18px;
+padding:16px;
+margin-bottom:10px
 }
-.profit-title{
- font-size:12px;
- opacity:.72
-}
+.profit-title{font-size:12px;opacity:.72}
 .profit-main{
- display:flex;
- justify-content:space-between;
- align-items:end;
- margin-top:4px
+display:flex;
+justify-content:space-between;
+align-items:end;
+margin-top:4px
 }
-.profit-number{
- font-size:34px;
- font-weight:1000
-}
-.plus{
- color:#22c55e
-}
-.minus{
- color:#f87171
-}
-.profit-sub{
- text-align:right;
- font-size:11px;
- line-height:1.6
-}
+.profit-number{font-size:34px;font-weight:1000}
+.plus{color:#22c55e}
+.minus{color:#f87171}
+.profit-sub{text-align:right;font-size:11px;line-height:1.6}
 .summary-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:7px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:7px
 }
 .summary-stat{
- background:#f8fafc;
- border-radius:10px;
- padding:9px 4px;
- text-align:center
+background:#f8fafc;
+border-radius:10px;
+padding:9px 4px;
+text-align:center
 }
-.summary-label{
- font-size:9px;
- color:#64748b
-}
-.summary-value{
- font-size:14px;
- font-weight:1000;
- margin-top:2px
-}
+.summary-label{font-size:9px;color:#64748b}
+.summary-value{font-size:14px;font-weight:1000;margin-top:2px}
 .data-table{
- width:100%;
- border-collapse:collapse;
- font-size:11px;
- min-width:560px
+width:100%;
+border-collapse:collapse;
+font-size:11px;
+min-width:560px
 }
-.table-wrap{
- overflow-x:auto
-}
-.data-table th{
- background:#f1f5f9;
- padding:7px 5px
-}
+.table-wrap{overflow-x:auto}
+.data-table th{background:#f1f5f9;padding:7px 5px}
 .data-table td{
- border-bottom:1px solid #e5e7eb;
- padding:7px 5px;
- text-align:center
+border-bottom:1px solid #e5e7eb;
+padding:7px 5px;
+text-align:center
 }
-.profit-plus{
- color:#16a34a;
- font-weight:1000
-}
-.profit-minus{
- color:#dc2626;
- font-weight:1000
-}
+.profit-plus{color:#16a34a;font-weight:1000}
+.profit-minus{color:#dc2626;font-weight:1000}
 .strategy{
- border:1px solid #e2e8f0;
- border-radius:11px;
- padding:9px;
- margin-bottom:6px
+border:1px solid #e2e8f0;
+border-radius:11px;
+padding:9px;
+margin-bottom:6px
 }
 .strategy-head{
- display:flex;
- justify-content:space-between;
- gap:8px;
- font-weight:900
+display:flex;
+justify-content:space-between;
+gap:8px;
+font-weight:900
 }
 .strategy-stats{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:5px;
- margin-top:6px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:5px;
+margin-top:6px
 }
 .strategy-stat{
- background:#f8fafc;
- border-radius:7px;
- padding:5px 2px;
- text-align:center;
- font-size:9px
+background:#f8fafc;
+border-radius:7px;
+padding:5px 2px;
+text-align:center;
+font-size:9px
 }
 .strategy-stat b{
- display:block;
- font-size:11px
+display:block;
+font-size:11px
 }
-.loading{
- text-align:center;
- padding:45px 10px;
- color:#64748b
-}
+.loading{text-align:center;padding:45px 10px;color:#64748b}
 .error{
- background:#fff1f2;
- color:#be123c;
- padding:14px;
- border-radius:12px;
- line-height:1.6
+background:#fff1f2;
+color:#be123c;
+padding:14px;
+border-radius:12px;
+line-height:1.6
 }
-/* =========================
-   下部ナビ
-========================= */
 .bottom-nav{
- position:fixed;
- left:0;
- right:0;
- bottom:0;
- z-index:9999;
- height:74px;
- background:rgba(255,255,255,.98);
- backdrop-filter:blur(12px);
- border-top:1px solid #dbe2ea;
- display:grid;
- grid-template-columns:1fr 1fr;
- padding-bottom:env(safe-area-inset-bottom);
- box-shadow:0 -3px 12px rgba(0,0,0,.08)
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+z-index:9999;
+height:74px;
+background:rgba(255,255,255,.98);
+backdrop-filter:blur(12px);
+border-top:1px solid #dbe2ea;
+display:grid;
+grid-template-columns:1fr 1fr;
+padding-bottom:env(safe-area-inset-bottom);
+box-shadow:0 -3px 12px rgba(0,0,0,.08)
 }
 .nav-btn{
- border:0;
- background:#fff;
- color:#64748b;
- font-weight:1000;
- font-size:12px;
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- gap:1px
+border:0;
+background:#fff;
+color:#64748b;
+font-weight:1000;
+font-size:12px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:1px
 }
-.nav-icon{
- font-size:24px;
- line-height:27px
-}
-.nav-btn.active{
- color:#2563eb;
- background:#eff6ff
-}
+.nav-icon{font-size:24px;line-height:27px}
+.nav-btn.active{color:#2563eb;background:#eff6ff}
 @media(max-width:600px){
-main{
- padding:9px 9px 25px
-}
-.race-grid{
- grid-template-columns:repeat(6,1fr)
-}
-.settlement-grid,
-.summary-grid{
- grid-template-columns:repeat(2,1fr)
-}
-.ticket{
- font-size:17px
-}
-.race-name{
- font-size:19px
-}
+main{padding:9px 9px 25px}
+.race-grid{grid-template-columns:repeat(6,1fr)}
+.settlement-grid,.summary-grid{grid-template-columns:repeat(2,1fr)}
+.ticket{font-size:17px}
+.race-name{font-size:19px}
 }
 </style>
 </head>
@@ -542,107 +367,50 @@ main{
 <header class="header">
 <div class="header-inner">
 <div>
-<div class="title">
-🚴 競輪AI予想
+<div class="title">🚴 競輪AI予想</div>
+<div class="date" id="headerDate">データ読み込み中…</div>
 </div>
-<div
-class="date"
-id="headerDate"
->
-データ読み込み中…
-</div>
-</div>
-<div
-class="header-status"
-id="headerStatus"
->
-v6.11
-</div>
+<div class="header-status" id="headerStatus">v6.11</div>
 </div>
 </header>
 <main>
-<!-- =========================
-     予想ページ
-========================= -->
-<section
-id="predictionPage"
-class="page active"
->
+<section id="predictionPage" class="page active">
 <div class="card">
-<div class="card-title">
-開催場
-</div>
-<div
-id="venues"
-class="venue-scroll"
-></div>
+<div class="card-title">開催場</div>
+<div id="venues" class="venue-scroll"></div>
 </div>
 <div class="card">
 <div class="card-title">
-<span id="selectedVenueName">
-レース
-</span>
+<span id="selectedVenueName">レース</span>
 </div>
-<div
-id="raceButtons"
-class="race-grid"
-></div>
+<div id="raceButtons" class="race-grid"></div>
 </div>
 <div id="predictionContent">
-<div class="loading">
-データを読み込んでいます…
-</div>
+<div class="loading">データを読み込んでいます…</div>
 </div>
 </section>
-<!-- =========================
-     収支ページ
-========================= -->
-<section
-id="profitPage"
-class="page"
->
+<section id="profitPage" class="page">
 <div id="profitContent">
-<div class="loading">
-収支データを読み込んでいます…
-</div>
+<div class="loading">収支データを読み込んでいます…</div>
 </div>
 </section>
 </main>
-<!-- =========================
-     下部ナビ
-========================= -->
-<nav
-class="bottom-nav"
-id="bottomNav"
->
+<nav class="bottom-nav">
 
 <button
 type=“button”
 class=“nav-btn active”
 id=“navPrediction”
-onclick=“switchPage(‘prediction’)”
 
-<span class="nav-icon">
 🏁
-</span>
-<span>
 予想
-</span>
-</button>
-
 <button
 type=“button”
 class=“nav-btn”
 id=“navProfit”
-onclick=“switchPage(‘profit’)”
 
-<span class="nav-icon">
 💰
-</span>
-<span>
 収支
-</span>
-</button>
 </nav>
 <script>
 const DATA_URL="./data/today.json";
@@ -650,12 +418,11 @@ const BET_YEN_DEFAULT=100;
 let DATA=null;
 let selectedVenue="";
 let selectedRace=null;
-/* =================================
-   基本関数
-================================= */
+/* ===============================
+   基本
+=============================== */
 function yen(n){
-return Number(n||0)
-.toLocaleString("ja-JP")+"円";
+return Number(n||0).toLocaleString("ja-JP")+"円";
 }
 function num(n){
 return Number(n||0);
@@ -669,61 +436,51 @@ return String(str??"")
 .replaceAll("'","&#039;");
 }
 function getRaces(){
-return Array.isArray(DATA?.races)
-?DATA.races
-:[];
+return Array.isArray(DATA?.races)?DATA.races:[];
 }
 function getPrediction(race){
 return race?.frozen_prediction||{};
 }
 function getBets(race){
 const p=getPrediction(race);
-if(Array.isArray(p.bets))
-return p.bets;
-if(Array.isArray(race?.bets))
-return race.bets;
+if(Array.isArray(p.bets))return p.bets;
+if(Array.isArray(race?.bets))return race.bets;
 return[];
 }
 function getRanking(race){
 const p=getPrediction(race);
-if(Array.isArray(p.ranking))
-return p.ranking;
-if(Array.isArray(race?.ai?.ranking))
-return race.ai.ranking;
+if(Array.isArray(p.ranking))return p.ranking;
+if(Array.isArray(race?.ai?.ranking))return race.ai.ranking;
 return[];
 }
 function getGrade(race){
 return String(
-race?.frozen_prediction?.verdict?.rank ||
-race?.verdict?.rank ||
+race?.frozen_prediction?.verdict?.rank||
+race?.verdict?.rank||
 ""
 ).toUpperCase();
 }
 function getBetYen(bet){
-return num(
-bet?.bet_yen ||
-BET_YEN_DEFAULT
-);
+return num(bet?.bet_yen||BET_YEN_DEFAULT);
 }
-/* =================================
+/* ===============================
    チケット
-================================= */
+=============================== */
 function isValidTicket(a){
-return Array.isArray(a) &&
-a.length===3 &&
+return Array.isArray(a)&&
+a.length===3&&
 a.every(n=>
-Number.isInteger(Number(n)) &&
-Number(n)>=1 &&
+Number.isInteger(Number(n))&&
+Number(n)>=1&&
 Number(n)<=7
-) &&
+)&&
 new Set(a.map(Number)).size===3;
 }
 function normalizeTicket(value){
 const m=String(value??"").match(
 /[1-7]\s*[-－ー→>]\s*[1-7]\s*[-－ー→>]\s*[1-7]/
 );
-if(!m)
-return "";
+if(!m)return"";
 const a=m[0]
 .replaceAll("－","-")
 .replaceAll("ー","-")
@@ -732,114 +489,92 @@ const a=m[0]
 .replace(/\s/g,"")
 .split("-")
 .map(Number);
-return isValidTicket(a)
-?a.join("-")
-:"";
+return isValidTicket(a)?a.join("-"):"";
 }
-/* =================================
+/* ===============================
    着順
-================================= */
+=============================== */
 function getFinishTicket(race){
 const finish=race?.result?.finish;
 if(Array.isArray(finish)&&finish.length>=3){
 const a=finish.slice(0,3).map(Number);
-if(isValidTicket(a))
-return a.join("-");
+if(isValidTicket(a))return a.join("-");
 }
 if(typeof finish==="string"){
 const ticket=normalizeTicket(finish);
-if(ticket)
-return ticket;
+if(ticket)return ticket;
 }
-return "";
+return"";
 }
-/* =================================
+/* ===============================
    払戻
-================================= */
+=============================== */
 function parsePayoutSource(source){
 const s=String(source||"");
 const m=s.match(
 /3連単\s*([1-7])\s*[→\-－ー>]\s*([1-7])\s*[→\-－ー>]\s*([1-7])\s*([0-9,]+)円/
 );
-if(!m)
-return null;
+if(!m)return null;
 const ticket=normalizeTicket(
 `${m[1]}-${m[2]}-${m[3]}`
 );
-if(!ticket)
-return null;
+if(!ticket)return null;
 return{
- ticket,
- yen:Number(m[4].replace(/,/g,""))
+ticket,
+yen:Number(m[4].replace(/,/g,""))
 };
 }
 function getPayoutInfo(race){
 const result=race?.result||{};
-const source=
-parsePayoutSource(
+const source=parsePayoutSource(
 result.payout_source
 );
 if(source){
 return{
- ticket:source.ticket,
- yen:source.yen,
- available:true
+ticket:source.ticket,
+yen:source.yen,
+available:true
 };
 }
-const ticket=
-normalizeTicket(result.payout_3tan);
-if(
-ticket &&
-result.payout_3tan_yen!=null
-){
+const ticket=normalizeTicket(
+result.payout_3tan
+);
+if(ticket&&result.payout_3tan_yen!=null){
 return{
- ticket,
- yen:num(result.payout_3tan_yen),
- available:true
+ticket,
+yen:num(result.payout_3tan_yen),
+available:true
 };
 }
 return{
- ticket:"",
- yen:0,
- available:false
+ticket:"",
+yen:0,
+available:false
 };
 }
-/* =================================
+/* ===============================
    収支確定
-================================= */
+=============================== */
 function isSettled(race){
 return String(
 race?.settlement?.status||""
 ).toLowerCase()==="settled";
 }
-/* =================================
+/* ===============================
    レース状態
-================================= */
+=============================== */
 function getRaceState(race){
 const result=race?.result||{};
-const finish=
-getFinishTicket(race);
+const finish=getFinishTicket(race);
 if(isSettled(race))
 return"settled";
-if(
-result.finished===true &&
-finish
-){
-const payout=
-getPayoutInfo(race);
-return payout.available
-?"confirmed"
-:"result";
+if(result.finished===true&&finish){
+const payout=getPayoutInfo(race);
+return payout.available?"confirmed":"result";
 }
-if(
-result.finished!==true &&
-!finish
-)
+if(result.finished!==true&&!finish)
 return"pre";
-if(
-result.finished===true &&
-!finish
-)
+if(result.finished===true&&!finish)
 return"error";
 return"pre";
 }
@@ -870,73 +605,67 @@ default:
 return"pill-pre";
 }
 }
-/* =================================
+/* ===============================
    オッズ
-================================= */
+=============================== */
 function getBetOdds(race,bet){
 const own=bet?.odds;
 if(
-own!==null &&
-own!==undefined &&
+own!==null&&
+own!==undefined&&
 Number(own)>0
 )
 return Number(own);
-/* race.odds.odds */
 const map=race?.odds?.odds;
 if(
-map &&
-typeof map==="object" &&
-map[bet?.ticket]!=null &&
+map&&
+typeof map==="object"&&
+map[bet?.ticket]!=null&&
 Number(map[bet.ticket])>0
 )
 return Number(map[bet.ticket]);
 return null;
 }
-/* =================================
+/* ===============================
    的中
-================================= */
+=============================== */
 function ticketHit(bet,race){
-const result=
-getFinishTicket(race);
-return !!result &&
+const result=getFinishTicket(race);
+return!!result&&
 String(bet?.ticket)===result;
 }
-/* =================================
+/* ===============================
    ページ切替
-================================= */
+=============================== */
 function switchPage(page){
-const prediction=
+const predictionPage=
 document.getElementById("predictionPage");
-const profit=
+const profitPage=
 document.getElementById("profitPage");
 const navPrediction=
 document.getElementById("navPrediction");
 const navProfit=
 document.getElementById("navProfit");
 if(page==="profit"){
-prediction.classList.remove("active");
-profit.classList.add("active");
+predictionPage.classList.remove("active");
+profitPage.classList.add("active");
 navPrediction.classList.remove("active");
 navProfit.classList.add("active");
 renderProfitPage();
 }else{
-profit.classList.remove("active");
-prediction.classList.add("active");
+profitPage.classList.remove("active");
+predictionPage.classList.add("active");
 navProfit.classList.remove("active");
 navPrediction.classList.add("active");
 }
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+window.scrollTo(0,0);
 }
-/* =================================
-   データ読み込み
-================================= */
+/* ===============================
+   データ
+=============================== */
 async function loadData(){
 try{
-const response=
-await fetch(
+const response=await fetch(
 DATA_URL+"?t="+Date.now(),
 {
 cache:"no-store"
@@ -947,25 +676,19 @@ throw new Error("today.jsonを取得できませんでした");
 DATA=await response.json();
 if(!Array.isArray(DATA.races))
 throw new Error("today.jsonの形式が正しくありません");
-document.getElementById(
-"headerDate"
-).textContent=
+document.getElementById("headerDate").textContent=
 `${DATA.target_date||""}　全${DATA.races.length}R`;
-document.getElementById(
-"headerStatus"
-).textContent=
+document.getElementById("headerStatus").textContent=
 `v${DATA.version||"6.11"}`;
 if(!selectedVenue){
 selectedVenue=
 DATA.races[0]?.venue_name||"";
 }
-const venueRaces=
-getRaces().filter(
+let venueRaces=getRaces().filter(
 r=>r.venue_name===selectedVenue
 );
 if(!selectedRace){
-selectedRace=
-venueRaces[0]||null;
+selectedRace=venueRaces[0]||null;
 }
 renderVenues();
 renderRaceButtons();
@@ -992,41 +715,72 @@ document.getElementById(
 `;
 }
 }
-/* =================================
-   開催場
-================================= */
+/* ===============================
+   会場表示
+   ★ここを修正
+   onclickを使わない
+=============================== */
 function renderVenues(){
 const venues=[
 ...new Set(
-getRaces().map(r=>r.venue_name)
+getRaces()
+.map(r=>r.venue_name)
+.filter(Boolean)
 )
 ];
-document.getElementById(
-"venues"
-).innerHTML=
-venues.map(v=>`
+const container=
+document.getElementById("venues");
+container.innerHTML=
+venues.map((venue,index)=>`
 <button
 type="button"
-class="venue-btn ${v===selectedVenue?"active":""}"
-onclick="selectVenue(${JSON.stringify(v)})"
+class="venue-btn ${venue===selectedVenue?"active":""}"
+data-venue-index="${index}"
 >
-${escapeHtml(v)}
+${escapeHtml(venue)}
 </button>
 `).join("");
+/* ボタンに直接イベントを登録 */
+container
+.querySelectorAll(".venue-btn")
+.forEach(button=>{
+button.addEventListener(
+"click",
+function(){
+const index=
+Number(this.dataset.venueIndex);
+const venue=venues[index];
+selectVenue(venue);
+},
+{passive:true}
+);
+});
 }
+/* ===============================
+   会場選択
+=============================== */
 function selectVenue(venue){
 selectedVenue=venue;
-selectedRace=
-getRaces().find(
+/* 必ずその会場の1Rを選択 */
+const venueRaces=
+getRaces()
+.filter(
 r=>r.venue_name===venue
-)||null;
+)
+.sort(
+(a,b)=>
+Number(a.race_no)-Number(b.race_no)
+);
+selectedRace=
+venueRaces[0]||null;
 renderVenues();
 renderRaceButtons();
 renderRace();
+window.scrollTo(0,0);
 }
-/* =================================
+/* ===============================
    レースボタン
-================================= */
+=============================== */
 function renderRaceButtons(){
 const races=
 getRaces()
@@ -1034,63 +788,72 @@ getRaces()
 r=>r.venue_name===selectedVenue
 )
 .sort(
-(a,b)=>Number(a.race_no)-Number(b.race_no)
+(a,b)=>
+Number(a.race_no)-Number(b.race_no)
 );
 document.getElementById(
 "selectedVenueName"
 ).textContent=
-`${selectedVenue}　${races.length}R`;
-document.getElementById(
-"raceButtons"
-).innerHTML=
-races.map(r=>{
-const state=
-getRaceState(r);
+`${selectedVenue||"レース"}　${races.length}R`;
+const container=
+document.getElementById("raceButtons");
+container.innerHTML=
+races.map((r,index)=>{
+const state=getRaceState(r);
 return`
 <button
 type="button"
 class="race-btn ${state} ${
-selectedRace &&
-Number(selectedRace.race_no)===Number(r.race_no)
+selectedRace&&
+Number(selectedRace.race_no)===
+Number(r.race_no)
 ?"active":""
 }"
-onclick="selectRace(${Number(r.race_no)})"
+data-race-index="${index}"
 >
 ${r.race_no}R
 </button>
 `;
 }).join("");
-}
-function selectRace(no){
-selectedRace=
-getRaces().find(
-r=>
-r.venue_name===selectedVenue &&
-Number(r.race_no)===Number(no)
-)||null;
+container
+.querySelectorAll(".race-btn")
+.forEach(button=>{
+button.addEventListener(
+"click",
+function(){
+const index=
+Number(this.dataset.raceIndex);
+selectedRace=races[index]||null;
 renderRaceButtons();
 renderRace();
+window.scrollTo(0,0);
+},
+{passive:true}
+);
+});
 }
-/* =================================
+/* ===============================
    予想
-================================= */
+=============================== */
 function renderRace(){
 if(!selectedRace){
 document.getElementById(
 "predictionContent"
 ).innerHTML=
-`<div class="loading">レースがありません。</div>`;
+`
+<div class="loading">
+レースがありません。
+</div>
+`;
 return;
 }
 const race=selectedRace;
-const prediction=
-getPrediction(race);
+const prediction=getPrediction(race);
 const verdict=
 prediction.verdict||
 race.verdict||
 {};
-const grade=
-getGrade(race);
+const grade=getGrade(race);
 document.getElementById(
 "predictionContent"
 ).innerHTML=
@@ -1157,13 +920,12 @@ ${renderRanking(race)}
 ${renderRiders(race)}
 `;
 }
-/* =================================
+/* ===============================
    買い目
-================================= */
+=============================== */
 function renderBets(race){
 const bets=getBets(race);
-if(!bets.length)
-return"";
+if(!bets.length)return"";
 return`
 <div class="card">
 <div class="card-title">
@@ -1174,8 +936,7 @@ ${bets.length}点
 </div>
 <div class="bet-list">
 ${bets.map((bet,index)=>{
-const odds=
-getBetOdds(race,bet);
+const odds=getBetOdds(race,bet);
 const potential=
 odds
 ?Math.round(getBetYen(bet)*odds)
@@ -1224,25 +985,18 @@ ${escapeHtml(bet.value_flag||"")}
 </div>
 `;
 }
-/* =================================
+/* ===============================
    結果
-================================= */
+=============================== */
 function renderResult(race){
-const state=
-getRaceState(race);
-const bets=
-getBets(race);
-const finish=
-getFinishTicket(race);
-const payout=
-getPayoutInfo(race);
-const settlement=
-race.settlement||{};
-const hit=
-bets.find(
+const state=getRaceState(race);
+const bets=getBets(race);
+const finish=getFinishTicket(race);
+const payout=getPayoutInfo(race);
+const settlement=race.settlement||{};
+const hit=bets.find(
 bet=>ticketHit(bet,race)
 );
-/* 発走前 */
 if(state==="pre"){
 return`
 <div class="card">
@@ -1259,7 +1013,6 @@ return`
 </div>
 `;
 }
-/* 結果異常 */
 if(state==="error"){
 return`
 <div class="card">
@@ -1267,9 +1020,7 @@ return`
 🏆 レース結果
 </div>
 <div class="result-box result-error">
-<b>
-⚠️ 結果データ確認中
-</b>
+<b>⚠️ 結果データ確認中</b>
 <br>
 <span class="small">
 取得された結果データが正しくないため、
@@ -1279,7 +1030,6 @@ return`
 </div>
 `;
 }
-/* 着順確定・払戻待ち */
 if(state==="result"){
 return`
 <div class="card">
@@ -1322,7 +1072,6 @@ payout.available
 </div>
 `;
 }
-/* 確定 */
 return`
 <div class="card">
 <div class="card-title">
@@ -1363,11 +1112,8 @@ num(settlement.profit)>=0
 ?"profit-plus"
 :"profit-minus"
 }">
-${
-num(settlement.profit)>=0
-?"+"
-:""
-}${yen(settlement.profit)}
+${num(settlement.profit)>=0?"+":""}
+${yen(settlement.profit)}
 </div>
 </div>
 </div>
@@ -1387,12 +1133,11 @@ ${escapeHtml(settlement.hit_ticket)}
 </div>
 `;
 }
-/* =================================
+/* ===============================
    展開
-================================= */
+=============================== */
 function renderDevelopment(race){
-if(!race.development)
-return"";
+if(!race.development)return"";
 return`
 <div class="card">
 <div class="card-title">
@@ -1404,9 +1149,9 @@ ${escapeHtml(race.development)}
 </div>
 `;
 }
-/* =================================
+/* ===============================
    ライン
-================================= */
+=============================== */
 function renderLine(race){
 const groups=race.line_groups;
 const line=race.line;
@@ -1435,26 +1180,23 @@ return`
 <div class="line-box">
 ${
 Array.isArray(groups)&&groups.length
-?groups.map(
-g=>`
+?groups.map(g=>`
 <div class="line-group">
 ${escapeHtml(JSON.stringify(g))}
 </div>
-`
-).join("")
+`).join("")
 :escapeHtml(JSON.stringify(line))
 }
 </div>
 </div>
 `;
 }
-/* =================================
-   ランキング
-================================= */
+/* ===============================
+   AIランキング
+=============================== */
 function renderRanking(race){
 const ranking=getRanking(race);
-if(!ranking.length)
-return"";
+if(!ranking.length)return"";
 return`
 <div class="card">
 <div class="card-title">
@@ -1488,16 +1230,15 @@ ${escapeHtml(item.mark||"")}
 </div>
 `;
 }
-/* =================================
+/* ===============================
    選手
-================================= */
+=============================== */
 function renderRiders(race){
 const riders=
 Array.isArray(race.riders)
 ?race.riders
 :[];
-if(!riders.length)
-return"";
+if(!riders.length)return"";
 const rankingMap=
 new Map(
 getRanking(race).map(
@@ -1568,34 +1309,22 @@ AI ${ai.rank}位
 </div>
 `;
 }
-/* =================================
-   収支ページ
-================================= */
+/* ===============================
+   収支
+=============================== */
 function renderProfitPage(){
-if(!DATA)
-return;
-const summary=
-DATA.summary||{};
-const settled=
-num(summary.settled_races);
-const pending=
-num(summary.pending_races);
-const investment=
-num(summary.investment);
-const payout=
-num(summary.payout);
-const profit=
-num(summary.profit);
-const hits=
-num(summary.hits);
-const hitRate=
-num(summary.hit_rate);
-const roi=
-num(summary.roi);
-const resultCount=
-num(DATA.result_count);
-const payoutCount=
-num(DATA.payout_count);
+if(!DATA)return;
+const summary=DATA.summary||{};
+const settled=num(summary.settled_races);
+const pending=num(summary.pending_races);
+const investment=num(summary.investment);
+const payout=num(summary.payout);
+const profit=num(summary.profit);
+const hits=num(summary.hits);
+const hitRate=num(summary.hit_rate);
+const roi=num(summary.roi);
+const resultCount=num(DATA.result_count);
+const payoutCount=num(DATA.payout_count);
 document.getElementById(
 "profitContent"
 ).innerHTML=
@@ -1637,15 +1366,12 @@ ROI ${roi.toFixed(1)}%
 <div class="summary-value">${hitRate.toFixed(1)}%</div>
 </div>
 </div>
-<div
-class="notice"
-style="margin-top:9px"
->
+<div class="notice" style="margin-top:9px">
 収支は
 <b>settlement.status = settled</b>
 のレースだけを集計。
 <br>
-現在の状態：
+現在：
 確定 ${settled}R /
 結果取得 ${resultCount}R /
 払戻取得 ${payoutCount}R /
@@ -1659,12 +1385,11 @@ ${renderStrategies()}
 ${renderRecommendations()}
 `;
 }
-/* =================================
+/* ===============================
    S/A/B/C
-================================= */
+=============================== */
 function renderGradeProfit(){
-const grades=
-DATA?.summary?.by_rank||{};
+const grades=DATA?.summary?.by_rank||{};
 return`
 <div class="card">
 <div class="card-title">
@@ -1684,8 +1409,7 @@ return`
 </tr>
 </thead>
 <tbody>
-${
-["S","A","B","C"].map(grade=>{
+${["S","A","B","C"].map(grade=>{
 const x=grades[grade]||{};
 return`
 <tr>
@@ -1706,24 +1430,20 @@ ${num(x.profit)>=0?"+":""}${yen(x.profit)}
 <td>${num(x.roi).toFixed(1)}%</td>
 </tr>
 `;
-}).join("")
-}
+}).join("")}
 </tbody>
 </table>
 </div>
 </div>
 `;
 }
-/* =================================
-   会場別
-================================= */
+/* ===============================
+   会場別収支
+=============================== */
 function renderVenueProfit(){
-const venues=
-DATA?.summary?.by_venue||{};
-const entries=
-Object.entries(venues);
-if(!entries.length)
-return"";
+const venues=DATA?.summary?.by_venue||{};
+const entries=Object.entries(venues);
+if(!entries.length)return"";
 return`
 <div class="card">
 <div class="card-title">
@@ -1745,9 +1465,7 @@ return`
 <tbody>
 ${entries.map(([name,x])=>`
 <tr>
-<td>
-<b>${escapeHtml(name)}</b>
-</td>
+<td><b>${escapeHtml(name)}</b></td>
 <td>${num(x.races)}</td>
 <td>${yen(x.investment)}</td>
 <td>${yen(x.payout)}</td>
@@ -1770,15 +1488,13 @@ ${num(x.profit)>=0?"+":""}${yen(x.profit)}
 </div>
 `;
 }
-/* =================================
-   レース別
-================================= */
+/* ===============================
+   レース別収支
+=============================== */
 function renderRaceProfit(){
 const races=
 getRaces()
-.filter(
-race=>isSettled(race)
-)
+.filter(race=>isSettled(race))
 .sort(
 (a,b)=>
 String(a.venue_name).localeCompare(
@@ -1859,16 +1575,13 @@ ${num(s.profit)>=0?"+":""}${yen(s.profit)}
 </div>
 `;
 }
-/* =================================
+/* ===============================
    バックテスト
-================================= */
+=============================== */
 function renderStrategies(){
-const data=
-DATA?.backtests||{};
-const entries=
-Object.entries(data);
-if(!entries.length)
-return"";
+const data=DATA?.backtests||{};
+const entries=Object.entries(data);
+if(!entries.length)return"";
 return`
 <div class="card">
 <div class="card-title">
@@ -1913,14 +1626,12 @@ ROI
 </div>
 `;
 }
-/* =================================
+/* ===============================
    本日のおすすめ
-================================= */
+=============================== */
 function renderRecommendations(){
-const rec=
-DATA?.today_recommendations;
-if(!rec)
-return"";
+const rec=DATA?.today_recommendations;
+if(!rec)return"";
 const entries=
 Array.isArray(rec)
 ?rec
@@ -1930,8 +1641,7 @@ name,
 ...value
 })
 );
-if(!entries.length)
-return"";
+if(!entries.length)return"";
 return`
 <div class="card">
 <div class="card-title">
@@ -1958,9 +1668,7 @@ ${item.rank
 ${
 item.ticket
 ?`
-<div
-style="margin-top:5px;font-weight:1000"
->
+<div style="margin-top:5px;font-weight:1000">
 🎯 ${escapeHtml(item.ticket)}
 </div>
 `
@@ -1980,11 +1688,35 @@ ${escapeHtml(item.reason)}
 </div>
 `;
 }
-/* =================================
+/* ===============================
+   ★イベント登録
+   ここが今回の重要修正
+=============================== */
+function bindNavigation(){
+const navPrediction=
+document.getElementById("navPrediction");
+const navProfit=
+document.getElementById("navProfit");
+navPrediction.addEventListener(
+"click",
+function(){
+switchPage("prediction");
+},
+{passive:true}
+);
+navProfit.addEventListener(
+"click",
+function(){
+switchPage("profit");
+},
+{passive:true}
+);
+}
+/* ===============================
    起動
-================================= */
+=============================== */
+bindNavigation();
 loadData();
-/* 5分ごと自動更新 */
 setInterval(
 loadData,
 5*60*1000
