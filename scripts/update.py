@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.6'
+VERSION='6.7'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 TODAY=datetime.now().strftime('%Y%m%d'); TODAY_DISPLAY=datetime.now().strftime('%Y-%m-%d')
 TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
@@ -252,8 +252,24 @@ def load_existing():
         return d if d.get('target_date')==TODAY_DISPLAY else {}
     except:return {}
 def freeze_prediction(race,old):
-    if old and old.get('frozen_prediction'):race['frozen_prediction']=old['frozen_prediction'];return
+    if old and old.get('frozen_prediction'):
+        fp=old['frozen_prediction']
+        race['frozen_prediction']=fp
+        # UI/summary compatibility: keep the frozen AI visible in the normal fields too.
+        race['ai']={'main':fp.get('main'),'opponent':fp.get('opponent'),'dark_horse':fp.get('dark_horse'),'ranking':fp.get('ranking',[])}
+        race['verdict']=fp.get('verdict',{})
+        race['bets']=fp.get('bets',[])
+        return
     race['frozen_prediction']={'created_at':datetime.now().isoformat(),'main':race['ai']['main'],'opponent':race['ai']['opponent'],'dark_horse':race['ai']['dark_horse'],'verdict':race['verdict'],'ranking':race['ai']['ranking'],'bets':race['bets']}
+
+def old_race_ready_for_reuse(r):
+    return bool(r.get('riders')) and 5<=len(r.get('riders',[]))<=7 and bool(r.get('venue_code')) and int(r.get('race_no',0))>0
+
+def merge_existing_race(oldrace):
+    # Reuse the already downloaded race/prediction data. This is the main v6.7 speed-up.
+    r=json.loads(json.dumps(oldrace,ensure_ascii=False))
+    r.pop('settlement',None)
+    return r
 def calculate_summary(races):
     by_rank={k:{'races':0,'investment':0,'payout':0,'profit':0,'hits':0} for k in 'SABC'};by_venue={};inv=pay=hits=settled=pending=0
     for r in races:
@@ -270,27 +286,67 @@ def main():
     existing=load_existing();old={(str(r.get('venue_code')),int(r.get('race_no',0))):r for r in existing.get('races',[])}
     if old:print(f'既存データ: {len(old)}レース\n凍結済みAI予想を保護します')
     all_races=[];venues=[];print('開催場を確認中...')
-    for c,(n,s) in VENUES.items():
-        v={'code':c,'name':n,'slug':s};venues.append(v);rs=discover_real_races(v);v['race_numbers']=[x['race_no'] for x in rs];print(f'  {c} {n}: {len(rs)}レース');all_races+=rs
-    all_races.sort(key=lambda x:(int(x['venue_code']),x['race_no']));print(f'詳細取得対象レース: {len(all_races)}');print(f'選手データ取得結果: {sum(5<=len(r["riders"])<=7 for r in all_races)}/{len(all_races)}')
-    print('コメント・並び・展開情報取得中...')
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-        fs={ex.submit(fetch_prediction,r):r for r in all_races}
-        for f in as_completed(fs):
-            r=fs[f]
-            try:p=f.result()
-            except:p={'comments':{},'line':[],'line_groups':[],'development':'','url':''}
-            r.update({'comments':p['comments'],'line':p['line'],'line_groups':p['line_groups'],'development':p['development'],'prediction_url':p['url']})
+    # Existing same-day race data is stable, so reuse it instead of downloading every race page again.
+    # This avoids dozens of unnecessary requests on every hourly run.
+    if old and old.get('races'):
+        old_by_venue={}
+        for rr in old.get('races',[]):
+            if old_race_ready_for_reuse(rr):
+                old_by_venue.setdefault(str(rr['venue_code']),[]).append(rr)
+        for c,(n,s) in VENUES.items():
+            v={'code':c,'name':n,'slug':s}
+            reused=sorted(old_by_venue.get(c,[]),key=lambda x:int(x.get('race_no',0)))
+            v['race_numbers']=[int(x['race_no']) for x in reused]
+            venues.append(v);all_races += [merge_existing_race(x) for x in reused]
+            print(f'  {c} {n}: {len(reused)}レース（既存データ再利用）')
+    else:
+        for c,(n,s) in VENUES.items():
+            v={'code':c,'name':n,'slug':s};venues.append(v);rs=discover_real_races(v);v['race_numbers']=[x['race_no'] for x in rs];print(f'  {c} {n}: {len(rs)}レース');all_races+=rs
+    all_races.sort(key=lambda x:(int(x['venue_code']),x['race_no']))
+    print(f'詳細取得対象レース: {len(all_races)}')
+    print(f'選手データ取得結果: {sum(5<=len(r.get("riders",[]))<=7 for r in all_races)}/{len(all_races)}')
+
+    # Only fetch prediction pages when frozen prediction data is missing/incomplete.
+    prediction_targets=[]
     for r in all_races:
-        oldrace=old.get((str(r['venue_code']),r['race_no']),{})
-        for x in r['riders']:
-            i=r['comments'].get(x['car_no'],{});x['prediction_mark']=i.get('mark','');x['prediction_score']=i.get('prediction_score',0);x['comment']=i.get('comment','')
-        if oldrace.get('frozen_prediction'):freeze_prediction(r,oldrace)
-        else:apply_ai(r);freeze_prediction(r,oldrace)
+        oldrace=old.get((str(r['venue_code']),int(r['race_no'])),{})
+        fp=oldrace.get('frozen_prediction')
+        has_prediction=bool(r.get('prediction_url') and (r.get('comments') or r.get('line') or r.get('development')))
+        if not fp or not has_prediction:
+            prediction_targets.append(r)
+    print(f'コメント・並び・展開情報: {len(prediction_targets)}/{len(all_races)}レースを取得（既存データ再利用あり）')
+    if prediction_targets:
+        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+            fs={ex.submit(fetch_prediction,r):r for r in prediction_targets}
+            for f in as_completed(fs):
+                r=fs[f]
+                try:p=f.result()
+                except:p={'comments':{},'line':[],'line_groups':[],'development':'','url':''}
+                r.update({'comments':p['comments'],'line':p['line'],'line_groups':p['line_groups'],'development':p['development'],'prediction_url':p['url']})
+    for r in all_races:
+        oldrace=old.get((str(r['venue_code']),int(r['race_no'])),{})
+        # If a legacy record lacks comments, preserve whatever we already have rather than wiping it.
+        for x in r.get('riders',[]):
+            i=r.get('comments',{}).get(x['car_no'],{})
+            if i:
+                x['prediction_mark']=i.get('mark','');x['prediction_score']=i.get('prediction_score',0);x['comment']=i.get('comment','')
+        if oldrace.get('frozen_prediction'):
+            freeze_prediction(r,oldrace)
+        else:
+            apply_ai(r);freeze_prediction(r,oldrace)
 
     print('レース結果を確認中...');result_count=payout_count=0;result_pending=[];result_failed=[];payout_pending=[];payout_failed=[]
+    result_targets=[]
+    for r in all_races:
+        oldres=old.get((str(r['venue_code']),int(r['race_no'])),{}).get('result',{})
+        # A race with both result and payout already confirmed never needs to be fetched again.
+        if not (oldres.get('result_finished') and oldres.get('payout_available')):
+            result_targets.append(r)
+        else:
+            r['result']=oldres
+    print(f'結果更新対象: {len(result_targets)}/{len(all_races)}レース（確定済みは再取得しません）')
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-        fs={ex.submit(fetch_result,r):r for r in all_races}
+        fs={ex.submit(fetch_result,r):r for r in result_targets}
         for f in as_completed(fs):
             r=fs[f];key=(str(r['venue_code']),r['race_no']);oldres=old.get(key,{}).get('result',{})
             try:res=f.result()
@@ -300,24 +356,36 @@ def main():
             if oldres.get('payout_available'):
                 res['payout_available']=True;res['payout_3tan']=oldres.get('payout_3tan');res['payout_3tan_yen']=oldres.get('payout_3tan_yen',0);res['payout_source']=oldres.get('payout_source','');res['payout_status']='available'
             res['finished']=bool(res.get('result_finished') and res.get('payout_available'));r['result']=res
-            if res.get('result_finished'):result_count+=1
-            elif res.get('result_status')=='error':result_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
-            else:result_pending.append(f'{r["venue_name"]} {r["race_no"]}R')
-            if res.get('payout_available'):payout_count+=1
-            elif res.get('payout_status')=='error':payout_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
-            else:payout_pending.append(f'{r["venue_name"]} {r["race_no"]}R')
+    # Recalculate status counts from the final race state, including reused confirmed results.
+    for r in all_races:
+        res=r.get('result',{})
+        if res.get('result_finished'):result_count+=1
+        elif res.get('result_status')=='error':result_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
+        else:result_pending.append(f'{r["venue_name"]} {r["race_no"]}R')
+        if res.get('payout_available'):payout_count+=1
+        elif res.get('payout_status')=='error':payout_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
+        else:payout_pending.append(f'{r["venue_name"]} {r["race_no"]}R')
     print(f'結果確定: {result_count}/{len(all_races)}');print(f'  結果待ち: {len(result_pending)}');print(f'  結果取得エラー: {len(result_failed)}');print(f'払戻確定: {payout_count}/{len(all_races)}');print(f'  払戻待ち: {len(payout_pending)}');print(f'  払戻取得エラー: {len(payout_failed)}')
 
     print('オッズ情報を確認中...');odds_count=0;odds_failed=[]
+    odds_targets=[]
+    for r in all_races:
+        oldod=old.get((str(r['venue_code']),int(r['race_no'])),{}).get('odds',{})
+        if oldod.get('available') and oldod.get('odds'):
+            r['odds']=oldod
+        else:
+            odds_targets.append(r)
+    print(f'オッズ更新対象: {len(odds_targets)}/{len(all_races)}レース（取得済みは再取得しません）')
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-        fs={ex.submit(fetch_odds,r):r for r in all_races}
+        fs={ex.submit(fetch_odds,r):r for r in odds_targets}
         for f in as_completed(fs):
-            r=fs[f];oldod=old.get((str(r['venue_code']),r['race_no']),{}).get('odds',{})
+            r=fs[f]
             try:o=f.result()
             except:o={'available':False,'odds':{}}
-            r['odds']=oldod if oldod.get('available') and oldod.get('odds') else o
-            if r['odds'].get('available'):odds_count+=1
-            else:odds_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
+            r['odds']=o
+    for r in all_races:
+        if r.get('odds',{}).get('available'):odds_count+=1
+        else:odds_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
     print(f'オッズ取得: {odds_count}/{len(all_races)}')
     for r in all_races:attach_bet_odds(r);r['settlement']=settle_bets(r)
     summary=calculate_summary(all_races);rider_count=sum(len(r['riders']) for r in all_races);correct_names=sum(bool(x.get('name')) for r in all_races for x in r['riders']);frozen=sum(bool(r.get('frozen_prediction')) for r in all_races)
