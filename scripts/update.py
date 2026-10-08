@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.11'
+VERSION='6.12'
 
 BASE='https://www.oddspark.com'
 SP='https://sp.oddspark.com'
@@ -505,70 +505,111 @@ def valid_cars(c):
     )
 
 
-def parse_line(sp):
+def valid_line(line,riders=None):
+    if not isinstance(line,list):
+        return False
+    cars=[]
+    for x in line:
+        try:
+            c=int(x)
+        except:
+            return False
+        if c<1 or c>7 or c in cars:
+            return False
+        cars.append(c)
+    expected=len(riders) if isinstance(riders,list) else None
+    return len(cars)>=5 and (expected is None or len(cars)==expected)
 
+
+def valid_finish(finish):
+    if not isinstance(finish,list) or len(finish)<3:
+        return False
+    try:
+        first=[int(x) for x in finish[:3]]
+    except:
+        return False
+    return len(set(first))==3 and all(1<=x<=7 for x in first)
+
+
+def _car_from_token(s):
+    circled={'①':1,'②':2,'③':3,'④':4,'⑤':5,'⑥':6,'⑦':7}
+    m=re.search(r'([1-7①②③④⑤⑥⑦])',str(s or ''))
+    if not m:
+        return None
+    v=m.group(1)
+    if v in circled:
+        return circled[v]
+    return int(v) if v.isdigit() else None
+
+
+def _line_cars_from_text(s):
+    text=clean(s)
+    if not text:
+        return []
+    pat=r'([1-7①②③④⑤⑥⑦])\s*(?:逃捲|逃げ|先捲|捲り|捲|追込|追捲|自在|単騎|差脚|地差|先行)'
+    out=[]
+    for m in re.finditer(pat,text):
+        c=_car_from_token(m.group(1))
+        if c and c not in out:
+            out.append(c)
+    return out
+
+
+def parse_line(sp):
     if not sp:
         return [],[]
 
+    groups=[]
+    combined=[]
+
     for table in sp.find_all('table'):
-
         for tr in table.find_all('tr'):
+            cells=[clean(c.get_text(' ',strip=True))
+                   for c in tr.find_all(['th','td'])]
+            row=[]
+            for cell in cells:
+                row += _line_cars_from_text(cell)
+            row=list(dict.fromkeys(row))
+            if 2<=len(row)<=7:
+                groups.append(row)
+                for c in row:
+                    if c not in combined:
+                        combined.append(c)
 
-            cells=[
-                clean(c.get_text(' ',strip=True))
-                for c in tr.find_all(['th','td'])
-            ]
+    if 5<=len(combined)<=7:
+        return combined,[g for g in groups if len(g)>=2]
 
-            cars=list(
-                dict.fromkeys(
-                    int(x)
-                    for x in cells
-                    if re.fullmatch(r'[1-7]',x)
-                )
-            )
+    lines=[clean(x) for x in sp.get_text('\n',strip=True).splitlines()
+           if clean(x)]
+    all_cars=[]
+    text_groups=[]
+    for i,line in enumerate(lines):
+        row=_line_cars_from_text(line)
+        if not row:
+            row=_line_cars_from_text(' '.join(lines[max(0,i-1):i+2]))
+        row=list(dict.fromkeys(row))
+        if 2<=len(row)<=7:
+            text_groups.append(row)
+            for c in row:
+                if c not in all_cars:
+                    all_cars.append(c)
 
-            if (
-                valid_cars(cars)
-                and any(
-                    w in ' '.join(cells)
-                    for w in STYLE_WORDS
-                )
+    if 5<=len(all_cars)<=7:
+        return all_cars,[g for g in text_groups if len(g)>=2]
+
+    # 旧形式の保険
+    for table in sp.find_all('table'):
+        for tr in table.find_all('tr'):
+            cells=[clean(c.get_text(' ',strip=True))
+                   for c in tr.find_all(['th','td'])]
+            cars=list(dict.fromkeys(
+                int(x) for x in cells if re.fullmatch(r'[1-7]',x)
+            ))
+            if valid_cars(cars) and any(
+                w in ' '.join(cells) for w in STYLE_WORDS
             ):
                 return cars,[cars]
-
-    lines=[
-        clean(x)
-        for x in sp.get_text('\n',strip=True).splitlines()
-        if clean(x)
-    ]
-
-    for i,line in enumerate(lines):
-
-        nums=list(
-            dict.fromkeys(
-                int(x)
-                for x in re.findall(
-                    r'(?<!\d)([1-7])(?!\d)',
-                    line
-                )
-            )
-        )
-
-        nearby=' '.join(
-            lines[max(0,i-2):i+3]
-        )
-
-        if (
-            valid_cars(nums)
-            and any(
-                w in nearby
-                for w in STYLE_WORDS
-            )
-        ):
-            return nums,[nums]
-
     return [],[]
-
 
 def is_dev(t):
 
@@ -630,28 +671,31 @@ def parse_development(sp):
 
 
 def fetch_prediction(r):
-
-    u=prediction_url(
-        r['venue_slug'],
-        r['race_no']
-    )
-
+    u=prediction_url(r['venue_slug'],r['race_no'])
     sp=soup(get_html(u))
 
+    comments=parse_prediction_table(sp)
     line,groups=parse_line(sp)
+    development=parse_development(sp)
+
+    # 予想ページで並びが取れない場合は出走表をフォールバック。
+    if not valid_line(line,r.get('riders')):
+        race_sp=soup(get_html(race_url(r['venue_code'],r['race_no'])))
+        race_line,race_groups=parse_line(race_sp)
+        if valid_line(race_line,r.get('riders')):
+            line,groups=race_line,race_groups
+        if not comments:
+            comments=parse_prediction_table(race_sp)
+        if not development:
+            development=parse_development(race_sp)
 
     return {
-        'comments':parse_prediction_table(sp),
+        'comments':comments,
         'line':line,
         'line_groups':groups,
-        'development':parse_development(sp),
+        'development':development,
         'url':u
     }
-
-
-# =========================================================
-# AI評価
-# =========================================================
 
 def calculate_ai_score(r,race):
 
@@ -1144,14 +1188,23 @@ def parse_result_page(html):
             map(str,finish[:3])
         )
 
-    rf=len(finish)>=3
-    pa=bool(tk and y>0)
+    rf=valid_finish(finish)
+    payout_ticket_valid=bool(
+        isinstance(tk,str)
+        and re.fullmatch(r'[1-7]-[1-7]-[1-7]',tk)
+        and valid_finish([int(x) for x in tk.split('-')])
+    )
+    pa=bool(rf and payout_ticket_valid and y>0)
 
     if rf:
         empty['result_status']='finished'
+    elif finish:
+        empty['result_status']='error'
 
     if pa:
         empty['payout_status']='available'
+    elif rf:
+        empty['payout_status']='pending'
 
     empty.update({
         'finished':rf and pa,
@@ -1389,8 +1442,11 @@ def settle_bets(race):
 
     ready=bool(
         res.get('result_finished')
+        and valid_finish(res.get('finish',[]))
         and res.get('payout_available')
-        and tk
+        and isinstance(tk,str)
+        and re.fullmatch(r'[1-7]-[1-7]-[1-7]',tk)
+        and valid_finish([int(x) for x in tk.split('-')])
         and y>0
     )
 
@@ -1475,6 +1531,15 @@ def _favorite_odds(race):
     return min(vals) if vals else None
 
 
+def frozen_bets(race,limit=None):
+    bets=(race.get('frozen_prediction',{}).get('bets',[]) or [])
+    if not bets:
+        bets=race.get('bets',[]) or []
+    if not isinstance(bets,list):
+        return []
+    return bets if limit is None else bets[:max(0,int(limit))]
+
+
 def backtest_strategy(
     races,
     limit=10,
@@ -1548,7 +1613,7 @@ def backtest_strategy(
             if fav<favorite_min:
                 continue
 
-        bets=generate_bets(
+        bets=frozen_bets(
             race,
             limit=limit
         )
@@ -1742,7 +1807,7 @@ def backtest_daily_cap(
             if fav<favorite_min:
                 continue
 
-        bets=generate_bets(
+        bets=frozen_bets(
             race,
             limit=bet_limit
         )
@@ -1805,7 +1870,7 @@ def backtest_daily_cap(
 
     for ai_score,race in selected:
 
-        bets=generate_bets(
+        bets=frozen_bets(
             race,
             limit=bet_limit
         )
@@ -1977,7 +2042,7 @@ def build_today_recommendations(
         if _race_rank(race)!='A':
             continue
 
-        bets=generate_bets(
+        bets=frozen_bets(
             race,
             limit=bet_limit
         )
@@ -2040,7 +2105,9 @@ def build_today_recommendations(
                         'ticket':b.get('ticket'),
                         'score':b.get('score'),
                         'type':b.get('type'),
-                        'odds':b.get('odds')
+                        'odds':b.get('odds'),
+                        'market_rank':b.get('market_rank'),
+                        'value_flag':b.get('value_flag')
                     }
                     for b in bets
                 ]
@@ -2615,13 +2682,17 @@ def main():
             'frozen_prediction'
         )
 
+        has_comments=bool(
+            r.get('comments')
+            and len(r.get('comments',{}))>=len(r.get('riders',[]))
+        )
+        has_line=valid_line(r.get('line',[]),r.get('riders'))
+        has_development=bool(r.get('development'))
         has_prediction=bool(
             r.get('prediction_url')
-            and (
-                r.get('comments')
-                or r.get('line')
-                or r.get('development')
-            )
+            and has_comments
+            and has_line
+            and has_development
         )
 
         if not fp or not has_prediction:
@@ -2771,7 +2842,14 @@ def main():
 
         if not (
             oldres.get('result_finished')
+            and valid_finish(oldres.get('finish',[]))
             and oldres.get('payout_available')
+            and isinstance(oldres.get('payout_3tan'),str)
+            and re.fullmatch(
+                r'[1-7]-[1-7]-[1-7]',
+                oldres.get('payout_3tan','')
+            )
+            and int(oldres.get('payout_3tan_yen',0) or 0)>0
         ):
 
             result_targets.append(r)
@@ -2831,42 +2909,42 @@ def main():
                     'payout_source':''
                 }
 
-            if oldres.get(
-                'result_finished'
-            ):
+            old_finish=oldres.get('finish',[])
+            old_result_valid=(
+                oldres.get('result_finished')
+                and valid_finish(old_finish)
+            )
 
+            if old_result_valid:
                 res['result_finished']=True
-
-                res['finish']=oldres.get(
-                    'finish',
-                    res.get(
-                        'finish',
-                        []
-                    )
-                )
-
+                res['finish']=old_finish
                 res['result_status']='finished'
 
-            if oldres.get(
-                'payout_available'
-            ):
+            old_payout_ticket=oldres.get('payout_3tan')
+            old_payout_yen=int(
+                oldres.get('payout_3tan_yen',0) or 0
+            )
+            old_payout_valid=bool(
+                old_result_valid
+                and oldres.get('payout_available')
+                and isinstance(old_payout_ticket,str)
+                and re.fullmatch(
+                    r'[1-7]-[1-7]-[1-7]',
+                    old_payout_ticket
+                )
+                and valid_finish(
+                    [int(x) for x in old_payout_ticket.split('-')]
+                )
+                and old_payout_yen>0
+            )
 
+            if old_payout_valid:
                 res['payout_available']=True
-
-                res['payout_3tan']=oldres.get(
-                    'payout_3tan'
-                )
-
-                res['payout_3tan_yen']=oldres.get(
-                    'payout_3tan_yen',
-                    0
-                )
-
+                res['payout_3tan']=old_payout_ticket
+                res['payout_3tan_yen']=old_payout_yen
                 res['payout_source']=oldres.get(
-                    'payout_source',
-                    ''
+                    'payout_source',''
                 )
-
                 res['payout_status']='available'
 
             res['finished']=bool(
@@ -2887,8 +2965,9 @@ def main():
             {}
         )
 
-        if res.get(
-            'result_finished'
+        if (
+            res.get('result_finished')
+            and valid_finish(res.get('finish',[]))
         ):
 
             result_count+=1
