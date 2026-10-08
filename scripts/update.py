@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.5'
+VERSION='6.6'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 TODAY=datetime.now().strftime('%Y%m%d'); TODAY_DISPLAY=datetime.now().strftime('%Y-%m-%d')
 TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
@@ -58,13 +58,6 @@ def parse_rider_row(tr):
                 for x in cells[i+1:i+6]:
                     if x and x not in MARK_SCORE and not re.fullmatch(r'[1-7]|\d+',x) and re.search(r'[一-龯ぁ-んァ-ヶ]',x) and not any(q in x for q in ('競走得点','着順','決まり手','今場所','前場所')):name=x;break
             if name:break
-    if not name:
-        parts=[clean(x) for x in tr.stripped_strings if clean(x)]
-        for i,x in enumerate(parts):
-            if x==str(car):
-                for y in parts[i+1:i+6]:
-                    if y not in MARK_SCORE and re.search(r'[一-龯]',y) and len(y)<=12:name=y;break
-            if name:break
     if not name:return None
     m=re.search(r'(\d{1,2})歳\s*[／/]\s*(\d{2,3})期',text); age=int(m.group(1)) if m else None; period=int(m.group(2)) if m else None
     pref=next((p for p in sorted(PREFECTURES,key=len,reverse=True) if p in text),'')
@@ -93,7 +86,8 @@ def fetch_race(job):
     u=race_url(job['venue_code'],job['race_no']); sp=soup(get_html(u)); rel=discover_related(sp); riders=parse_riders(sp)
     return {**job,'url':u,'riders':riders,**rel,'success':5<=len(riders)<=7}
 def discover_real_races(v):
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex: rs=[f.result() for f in as_completed([ex.submit(fetch_race,{ 'venue_code':v['code'],'venue_name':v['name'],'venue_slug':v['slug'],'race_no':n}) for n in range(1,13)])]
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        rs=[f.result() for f in as_completed([ex.submit(fetch_race,{'venue_code':v['code'],'venue_name':v['name'],'venue_slug':v['slug'],'race_no':n}) for n in range(1,13)])]
     return sorted([r for r in rs if r['success']],key=lambda x:x['race_no'])
 
 def parse_prediction_table(sp):
@@ -131,8 +125,8 @@ def parse_development(sp):
     cand=[x for x in lines if is_dev(x) and len(x)>=20]
     return max(cand,key=lambda x:len(x)) if cand else ''
 def fetch_prediction(r):
-    u=prediction_url(r['venue_slug'],r['race_no']); sp=soup(get_html(u))
-    return {'comments':parse_prediction_table(sp),'line':parse_line(sp)[0],'line_groups':parse_line(sp)[1],'development':parse_development(sp),'url':u}
+    u=prediction_url(r['venue_slug'],r['race_no']); sp=soup(get_html(u)); line,groups=parse_line(sp)
+    return {'comments':parse_prediction_table(sp),'line':line,'line_groups':groups,'development':parse_development(sp),'url':u}
 
 def calculate_ai_score(r,race):
     s=max(0,min(30,((r.get('score') or 70)-70)*1.2)); s+=(r.get('finish_1') or 0)*1.8+(r.get('finish_2') or 0)*.9+(r.get('finish_3') or 0)*.4+(r.get('kimari_nige') or 0)*.8+(r.get('kimari_makuri') or 0)+(r.get('kimari_sashi') or 0)+r.get('prediction_score',0)
@@ -157,7 +151,7 @@ def generate_bets(race):
     line=set(race.get('line',[])); out={}
     for a,b,c,sc,lab in cs:
         tk=ticket(a,b,c)
-        if tk: out[tk]=max(out.get(tk,{'score':-1}),{'ticket':tk,'score':sc+sum(2 for x in (a,b,c) if x in line),'type':lab,'bet_yen':BET_UNIT},key=lambda x:x['score'])
+        if tk:out[tk]=max(out.get(tk,{'score':-1}),{'ticket':tk,'score':sc+sum(2 for x in (a,b,c) if x in line),'type':lab,'bet_yen':BET_UNIT},key=lambda x:x['score'])
     return sorted(out.values(),key=lambda x:x['score'],reverse=True)[:MAX_BETS]
 def apply_ai(race):
     for r in race['riders']:r['ai_score']=calculate_ai_score(r,race)
@@ -172,80 +166,70 @@ def payout_scan(sp,text):
     rows=sp.find_all('tr') if sp else []
     for i,tr in enumerate(rows):
         row=clean(tr.get_text(' ',strip=True))
-        if '3連単' not in row and '払戻' not in row:continue
-        near=' '.join(clean(x.get_text(' ',strip=True)) for x in rows[i:min(len(rows),i+5)])
+        if '3連単' not in row:continue
+        near=' '.join(clean(x.get_text(' ',strip=True)) for x in rows[max(0,i-2):min(len(rows),i+5)])
         tk=parse_ticket_text(near); ys=parse_yen_text(near)
         if tk and ys:return tk,ys[0],near
     for key in ('3連単','払戻金','払戻'):
         p=text.find(key)
         while p>=0:
-            w=text[max(0,p-80):p+400]; tk=parse_ticket_text(w); ys=parse_yen_text(w)
+            w=text[max(0,p-100):p+500]; tk=parse_ticket_text(w); ys=parse_yen_text(w)
             if tk and ys:return tk,ys[0],w
             p=text.find(key,p+len(key))
     return None,0,''
+
 def parse_result_page(html):
-    empty={'finished':False,'result_finished':False,'finish':[],'payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':''}
+    empty={'finished':False,'result_finished':False,'finish':[],'result_status':'pending','payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'','payout_status':'pending'}
     sp=soup(html)
-    if not sp:return empty
+    if not sp:
+        empty['result_status']='error';empty['payout_status']='error';return empty
     finish_map={}
     for table in sp.find_all('table'):
-        rows=table.find_all('tr'); header_idx=None; pos_idx=None; car_idx=None
-        for ri,tr in enumerate(rows[:5]):
-            cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
+        rows=table.find_all('tr'); header_idx=None;pos_idx=None;car_idx=None
+        for ri,tr in enumerate(rows[:8]):
+            cells=[clean(c.get_text(' ',strip=True)).replace(' ','') for c in tr.find_all(['th','td'])]
             for i,v in enumerate(cells):
-                if '着順' in v and pos_idx is None: pos_idx=i
-                if ('車番' == v or '車番' in v) and car_idx is None: car_idx=i
-            if pos_idx is not None and car_idx is not None:
-                header_idx=ri; break
-        if header_idx is None: continue
+                if '着順' in v and pos_idx is None:pos_idx=i
+                if '車番' in v and car_idx is None:car_idx=i
+            if pos_idx is not None and car_idx is not None:header_idx=ri;break
+        if header_idx is None:continue
         for tr in rows[header_idx+1:]:
             cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
-            if not cells or max(pos_idx,car_idx)>=len(cells): continue
-            pm=re.search(r'\b([1-9])\b',cells[pos_idx]); cm=re.search(r'\b([1-9])\b',cells[car_idx])
+            if not cells or max(pos_idx,car_idx)>=len(cells):continue
+            pm=re.search(r'(?<!\d)([1-9])(?!\d)',cells[pos_idx]);cm=re.search(r'(?<!\d)([1-9])(?!\d)',cells[car_idx])
             if pm and cm:
-                pos=int(pm.group(1)); car=int(cm.group(1))
-                if 1<=pos<=9 and 1<=car<=7: finish_map[pos]=car
-        if len(finish_map)>=3: break
+                pos=int(pm.group(1));car=int(cm.group(1))
+                if 1<=pos<=9 and 1<=car<=7:finish_map[pos]=car
     finish=[finish_map[p] for p in sorted(finish_map) if 1<=p<=9]
-    if len(finish)<3:
-        for table in sp.find_all('table'):
-            for tr in table.find_all('tr'):
-                cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
-                if '着順' not in ' '.join(cells) and '車番' not in ' '.join(cells): continue
-                nums=[int(x) for x in cells if re.fullmatch(r'[1-7]',x)]
-                if len(nums)>=3: finish=[nums[2]]; break
-            if len(finish)>=1: break
-    text=clean(sp.get_text(' ',strip=True)); tk,y,src=payout_scan(sp,text)
-    if not tk and y and len(finish)>=3: tk='-'.join(map(str,finish[:3]))
-    rf=len(finish)>=3; pa=bool(tk and y>0)
-    return {'finished':rf and pa,'result_finished':rf,'finish':finish,'payout_available':pa,'payout_3tan':tk,'payout_3tan_yen':y,'payout_source':src}
+    text=clean(sp.get_text(' ',strip=True));tk,y,src=payout_scan(sp,text)
+    if not tk and y and len(finish)>=3:tk='-'.join(map(str,finish[:3]))
+    rf=len(finish)>=3;pa=bool(tk and y>0)
+    if rf:empty['result_status']='finished'
+    if pa:empty['payout_status']='available'
+    empty.update({'finished':rf and pa,'result_finished':rf,'finish':finish,'payout_available':pa,'payout_3tan':tk,'payout_3tan_yen':y,'payout_source':src})
+    return empty
 
 def fetch_result(race):
-    # SP版を第一候補。環境によってSP版が取得できない場合はPC版も試す。
-    urls=[
-        race.get('result_url',''),
-        result_url(race['venue_code'],race['race_no']),
-        f"{BASE}/keirin/RaceResultInfo.do?joCode={race['venue_code']}&kaisaiBi={TODAY}&raceNo={race['race_no']}",
-    ]
-    seen=set(); best=None
+    urls=[race.get('result_url',''),result_url(race['venue_code'],race['race_no']),f"{BASE}/keirin/RaceResultInfo.do?joCode={race['venue_code']}&kaisaiBi={TODAY}&raceNo={race['race_no']}" ]
+    seen=set();best=None;had_page=False
     for u in urls:
-        if not u or u in seen:
-            continue
-        seen.add(u)
-        res=parse_result_page(get_html(u)); res['url']=u
-        score=(1 if res.get('result_finished') else 0, len(res.get('finish',[])), 1 if res.get('payout_available') else 0, int(res.get('payout_3tan_yen',0) or 0))
-        if best is None or score>(1 if best.get('result_finished') else 0, len(best.get('finish',[])), 1 if best.get('payout_available') else 0, int(best.get('payout_3tan_yen',0) or 0)):
-            best=res
-        if res.get('result_finished') and res.get('payout_available'):
-            return res
-    return best or {'result_finished':False,'finished':False,'finish':[],'payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'','url':urls[0] if urls else ''}
+        if not u or u in seen:continue
+        seen.add(u);html=get_html(u)
+        if html:had_page=True
+        res=parse_result_page(html);res['url']=u
+        score=(1 if res.get('result_finished') else 0,len(res.get('finish',[])),1 if res.get('payout_available') else 0,int(res.get('payout_3tan_yen',0) or 0))
+        if best is None or score>(1 if best.get('result_finished') else 0,len(best.get('finish',[])),1 if best.get('payout_available') else 0,int(best.get('payout_3tan_yen',0) or 0)):best=res
+        if res.get('result_finished') and res.get('payout_available'):return res
+    if best is not None:
+        if not best.get('result_finished') and not had_page:best['result_status']='error';best['payout_status']='error'
+        return best
+    return {'result_finished':False,'finished':False,'finish':[],'result_status':'error','payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'','payout_status':'error'}
 
 def parse_odds_page(html):
-    sp=soup(html); odds={}
+    sp=soup(html);odds={}
     if not sp:return {'available':False,'odds':{}}
     text=clean(sp.get_text(' ',strip=True))
-    for m in re.finditer(r'([1-7])\s*[→＞>\-−]\s*([1-7])\s*[→＞>\-−]\s*([1-7])\s+(\d+(?:\.\d+)?)',text):
-        v=float(m.group(4)); odds[f'{m.group(1)}-{m.group(2)}-{m.group(3)}']=v
+    for m in re.finditer(r'([1-7])\s*[→＞>\-−]\s*([1-7])\s*[→＞>\-−]\s*([1-7])\s+(\d+(?:\.\d+)?)',text):odds[f'{m.group(1)}-{m.group(2)}-{m.group(3)}']=float(m.group(4))
     return {'available':bool(odds),'odds':odds}
 def fetch_odds(race):
     for u in [race.get('odds_url',''),odds_url(race['venue_code'],race['race_no'])]:
@@ -254,13 +238,14 @@ def fetch_odds(race):
             if p['available']:p['url']=u;return p
     return {'available':False,'odds':{},'url':odds_url(race['venue_code'],race['race_no'])}
 def attach_bet_odds(race):
-    om=race.get('odds',{}).get('odds',{}); bets=race.get('frozen_prediction',{}).get('bets',[]); rank={k:i for i,(k,v) in enumerate(sorted(om.items(),key=lambda x:x[1]),1)}
+    om=race.get('odds',{}).get('odds',{});bets=race.get('frozen_prediction',{}).get('bets',[]);rank={k:i for i,(k,v) in enumerate(sorted(om.items(),key=lambda x:x[1]),1)}
     for b in bets:
-        v=om.get(b.get('ticket')); b['odds']=v; b['market_rank']=rank.get(b.get('ticket')); b['value_flag']='オッズ未取得' if v is None else ('💎 穴・期待値候補' if v>=30 else '🎯 中穴' if v>=15 else '⭐ 適正' if v>=8 else '⚠️ 人気')
+        v=om.get(b.get('ticket'));b['odds']=v;b['market_rank']=rank.get(b.get('ticket'));b['value_flag']='オッズ未取得' if v is None else ('💎 穴・期待値候補' if v>=30 else '🎯 中穴' if v>=15 else '⭐ 適正' if v>=8 else '⚠️ 人気')
 def settle_bets(race):
-    bets=race.get('frozen_prediction',{}).get('bets',[]); res=race.get('result',{}); inv=sum(int(b.get('bet_yen',BET_UNIT)) for b in bets); tk=res.get('payout_3tan'); y=int(res.get('payout_3tan_yen',0) or 0); ready=bool(res.get('result_finished') and res.get('payout_available') and tk and y>0)
+    bets=race.get('frozen_prediction',{}).get('bets',[]);res=race.get('result',{});inv=sum(int(b.get('bet_yen',BET_UNIT)) for b in bets);tk=res.get('payout_3tan');y=int(res.get('payout_3tan_yen',0) or 0);ready=bool(res.get('result_finished') and res.get('payout_available') and tk and y>0)
     if not ready:return {'status':'pending','bet_count':len(bets),'investment':0,'hit':False,'hit_ticket':'','payout':0,'profit':0,'roi':0}
-    hit=any(b.get('ticket')==tk for b in bets); pay=y if hit else 0; return {'status':'settled','bet_count':len(bets),'investment':inv,'hit':hit,'hit_ticket':tk if hit else '','payout':pay,'profit':pay-inv,'roi':round(pay/inv*100,1) if inv else 0}
+    hit=any(b.get('ticket')==tk for b in bets);pay=y if hit else 0
+    return {'status':'settled','bet_count':len(bets),'investment':inv,'hit':hit,'hit_ticket':tk if hit else '','payout':pay,'profit':pay-inv,'roi':round(pay/inv*100,1) if inv else 0}
 def load_existing():
     try:
         with open('data/today.json',encoding='utf-8') as f:d=json.load(f)
@@ -269,27 +254,25 @@ def load_existing():
 def freeze_prediction(race,old):
     if old and old.get('frozen_prediction'):race['frozen_prediction']=old['frozen_prediction'];return
     race['frozen_prediction']={'created_at':datetime.now().isoformat(),'main':race['ai']['main'],'opponent':race['ai']['opponent'],'dark_horse':race['ai']['dark_horse'],'verdict':race['verdict'],'ranking':race['ai']['ranking'],'bets':race['bets']}
-
 def calculate_summary(races):
-    by_rank={k:{'races':0,'investment':0,'payout':0,'profit':0,'hits':0} for k in 'SABC'}; by_venue={}; inv=pay=hits=settled=pending=0
+    by_rank={k:{'races':0,'investment':0,'payout':0,'profit':0,'hits':0} for k in 'SABC'};by_venue={};inv=pay=hits=settled=pending=0
     for r in races:
-        s=r.get('settlement',{}); rank=r.get('frozen_prediction',{}).get('verdict',{}).get('rank','C'); rank=rank if rank in by_rank else 'C'
+        s=r.get('settlement',{});rank=r.get('frozen_prediction',{}).get('verdict',{}).get('rank','C');rank=rank if rank in by_rank else 'C'
         if s.get('status')!='settled':pending+=1;continue
-        settled+=1; i=int(s.get('investment',0)); p=int(s.get('payout',0)); h=bool(s.get('hit')); inv+=i;pay+=p;hits+=h
-        x=by_rank[rank]; x['races']+=1;x['investment']+=i;x['payout']+=p;x['profit']+=p-i;x['hits']+=h
-        v=r.get('venue_name',''); x=by_venue.setdefault(v,{'races':0,'investment':0,'payout':0,'profit':0,'hits':0});x['races']+=1;x['investment']+=i;x['payout']+=p;x['profit']+=p-i;x['hits']+=h
+        settled+=1;i=int(s.get('investment',0));p=int(s.get('payout',0));h=bool(s.get('hit'));inv+=i;pay+=p;hits+=h
+        x=by_rank[rank];x['races']+=1;x['investment']+=i;x['payout']+=p;x['profit']+=p-i;x['hits']+=h
+        v=r.get('venue_name','');x=by_venue.setdefault(v,{'races':0,'investment':0,'payout':0,'profit':0,'hits':0});x['races']+=1;x['investment']+=i;x['payout']+=p;x['profit']+=p-i;x['hits']+=h
     for x in list(by_rank.values())+list(by_venue.values()):x['hit_rate']=round(x['hits']/x['races']*100,1) if x['races'] else 0;x['roi']=round(x['payout']/x['investment']*100,1) if x['investment'] else 0
     return {'races':len(races),'settled_races':settled,'pending_races':pending,'investment':inv,'payout':pay,'profit':pay-inv,'hits':hits,'hit_rate':round(hits/settled*100,1) if settled else 0,'roi':round(pay/inv*100,1) if inv else 0,'by_rank':by_rank,'by_venue':by_venue}
 
 def main():
-    started=time.time(); print(f'==============================\n KEIRIN AI DATA UPDATE v{VERSION}\n==============================\n対象日: {TODAY_DISPLAY}\n==============================')
-    existing=load_existing(); old={(str(r.get('venue_code')),int(r.get('race_no',0))):r for r in existing.get('races',[])}
+    started=time.time();print(f'==============================\n KEIRIN AI DATA UPDATE v{VERSION}\n==============================\n対象日: {TODAY_DISPLAY}\n==============================')
+    existing=load_existing();old={(str(r.get('venue_code')),int(r.get('race_no',0))):r for r in existing.get('races',[])}
     if old:print(f'既存データ: {len(old)}レース\n凍結済みAI予想を保護します')
-    all_races=[]; venues=[]
-    print('開催場を確認中...')
+    all_races=[];venues=[];print('開催場を確認中...')
     for c,(n,s) in VENUES.items():
-        v={'code':c,'name':n,'slug':s}; venues.append(v);rs=discover_real_races(v);v['race_numbers']=[x['race_no'] for x in rs];print(f"  {c} {n}: {len(rs)}レース");all_races+=rs
-    all_races.sort(key=lambda x:(int(x['venue_code']),x['race_no']));print(f'詳細取得対象レース: {len(all_races)}');print(f"選手データ取得結果: {sum(5<=len(r['riders'])<=7 for r in all_races)}/{len(all_races)}")
+        v={'code':c,'name':n,'slug':s};venues.append(v);rs=discover_real_races(v);v['race_numbers']=[x['race_no'] for x in rs];print(f'  {c} {n}: {len(rs)}レース');all_races+=rs
+    all_races.sort(key=lambda x:(int(x['venue_code']),x['race_no']));print(f'詳細取得対象レース: {len(all_races)}');print(f'選手データ取得結果: {sum(5<=len(r["riders"])<=7 for r in all_races)}/{len(all_races)}')
     print('コメント・並び・展開情報取得中...')
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         fs={ex.submit(fetch_prediction,r):r for r in all_races}
@@ -299,46 +282,46 @@ def main():
             except:p={'comments':{},'line':[],'line_groups':[],'development':'','url':''}
             r.update({'comments':p['comments'],'line':p['line'],'line_groups':p['line_groups'],'development':p['development'],'prediction_url':p['url']})
     for r in all_races:
+        oldrace=old.get((str(r['venue_code']),r['race_no']),{})
         for x in r['riders']:
             i=r['comments'].get(x['car_no'],{});x['prediction_mark']=i.get('mark','');x['prediction_score']=i.get('prediction_score',0);x['comment']=i.get('comment','')
-        apply_ai(r);freeze_prediction(r,old.get((str(r['venue_code']),r['race_no'])))
-    print('レース結果を確認中...');result_count=payout_count=0;result_failed=[];payout_failed=[]
+        if oldrace.get('frozen_prediction'):freeze_prediction(r,oldrace)
+        else:apply_ai(r);freeze_prediction(r,oldrace)
+
+    print('レース結果を確認中...');result_count=payout_count=0;result_pending=[];result_failed=[];payout_pending=[];payout_failed=[]
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         fs={ex.submit(fetch_result,r):r for r in all_races}
         for f in as_completed(fs):
-            r=fs[f]; key=(str(r['venue_code']),r['race_no']); oldres=old.get(key,{}).get('result',{})
+            r=fs[f];key=(str(r['venue_code']),r['race_no']);oldres=old.get(key,{}).get('result',{})
             try:res=f.result()
-            except:res={}
+            except:res={'result_status':'error','payout_status':'error','result_finished':False,'payout_available':False,'finish':[],'payout_3tan':None,'payout_3tan_yen':0,'payout_source':''}
             if oldres.get('result_finished'):
-                if not res.get('result_finished'):
-                    res['result_finished']=True
-                    res['finish']=oldres.get('finish',res.get('finish',[]))
-                if (not res.get('payout_available')) and oldres.get('payout_available'):
-                    res['payout_available']=True
-                    res['payout_3tan']=oldres.get('payout_3tan')
-                    res['payout_3tan_yen']=oldres.get('payout_3tan_yen',0)
-                    res['payout_source']=oldres.get('payout_source','')
-                res['finished']=bool(res.get('result_finished') and res.get('payout_available'))
-            r['result']=res
+                res['result_finished']=True;res['finish']=oldres.get('finish',res.get('finish',[]));res['result_status']='finished'
+            if oldres.get('payout_available'):
+                res['payout_available']=True;res['payout_3tan']=oldres.get('payout_3tan');res['payout_3tan_yen']=oldres.get('payout_3tan_yen',0);res['payout_source']=oldres.get('payout_source','');res['payout_status']='available'
+            res['finished']=bool(res.get('result_finished') and res.get('payout_available'));r['result']=res
             if res.get('result_finished'):result_count+=1
+            elif res.get('result_status')=='error':result_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
+            else:result_pending.append(f'{r["venue_name"]} {r["race_no"]}R')
             if res.get('payout_available'):payout_count+=1
-            if not res.get('result_finished'):result_failed.append(f"{r['venue_name']} {r['race_no']}R")
-            elif not res.get('payout_available'):payout_failed.append(f"{r['venue_name']} {r['race_no']}R")
-    print(f'結果取得: {result_count}/{len(all_races)}');print(f'払戻取得: {payout_count}/{len(all_races)}')
+            elif res.get('payout_status')=='error':payout_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
+            else:payout_pending.append(f'{r["venue_name"]} {r["race_no"]}R')
+    print(f'結果確定: {result_count}/{len(all_races)}');print(f'  結果待ち: {len(result_pending)}');print(f'  結果取得エラー: {len(result_failed)}');print(f'払戻確定: {payout_count}/{len(all_races)}');print(f'  払戻待ち: {len(payout_pending)}');print(f'  払戻取得エラー: {len(payout_failed)}')
+
     print('オッズ情報を確認中...');odds_count=0;odds_failed=[]
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         fs={ex.submit(fetch_odds,r):r for r in all_races}
         for f in as_completed(fs):
-            r=fs[f]; oldod=old.get((str(r['venue_code']),r['race_no']),{}).get('odds',{})
+            r=fs[f];oldod=old.get((str(r['venue_code']),r['race_no']),{}).get('odds',{})
             try:o=f.result()
             except:o={'available':False,'odds':{}}
             r['odds']=oldod if oldod.get('available') and oldod.get('odds') else o
             if r['odds'].get('available'):odds_count+=1
-            else:odds_failed.append(f"{r['venue_name']} {r['race_no']}R")
+            else:odds_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
     print(f'オッズ取得: {odds_count}/{len(all_races)}')
     for r in all_races:attach_bet_odds(r);r['settlement']=settle_bets(r)
     summary=calculate_summary(all_races);rider_count=sum(len(r['riders']) for r in all_races);correct_names=sum(bool(x.get('name')) for r in all_races for x in r['riders']);frozen=sum(bool(r.get('frozen_prediction')) for r in all_races)
-    output={'version':VERSION,'updated_at':datetime.now().isoformat(),'target_date':TODAY_DISPLAY,'data_complete':bool(all_races and correct_names==rider_count and frozen==len(all_races)),'venue_count':len(venues),'race_count':len(all_races),'rider_count':rider_count,'correct_name_count':correct_names,'prediction_race_count':sum(len(r.get('comments',{}))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'comment_count':sum(len(r.get('comments',{})) for r in all_races),'line_race_count':sum(len(r.get('line',[]))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'development_count':sum(bool(r.get('development')) for r in all_races),'ai_race_count':sum(bool(r.get('ai')) for r in all_races),'ai_rider_count':sum(x.get('ai_score') is not None for r in all_races for x in r['riders']),'frozen_prediction_count':frozen,'result_count':result_count,'payout_count':payout_count,'odds_count':odds_count,'summary':summary,'venues':[{'venue_code':v['code'],'venue_name':v['name'],'race_count':len(v['race_numbers']),'race_numbers':v['race_numbers']} for v in venues],'races':all_races}
+    output={'version':VERSION,'updated_at':datetime.now().isoformat(),'target_date':TODAY_DISPLAY,'data_complete':bool(all_races and correct_names==rider_count and frozen==len(all_races)),'result_complete':result_count==len(all_races),'payout_complete':payout_count==len(all_races),'venue_count':len(venues),'race_count':len(all_races),'rider_count':rider_count,'correct_name_count':correct_names,'prediction_race_count':sum(len(r.get('comments',{}))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'comment_count':sum(len(r.get('comments',{})) for r in all_races),'line_race_count':sum(len(r.get('line',[]))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'development_count':sum(bool(r.get('development')) for r in all_races),'ai_race_count':sum(bool(r.get('ai')) for r in all_races),'ai_rider_count':sum(x.get('ai_score') is not None for r in all_races for x in r['riders']),'frozen_prediction_count':frozen,'result_count':result_count,'result_pending_count':len(result_pending),'result_error_count':len(result_failed),'payout_count':payout_count,'payout_pending_count':len(payout_pending),'payout_error_count':len(payout_failed),'odds_count':odds_count,'summary':summary,'venues':[{'venue_code':v['code'],'venue_name':v['name'],'race_count':len(v['race_numbers']),'race_numbers':v['race_numbers']} for v in venues],'races':all_races}
     os.makedirs('data',exist_ok=True);tmp='data/today.json.tmp'
     with open(tmp,'w',encoding='utf-8') as f:json.dump(output,f,ensure_ascii=False,indent=2)
     os.replace(tmp,'data/today.json')
@@ -346,8 +329,11 @@ def main():
     print('==============================\n 【S/A/B/C別収支】\n==============================')
     for k in 'SABC':
         s=summary['by_rank'][k];print(f"{k}: {s['races']}R / 的中{s['hits']}R / 的中率{s['hit_rate']:.1f}% / 投資¥{s['investment']:,} / 払戻¥{s['payout']:,} / 収支{s['profit']:+,}円 / 回収率{s['roi']:.1f}%")
-    print('==============================');print(f'結果未取得レース: {len(result_failed)}');print(f'払戻未取得レース: {len(payout_failed)}');print(f'オッズ未取得レース: {len(odds_failed)}');print(f'処理時間: {time.time()-started:.1f}秒');print('データ完全性: '+('OK' if output['data_complete'] else '要確認'))
-    if result_failed:print('結果未取得: '+', '.join(result_failed))
-    if payout_failed:print('払戻未取得: '+', '.join(payout_failed))
+    print('==============================');print(f'結果待ちレース: {len(result_pending)}');print(f'結果取得エラー: {len(result_failed)}');print(f'払戻待ちレース: {len(payout_pending)}');print(f'払戻取得エラー: {len(payout_failed)}');print(f'オッズ未取得レース: {len(odds_failed)}');print(f'処理時間: {time.time()-started:.1f}秒');print('データ完全性: '+('OK' if output['data_complete'] else '要確認'));print(f'結果完全性: {result_count}/{len(all_races)}');print(f'払戻完全性: {payout_count}/{len(all_races)}')
+    if result_pending:print('結果待ち: '+', '.join(result_pending))
+    if result_failed:print('結果取得エラー: '+', '.join(result_failed))
+    if payout_pending:print('払戻待ち: '+', '.join(payout_pending))
+    if payout_failed:print('払戻取得エラー: '+', '.join(payout_failed))
     print('==============================\n UPDATE COMPLETE\n==============================')
+
 if __name__=='__main__':main()
