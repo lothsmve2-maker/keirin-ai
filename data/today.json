@@ -1,50 +1,50 @@
 {
-  "version": "6.4",
-  "updated_at": "2026-10-08T00:56:40.207135",
+  "version": "6.5",
+  "updated_at": "2026-10-08T01:49:58.568329",
   "target_date": "2026-10-08",
   "data_complete": true,
   "venue_count": 7,
-  "race_count": 60,
-  "rider_count": 414,
-  "correct_name_count": 414,
-  "prediction_race_count": 25,
-  "comment_count": 269,
+  "race_count": 72,
+  "rider_count": 498,
+  "correct_name_count": 498,
+  "prediction_race_count": 37,
+  "comment_count": 353,
   "line_race_count": 0,
-  "development_count": 32,
-  "ai_race_count": 60,
-  "ai_rider_count": 414,
-  "frozen_prediction_count": 60,
-  "result_count": 20,
-  "payout_count": 4,
-  "odds_count": 60,
+  "development_count": 44,
+  "ai_race_count": 72,
+  "ai_rider_count": 498,
+  "frozen_prediction_count": 72,
+  "result_count": 22,
+  "payout_count": 7,
+  "odds_count": 71,
   "summary": {
-    "races": 60,
-    "settled_races": 4,
-    "pending_races": 56,
-    "investment": 3200,
-    "payout": 0,
-    "profit": -3200,
-    "hits": 0,
-    "hit_rate": 0.0,
-    "roi": 0.0,
+    "races": 72,
+    "settled_races": 7,
+    "pending_races": 65,
+    "investment": 5600,
+    "payout": 8370,
+    "profit": 2770,
+    "hits": 2,
+    "hit_rate": 28.6,
+    "roi": 149.5,
     "by_rank": {
       "S": {
-        "races": 2,
-        "investment": 1600,
-        "payout": 0,
-        "profit": -1600,
-        "hits": 0,
-        "hit_rate": 0.0,
-        "roi": 0.0
+        "races": 3,
+        "investment": 2400,
+        "payout": 1140,
+        "profit": -1260,
+        "hits": 1,
+        "hit_rate": 33.3,
+        "roi": 47.5
       },
       "A": {
-        "races": 2,
-        "investment": 1600,
-        "payout": 0,
-        "profit": -1600,
-        "hits": 0,
-        "hit_rate": 0.0,
-        "roi": 0.0
+        "races": 4,
+        "investment": 3200,
+        "payout": 7230,
+        "profit": 4030,
+        "hits": 1,
+        "hit_rate": 25.0,
+        "roi": 225.9
       },
       "B": {
         "races": 0,
@@ -67,13 +67,13 @@
     },
     "by_venue": {
       "高知": {
-        "races": 4,
-        "investment": 3200,
-        "payout": 0,
-        "profit": -3200,
-        "hits": 0,
-        "hit_rate": 0.0,
-        "roi": 0.0
+        "races": 7,
+        "investment": 5600,
+        "payout": 8370,
+        "profit": 2770,
+        "hits": 2,
+        "hit_rate": 28.6,
+        "roi": 149.5
       }
     }
   },
@@ -97,6 +97,25 @@
     {
       "venue_code": "25",
       "venue_name": "大宮",
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
       "race_count": 12,
       "race_numbers": [
         1,
@@ -165,12 +184,6 @@
         11,
         12
       ]
-    },
-    {
-      "venue_code": "53",
-      "venue_name": "奈良",
-      "race_count": 0,
-      "race_numbers": []
     },
     {
       "venue_code": "74",
@@ -1102,7 +1115,7 @@
           "name": "山口 貴弘",
           "age": 48,
           "period": 84,
-          "prefecture": "山口",
+          "prefecture": "栃木",
           "grade": "",
           "style": "追",
           "score": 83.541,
@@ -5217,7 +5230,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=25&joCode=25&kaisaiBi=20261008&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=25&kaisaiBi=20261008&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -7334,7 +7347,7 @@
           "name": "山口 貴弘",
           "age": 42,
           "period": 92,
-          "prefecture": "山口",
+          "prefecture": "佐賀",
           "grade": "",
           "style": "追",
           "score": 99.19,
@@ -9672,7 +9685,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=25&joCode=25&kaisaiBi=20261008&raceNo=11"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=25&kaisaiBi=20261008&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -10169,7 +10182,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=25&joCode=25&kaisaiBi=20261008&raceNo=12"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=25&kaisaiBi=20261008&raceNo=12"
       },
       "odds": {
         "available": true,
@@ -10206,6 +10219,6313 @@
           "1-6-7": 963.1
         },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=25&joCode=25&kaisaiBi=20261008&raceNo=12"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 1,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=1",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "山本 隼人",
+          "age": 28,
+          "period": 111,
+          "prefecture": "大阪",
+          "grade": "",
+          "style": "追",
+          "score": 89.818,
+          "finish_1": 8,
+          "finish_2": 3,
+          "finish_3": 6,
+          "finish_out": 6,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 9,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 70.28
+        },
+        {
+          "car_no": 2,
+          "name": "楠野 史尭",
+          "age": 38,
+          "period": 105,
+          "prefecture": "埼玉",
+          "grade": "",
+          "style": "両",
+          "score": 81.428,
+          "finish_1": 2,
+          "finish_2": 0,
+          "finish_3": 1,
+          "finish_out": 5,
+          "kimari_nige": 1,
+          "kimari_makuri": 0,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 20.51
+        },
+        {
+          "car_no": 3,
+          "name": "小林 史也",
+          "age": 40,
+          "period": 107,
+          "prefecture": "",
+          "grade": "",
+          "style": "逃",
+          "score": 85.5,
+          "finish_1": 6,
+          "finish_2": 2,
+          "finish_3": 2,
+          "finish_out": 14,
+          "kimari_nige": 5,
+          "kimari_makuri": 2,
+          "kimari_sashi": 0,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 50.0
+        },
+        {
+          "car_no": 4,
+          "name": "鈴木 裕斗",
+          "age": 35,
+          "period": 99,
+          "prefecture": "宮城",
+          "grade": "",
+          "style": "両",
+          "score": 77.857,
+          "finish_1": 0,
+          "finish_2": 1,
+          "finish_3": 2,
+          "finish_out": 18,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 11.13
+        },
+        {
+          "car_no": 5,
+          "name": "小佐野文秀",
+          "age": 50,
+          "period": 83,
+          "prefecture": "山梨",
+          "grade": "",
+          "style": "追",
+          "score": 85.791,
+          "finish_1": 2,
+          "finish_2": 4,
+          "finish_3": 3,
+          "finish_out": 15,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 38.35
+        },
+        {
+          "car_no": 6,
+          "name": "竹元 健竜",
+          "age": 29,
+          "period": 115,
+          "prefecture": "福岡",
+          "grade": "",
+          "style": "両",
+          "score": 77.142,
+          "finish_1": 1,
+          "finish_2": 0,
+          "finish_3": 0,
+          "finish_out": 20,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 11.37
+        },
+        {
+          "car_no": 7,
+          "name": "三浦 稔希",
+          "age": 50,
+          "period": 76,
+          "prefecture": "愛知",
+          "grade": "",
+          "style": "追",
+          "score": 83.19,
+          "finish_1": 1,
+          "finish_2": 2,
+          "finish_3": 2,
+          "finish_out": 17,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 27.23
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=1",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "小林さんへ。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "3": {
+          "name": "自力です。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "関東ラインへ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "楠野君へ。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "6": {
+          "name": "単騎でやる。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "近畿ラインへ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "ライン三車の小林が主導権を握る。番手有利な山本が道中援護しつつ直線差し切り。楠野次第で小佐野の台頭。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008.html",
+      "ai": {
+        "main": 1,
+        "opponent": 3,
+        "dark_horse": 5,
+        "ranking": [
+          {
+            "car_no": 1,
+            "name": "山本 隼人",
+            "score": 70.28,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "小林 史也",
+            "score": 50.0,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "小佐野文秀",
+            "score": 38.35,
+            "mark": "▲"
+          },
+          {
+            "car_no": 7,
+            "name": "三浦 稔希",
+            "score": 27.23,
+            "mark": "△"
+          },
+          {
+            "car_no": 2,
+            "name": "楠野 史尭",
+            "score": 20.51,
+            "mark": "×"
+          },
+          {
+            "car_no": 6,
+            "name": "竹元 健竜",
+            "score": 11.37,
+            "mark": ""
+          },
+          {
+            "car_no": 4,
+            "name": "鈴木 裕斗",
+            "score": 11.13,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 87,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "1-3-5",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": 8.0,
+          "market_rank": 2,
+          "value_flag": "⭐ 適正"
+        },
+        {
+          "ticket": "1-5-3",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": 26.8,
+          "market_rank": 5,
+          "value_flag": "🎯 中穴"
+        },
+        {
+          "ticket": "3-1-5",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "5-1-3",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-5-1",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-7-3",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": 17.4,
+          "market_rank": 4,
+          "value_flag": "🎯 中穴"
+        },
+        {
+          "ticket": "7-1-5",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-5-2",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": 50.0,
+          "market_rank": 10,
+          "value_flag": "💎 穴・期待値候補"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162569",
+        "main": 1,
+        "opponent": 3,
+        "dark_horse": 5,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 87,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 1,
+            "name": "山本 隼人",
+            "score": 70.28,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "小林 史也",
+            "score": 50.0,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "小佐野文秀",
+            "score": 38.35,
+            "mark": "▲"
+          },
+          {
+            "car_no": 7,
+            "name": "三浦 稔希",
+            "score": 27.23,
+            "mark": "△"
+          },
+          {
+            "car_no": 2,
+            "name": "楠野 史尭",
+            "score": 20.51,
+            "mark": "×"
+          },
+          {
+            "car_no": 6,
+            "name": "竹元 健竜",
+            "score": 11.37,
+            "mark": ""
+          },
+          {
+            "car_no": 4,
+            "name": "鈴木 裕斗",
+            "score": 11.13,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "1-3-5",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": 8.0,
+            "market_rank": 2,
+            "value_flag": "⭐ 適正"
+          },
+          {
+            "ticket": "1-5-3",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": 26.8,
+            "market_rank": 5,
+            "value_flag": "🎯 中穴"
+          },
+          {
+            "ticket": "3-1-5",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "5-1-3",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-5-1",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-7-3",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": 17.4,
+            "market_rank": 4,
+            "value_flag": "🎯 中穴"
+          },
+          {
+            "ticket": "7-1-5",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-5-2",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": 50.0,
+            "market_rank": 10,
+            "value_flag": "💎 穴・期待値候補"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=1"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 14.0,
+          "1-2-3": 32.7,
+          "1-2-4": 170.2,
+          "1-3-4": 48.1,
+          "1-2-5": 82.3,
+          "1-3-5": 8.0,
+          "1-2-7": 91.1,
+          "1-3-7": 4.0,
+          "1-4-2": 283.6,
+          "1-5-2": 50.0,
+          "1-4-3": 150.1,
+          "1-5-3": 26.8,
+          "1-5-4": 85.1,
+          "1-4-5": 170.2,
+          "1-4-7": 182.3,
+          "1-5-7": 41.1,
+          "1-7-2": 94.5,
+          "1-7-3": 17.4,
+          "1-7-4": 121.5,
+          "1-7-5": 37.0
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=1"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 2,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=2",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "野村 賢",
+          "age": 22,
+          "period": 125,
+          "prefecture": "山口",
+          "grade": "",
+          "style": "逃",
+          "score": 87.809,
+          "finish_1": 4,
+          "finish_2": 3,
+          "finish_3": 3,
+          "finish_out": 11,
+          "kimari_nige": 7,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 46.07
+        },
+        {
+          "car_no": 2,
+          "name": "福田 健太",
+          "age": 25,
+          "period": 125,
+          "prefecture": "宮城",
+          "grade": "",
+          "style": "逃",
+          "score": 89.142,
+          "finish_1": 3,
+          "finish_2": 8,
+          "finish_3": 1,
+          "finish_out": 9,
+          "kimari_nige": 8,
+          "kimari_makuri": 3,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 63.37
+        },
+        {
+          "car_no": 3,
+          "name": "本村 隆文",
+          "age": 47,
+          "period": 81,
+          "prefecture": "岐阜",
+          "grade": "",
+          "style": "追",
+          "score": 84.041,
+          "finish_1": 2,
+          "finish_2": 2,
+          "finish_3": 4,
+          "finish_out": 16,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 25.85
+        },
+        {
+          "car_no": 4,
+          "name": "隅 貴史",
+          "age": 45,
+          "period": 91,
+          "prefecture": "山口",
+          "grade": "",
+          "style": "追",
+          "score": 88.444,
+          "finish_1": 4,
+          "finish_2": 1,
+          "finish_3": 4,
+          "finish_out": 9,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 4,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 40.83
+        },
+        {
+          "car_no": 5,
+          "name": "藤岡 徹也",
+          "age": 38,
+          "period": 121,
+          "prefecture": "兵庫",
+          "grade": "",
+          "style": "両",
+          "score": 83.578,
+          "finish_1": 3,
+          "finish_2": 3,
+          "finish_3": 2,
+          "finish_out": 12,
+          "kimari_nige": 2,
+          "kimari_makuri": 1,
+          "kimari_sashi": 3,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 31.79
+        },
+        {
+          "car_no": 6,
+          "name": "内藤 敦",
+          "age": 50,
+          "period": 80,
+          "prefecture": "岡山",
+          "grade": "",
+          "style": "追",
+          "score": 81.875,
+          "finish_1": 0,
+          "finish_2": 3,
+          "finish_3": 5,
+          "finish_out": 16,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 21.95
+        },
+        {
+          "car_no": 7,
+          "name": "大島 将人",
+          "age": 38,
+          "period": 94,
+          "prefecture": "福島",
+          "grade": "",
+          "style": "追",
+          "score": 85.38,
+          "finish_1": 1,
+          "finish_2": 2,
+          "finish_3": 5,
+          "finish_out": 13,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 1,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 37.06
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=2",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "自力です。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "3": {
+          "name": "藤岡君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "4": {
+          "name": "弟子の野村君。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "5": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "6": {
+          "name": "山口ラインへ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "福田君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "野村の動き・ペースを見極め福田が勝機スパートとみて期待。番手大島との決着。野村率いる中国勢互角で接戦だ",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_2.html",
+      "ai": {
+        "main": 2,
+        "opponent": 1,
+        "dark_horse": 4,
+        "ranking": [
+          {
+            "car_no": 2,
+            "name": "福田 健太",
+            "score": 63.37,
+            "mark": "◎"
+          },
+          {
+            "car_no": 1,
+            "name": "野村 賢",
+            "score": 46.07,
+            "mark": "▲"
+          },
+          {
+            "car_no": 4,
+            "name": "隅 貴史",
+            "score": 40.83,
+            "mark": "△"
+          },
+          {
+            "car_no": 7,
+            "name": "大島 将人",
+            "score": 37.06,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "藤岡 徹也",
+            "score": 31.79,
+            "mark": "×"
+          },
+          {
+            "car_no": 3,
+            "name": "本村 隆文",
+            "score": 25.85,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "内藤 敦",
+            "score": 21.95,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 87,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "2-1-4",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "2-4-1",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-2-4",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": 37.4,
+          "market_rank": 2,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "4-2-1",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-4-2",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": 23.6,
+          "market_rank": 1,
+          "value_flag": "🎯 中穴"
+        },
+        {
+          "ticket": "2-7-1",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-2-4",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "2-4-5",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162622",
+        "main": 2,
+        "opponent": 1,
+        "dark_horse": 4,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 87,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 2,
+            "name": "福田 健太",
+            "score": 63.37,
+            "mark": "◎"
+          },
+          {
+            "car_no": 1,
+            "name": "野村 賢",
+            "score": 46.07,
+            "mark": "▲"
+          },
+          {
+            "car_no": 4,
+            "name": "隅 貴史",
+            "score": 40.83,
+            "mark": "△"
+          },
+          {
+            "car_no": 7,
+            "name": "大島 将人",
+            "score": 37.06,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "藤岡 徹也",
+            "score": 31.79,
+            "mark": "×"
+          },
+          {
+            "car_no": 3,
+            "name": "本村 隆文",
+            "score": 25.85,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "内藤 敦",
+            "score": 21.95,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "2-1-4",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "2-4-1",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-2-4",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": 37.4,
+            "market_rank": 2,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "4-2-1",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-4-2",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": 23.6,
+            "market_rank": 1,
+            "value_flag": "🎯 中穴"
+          },
+          {
+            "ticket": "2-7-1",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-2-4",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "2-4-5",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=2"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 383.8,
+          "1-2-3": 139.5,
+          "1-2-4": 37.4,
+          "1-3-4": 255.8,
+          "1-2-5": 56.8,
+          "1-3-5": 219.3,
+          "1-2-6": 127.9,
+          "1-3-6": 511.7,
+          "1-2-7": 40.4,
+          "1-3-7": 170.5,
+          "1-4-2": 23.6,
+          "1-5-2": 191.9,
+          "1-4-3": 170.5,
+          "1-5-3": 139.5,
+          "1-5-4": 153.5,
+          "1-4-5": 90.3,
+          "1-4-6": 40.4,
+          "1-5-6": 383.8,
+          "1-4-7": 56.8,
+          "1-5-7": 139.5,
+          "1-6-2": 383.8,
+          "1-7-2": 153.5,
+          "1-6-3": 511.7,
+          "1-7-3": 307.0,
+          "1-6-4": 219.3,
+          "1-7-4": 153.5,
+          "1-6-5": 511.7,
+          "1-7-5": 191.9,
+          "1-7-6": 767.6,
+          "1-6-7": 767.6
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=2"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 3,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=3",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "矢口 大樹",
+          "age": 38,
+          "period": 95,
+          "prefecture": "千葉",
+          "grade": "",
+          "style": "両",
+          "score": 89.055,
+          "finish_1": 2,
+          "finish_2": 3,
+          "finish_3": 1,
+          "finish_out": 12,
+          "kimari_nige": 3,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 41.97
+        },
+        {
+          "car_no": 2,
+          "name": "石田 洋秀",
+          "age": 56,
+          "period": 64,
+          "prefecture": "広島",
+          "grade": "",
+          "style": "追",
+          "score": 82.722,
+          "finish_1": 1,
+          "finish_2": 0,
+          "finish_3": 4,
+          "finish_out": 13,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 20.67
+        },
+        {
+          "car_no": 3,
+          "name": "生野 優翔",
+          "age": 24,
+          "period": 127,
+          "prefecture": "大分",
+          "grade": "",
+          "style": "逃",
+          "score": 89.142,
+          "finish_1": 4,
+          "finish_2": 6,
+          "finish_3": 5,
+          "finish_out": 6,
+          "kimari_nige": 5,
+          "kimari_makuri": 4,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 64.57
+        },
+        {
+          "car_no": 4,
+          "name": "樋口 絢土",
+          "age": 38,
+          "period": 96,
+          "prefecture": "東京",
+          "grade": "",
+          "style": "追",
+          "score": 81.0,
+          "finish_1": 2,
+          "finish_2": 0,
+          "finish_3": 3,
+          "finish_out": 11,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 20.0
+        },
+        {
+          "car_no": 5,
+          "name": "鈴木 愼二",
+          "age": 53,
+          "period": 74,
+          "prefecture": "",
+          "grade": "",
+          "style": "追",
+          "score": 80.739,
+          "finish_1": 0,
+          "finish_2": 0,
+          "finish_3": 2,
+          "finish_out": 22,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 18.69
+        },
+        {
+          "car_no": 6,
+          "name": "藤原 亮太",
+          "age": 38,
+          "period": 97,
+          "prefecture": "岡山",
+          "grade": "",
+          "style": "両",
+          "score": 80.291,
+          "finish_1": 1,
+          "finish_2": 3,
+          "finish_3": 2,
+          "finish_out": 18,
+          "kimari_nige": 1,
+          "kimari_makuri": 2,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 21.45
+        },
+        {
+          "car_no": 7,
+          "name": "境 啓亨",
+          "age": 34,
+          "period": 111,
+          "prefecture": "熊本",
+          "grade": "",
+          "style": "逃",
+          "score": 82.444,
+          "finish_1": 2,
+          "finish_2": 3,
+          "finish_3": 6,
+          "finish_out": 16,
+          "kimari_nige": 1,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 38.43
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=3",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "自力です。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "藤原君へ。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "3": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "4": {
+          "name": "決めずに。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "矢口君へ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "6": {
+          "name": "自力です。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "生野君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "生野がチャンス逃さず主導権を握り、マーク境との連独占。矢口は自分のタイミングと距離で勝負できれば逆転",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_3.html",
+      "ai": {
+        "main": 3,
+        "opponent": 1,
+        "dark_horse": 7,
+        "ranking": [
+          {
+            "car_no": 3,
+            "name": "生野 優翔",
+            "score": 64.57,
+            "mark": "◎"
+          },
+          {
+            "car_no": 1,
+            "name": "矢口 大樹",
+            "score": 41.97,
+            "mark": "▲"
+          },
+          {
+            "car_no": 7,
+            "name": "境 啓亨",
+            "score": 38.43,
+            "mark": "○"
+          },
+          {
+            "car_no": 6,
+            "name": "藤原 亮太",
+            "score": 21.45,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "石田 洋秀",
+            "score": 20.67,
+            "mark": "×"
+          },
+          {
+            "car_no": 4,
+            "name": "樋口 絢土",
+            "score": 20.0,
+            "mark": ""
+          },
+          {
+            "car_no": 5,
+            "name": "鈴木 愼二",
+            "score": 18.69,
+            "mark": "△"
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "A",
+        "label": "🎯 買い",
+        "score": 79,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "3-1-7",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-7-1",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-3-7",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": 26.9,
+          "market_rank": 2,
+          "value_flag": "🎯 中穴"
+        },
+        {
+          "ticket": "7-3-1",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-7-3",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": 62.7,
+          "market_rank": 4,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "3-6-1",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "6-3-7",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-7-2",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162666",
+        "main": 3,
+        "opponent": 1,
+        "dark_horse": 7,
+        "verdict": {
+          "rank": "A",
+          "label": "🎯 買い",
+          "score": 79,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 3,
+            "name": "生野 優翔",
+            "score": 64.57,
+            "mark": "◎"
+          },
+          {
+            "car_no": 1,
+            "name": "矢口 大樹",
+            "score": 41.97,
+            "mark": "▲"
+          },
+          {
+            "car_no": 7,
+            "name": "境 啓亨",
+            "score": 38.43,
+            "mark": "○"
+          },
+          {
+            "car_no": 6,
+            "name": "藤原 亮太",
+            "score": 21.45,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "石田 洋秀",
+            "score": 20.67,
+            "mark": "×"
+          },
+          {
+            "car_no": 4,
+            "name": "樋口 絢土",
+            "score": 20.0,
+            "mark": ""
+          },
+          {
+            "car_no": 5,
+            "name": "鈴木 愼二",
+            "score": 18.69,
+            "mark": "△"
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "3-1-7",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-7-1",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-3-7",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": 26.9,
+            "market_rank": 2,
+            "value_flag": "🎯 中穴"
+          },
+          {
+            "ticket": "7-3-1",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-7-3",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": 62.7,
+            "market_rank": 4,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "3-6-1",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "6-3-7",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-7-2",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=3"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 77.5,
+          "1-2-3": 164.8,
+          "1-2-4": 439.5,
+          "1-3-4": 94.1,
+          "1-2-5": 109.8,
+          "1-3-5": 47.0,
+          "1-2-6": 263.7,
+          "1-3-6": 77.5,
+          "1-2-7": 164.8,
+          "1-3-7": 26.9,
+          "1-4-2": 329.6,
+          "1-5-2": 329.6,
+          "1-4-3": 146.5,
+          "1-5-3": 87.9,
+          "1-5-4": 23.1,
+          "1-4-5": 164.8,
+          "1-4-6": 329.6,
+          "1-5-6": 131.8,
+          "1-4-7": 131.8,
+          "1-5-7": 119.8,
+          "1-6-2": 329.6,
+          "1-7-2": 164.8,
+          "1-6-3": 329.6,
+          "1-7-3": 62.7,
+          "1-6-4": 164.8,
+          "1-7-4": 77.5,
+          "1-6-5": 329.6,
+          "1-7-5": 101.4,
+          "1-7-6": 219.7,
+          "1-6-7": 219.7
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=3"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 4,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=4",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "佐々木健司",
+          "age": 52,
+          "period": 76,
+          "prefecture": "青森",
+          "grade": "",
+          "style": "追",
+          "score": 81.2,
+          "finish_1": 1,
+          "finish_2": 1,
+          "finish_3": 7,
+          "finish_out": 16,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 21.94
+        },
+        {
+          "car_no": 2,
+          "name": "橋本 勝弘",
+          "age": 44,
+          "period": 89,
+          "prefecture": "愛媛",
+          "grade": "",
+          "style": "追",
+          "score": 81.59,
+          "finish_1": 2,
+          "finish_2": 2,
+          "finish_3": 3,
+          "finish_out": 15,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 23.51
+        },
+        {
+          "car_no": 3,
+          "name": "利根 正明",
+          "age": 37,
+          "period": 97,
+          "prefecture": "大分",
+          "grade": "",
+          "style": "逃",
+          "score": 87.541,
+          "finish_1": 5,
+          "finish_2": 5,
+          "finish_3": 4,
+          "finish_out": 10,
+          "kimari_nige": 3,
+          "kimari_makuri": 5,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 53.55
+        },
+        {
+          "car_no": 4,
+          "name": "岩辺 陸",
+          "age": 22,
+          "period": 127,
+          "prefecture": "静岡",
+          "grade": "",
+          "style": "逃",
+          "score": 91.0,
+          "finish_1": 6,
+          "finish_2": 4,
+          "finish_3": 4,
+          "finish_out": 7,
+          "kimari_nige": 6,
+          "kimari_makuri": 4,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 68.0
+        },
+        {
+          "car_no": 5,
+          "name": "芳野 匠",
+          "age": 41,
+          "period": 93,
+          "prefecture": "愛媛",
+          "grade": "",
+          "style": "追",
+          "score": 84.481,
+          "finish_1": 3,
+          "finish_2": 3,
+          "finish_3": 3,
+          "finish_out": 18,
+          "kimari_nige": 1,
+          "kimari_makuri": 0,
+          "kimari_sashi": 4,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 36.48
+        },
+        {
+          "car_no": 6,
+          "name": "下岡 将也",
+          "age": 30,
+          "period": 111,
+          "prefecture": "三重",
+          "grade": "",
+          "style": "逃",
+          "score": 80.458,
+          "finish_1": 1,
+          "finish_2": 1,
+          "finish_3": 4,
+          "finish_out": 18,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 18.85
+        },
+        {
+          "car_no": 7,
+          "name": "植木 和広",
+          "age": 46,
+          "period": 98,
+          "prefecture": "",
+          "grade": "",
+          "style": "追",
+          "score": 86.909,
+          "finish_1": 2,
+          "finish_2": 3,
+          "finish_3": 8,
+          "finish_out": 9,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 5,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 46.79
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=4",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "南関ラインへ。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "2": {
+          "name": "芳野君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "自力です。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "4": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "5": {
+          "name": "利根君へ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "6": {
+          "name": "単騎でやる。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "岩辺君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "岩辺が機動パワーを発揮。番手有利な植木との争いが本線。勝機にしっかり反応した時の利根ー芳野に要注意。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_4.html",
+      "ai": {
+        "main": 4,
+        "opponent": 3,
+        "dark_horse": 7,
+        "ranking": [
+          {
+            "car_no": 4,
+            "name": "岩辺 陸",
+            "score": 68.0,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "利根 正明",
+            "score": 53.55,
+            "mark": "▲"
+          },
+          {
+            "car_no": 7,
+            "name": "植木 和広",
+            "score": 46.79,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "芳野 匠",
+            "score": 36.48,
+            "mark": "△"
+          },
+          {
+            "car_no": 2,
+            "name": "橋本 勝弘",
+            "score": 23.51,
+            "mark": ""
+          },
+          {
+            "car_no": 1,
+            "name": "佐々木健司",
+            "score": 21.94,
+            "mark": "×"
+          },
+          {
+            "car_no": 6,
+            "name": "下岡 将也",
+            "score": 18.85,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 87,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "4-3-7",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-7-3",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-4-7",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-4-3",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-7-4",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-5-3",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "5-4-7",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-7-2",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162709",
+        "main": 4,
+        "opponent": 3,
+        "dark_horse": 7,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 87,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 4,
+            "name": "岩辺 陸",
+            "score": 68.0,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "利根 正明",
+            "score": 53.55,
+            "mark": "▲"
+          },
+          {
+            "car_no": 7,
+            "name": "植木 和広",
+            "score": 46.79,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "芳野 匠",
+            "score": 36.48,
+            "mark": "△"
+          },
+          {
+            "car_no": 2,
+            "name": "橋本 勝弘",
+            "score": 23.51,
+            "mark": ""
+          },
+          {
+            "car_no": 1,
+            "name": "佐々木健司",
+            "score": 21.94,
+            "mark": "×"
+          },
+          {
+            "car_no": 6,
+            "name": "下岡 将也",
+            "score": 18.85,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "4-3-7",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-7-3",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-4-7",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-4-3",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-7-4",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-5-3",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "5-4-7",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-7-2",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=4"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 1425.0,
+          "1-2-3": 1425.0,
+          "1-2-4": 356.2,
+          "1-3-4": 475.0,
+          "1-2-5": 356.2,
+          "1-3-5": 237.5,
+          "1-2-6": 356.2,
+          "1-3-6": 475.0,
+          "1-2-7": 712.5,
+          "1-3-7": 285.0,
+          "1-4-2": 475.0,
+          "1-5-2": 1425.0,
+          "1-4-3": 285.0,
+          "1-5-3": 475.0,
+          "1-5-4": 475.0,
+          "1-4-5": 475.0,
+          "1-4-6": 712.5,
+          "1-5-6": 475.0,
+          "1-4-7": 237.5,
+          "1-5-7": 237.5,
+          "1-6-2": 1425.0,
+          "1-7-2": 712.5,
+          "1-6-3": 1425.0,
+          "1-7-3": 356.2,
+          "1-6-4": 475.0,
+          "1-7-4": 158.3,
+          "1-6-5": 1425.0,
+          "1-7-5": 285.0,
+          "1-7-6": 712.5,
+          "1-6-7": 0.0
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=4"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 5,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=5",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "藤田 祐大",
+          "age": 22,
+          "period": 125,
+          "prefecture": "茨城",
+          "grade": "",
+          "style": "逃",
+          "score": 95.272,
+          "finish_1": 10,
+          "finish_2": 6,
+          "finish_3": 2,
+          "finish_out": 5,
+          "kimari_nige": 6,
+          "kimari_makuri": 10,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 87.0
+        },
+        {
+          "car_no": 2,
+          "name": "薦田 将伍",
+          "age": 28,
+          "period": 113,
+          "prefecture": "愛媛",
+          "grade": "",
+          "style": "逃",
+          "score": 93.434,
+          "finish_1": 8,
+          "finish_2": 4,
+          "finish_3": 1,
+          "finish_out": 11,
+          "kimari_nige": 2,
+          "kimari_makuri": 4,
+          "kimari_sashi": 5,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 62.12
+        },
+        {
+          "car_no": 3,
+          "name": "野口 正則",
+          "age": 36,
+          "period": 105,
+          "prefecture": "奈良",
+          "grade": "",
+          "style": "両",
+          "score": 91.791,
+          "finish_1": 7,
+          "finish_2": 1,
+          "finish_3": 4,
+          "finish_out": 12,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
+          "kimari_sashi": 6,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 49.25
+        },
+        {
+          "car_no": 4,
+          "name": "三好恵一郎",
+          "age": 39,
+          "period": 99,
+          "prefecture": "群馬",
+          "grade": "",
+          "style": "両",
+          "score": 93.15,
+          "finish_1": 6,
+          "finish_2": 5,
+          "finish_3": 5,
+          "finish_out": 4,
+          "kimari_nige": 0,
+          "kimari_makuri": 3,
+          "kimari_sashi": 8,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 68.08
+        },
+        {
+          "car_no": 5,
+          "name": "梅澤 忠秀",
+          "age": 25,
+          "period": 125,
+          "prefecture": "三重",
+          "grade": "",
+          "style": "逃",
+          "score": 95.38,
+          "finish_1": 6,
+          "finish_2": 6,
+          "finish_3": 4,
+          "finish_out": 5,
+          "kimari_nige": 3,
+          "kimari_makuri": 8,
+          "kimari_sashi": 0,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 66.2
+        },
+        {
+          "car_no": 6,
+          "name": "小菅 誠",
+          "age": 46,
+          "period": 90,
+          "prefecture": "",
+          "grade": "",
+          "style": "追",
+          "score": 90.157,
+          "finish_1": 1,
+          "finish_2": 1,
+          "finish_3": 6,
+          "finish_out": 11,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 31.29
+        },
+        {
+          "car_no": 7,
+          "name": "尾崎 剛",
+          "age": 49,
+          "period": 79,
+          "prefecture": "埼玉",
+          "grade": "",
+          "style": "追",
+          "score": 93.0,
+          "finish_1": 1,
+          "finish_2": 4,
+          "finish_3": 3,
+          "finish_out": 10,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 36.2
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=5",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "一人で自由に。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "3": {
+          "name": "梅澤君へ。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "4": {
+          "name": "藤田君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "5": {
+          "name": "自力です。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "6": {
+          "name": "決めずに。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "関東の三番手。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "長い距離を踏み切れる藤田ライン三車は大きな援軍。ペースを握り番手三好との争い前節Ｖの勢いがある梅澤警戒",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_5.html",
+      "ai": {
+        "main": 1,
+        "opponent": 4,
+        "dark_horse": 5,
+        "ranking": [
+          {
+            "car_no": 1,
+            "name": "藤田 祐大",
+            "score": 87.0,
+            "mark": "◎"
+          },
+          {
+            "car_no": 4,
+            "name": "三好恵一郎",
+            "score": 68.08,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "梅澤 忠秀",
+            "score": 66.2,
+            "mark": "▲"
+          },
+          {
+            "car_no": 2,
+            "name": "薦田 将伍",
+            "score": 62.12,
+            "mark": "△"
+          },
+          {
+            "car_no": 3,
+            "name": "野口 正則",
+            "score": 49.25,
+            "mark": "×"
+          },
+          {
+            "car_no": 7,
+            "name": "尾崎 剛",
+            "score": 36.2,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "小菅 誠",
+            "score": 31.29,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "A",
+        "label": "🎯 買い",
+        "score": 79,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "1-4-5",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": 20.6,
+          "market_rank": 1,
+          "value_flag": "🎯 中穴"
+        },
+        {
+          "ticket": "1-5-4",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": 30.6,
+          "market_rank": 3,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "4-1-5",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "5-1-4",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-5-1",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-2-4",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": 67.9,
+          "market_rank": 8,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "2-1-5",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-5-3",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": 34.3,
+          "market_rank": 5,
+          "value_flag": "💎 穴・期待値候補"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162754",
+        "main": 1,
+        "opponent": 4,
+        "dark_horse": 5,
+        "verdict": {
+          "rank": "A",
+          "label": "🎯 買い",
+          "score": 79,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 1,
+            "name": "藤田 祐大",
+            "score": 87.0,
+            "mark": "◎"
+          },
+          {
+            "car_no": 4,
+            "name": "三好恵一郎",
+            "score": 68.08,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "梅澤 忠秀",
+            "score": 66.2,
+            "mark": "▲"
+          },
+          {
+            "car_no": 2,
+            "name": "薦田 将伍",
+            "score": 62.12,
+            "mark": "△"
+          },
+          {
+            "car_no": 3,
+            "name": "野口 正則",
+            "score": 49.25,
+            "mark": "×"
+          },
+          {
+            "car_no": 7,
+            "name": "尾崎 剛",
+            "score": 36.2,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "小菅 誠",
+            "score": 31.29,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "1-4-5",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": 20.6,
+            "market_rank": 1,
+            "value_flag": "🎯 中穴"
+          },
+          {
+            "ticket": "1-5-4",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": 30.6,
+            "market_rank": 3,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "4-1-5",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "5-1-4",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-5-1",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-2-4",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": 67.9,
+            "market_rank": 8,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "2-1-5",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-5-3",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": 34.3,
+            "market_rank": 5,
+            "value_flag": "💎 穴・期待値候補"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=5"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 178.4,
+          "1-2-3": 203.8,
+          "1-2-4": 67.9,
+          "1-3-4": 98.4,
+          "1-2-5": 67.9,
+          "1-3-5": 114.1,
+          "1-2-6": 190.3,
+          "1-3-6": 356.8,
+          "1-2-7": 356.8,
+          "1-3-7": 259.5,
+          "1-4-2": 38.5,
+          "1-5-2": 32.4,
+          "1-4-3": 51.9,
+          "1-5-3": 34.3,
+          "1-5-4": 30.6,
+          "1-4-5": 20.6,
+          "1-4-6": 95.1,
+          "1-5-6": 129.7,
+          "1-4-7": 27.7,
+          "1-5-7": 150.2,
+          "1-6-2": 356.8,
+          "1-7-2": 570.9,
+          "1-6-3": 713.6,
+          "1-7-3": 407.7,
+          "1-6-4": 285.4,
+          "1-7-4": 237.8,
+          "1-6-5": 407.7,
+          "1-7-5": 285.4,
+          "1-7-6": 475.7,
+          "1-6-7": 713.6
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=5"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 6,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=6",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "豊田 美香",
+          "age": 30,
+          "period": 126,
+          "prefecture": "徳島",
+          "grade": "",
+          "style": "両",
+          "score": 51.857,
+          "finish_1": 0,
+          "finish_2": 6,
+          "finish_3": 3,
+          "finish_out": 12,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
+          "kimari_sashi": 2,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 14.6
+        },
+        {
+          "car_no": 2,
+          "name": "中島 瞳",
+          "age": 22,
+          "period": 126,
+          "prefecture": "埼玉",
+          "grade": "",
+          "style": "両",
+          "score": 56.714,
+          "finish_1": 11,
+          "finish_2": 5,
+          "finish_3": 3,
+          "finish_out": 2,
+          "kimari_nige": 1,
+          "kimari_makuri": 7,
+          "kimari_sashi": 7,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 52.3
+        },
+        {
+          "car_no": 3,
+          "name": "齊藤 由紀",
+          "age": 40,
+          "period": 110,
+          "prefecture": "愛知",
+          "grade": "",
+          "style": "両",
+          "score": 45.733,
+          "finish_1": 0,
+          "finish_2": 0,
+          "finish_3": 1,
+          "finish_out": 14,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0.4
+        },
+        {
+          "car_no": 4,
+          "name": "向井 円",
+          "age": 33,
+          "period": 114,
+          "prefecture": "大阪",
+          "grade": "",
+          "style": "追",
+          "score": 48.083,
+          "finish_1": 0,
+          "finish_2": 1,
+          "finish_3": 2,
+          "finish_out": 21,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 1.7
+        },
+        {
+          "car_no": 5,
+          "name": "齊藤 由莉",
+          "age": 29,
+          "period": 128,
+          "prefecture": "",
+          "grade": "",
+          "style": "両",
+          "score": 49.21,
+          "finish_1": 0,
+          "finish_2": 5,
+          "finish_3": 2,
+          "finish_out": 13,
+          "kimari_nige": 3,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 8.7
+        },
+        {
+          "car_no": 6,
+          "name": "小林 莉子",
+          "age": 33,
+          "period": 102,
+          "prefecture": "東京",
+          "grade": "",
+          "style": "両",
+          "score": 57.625,
+          "finish_1": 14,
+          "finish_2": 4,
+          "finish_3": 5,
+          "finish_out": 1,
+          "kimari_nige": 1,
+          "kimari_makuri": 7,
+          "kimari_sashi": 8,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 64.6
+        },
+        {
+          "car_no": 7,
+          "name": "熊谷 芽緯",
+          "age": 22,
+          "period": 124,
+          "prefecture": "岩手",
+          "grade": "",
+          "style": "逃",
+          "score": 55.428,
+          "finish_1": 5,
+          "finish_2": 4,
+          "finish_3": 5,
+          "finish_out": 7,
+          "kimari_nige": 3,
+          "kimari_makuri": 5,
+          "kimari_sashi": 0,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 30.0
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=6",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "自在に。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "2": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "取れた位置から。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "4": {
+          "name": "前々にやる。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "6": {
+          "name": "自在にやる。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "7": {
+          "name": "自力です。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "立ち回り巧みな小林が好位をキープ。そこからの差し・捲りを決める。相手はロングスパートが効く中島、熊谷。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_6.html",
+      "ai": {
+        "main": 6,
+        "opponent": 2,
+        "dark_horse": 7,
+        "ranking": [
+          {
+            "car_no": 6,
+            "name": "小林 莉子",
+            "score": 64.6,
+            "mark": "◎"
+          },
+          {
+            "car_no": 2,
+            "name": "中島 瞳",
+            "score": 52.3,
+            "mark": "○"
+          },
+          {
+            "car_no": 7,
+            "name": "熊谷 芽緯",
+            "score": 30.0,
+            "mark": "▲"
+          },
+          {
+            "car_no": 1,
+            "name": "豊田 美香",
+            "score": 14.6,
+            "mark": "△"
+          },
+          {
+            "car_no": 5,
+            "name": "齊藤 由莉",
+            "score": 8.7,
+            "mark": "×"
+          },
+          {
+            "car_no": 4,
+            "name": "向井 円",
+            "score": 1.7,
+            "mark": ""
+          },
+          {
+            "car_no": 3,
+            "name": "齊藤 由紀",
+            "score": 0.4,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 87,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "6-2-7",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "6-7-2",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "2-6-7",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-6-2",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "2-7-6",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "6-1-2",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-6-7",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": 451.2,
+          "market_rank": 5,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "6-7-5",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162806",
+        "main": 6,
+        "opponent": 2,
+        "dark_horse": 7,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 87,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 6,
+            "name": "小林 莉子",
+            "score": 64.6,
+            "mark": "◎"
+          },
+          {
+            "car_no": 2,
+            "name": "中島 瞳",
+            "score": 52.3,
+            "mark": "○"
+          },
+          {
+            "car_no": 7,
+            "name": "熊谷 芽緯",
+            "score": 30.0,
+            "mark": "▲"
+          },
+          {
+            "car_no": 1,
+            "name": "豊田 美香",
+            "score": 14.6,
+            "mark": "△"
+          },
+          {
+            "car_no": 5,
+            "name": "齊藤 由莉",
+            "score": 8.7,
+            "mark": "×"
+          },
+          {
+            "car_no": 4,
+            "name": "向井 円",
+            "score": 1.7,
+            "mark": ""
+          },
+          {
+            "car_no": 3,
+            "name": "齊藤 由紀",
+            "score": 0.4,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "6-2-7",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "6-7-2",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "2-6-7",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-6-2",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "2-7-6",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "6-1-2",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-6-7",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": 451.2,
+            "market_rank": 5,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "6-7-5",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=6"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 4512.7,
+          "1-2-3": 4512.7,
+          "1-2-4": 4512.7,
+          "1-3-4": 4512.7,
+          "1-2-5": 1128.1,
+          "1-3-5": 752.1,
+          "1-2-6": 167.1,
+          "1-3-6": 501.4,
+          "1-2-7": 902.5,
+          "1-3-7": 1128.1,
+          "1-4-2": 4512.7,
+          "1-5-2": 0.0,
+          "1-4-3": 4512.7,
+          "1-5-3": 4512.7,
+          "1-5-4": 2256.3,
+          "1-4-5": 752.1,
+          "1-4-6": 2256.3,
+          "1-5-6": 2256.3,
+          "1-4-7": 2256.3,
+          "1-5-7": 644.6,
+          "1-6-2": 214.8,
+          "1-7-2": 902.5,
+          "1-6-3": 752.1,
+          "1-7-3": 1128.1,
+          "1-6-4": 2256.3,
+          "1-7-4": 2256.3,
+          "1-6-5": 4512.7,
+          "1-7-5": 564.0,
+          "1-7-6": 451.2,
+          "1-6-7": 451.2
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=6"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 7,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=7",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "片岡 美奈",
+          "age": 27,
+          "period": 126,
+          "prefecture": "栃木",
+          "grade": "",
+          "style": "両",
+          "score": 48.833,
+          "finish_1": 0,
+          "finish_2": 3,
+          "finish_3": 4,
+          "finish_out": 23,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 1,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 6.3
+        },
+        {
+          "car_no": 2,
+          "name": "平子 結菜",
+          "age": 22,
+          "period": 126,
+          "prefecture": "三重",
+          "grade": "",
+          "style": "両",
+          "score": 51.111,
+          "finish_1": 1,
+          "finish_2": 2,
+          "finish_3": 7,
+          "finish_out": 17,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 1,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 12.4
+        },
+        {
+          "car_no": 3,
+          "name": "下条 未悠",
+          "age": 25,
+          "period": 118,
+          "prefecture": "富山",
+          "grade": "",
+          "style": "両",
+          "score": 55.857,
+          "finish_1": 10,
+          "finish_2": 3,
+          "finish_3": 4,
+          "finish_out": 4,
+          "kimari_nige": 4,
+          "kimari_makuri": 9,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 46.5
+        },
+        {
+          "car_no": 4,
+          "name": "田中 まい",
+          "age": 36,
+          "period": 104,
+          "prefecture": "千葉",
+          "grade": "",
+          "style": "両",
+          "score": 53.0,
+          "finish_1": 3,
+          "finish_2": 6,
+          "finish_3": 6,
+          "finish_out": 10,
+          "kimari_nige": 1,
+          "kimari_makuri": 3,
+          "kimari_sashi": 1,
+          "kimari_mark": 4,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 26.0
+        },
+        {
+          "car_no": 5,
+          "name": "星野 しほ",
+          "age": 26,
+          "period": 124,
+          "prefecture": "東京",
+          "grade": "",
+          "style": "追",
+          "score": 47.142,
+          "finish_1": 0,
+          "finish_2": 2,
+          "finish_3": 1,
+          "finish_out": 18,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "自在に。",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 4.2
+        },
+        {
+          "car_no": 6,
+          "name": "中村 鈴花",
+          "age": 24,
+          "period": 120,
+          "prefecture": "熊本",
+          "grade": "",
+          "style": "追",
+          "score": 46.8,
+          "finish_1": 0,
+          "finish_2": 0,
+          "finish_3": 2,
+          "finish_out": 13,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0.8
+        },
+        {
+          "car_no": 7,
+          "name": "坂口 楓華",
+          "age": 29,
+          "period": 112,
+          "prefecture": "愛知",
+          "grade": "",
+          "style": "両",
+          "score": 58.074,
+          "finish_1": 20,
+          "finish_2": 3,
+          "finish_3": 1,
+          "finish_out": 3,
+          "kimari_nige": 2,
+          "kimari_makuri": 16,
+          "kimari_sashi": 5,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 79.7
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=7",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "自在にやる。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "2": {
+          "name": "自在にやる。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "3": {
+          "name": "自力です。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "田中 まい",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "5": {
+          "name": "星野 しほ",
+          "mark": "",
+          "comment": "自在に。",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "自在に。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "勝率・連対率で断然の坂口ペース緩めば長短どちらの仕掛けも用意して首位。安定感を増している下条を対抗視。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_7.html",
+      "ai": {
+        "main": 7,
+        "opponent": 3,
+        "dark_horse": 4,
+        "ranking": [
+          {
+            "car_no": 7,
+            "name": "坂口 楓華",
+            "score": 79.7,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "下条 未悠",
+            "score": 46.5,
+            "mark": "○"
+          },
+          {
+            "car_no": 4,
+            "name": "田中 まい",
+            "score": 26.0,
+            "mark": "▲"
+          },
+          {
+            "car_no": 2,
+            "name": "平子 結菜",
+            "score": 12.4,
+            "mark": "△"
+          },
+          {
+            "car_no": 1,
+            "name": "片岡 美奈",
+            "score": 6.3,
+            "mark": "×"
+          },
+          {
+            "car_no": 5,
+            "name": "星野 しほ",
+            "score": 4.2,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "中村 鈴花",
+            "score": 0.8,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 87,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "7-3-4",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-4-3",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-7-4",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-7-3",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-4-7",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-2-3",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "2-7-4",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-4-1",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162850",
+        "main": 7,
+        "opponent": 3,
+        "dark_horse": 4,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 87,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 7,
+            "name": "坂口 楓華",
+            "score": 79.7,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "下条 未悠",
+            "score": 46.5,
+            "mark": "○"
+          },
+          {
+            "car_no": 4,
+            "name": "田中 まい",
+            "score": 26.0,
+            "mark": "▲"
+          },
+          {
+            "car_no": 2,
+            "name": "平子 結菜",
+            "score": 12.4,
+            "mark": "△"
+          },
+          {
+            "car_no": 1,
+            "name": "片岡 美奈",
+            "score": 6.3,
+            "mark": "×"
+          },
+          {
+            "car_no": 5,
+            "name": "星野 しほ",
+            "score": 4.2,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "中村 鈴花",
+            "score": 0.8,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "7-3-4",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-4-3",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-7-4",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-7-3",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-4-7",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-2-3",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "2-7-4",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-4-1",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=7"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 768.5,
+          "1-2-3": 896.6,
+          "1-2-4": 1793.2,
+          "1-3-4": 1793.2,
+          "1-2-5": 1793.2,
+          "1-3-5": 597.7,
+          "1-2-6": 1344.9,
+          "1-3-6": 896.6,
+          "1-2-7": 2689.8,
+          "1-3-7": 896.6,
+          "1-4-2": 2689.8,
+          "1-5-2": 0.0,
+          "1-4-3": 1793.2,
+          "1-5-3": 896.6,
+          "1-5-4": 5379.7,
+          "1-4-5": 2689.8,
+          "1-4-6": 5379.7,
+          "1-5-6": 1793.2,
+          "1-4-7": 2689.8,
+          "1-5-7": 1075.9,
+          "1-6-2": 5379.7,
+          "1-7-2": 1793.2,
+          "1-6-3": 896.6,
+          "1-7-3": 896.6,
+          "1-6-4": 5379.7,
+          "1-7-4": 1793.2,
+          "1-6-5": 5379.7,
+          "1-7-5": 1344.9,
+          "1-7-6": 2689.8,
+          "1-6-7": 0.0
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=7"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 8,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=8",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "兼本 将太",
+          "age": 29,
+          "period": 117,
+          "prefecture": "熊本",
+          "grade": "",
+          "style": "逃",
+          "score": 102.3,
+          "finish_1": 1,
+          "finish_2": 5,
+          "finish_3": 5,
+          "finish_out": 9,
+          "kimari_nige": 1,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 50.1
+        },
+        {
+          "car_no": 2,
+          "name": "高橋 舜",
+          "age": 25,
+          "period": 125,
+          "prefecture": "宮城",
+          "grade": "",
+          "style": "逃",
+          "score": 99.1,
+          "finish_1": 0,
+          "finish_2": 3,
+          "finish_3": 5,
+          "finish_out": 12,
+          "kimari_nige": 3,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 42.1
+        },
+        {
+          "car_no": 3,
+          "name": "岡田 征陽",
+          "age": 46,
+          "period": 85,
+          "prefecture": "東京",
+          "grade": "",
+          "style": "追",
+          "score": 101.652,
+          "finish_1": 2,
+          "finish_2": 6,
+          "finish_3": 2,
+          "finish_out": 14,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 5,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 56.8
+        },
+        {
+          "car_no": 4,
+          "name": "河合 佑弥",
+          "age": 32,
+          "period": 113,
+          "prefecture": "東京",
+          "grade": "",
+          "style": "逃",
+          "score": 101.894,
+          "finish_1": 4,
+          "finish_2": 7,
+          "finish_3": 1,
+          "finish_out": 7,
+          "kimari_nige": 6,
+          "kimari_makuri": 5,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 71.7
+        },
+        {
+          "car_no": 5,
+          "name": "山口 貴嗣",
+          "age": 48,
+          "period": 82,
+          "prefecture": "福岡",
+          "grade": "",
+          "style": "追",
+          "score": 100.321,
+          "finish_1": 2,
+          "finish_2": 9,
+          "finish_3": 1,
+          "finish_out": 17,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 4,
+          "kimari_mark": 7,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 46.1
+        },
+        {
+          "car_no": 6,
+          "name": "庄子 信弘",
+          "age": 47,
+          "period": 84,
+          "prefecture": "宮城",
+          "grade": "",
+          "style": "追",
+          "score": 98.576,
+          "finish_1": 2,
+          "finish_2": 4,
+          "finish_3": 3,
+          "finish_out": 17,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
+          "kimari_sashi": 3,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 42.4
+        },
+        {
+          "car_no": 7,
+          "name": "松本 憲斗",
+          "age": 29,
+          "period": 119,
+          "prefecture": "熊本",
+          "grade": "",
+          "style": "逃",
+          "score": 99.956,
+          "finish_1": 4,
+          "finish_2": 3,
+          "finish_3": 0,
+          "finish_out": 16,
+          "kimari_nige": 2,
+          "kimari_makuri": 3,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 47.5
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=8",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "自力です。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "自力です。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "3": {
+          "name": "河合君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "5": {
+          "name": "熊本ライン。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "高橋君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "兼本君へ。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "河合が流れを見極めた仕掛けで、番手岡田との争いに持ち込む。高橋の抵抗が激しいと前団混戦で九州勢の捲り。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_8.html",
+      "ai": {
+        "main": 4,
+        "opponent": 3,
+        "dark_horse": 1,
+        "ranking": [
+          {
+            "car_no": 4,
+            "name": "河合 佑弥",
+            "score": 71.7,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "岡田 征陽",
+            "score": 56.8,
+            "mark": "○"
+          },
+          {
+            "car_no": 1,
+            "name": "兼本 将太",
+            "score": 50.1,
+            "mark": "▲"
+          },
+          {
+            "car_no": 7,
+            "name": "松本 憲斗",
+            "score": 47.5,
+            "mark": "×"
+          },
+          {
+            "car_no": 5,
+            "name": "山口 貴嗣",
+            "score": 46.1,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "庄子 信弘",
+            "score": 42.4,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "高橋 舜",
+            "score": 42.1,
+            "mark": "△"
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 87,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "4-3-1",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-1-3",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-4-1",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-4-3",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": 51.9,
+          "market_rank": 5,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "3-1-4",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-7-3",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-4-1",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-1-5",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162894",
+        "main": 4,
+        "opponent": 3,
+        "dark_horse": 1,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 87,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 4,
+            "name": "河合 佑弥",
+            "score": 71.7,
+            "mark": "◎"
+          },
+          {
+            "car_no": 3,
+            "name": "岡田 征陽",
+            "score": 56.8,
+            "mark": "○"
+          },
+          {
+            "car_no": 1,
+            "name": "兼本 将太",
+            "score": 50.1,
+            "mark": "▲"
+          },
+          {
+            "car_no": 7,
+            "name": "松本 憲斗",
+            "score": 47.5,
+            "mark": "×"
+          },
+          {
+            "car_no": 5,
+            "name": "山口 貴嗣",
+            "score": 46.1,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "庄子 信弘",
+            "score": 42.4,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "高橋 舜",
+            "score": 42.1,
+            "mark": "△"
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "4-3-1",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-1-3",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-4-1",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-4-3",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": 51.9,
+            "market_rank": 5,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "3-1-4",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-7-3",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-4-1",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-1-5",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=8"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 121.1,
+          "1-2-3": 139.7,
+          "1-2-4": 363.4,
+          "1-3-4": 90.8,
+          "1-2-5": 259.6,
+          "1-3-5": 139.7,
+          "1-2-6": 227.1,
+          "1-3-6": 605.7,
+          "1-2-7": 100.9,
+          "1-3-7": 75.7,
+          "1-4-2": 151.4,
+          "1-5-2": 1817.2,
+          "1-4-3": 51.9,
+          "1-5-3": 363.4,
+          "1-5-4": 259.6,
+          "1-4-5": 129.8,
+          "1-4-6": 259.6,
+          "1-5-6": 454.3,
+          "1-4-7": 60.5,
+          "1-5-7": 129.8,
+          "1-6-2": 227.1,
+          "1-7-2": 39.5,
+          "1-6-3": 605.7,
+          "1-7-3": 30.8,
+          "1-6-4": 363.4,
+          "1-7-4": 27.1,
+          "1-6-5": 605.7,
+          "1-7-5": 28.8,
+          "1-7-6": 67.3,
+          "1-6-7": 165.2
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=8"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 9,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=9",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "近藤 俊明",
+          "age": 48,
+          "period": 87,
+          "prefecture": "",
+          "grade": "",
+          "style": "追",
+          "score": 99.593,
+          "finish_1": 1,
+          "finish_2": 5,
+          "finish_3": 3,
+          "finish_out": 24,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 4,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 46.5
+        },
+        {
+          "car_no": 2,
+          "name": "稲垣 裕之",
+          "age": 49,
+          "period": 86,
+          "prefecture": "京都",
+          "grade": "",
+          "style": "両",
+          "score": 97.862,
+          "finish_1": 1,
+          "finish_2": 4,
+          "finish_3": 4,
+          "finish_out": 20,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 40.0
+        },
+        {
+          "car_no": 3,
+          "name": "丸山 直樹",
+          "age": 40,
+          "period": 93,
+          "prefecture": "埼玉",
+          "grade": "",
+          "style": "追",
+          "score": 96.366,
+          "finish_1": 2,
+          "finish_2": 4,
+          "finish_3": 2,
+          "finish_out": 22,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 41.0
+        },
+        {
+          "car_no": 4,
+          "name": "格清 洋介",
+          "age": 32,
+          "period": 111,
+          "prefecture": "静岡",
+          "grade": "",
+          "style": "逃",
+          "score": 101.806,
+          "finish_1": 13,
+          "finish_2": 2,
+          "finish_3": 3,
+          "finish_out": 13,
+          "kimari_nige": 5,
+          "kimari_makuri": 8,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 78.4
+        },
+        {
+          "car_no": 5,
+          "name": "田中 大我",
+          "age": 27,
+          "period": 115,
+          "prefecture": "奈良",
+          "grade": "",
+          "style": "逃",
+          "score": 103.913,
+          "finish_1": 10,
+          "finish_2": 1,
+          "finish_3": 3,
+          "finish_out": 10,
+          "kimari_nige": 7,
+          "kimari_makuri": 4,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 77.7
+        },
+        {
+          "car_no": 6,
+          "name": "坂本 周作",
+          "age": 34,
+          "period": 105,
+          "prefecture": "青森",
+          "grade": "",
+          "style": "逃",
+          "score": 93.656,
+          "finish_1": 3,
+          "finish_2": 1,
+          "finish_3": 1,
+          "finish_out": 27,
+          "kimari_nige": 3,
+          "kimari_makuri": 0,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 39.49
+        },
+        {
+          "car_no": 7,
+          "name": "中井 俊亮",
+          "age": 33,
+          "period": 103,
+          "prefecture": "奈良",
+          "grade": "",
+          "style": "両",
+          "score": 100.32,
+          "finish_1": 4,
+          "finish_2": 2,
+          "finish_3": 4,
+          "finish_out": 16,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
+          "kimari_sashi": 5,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 58.6
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=9",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "格清君へ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "2": {
+          "name": "奈良ラインへ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "坂本君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "4": {
+          "name": "自力です。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "5": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "6": {
+          "name": "自力です。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "7": {
+          "name": "田中君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "三車のプラス材料を重く見て田中の機動力に◎。好機先制で中井との逃げ差し争い。格清の反撃は逆転の一番手。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_9.html",
+      "ai": {
+        "main": 4,
+        "opponent": 5,
+        "dark_horse": 7,
+        "ranking": [
+          {
+            "car_no": 4,
+            "name": "格清 洋介",
+            "score": 78.4,
+            "mark": "▲"
+          },
+          {
+            "car_no": 5,
+            "name": "田中 大我",
+            "score": 77.7,
+            "mark": "◎"
+          },
+          {
+            "car_no": 7,
+            "name": "中井 俊亮",
+            "score": 58.6,
+            "mark": "○"
+          },
+          {
+            "car_no": 1,
+            "name": "近藤 俊明",
+            "score": 46.5,
+            "mark": "△"
+          },
+          {
+            "car_no": 3,
+            "name": "丸山 直樹",
+            "score": 41.0,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "稲垣 裕之",
+            "score": 40.0,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "坂本 周作",
+            "score": 39.49,
+            "mark": "×"
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "B",
+        "label": "⭐ 少額",
+        "score": 68,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "4-5-7",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-7-5",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "5-4-7",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-4-5",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "5-7-4",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-1-5",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-4-7",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": 97.0,
+          "market_rank": 2,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "4-7-3",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162938",
+        "main": 4,
+        "opponent": 5,
+        "dark_horse": 7,
+        "verdict": {
+          "rank": "B",
+          "label": "⭐ 少額",
+          "score": 68,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 4,
+            "name": "格清 洋介",
+            "score": 78.4,
+            "mark": "▲"
+          },
+          {
+            "car_no": 5,
+            "name": "田中 大我",
+            "score": 77.7,
+            "mark": "◎"
+          },
+          {
+            "car_no": 7,
+            "name": "中井 俊亮",
+            "score": 58.6,
+            "mark": "○"
+          },
+          {
+            "car_no": 1,
+            "name": "近藤 俊明",
+            "score": 46.5,
+            "mark": "△"
+          },
+          {
+            "car_no": 3,
+            "name": "丸山 直樹",
+            "score": 41.0,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "稲垣 裕之",
+            "score": 40.0,
+            "mark": ""
+          },
+          {
+            "car_no": 6,
+            "name": "坂本 周作",
+            "score": 39.49,
+            "mark": "×"
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "4-5-7",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-7-5",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "5-4-7",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-4-5",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "5-7-4",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-1-5",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-4-7",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": 97.0,
+            "market_rank": 2,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "4-7-3",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=9"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 1164.7,
+          "1-2-3": 1164.7,
+          "1-2-4": 388.2,
+          "1-3-4": 232.9,
+          "1-2-5": 332.7,
+          "1-3-5": 332.7,
+          "1-2-6": 776.5,
+          "1-3-6": 1164.7,
+          "1-2-7": 465.9,
+          "1-3-7": 388.2,
+          "1-4-2": 258.8,
+          "1-5-2": 0.0,
+          "1-4-3": 110.9,
+          "1-5-3": 582.3,
+          "1-5-4": 137.0,
+          "1-4-5": 116.4,
+          "1-4-6": 258.8,
+          "1-5-6": 582.3,
+          "1-4-7": 97.0,
+          "1-5-7": 232.9,
+          "1-6-2": 2329.5,
+          "1-7-2": 465.9,
+          "1-6-3": 776.5,
+          "1-7-3": 465.9,
+          "1-6-4": 465.9,
+          "1-7-4": 166.3,
+          "1-6-5": 1164.7,
+          "1-7-5": 332.7,
+          "1-7-6": 1164.7,
+          "1-6-7": 2329.5
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=9"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 10,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=10",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "林 昌幸",
+          "age": 24,
+          "period": 119,
+          "prefecture": "愛媛",
+          "grade": "",
+          "style": "逃",
+          "score": 104.24,
+          "finish_1": 5,
+          "finish_2": 7,
+          "finish_3": 4,
+          "finish_out": 9,
+          "kimari_nige": 8,
+          "kimari_makuri": 4,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 75.3
+        },
+        {
+          "car_no": 2,
+          "name": "山内 卓也",
+          "age": 49,
+          "period": 77,
+          "prefecture": "愛知",
+          "grade": "",
+          "style": "追",
+          "score": 101.727,
+          "finish_1": 6,
+          "finish_2": 6,
+          "finish_3": 4,
+          "finish_out": 17,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 9,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 64.8
+        },
+        {
+          "car_no": 3,
+          "name": "染谷 幸喜",
+          "age": 38,
+          "period": 111,
+          "prefecture": "千葉",
+          "grade": "",
+          "style": "逃",
+          "score": 99.136,
+          "finish_1": 3,
+          "finish_2": 3,
+          "finish_3": 5,
+          "finish_out": 11,
+          "kimari_nige": 2,
+          "kimari_makuri": 2,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 50.7
+        },
+        {
+          "car_no": 4,
+          "name": "徳田 匠",
+          "age": 29,
+          "period": 119,
+          "prefecture": "京都",
+          "grade": "",
+          "style": "逃",
+          "score": 98.086,
+          "finish_1": 3,
+          "finish_2": 3,
+          "finish_3": 5,
+          "finish_out": 12,
+          "kimari_nige": 4,
+          "kimari_makuri": 1,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 46.3
+        },
+        {
+          "car_no": 5,
+          "name": "濱田 浩司",
+          "age": 47,
+          "period": 81,
+          "prefecture": "愛媛",
+          "grade": "",
+          "style": "追",
+          "score": 104.384,
+          "finish_1": 1,
+          "finish_2": 9,
+          "finish_3": 5,
+          "finish_out": 11,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 7,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 56.9
+        },
+        {
+          "car_no": 6,
+          "name": "山本 紳貴",
+          "age": 41,
+          "period": 107,
+          "prefecture": "千葉",
+          "grade": "",
+          "style": "追",
+          "score": 97.407,
+          "finish_1": 2,
+          "finish_2": 3,
+          "finish_3": 3,
+          "finish_out": 21,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 2,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 39.5
+        },
+        {
+          "car_no": 7,
+          "name": "月森 亮輔",
+          "age": 34,
+          "period": 101,
+          "prefecture": "岡山",
+          "grade": "",
+          "style": "両",
+          "score": 99.666,
+          "finish_1": 4,
+          "finish_2": 3,
+          "finish_3": 2,
+          "finish_out": 18,
+          "kimari_nige": 0,
+          "kimari_makuri": 3,
+          "kimari_sashi": 3,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 46.7
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=10",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "徳田君へ。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "3": {
+          "name": "自力です。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "4": {
+          "name": "自力です。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "5": {
+          "name": "林君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "6": {
+          "name": "染谷君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "愛媛ラインへ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "ＦIならば決勝戦の常連に成長した林。適正距離なら先行、中団を取れば捲りで濱田と。徳田が先制で番手山内。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_10.html",
+      "ai": {
+        "main": 1,
+        "opponent": 2,
+        "dark_horse": 5,
+        "ranking": [
+          {
+            "car_no": 1,
+            "name": "林 昌幸",
+            "score": 75.3,
+            "mark": "◎"
+          },
+          {
+            "car_no": 2,
+            "name": "山内 卓也",
+            "score": 64.8,
+            "mark": "▲"
+          },
+          {
+            "car_no": 5,
+            "name": "濱田 浩司",
+            "score": 56.9,
+            "mark": "○"
+          },
+          {
+            "car_no": 3,
+            "name": "染谷 幸喜",
+            "score": 50.7,
+            "mark": "△"
+          },
+          {
+            "car_no": 7,
+            "name": "月森 亮輔",
+            "score": 46.7,
+            "mark": ""
+          },
+          {
+            "car_no": 4,
+            "name": "徳田 匠",
+            "score": 46.3,
+            "mark": "×"
+          },
+          {
+            "car_no": 6,
+            "name": "山本 紳貴",
+            "score": 39.5,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 87,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "1-2-5",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": 58.3,
+          "market_rank": 6,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "1-5-2",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": 14.2,
+          "market_rank": 2,
+          "value_flag": "⭐ 適正"
+        },
+        {
+          "ticket": "2-1-5",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "5-1-2",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "2-5-1",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-3-2",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": 249.4,
+          "market_rank": 24,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "3-1-5",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-5-7",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": 6.7,
+          "market_rank": 1,
+          "value_flag": "⚠️ 人気"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.162980",
+        "main": 1,
+        "opponent": 2,
+        "dark_horse": 5,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 87,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 1,
+            "name": "林 昌幸",
+            "score": 75.3,
+            "mark": "◎"
+          },
+          {
+            "car_no": 2,
+            "name": "山内 卓也",
+            "score": 64.8,
+            "mark": "▲"
+          },
+          {
+            "car_no": 5,
+            "name": "濱田 浩司",
+            "score": 56.9,
+            "mark": "○"
+          },
+          {
+            "car_no": 3,
+            "name": "染谷 幸喜",
+            "score": 50.7,
+            "mark": "△"
+          },
+          {
+            "car_no": 7,
+            "name": "月森 亮輔",
+            "score": 46.7,
+            "mark": ""
+          },
+          {
+            "car_no": 4,
+            "name": "徳田 匠",
+            "score": 46.3,
+            "mark": "×"
+          },
+          {
+            "car_no": 6,
+            "name": "山本 紳貴",
+            "score": 39.5,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "1-2-5",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": 58.3,
+            "market_rank": 6,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "1-5-2",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": 14.2,
+            "market_rank": 2,
+            "value_flag": "⭐ 適正"
+          },
+          {
+            "ticket": "2-1-5",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "5-1-2",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "2-5-1",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-3-2",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": 249.4,
+            "market_rank": 24,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "3-1-5",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-5-7",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": 6.7,
+            "market_rank": 1,
+            "value_flag": "⚠️ 人気"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=10"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 249.4,
+          "1-2-3": 144.4,
+          "1-2-4": 88.5,
+          "1-3-4": 228.6,
+          "1-2-5": 58.3,
+          "1-3-5": 119.3,
+          "1-2-6": 228.6,
+          "1-3-6": 152.4,
+          "1-2-7": 109.7,
+          "1-3-7": 119.3,
+          "1-4-2": 144.4,
+          "1-5-2": 14.2,
+          "1-4-3": 196.0,
+          "1-5-3": 36.5,
+          "1-5-4": 36.5,
+          "1-4-5": 161.4,
+          "1-4-6": 1372.1,
+          "1-5-6": 91.4,
+          "1-4-7": 144.4,
+          "1-5-7": 6.7,
+          "1-6-2": 1372.1,
+          "1-7-2": 124.7,
+          "1-6-3": 457.3,
+          "1-7-3": 152.4,
+          "1-6-4": 914.7,
+          "1-7-4": 144.4,
+          "1-6-5": 548.8,
+          "1-7-5": 34.7,
+          "1-7-6": 228.6,
+          "1-6-7": 457.3
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=10"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 11,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=11",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "森川 大輔",
+          "age": 39,
+          "period": 92,
+          "prefecture": "岐阜",
+          "grade": "",
+          "style": "追",
+          "score": 103.44,
+          "finish_1": 7,
+          "finish_2": 2,
+          "finish_3": 4,
+          "finish_out": 12,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 8,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 66.0
+        },
+        {
+          "car_no": 2,
+          "name": "浮島 知稀",
+          "age": 26,
+          "period": 123,
+          "prefecture": "群馬",
+          "grade": "",
+          "style": "逃",
+          "score": 95.409,
+          "finish_1": 0,
+          "finish_2": 0,
+          "finish_3": 2,
+          "finish_out": 21,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 30.8
+        },
+        {
+          "car_no": 3,
+          "name": "佐伯 亮輔",
+          "age": 32,
+          "period": 113,
+          "prefecture": "岡山",
+          "grade": "",
+          "style": "逃",
+          "score": 98.28,
+          "finish_1": 14,
+          "finish_2": 2,
+          "finish_3": 3,
+          "finish_out": 6,
+          "kimari_nige": 6,
+          "kimari_makuri": 9,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 81.0
+        },
+        {
+          "car_no": 4,
+          "name": "岩井 芯",
+          "age": 21,
+          "period": 125,
+          "prefecture": "岐阜",
+          "grade": "",
+          "style": "逃",
+          "score": 107.807,
+          "finish_1": 7,
+          "finish_2": 3,
+          "finish_3": 4,
+          "finish_out": 13,
+          "kimari_nige": 3,
+          "kimari_makuri": 6,
+          "kimari_sashi": 0,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 73.3
+        },
+        {
+          "car_no": 5,
+          "name": "平原 啓多",
+          "age": 41,
+          "period": 97,
+          "prefecture": "埼玉",
+          "grade": "",
+          "style": "追",
+          "score": 97.12,
+          "finish_1": 4,
+          "finish_2": 4,
+          "finish_3": 0,
+          "finish_out": 17,
+          "kimari_nige": 0,
+          "kimari_makuri": 2,
+          "kimari_sashi": 4,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 47.8
+        },
+        {
+          "car_no": 6,
+          "name": "三ツ石康洋",
+          "age": 46,
+          "period": 86,
+          "prefecture": "徳島",
+          "grade": "",
+          "style": "両",
+          "score": 93.8,
+          "finish_1": 1,
+          "finish_2": 1,
+          "finish_3": 1,
+          "finish_out": 17,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 1,
+          "kimari_mark": 1,
+          "comment": "岡山勢へ。",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 32.66
+        },
+        {
+          "car_no": 7,
+          "name": "戸田 洋平",
+          "age": 43,
+          "period": 92,
+          "prefecture": "岡山",
+          "grade": "",
+          "style": "追",
+          "score": 100.55,
+          "finish_1": 3,
+          "finish_2": 1,
+          "finish_3": 3,
+          "finish_out": 14,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 45.5
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=11",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "岩井君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "2": {
+          "name": "自力です。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "自力です。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "4": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "5": {
+          "name": "浮島君へ。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "6": {
+          "name": "三ツ石康洋",
+          "mark": "",
+          "comment": "岡山勢へ。",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "佐伯君へ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "中部期待の新鋭岩井が登場順番逃さずスピードを生かした巻き返し。森川との岐阜ワンツー。佐伯の機動力に注意",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_11.html",
+      "ai": {
+        "main": 3,
+        "opponent": 4,
+        "dark_horse": 1,
+        "ranking": [
+          {
+            "car_no": 3,
+            "name": "佐伯 亮輔",
+            "score": 81.0,
+            "mark": "▲"
+          },
+          {
+            "car_no": 4,
+            "name": "岩井 芯",
+            "score": 73.3,
+            "mark": "◎"
+          },
+          {
+            "car_no": 1,
+            "name": "森川 大輔",
+            "score": 66.0,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "平原 啓多",
+            "score": 47.8,
+            "mark": "×"
+          },
+          {
+            "car_no": 7,
+            "name": "戸田 洋平",
+            "score": 45.5,
+            "mark": "△"
+          },
+          {
+            "car_no": 6,
+            "name": "三ツ石康洋",
+            "score": 32.66,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "浮島 知稀",
+            "score": 30.8,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 82,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "3-4-1",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-1-4",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "4-3-1",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-3-4",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": 85.1,
+          "market_rank": 6,
+          "value_flag": "💎 穴・期待値候補"
+        },
+        {
+          "ticket": "4-1-3",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-5-4",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "5-3-1",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-1-7",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.163023",
+        "main": 3,
+        "opponent": 4,
+        "dark_horse": 1,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 82,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 3,
+            "name": "佐伯 亮輔",
+            "score": 81.0,
+            "mark": "▲"
+          },
+          {
+            "car_no": 4,
+            "name": "岩井 芯",
+            "score": 73.3,
+            "mark": "◎"
+          },
+          {
+            "car_no": 1,
+            "name": "森川 大輔",
+            "score": 66.0,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "平原 啓多",
+            "score": 47.8,
+            "mark": "×"
+          },
+          {
+            "car_no": 7,
+            "name": "戸田 洋平",
+            "score": 45.5,
+            "mark": "△"
+          },
+          {
+            "car_no": 6,
+            "name": "三ツ石康洋",
+            "score": 32.66,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "浮島 知稀",
+            "score": 30.8,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "3-4-1",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-1-4",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "4-3-1",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-3-4",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": 85.1,
+            "market_rank": 6,
+            "value_flag": "💎 穴・期待値候補"
+          },
+          {
+            "ticket": "4-1-3",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-5-4",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "5-3-1",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-1-7",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=11"
+      },
+      "odds": {
+        "available": true,
+        "odds": {
+          "1-3-2": 286.2,
+          "1-2-3": 1049.7,
+          "1-2-4": 262.4,
+          "1-3-4": 85.1,
+          "1-2-5": 449.8,
+          "1-3-5": 196.8,
+          "1-2-6": 1049.7,
+          "1-3-6": 449.8,
+          "1-2-7": 524.8,
+          "1-3-7": 78.7,
+          "1-4-2": 38.8,
+          "1-5-2": 1574.6,
+          "1-4-3": 23.1,
+          "1-5-3": 787.3,
+          "1-5-4": 314.9,
+          "1-4-5": 22.6,
+          "1-4-6": 121.1,
+          "1-5-6": 1574.6,
+          "1-4-7": 18.0,
+          "1-5-7": 349.9,
+          "1-6-2": 3149.2,
+          "1-7-2": 787.3,
+          "1-6-3": 3149.2,
+          "1-7-3": 149.9,
+          "1-6-4": 524.8,
+          "1-7-4": 116.6,
+          "1-6-5": 1574.6,
+          "1-7-5": 449.8,
+          "1-7-6": 1574.6,
+          "1-6-7": 3149.2
+        },
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=11"
+      },
+      "settlement": {
+        "status": "pending",
+        "bet_count": 8,
+        "investment": 0,
+        "hit": false,
+        "hit_ticket": "",
+        "payout": 0,
+        "profit": 0,
+        "roi": 0
+      }
+    },
+    {
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "venue_slug": "hiratsuka",
+      "race_no": 12,
+      "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=35&kaisaiBi=20261008&raceNo=12",
+      "riders": [
+        {
+          "car_no": 1,
+          "name": "星野 洋輝",
+          "age": 26,
+          "period": 115,
+          "prefecture": "福島",
+          "grade": "",
+          "style": "追",
+          "score": 105.88,
+          "finish_1": 5,
+          "finish_2": 3,
+          "finish_3": 6,
+          "finish_out": 11,
+          "kimari_nige": 0,
+          "kimari_makuri": 2,
+          "kimari_sashi": 4,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "○",
+          "prediction_score": 12,
+          "ai_score": 62.1
+        },
+        {
+          "car_no": 2,
+          "name": "木村 隆弘",
+          "age": 40,
+          "period": 91,
+          "prefecture": "徳島",
+          "grade": "",
+          "style": "追",
+          "score": 108.476,
+          "finish_1": 3,
+          "finish_2": 2,
+          "finish_3": 1,
+          "finish_out": 15,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 2,
+          "comment": "(7)(1)へ。",
+          "prediction_mark": "×",
+          "prediction_score": 1,
+          "ai_score": 41.6
+        },
+        {
+          "car_no": 3,
+          "name": "佐藤 礼文",
+          "age": 35,
+          "period": 115,
+          "prefecture": "茨城",
+          "grade": "",
+          "style": "追",
+          "score": 108.777,
+          "finish_1": 2,
+          "finish_2": 2,
+          "finish_3": 4,
+          "finish_out": 10,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "▲",
+          "prediction_score": 8,
+          "ai_score": 48.0
+        },
+        {
+          "car_no": 4,
+          "name": "末木 浩二",
+          "age": 35,
+          "period": 109,
+          "prefecture": "山梨",
+          "grade": "",
+          "style": "両",
+          "score": 101.666,
+          "finish_1": 1,
+          "finish_2": 0,
+          "finish_3": 3,
+          "finish_out": 14,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 34.0
+        },
+        {
+          "car_no": 5,
+          "name": "宮本 隼輔",
+          "age": 32,
+          "period": 113,
+          "prefecture": "熊本",
+          "grade": "",
+          "style": "両",
+          "score": 101.4,
+          "finish_1": 3,
+          "finish_2": 3,
+          "finish_3": 5,
+          "finish_out": 14,
+          "kimari_nige": 0,
+          "kimari_makuri": 3,
+          "kimari_sashi": 3,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "△",
+          "prediction_score": 5,
+          "ai_score": 51.1
+        },
+        {
+          "car_no": 6,
+          "name": "松田 治之",
+          "age": 52,
+          "period": 73,
+          "prefecture": "大阪",
+          "grade": "",
+          "style": "追",
+          "score": 97.642,
+          "finish_1": 2,
+          "finish_2": 4,
+          "finish_3": 3,
+          "finish_out": 19,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
+          "kimari_sashi": 3,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 42.4
+        },
+        {
+          "car_no": 7,
+          "name": "青野 将大",
+          "age": 32,
+          "period": 117,
+          "prefecture": "",
+          "grade": "",
+          "style": "逃",
+          "score": 110.0,
+          "finish_1": 10,
+          "finish_2": 4,
+          "finish_3": 2,
+          "finish_out": 14,
+          "kimari_nige": 4,
+          "kimari_makuri": 8,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
+          "ai_score": 83.6
+        }
+      ],
+      "odds_url": "https://www.oddspark.com/keirin/",
+      "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=12",
+      "success": true,
+      "comments": {
+        "1": {
+          "name": "青野さんへ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "2": {
+          "name": "",
+          "mark": "×",
+          "comment": "(7)(1)へ。",
+          "prediction_score": 1
+        },
+        "3": {
+          "name": "末木君へ。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "4": {
+          "name": "自力です。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "一人でやる。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "6": {
+          "name": "単騎です。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "自力です。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        }
+      },
+      "line": [],
+      "line_groups": [],
+      "development": "近況の動きいい青野。先行主体に直線は強烈に踏み直す道中の守りは星野。末木の動きに乗り佐藤。混戦で宮本。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/hiratsuka/2026/1008_12.html",
+      "ai": {
+        "main": 7,
+        "opponent": 1,
+        "dark_horse": 5,
+        "ranking": [
+          {
+            "car_no": 7,
+            "name": "青野 将大",
+            "score": 83.6,
+            "mark": "◎"
+          },
+          {
+            "car_no": 1,
+            "name": "星野 洋輝",
+            "score": 62.1,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "宮本 隼輔",
+            "score": 51.1,
+            "mark": "△"
+          },
+          {
+            "car_no": 3,
+            "name": "佐藤 礼文",
+            "score": 48.0,
+            "mark": "▲"
+          },
+          {
+            "car_no": 6,
+            "name": "松田 治之",
+            "score": 42.4,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "木村 隆弘",
+            "score": 41.6,
+            "mark": "×"
+          },
+          {
+            "car_no": 4,
+            "name": "末木 浩二",
+            "score": 34.0,
+            "mark": ""
+          }
+        ]
+      },
+      "verdict": {
+        "rank": "S",
+        "label": "🔥 勝負",
+        "score": 87,
+        "reason": "本命の優位性・ライン・展開を総合判断"
+      },
+      "bets": [
+        {
+          "ticket": "7-1-5",
+          "score": 100,
+          "type": "🔥 AI本線",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-5-1",
+          "score": 97,
+          "type": "🔥 本線入替",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-7-5",
+          "score": 94,
+          "type": "⭐ 対抗頭",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "5-7-1",
+          "score": 82,
+          "type": "💥 逆転",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "1-5-7",
+          "score": 80,
+          "type": "💥 対抗展開",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-3-1",
+          "score": 76,
+          "type": "🎯 中穴",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "3-7-5",
+          "score": 72,
+          "type": "💥 高配当",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        },
+        {
+          "ticket": "7-5-6",
+          "score": 68,
+          "type": "💣 大穴警戒",
+          "bet_yen": 100,
+          "odds": null,
+          "market_rank": null,
+          "value_flag": "オッズ未取得"
+        }
+      ],
+      "frozen_prediction": {
+        "created_at": "2026-10-08T01:42:47.163063",
+        "main": 7,
+        "opponent": 1,
+        "dark_horse": 5,
+        "verdict": {
+          "rank": "S",
+          "label": "🔥 勝負",
+          "score": 87,
+          "reason": "本命の優位性・ライン・展開を総合判断"
+        },
+        "ranking": [
+          {
+            "car_no": 7,
+            "name": "青野 将大",
+            "score": 83.6,
+            "mark": "◎"
+          },
+          {
+            "car_no": 1,
+            "name": "星野 洋輝",
+            "score": 62.1,
+            "mark": "○"
+          },
+          {
+            "car_no": 5,
+            "name": "宮本 隼輔",
+            "score": 51.1,
+            "mark": "△"
+          },
+          {
+            "car_no": 3,
+            "name": "佐藤 礼文",
+            "score": 48.0,
+            "mark": "▲"
+          },
+          {
+            "car_no": 6,
+            "name": "松田 治之",
+            "score": 42.4,
+            "mark": ""
+          },
+          {
+            "car_no": 2,
+            "name": "木村 隆弘",
+            "score": 41.6,
+            "mark": "×"
+          },
+          {
+            "car_no": 4,
+            "name": "末木 浩二",
+            "score": 34.0,
+            "mark": ""
+          }
+        ],
+        "bets": [
+          {
+            "ticket": "7-1-5",
+            "score": 100,
+            "type": "🔥 AI本線",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-5-1",
+            "score": 97,
+            "type": "🔥 本線入替",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-7-5",
+            "score": 94,
+            "type": "⭐ 対抗頭",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "5-7-1",
+            "score": 82,
+            "type": "💥 逆転",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "1-5-7",
+            "score": 80,
+            "type": "💥 対抗展開",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-3-1",
+            "score": 76,
+            "type": "🎯 中穴",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "3-7-5",
+            "score": 72,
+            "type": "💥 高配当",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          },
+          {
+            "ticket": "7-5-6",
+            "score": 68,
+            "type": "💣 大穴警戒",
+            "bet_yen": 100,
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
+          }
+        ]
+      },
+      "result": {
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261008&raceNo=12"
+      },
+      "odds": {
+        "available": false,
+        "odds": {},
+        "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=35&joCode=35&kaisaiBi=20261008&raceNo=12"
       },
       "settlement": {
         "status": "pending",
@@ -12207,7 +18527,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -13229,7 +19549,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -14288,7 +20608,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=8"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=8"
       },
       "odds": {
         "available": true,
@@ -15318,7 +21638,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=10"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=10"
       },
       "odds": {
         "available": true,
@@ -15827,7 +22147,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=11"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -17087,7 +23407,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=44&joCode=44&kaisaiBi=20261008&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=44&kaisaiBi=20261008&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -18477,7 +24797,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=44&joCode=44&kaisaiBi=20261008&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=44&kaisaiBi=20261008&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -19867,7 +26187,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=44&joCode=44&kaisaiBi=20261008&raceNo=9"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=44&kaisaiBi=20261008&raceNo=9"
       },
       "odds": {
         "available": true,
@@ -20565,7 +26885,7 @@
           "name": "山口幸太郎",
           "age": 47,
           "period": 99,
-          "prefecture": "長崎",
+          "prefecture": "山口",
           "grade": "",
           "style": "追",
           "score": 80.869,
@@ -20881,7 +27201,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=48&joCode=48&kaisaiBi=20261008&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261008&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -22501,7 +28821,7 @@
           "name": "山口 泰生",
           "age": 44,
           "period": 89,
-          "prefecture": "山口",
+          "prefecture": "岐阜",
           "grade": "",
           "style": "追",
           "score": 94.111,
@@ -23360,7 +29680,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=48&joCode=48&kaisaiBi=20261008&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261008&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -25384,7 +31704,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=48&joCode=48&kaisaiBi=20261008&raceNo=11"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261008&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -25893,7 +32213,7 @@
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=48&joCode=48&kaisaiBi=20261008&raceNo=12"
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261008&raceNo=12"
       },
       "odds": {
         "available": true,
@@ -26382,7 +32702,7 @@
         "finished": true,
         "result_finished": true,
         "finish": [
-          6,
+          7,
           5,
           6,
           3,
@@ -26900,7 +33220,7 @@
           1,
           4,
           2,
-          6,
+          7,
           5
         ],
         "payout_available": true,
@@ -27407,7 +33727,7 @@
           3,
           6,
           5,
-          6,
+          7,
           2
         ],
         "payout_available": true,
@@ -28413,14 +34733,22 @@
         ]
       },
       "result": {
-        "finished": false,
-        "result_finished": false,
-        "finish": [],
-        "payout_available": false,
-        "payout_3tan": null,
-        "payout_3tan_yen": 0,
-        "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261008&raceNo=5"
+        "finished": true,
+        "result_finished": true,
+        "finish": [
+          7,
+          3,
+          1,
+          5,
+          2,
+          6,
+          4
+        ],
+        "payout_available": true,
+        "payout_3tan": "7-3-1",
+        "payout_3tan_yen": 1140,
+        "payout_source": "3連単 7→3→1 1,140円 3人気",
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=74&joCode=74&kaisaiBi=20261008&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -28459,14 +34787,14 @@
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=74&joCode=74&kaisaiBi=20261008&raceNo=5"
       },
       "settlement": {
-        "status": "pending",
+        "status": "settled",
         "bet_count": 8,
-        "investment": 0,
-        "hit": false,
-        "hit_ticket": "",
-        "payout": 0,
-        "profit": 0,
-        "roi": 0
+        "investment": 800,
+        "hit": true,
+        "hit_ticket": "7-3-1",
+        "payout": 1140,
+        "profit": 340,
+        "roi": 142.5
       }
     },
     {
@@ -28912,17 +35240,21 @@
         ]
       },
       "result": {
-        "finished": false,
+        "finished": true,
         "result_finished": true,
         "finish": [
-          4,
+          3,
+          5,
+          2,
           6,
-          2
+          4,
+          1,
+          7
         ],
-        "payout_available": false,
-        "payout_3tan": null,
-        "payout_3tan_yen": 0,
-        "payout_source": "",
+        "payout_available": true,
+        "payout_3tan": "3-5-2",
+        "payout_3tan_yen": 2090,
+        "payout_source": "3連単 3→5→2 2,090円 7人気",
         "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=74&joCode=74&kaisaiBi=20261008&raceNo=6"
       },
       "odds": {
@@ -28962,14 +35294,14 @@
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=74&joCode=74&kaisaiBi=20261008&raceNo=6"
       },
       "settlement": {
-        "status": "pending",
+        "status": "settled",
         "bet_count": 8,
-        "investment": 0,
+        "investment": 800,
         "hit": false,
         "hit_ticket": "",
         "payout": 0,
-        "profit": 0,
-        "roi": 0
+        "profit": -800,
+        "roi": 0.0
       }
     },
     {
@@ -29421,14 +35753,22 @@
         ]
       },
       "result": {
-        "finished": false,
-        "result_finished": false,
-        "finish": [],
-        "payout_available": false,
-        "payout_3tan": null,
-        "payout_3tan_yen": 0,
-        "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261008&raceNo=7"
+        "finished": true,
+        "result_finished": true,
+        "finish": [
+          3,
+          5,
+          2,
+          6,
+          4,
+          7,
+          1
+        ],
+        "payout_available": true,
+        "payout_3tan": "3-5-2",
+        "payout_3tan_yen": 7230,
+        "payout_source": "3連単 3→5→2 7,230円 23人気",
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=74&joCode=74&kaisaiBi=20261008&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -29467,14 +35807,14 @@
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=74&joCode=74&kaisaiBi=20261008&raceNo=7"
       },
       "settlement": {
-        "status": "pending",
+        "status": "settled",
         "bet_count": 8,
-        "investment": 0,
-        "hit": false,
-        "hit_ticket": "",
-        "payout": 0,
-        "profit": 0,
-        "roi": 0
+        "investment": 800,
+        "hit": true,
+        "hit_ticket": "3-5-2",
+        "payout": 7230,
+        "profit": 6430,
+        "roi": 903.8
       }
     }
   ]
