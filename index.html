@@ -2016,53 +2016,247 @@ function renderStrategies() {
 function renderRecommendations() {
   const container =
     document.getElementById("recommendationCard");
+
   const recommendations =
     safeObject(DATA?.today_recommendations);
-  const entries =
-    Object.entries(recommendations);
-  if (!entries.length) {
+
+  if (!Object.keys(recommendations).length) {
     container.innerHTML = "";
     return;
   }
+
+  const strategy =
+    recommendations.strategy || "—";
+
+  const maxRaces =
+    num(recommendations.max_races, 0);
+
+  const betLimit =
+    num(recommendations.bet_limit, 0);
+
+  const budgetYen =
+    num(recommendations.budget_yen, 0);
+
+  const selectedCount =
+    num(recommendations.selected_count, 0);
+
+  const races =
+    safeArray(recommendations.races);
+
+  const status =
+    recommendations.status || "";
+
+  const note =
+    recommendations.note ||
+    "実際の凍結買い目は変更しません。";
+
+  let statusText = "準備中";
+
+  if (status === "ready") {
+    statusText = "購入候補を選定済み";
+  } else if (status === "provisional") {
+    statusText = "暫定";
+  }
+
   container.innerHTML = `
     <div class="card">
-      <div class="card-title">🔥 今日のおすすめ</div>
-      <div class="ranking-list">
-        ${entries.map(([name, raw]) => {
-          const value =
-            raw && typeof raw === "object"
-              ? raw
-              : {};
-          const description =
-            value.description ||
-            value.reason ||
-            value.ticket ||
-            value.hit_ticket ||
-            "";
-          return `
-            <div class="ranking-row">
-              <div class="ranking-position">
-                🔥
-              </div>
-              <div class="ranking-name">
-                ${escapeHtml(name)}
-                ${
-                  description
-                    ? `<div class="ranking-detail">
-                        ${escapeHtml(description)}
-                       </div>`
-                    : ""
-                }
-              </div>
-              <div></div>
-              <div></div>
-            </div>
-          `;
-        }).join("")}
+      <div class="card-title">
+        🔥 今日のおすすめ
+      </div>
+
+      <div class="profit-summary">
+
+        <div class="profit-box">
+          <div class="profit-label">おすすめ戦略</div>
+          <div class="profit-value" style="font-size:15px;">
+            ${escapeHtml(strategy)}
+          </div>
+        </div>
+
+        <div class="profit-box">
+          <div class="profit-label">状態</div>
+          <div class="profit-value" style="font-size:15px;">
+            ${escapeHtml(statusText)}
+          </div>
+        </div>
+
+        <div class="profit-box">
+          <div class="profit-label">対象レース</div>
+          <div class="profit-value">
+            ${selectedCount}R
+          </div>
+        </div>
+
+        <div class="profit-box">
+          <div class="profit-label">1レース最大</div>
+          <div class="profit-value">
+            ${betLimit}点
+          </div>
+        </div>
+
+        <div class="profit-box">
+          <div class="profit-label">今日の予算</div>
+          <div class="profit-value">
+            ${yen(budgetYen)}
+          </div>
+        </div>
+
+      </div>
+
+      <div style="
+        margin-top:12px;
+        font-size:12px;
+        color:#667085;
+        line-height:1.7;
+      ">
+        ${escapeHtml(note)}
       </div>
     </div>
+
+    ${
+      races.length
+        ? `
+          <div class="card">
+            <div class="card-title">
+              🎯 購入候補レース
+            </div>
+
+            <div class="ranking-list">
+
+              ${races.map((race, index) => {
+
+                const venue =
+                  race?.venue_name || "会場不明";
+
+                const raceNo =
+                  race?.race_no ?? "—";
+
+                const rank =
+                  race?.rank || "—";
+
+                const score =
+                  num(race?.verdict_score, 0);
+
+                const main =
+                  race?.main ?? "—";
+
+                const opponent =
+                  race?.opponent ?? "—";
+
+                const darkHorse =
+                  race?.dark_horse ?? "—";
+
+                const betCount =
+                  num(race?.bet_count, 0);
+
+                const raceBudget =
+                  num(race?.budget_yen, 0);
+
+                const bets =
+                  safeArray(race?.bets);
+
+                return `
+                  <div
+                    style="
+                      background:#f8fafc;
+                      border-radius:14px;
+                      padding:13px;
+                      margin-bottom:8px;
+                    "
+                  >
+
+                    <div style="
+                      display:flex;
+                      justify-content:space-between;
+                      align-items:center;
+                      gap:8px;
+                    ">
+
+                      <div style="
+                        font-size:16px;
+                        font-weight:900;
+                      ">
+                        ${index + 1}位　
+                        ${escapeHtml(venue)}
+                        ${escapeHtml(raceNo)}R
+                      </div>
+
+                      <div style="
+                        font-weight:900;
+                        padding:4px 8px;
+                        border-radius:8px;
+                        background:#111827;
+                        color:#fff;
+                        font-size:12px;
+                      ">
+                        ${escapeHtml(rank)}
+                      </div>
+
+                    </div>
+
+                    <div style="
+                      margin-top:8px;
+                      font-size:12px;
+                      color:#475467;
+                    ">
+                      AI点 ${score.toFixed(1)}
+                      ／
+                      本命 ${escapeHtml(main)}番
+                      ／
+                      対抗 ${escapeHtml(opponent)}番
+                      ／
+                      穴 ${escapeHtml(darkHorse)}番
+                    </div>
+
+                    <div style="
+                      margin-top:6px;
+                      font-size:12px;
+                      color:#667085;
+                    ">
+                      ${betCount}点 ／ ${yen(raceBudget)}
+                    </div>
+
+                    ${
+                      bets.length
+                        ? `
+                          <div style="
+                            margin-top:10px;
+                            display:flex;
+                            flex-wrap:wrap;
+                            gap:6px;
+                          ">
+                            ${bets.map(bet => `
+                              <span style="
+                                background:#fff;
+                                border:1px solid #e4e7ec;
+                                border-radius:8px;
+                                padding:6px 8px;
+                                font-size:12px;
+                                font-weight:800;
+                              ">
+                                ${escapeHtml(
+                                  bet?.ticket || "—"
+                                )}
+                              </span>
+                            `).join("")}
+                          </div>
+                        `
+                        : ""
+                    }
+
+                  </div>
+                `;
+
+              }).join("")}
+
+            </div>
+          </div>
+        `
+        : ""
+    }
   `;
 }
+  
 /* =========================================================
    Load
 ========================================================= */
