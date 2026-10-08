@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.14'
+VERSION='6.15'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 TODAY=datetime.now().strftime('%Y%m%d'); TODAY_DISPLAY=datetime.now().strftime('%Y-%m-%d')
 TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
@@ -14,7 +14,7 @@ DAILY_MAX_RACES=3; DAILY_BET_COUNT=5; DAILY_BUDGET=DAILY_MAX_RACES*DAILY_BET_COU
 HEADERS={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36','Accept-Language':'ja-JP,ja;q=0.9,en;q=0.8'}
 VENUES={'22':('前橋','maebashi'),'25':('大宮','omiya'),'35':('平塚','hiratsuka'),'38':('静岡','shizuoka'),'44':('大垣','ogaki'),'48':('四日市','yokkaichi'),'74':('高知','kochi')}
 MARK_SCORE={'◎':18,'○':12,'▲':8,'△':5,'×':1,'注':3}
-# v6.14 prediction model: race-specific scoring, comment intent, line cohesion and bank fit.
+# v6.15: explainable rider/race components, odds break-even metrics, persistent multi-day settled-race history. Frozen picks remain immutable.
 VENUE_BIAS={
     '前橋':{'nige':1.00,'makuri':1.08,'sashi':1.02},'大宮':{'nige':1.03,'makuri':1.05,'sashi':1.02},
     '平塚':{'nige':1.02,'makuri':1.08,'sashi':1.04},'静岡':{'nige':1.03,'makuri':1.04,'sashi':1.07},
@@ -203,20 +203,30 @@ def _bank_fit_score(r,race):
     venue=race.get('venue_name',''); bias=VENUE_BIAS.get(venue,{})
     st=_style_key(r); return 2.2*(bias.get(st,1.0)-1.0)*10
 
-def calculate_ai_score(r,race):
-    # 強さ(基礎能力)と、このレースでの勝ち筋(展開/コメント/ライン)を分離して合算。
+def calculate_ai_components(r,race):
+    """スコアを基礎能力とレース固有要素に分け、説明・検証可能にする。"""
     base=max(0,min(32,((r.get('score') or 70)-70)*1.35))
-    form=_recent_form_score(r)
+    form=0.42*_recent_form_score(r)
     kimari=(r.get('kimari_nige') or 0)*0.9+(r.get('kimari_makuri') or 0)*1.15+(r.get('kimari_sashi') or 0)*1.05+(r.get('kimari_mark') or 0)*0.25
-    mark=r.get('prediction_score',0) or 0
-    tactical=_comment_score(r)+_line_context_score(r,race)+_development_score(r,race)+_bank_fit_score(r,race)
-    # 競走得点だけで勝負を決めない。ライン・コメント・決まり手の比重を上げる。
-    s=base+0.42*form+kimari+0.65*mark+tactical
-    # 先頭候補の自力コメントを少し評価、自在系は飛びつき警戒を残す。
-    t=_comment_text(r)
-    if any(w in t for w in ('先行します','先行したい','積極的に行く')):s+=1.8
-    if any(w in t for w in ('自力自在','自在')):s-=0.6
-    return round(max(0,min(100,s)),2)
+    mark=0.65*(r.get('prediction_score',0) or 0)
+    comment=_comment_score(r)
+    line=_line_context_score(r,race)
+    development=_development_score(r,race)
+    bank=_bank_fit_score(r,race)
+    intent=0.0; t=_comment_text(r)
+    if any(w in t for w in ('先行します','先行したい','積極的に行く')):intent+=1.8
+    if any(w in t for w in ('自力自在','自在')):intent-=0.6
+    race_specific=comment+line+development+bank+intent
+    total=max(0,min(100,base+form+kimari+mark+race_specific))
+    return {'base_strength':round(base,2),'recent_form':round(form,2),'finishing_methods':round(kimari,2),
+            'prediction_mark':round(mark,2),'comment_intent':round(comment+intent,2),'line_fit':round(line,2),
+            'development_fit':round(development,2),'venue_fit':round(bank,2),
+            'race_specific':round(race_specific,2),'total':round(total,2)}
+
+def calculate_ai_score(r,race):
+    parts=calculate_ai_components(r,race)
+    r['ai_components']=parts
+    return parts['total']
 
 def _prediction_quality(race):
     riders=race.get('riders',[]) or []; line=race.get('line',[]) or []
@@ -242,7 +252,7 @@ def calculate_verdict(race):
     v=min(100,int(round(v)))
     rank='S' if v>=84 else 'A' if v>=74 else 'B' if v>=63 else 'C'
     label={'S':'🔥 勝負','A':'🎯 買い','B':'⭐ 少額','C':'⚠️ 見送り'}[rank]
-    return {'rank':rank,'label':label,'score':v,'reason':'基礎能力＋直近成績＋決まり手＋ライン＋コメント＋展開＋バンク適性を総合評価','model':'v6.14'}
+    return {'rank':rank,'label':label,'score':v,'reason':'基礎能力＋直近成績＋決まり手＋ライン＋コメント＋展開＋バンク適性を総合評価','model':'v6.15'}
 def ticket(a,b,c):return f'{a}-{b}-{c}' if None not in (a,b,c) and len({a,b,c})==3 else ''
 def generate_bets(race, limit=MAX_BETS):
     rs=sorted(race.get('riders',[]),key=lambda x:(x.get('ai_score',0),x.get('score') or 0),reverse=True)
@@ -267,7 +277,7 @@ def generate_bets(race, limit=MAX_BETS):
 def apply_ai(race):
     for r in race['riders']:r['ai_score']=calculate_ai_score(r,race)
     rank=sorted(race['riders'],key=lambda x:(x.get('ai_score',0),x.get('score') or 0),reverse=True)
-    race['ai']={'model':'v6.14','main':rank[0]['car_no'],'opponent':rank[1]['car_no'],'dark_horse':rank[2]['car_no'],'ranking':[{'car_no':r['car_no'],'name':r['name'],'score':r['ai_score'],'mark':r.get('prediction_mark','')} for r in rank]}
+    race['ai']={'model':'v6.15','main':rank[0]['car_no'],'opponent':rank[1]['car_no'],'dark_horse':rank[2]['car_no'],'ranking':[{'car_no':r['car_no'],'name':r['name'],'score':r['ai_score'],'mark':r.get('prediction_mark','')} for r in rank]}
     race['verdict']=calculate_verdict(race); race['bets']=generate_bets(race)
 
 def parse_ticket_text(t):
@@ -367,7 +377,15 @@ def fetch_odds(race):
 def attach_bet_odds(race):
     om=race.get('odds',{}).get('odds',{});bets=race.get('frozen_prediction',{}).get('bets',[]);rank={k:i for i,(k,v) in enumerate(sorted(om.items(),key=lambda x:x[1]),1)}
     for b in bets:
-        v=om.get(b.get('ticket'));b['odds']=v;b['market_rank']=rank.get(b.get('ticket'));b['value_flag']='オッズ未取得' if v is None else ('💎 穴・期待値候補' if v>=30 else '🎯 中穴' if v>=15 else '⭐ 適正' if v>=8 else '⚠️ 人気')
+        v=om.get(b.get('ticket'));stake=int(b.get('bet_yen',BET_UNIT) or BET_UNIT)
+        b['odds']=v;b['market_rank']=rank.get(b.get('ticket'))
+        b['break_even_hit_rate_pct']=round(100.0/v,2) if isinstance(v,(int,float)) and v>0 else None
+        b['gross_return_if_hit_yen']=round(stake*v) if isinstance(v,(int,float)) and v>0 else None
+        b['net_profit_if_hit_yen']=round(stake*v-stake) if isinstance(v,(int,float)) and v>0 else None
+        # オッズだけでは独立した的中確率がないため、期待値を捏造しない。
+        b['expected_value_yen']=None
+        b['expected_value_status']='的中確率モデル未校正' if v is not None else 'オッズ未取得'
+        b['value_flag']='オッズ未取得' if v is None else ('💎 高配当候補（期待値未確定）' if v>=30 else '🎯 中穴' if v>=15 else '⭐ 適正' if v>=8 else '⚠️ 人気')
 def settle_bets(race):
     bets=race.get('frozen_prediction',{}).get('bets',[]);res=race.get('result',{});inv=sum(int(b.get('bet_yen',BET_UNIT)) for b in bets);tk=res.get('payout_3tan');y=int(res.get('payout_3tan_yen',0) or 0);ready=bool(res.get('result_finished') and res.get('payout_available') and tk and y>0)
     if not ready:return {'status':'pending','bet_count':len(bets),'investment':0,'hit':False,'hit_ticket':'','payout':0,'profit':0,'roi':0}
@@ -588,6 +606,52 @@ def build_daily_strategy_report(races):
     return {'tests':tests,'best_name':best[0],'best':best[1],
             'operating':backtest_daily_top_strategy(races,DAILY_MAX_RACES,DAILY_BET_COUNT,{'A'},None)}
 
+def load_performance_history():
+    """today.json内の履歴を日付切替後も読む。別ファイル不要なので既存Actions設定で保存できる。"""
+    try:
+        with open('data/today.json',encoding='utf-8') as f:d=json.load(f)
+        h=d.get('performance_history',[])
+        return h if isinstance(h,list) else []
+    except Exception:
+        return []
+
+def update_performance_history(history,races,date_text):
+    by_date={str(x.get('date')):x for x in history if isinstance(x,dict) and x.get('date')}
+    day=by_date.get(date_text,{'date':date_text,'races':[]})
+    records={f"{x.get('venue_code')}:{x.get('race_no')}":x for x in day.get('races',[]) if isinstance(x,dict)}
+    for r in races:
+        res=r.get('result',{}) or {}
+        if not (res.get('result_finished') and res.get('payout_available') and res.get('payout_3tan')):
+            continue
+        fp=r.get('frozen_prediction',{}) or {};bets=fp.get('bets',[]) or []
+        try: payout=int(res.get('payout_3tan_yen',0) or 0)
+        except Exception: payout=0
+        if payout<=0: continue
+        investment=sum(int(b.get('bet_yen',BET_UNIT) or BET_UNIT) for b in bets)
+        winning=str(res.get('payout_3tan'))
+        hit=any(str(b.get('ticket'))==winning for b in bets)
+        records[f"{r.get('venue_code')}:{r.get('race_no')}"]={
+            'venue_code':str(r.get('venue_code')),'venue_name':r.get('venue_name',''),'race_no':int(r.get('race_no',0)),
+            'prediction_created_at':fp.get('created_at',''),'model':(fp.get('verdict',{}) or {}).get('model','v6.14 legacy'),
+            'rank':(fp.get('verdict',{}) or {}).get('rank','C'),'bets':[{'ticket':b.get('ticket'),'bet_yen':int(b.get('bet_yen',BET_UNIT) or BET_UNIT),'odds':b.get('odds')} for b in bets],
+            'result_ticket':winning,'payout_yen':payout,'investment_yen':investment,'hit':hit,
+            'return_yen':payout if hit else 0,'profit_yen':(payout if hit else 0)-investment,
+            'odds_available':bool((r.get('odds',{}) or {}).get('available'))}
+    day['races']=sorted(records.values(),key=lambda x:(str(x.get('venue_code')),int(x.get('race_no',0))))
+    by_date[date_text]=day
+    # 180日分に制限してtoday.jsonが無制限に肥大化しないようにする。
+    return [by_date[k] for k in sorted(by_date)[-180:]]
+
+def summarize_performance_history(history):
+    rows=[r for d in history for r in d.get('races',[]) if isinstance(r,dict)]
+    inv=sum(int(r.get('investment_yen',0) or 0) for r in rows)
+    pay=sum(int(r.get('return_yen',0) or 0) for r in rows)
+    hits=sum(bool(r.get('hit')) for r in rows)
+    return {'days':len(history),'settled_races':len(rows),'hits':hits,
+            'hit_rate_pct':round(hits/len(rows)*100,1) if rows else 0,
+            'investment_yen':inv,'return_yen':pay,'profit_yen':pay-inv,
+            'roi_pct':round(pay/inv*100,1) if inv else 0}
+
 def load_existing():
     try:
         with open('data/today.json',encoding='utf-8') as f:d=json.load(f)
@@ -625,6 +689,7 @@ def calculate_summary(races):
 
 def main():
     started=time.time();print(f'==============================\n KEIRIN AI DATA UPDATE v{VERSION}\n==============================\n対象日: {TODAY_DISPLAY}\n==============================')
+    history=load_performance_history()
     existing=load_existing();old={(str(r.get('venue_code')),int(r.get('race_no',0))):r for r in existing.get('races',[])}
     if old:print(f'既存データ: {len(old)}レース\n凍結済みAI予想を保護します')
     all_races=[];venues=[];print('開催場を確認中...')
@@ -743,8 +808,10 @@ def main():
     backtests=calculate_backtests(all_races)
     backtest_recommendation=select_backtest_recommendation(backtests)
     daily_strategy=build_daily_strategy_report(all_races)
+    history=update_performance_history(history,all_races,TODAY_DISPLAY)
+    history_summary=summarize_performance_history(history)
     summary=calculate_summary(all_races);rider_count=sum(len(r['riders']) for r in all_races);correct_names=sum(bool(x.get('name')) for r in all_races for x in r['riders']);frozen=sum(bool(r.get('frozen_prediction')) for r in all_races)
-    output={'version':VERSION,'updated_at':datetime.now().isoformat(),'target_date':TODAY_DISPLAY,'data_complete':bool(all_races and correct_names==rider_count and frozen==len(all_races)),'result_complete':result_count==len(all_races),'payout_complete':payout_count==len(all_races),'venue_count':len(venues),'race_count':len(all_races),'rider_count':rider_count,'correct_name_count':correct_names,'prediction_race_count':sum(len(r.get('comments',{}))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'comment_count':sum(len(r.get('comments',{})) for r in all_races),'line_race_count':sum(len(r.get('line',[]))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'development_count':sum(bool(r.get('development')) for r in all_races),'ai_race_count':sum(bool(r.get('ai')) for r in all_races),'ai_rider_count':sum(x.get('ai_score') is not None for r in all_races for x in r['riders']),'frozen_prediction_count':frozen,'result_count':result_count,'result_pending_count':len(result_pending),'result_error_count':len(result_failed),'payout_count':payout_count,'payout_pending_count':len(payout_pending),'payout_error_count':len(payout_failed),'odds_count':odds_count,'summary':summary,'backtests':backtests,'backtest_recommendation':backtest_recommendation,'daily_strategy':daily_strategy,'venues':[{'venue_code':v['code'],'venue_name':v['name'],'race_count':len(v['race_numbers']),'race_numbers':v['race_numbers']} for v in venues],'races':all_races}
+    output={'version':VERSION,'performance_history':history,'performance_history_summary':history_summary,'updated_at':datetime.now().isoformat(),'target_date':TODAY_DISPLAY,'data_complete':bool(all_races and correct_names==rider_count and frozen==len(all_races)),'result_complete':result_count==len(all_races),'payout_complete':payout_count==len(all_races),'venue_count':len(venues),'race_count':len(all_races),'rider_count':rider_count,'correct_name_count':correct_names,'prediction_race_count':sum(len(r.get('comments',{}))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'comment_count':sum(len(r.get('comments',{})) for r in all_races),'line_race_count':sum(len(r.get('line',[]))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'development_count':sum(bool(r.get('development')) for r in all_races),'ai_race_count':sum(bool(r.get('ai')) for r in all_races),'ai_rider_count':sum(x.get('ai_score') is not None for r in all_races for x in r['riders']),'frozen_prediction_count':frozen,'result_count':result_count,'result_pending_count':len(result_pending),'result_error_count':len(result_failed),'payout_count':payout_count,'payout_pending_count':len(payout_pending),'payout_error_count':len(payout_failed),'odds_count':odds_count,'summary':summary,'backtests':backtests,'backtest_recommendation':backtest_recommendation,'daily_strategy':daily_strategy,'venues':[{'venue_code':v['code'],'venue_name':v['name'],'race_count':len(v['race_numbers']),'race_numbers':v['race_numbers']} for v in venues],'races':all_races}
     os.makedirs('data',exist_ok=True);tmp='data/today.json.tmp'
     with open(tmp,'w',encoding='utf-8') as f:json.dump(output,f,ensure_ascii=False,indent=2)
     os.replace(tmp,'data/today.json')
@@ -774,7 +841,7 @@ def main():
     for name,x in daily_strategy.get('tests',{}).items():
         print(f"{name}: {x.get('settled_count',0)}R / 的中{x.get('hits',0)}R / 投資¥{x.get('investment',0):,} / 払戻¥{x.get('payout',0):,} / 収支{x.get('profit',0):+,}円 / 回収率{x.get('roi',0):.1f}%")
     print(f"暫定最良: {daily_strategy.get('best_name') or 'データ不足'}")
-    print('==============================');print(f'結果待ちレース: {len(result_pending)}');print(f'結果取得エラー: {len(result_failed)}');print(f'払戻待ちレース: {len(payout_pending)}');print(f'払戻取得エラー: {len(payout_failed)}');print(f'オッズ未取得レース: {len(odds_failed)}');print(f'処理時間: {time.time()-started:.1f}秒');print('データ完全性: '+('OK' if output['data_complete'] else '要確認'));print(f'結果完全性: {result_count}/{len(all_races)}');print(f'払戻完全性: {payout_count}/{len(all_races)}')
+    print('==============================');print(f"累積履歴: {history_summary['days']}日 / {history_summary['settled_races']}確定R / 累積収支 {history_summary['profit_yen']:+,}円 / 回収率 {history_summary['roi_pct']:.1f}%");print(f'結果待ちレース: {len(result_pending)}');print(f'結果取得エラー: {len(result_failed)}');print(f'払戻待ちレース: {len(payout_pending)}');print(f'払戻取得エラー: {len(payout_failed)}');print(f'オッズ未取得レース: {len(odds_failed)}');print(f'処理時間: {time.time()-started:.1f}秒');print('データ完全性: '+('OK' if output['data_complete'] else '要確認'));print(f'結果完全性: {result_count}/{len(all_races)}');print(f'払戻完全性: {payout_count}/{len(all_races)}')
     if result_pending:print('結果待ち: '+', '.join(result_pending))
     if result_failed:print('結果取得エラー: '+', '.join(result_failed))
     if payout_pending:print('払戻待ち: '+', '.join(payout_pending))
