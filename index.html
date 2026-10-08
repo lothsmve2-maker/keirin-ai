@@ -2,2348 +2,2168 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>競輪AI予想</title>
 <style>
-*{box-sizing:border-box}
-html,body{
-margin:0;
-padding:0;
-}
-body{
-background:#f3f5f8;
-color:#17202a;
-font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
-padding-bottom:90px;
-}
-button{
-font:inherit;
-cursor:pointer;
--webkit-tap-highlight-color:transparent;
-}
-.header{
-position:sticky;
-top:0;
-z-index:50;
-background:linear-gradient(135deg,#111827,#1f2937);
-color:#fff;
-box-shadow:0 3px 12px rgba(0,0,0,.18);
-}
-.header-inner{
-max-width:980px;
-margin:auto;
-padding:14px 12px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-.title{
-font-size:21px;
-font-weight:1000;
-}
-.date{
-font-size:11px;
-opacity:.7;
-margin-top:3px;
-}
-.header-status{
-font-size:11px;
-opacity:.75;
-}
-main{
-max-width:980px;
-margin:auto;
-padding:10px;
-}
-.page{
-display:none;
-}
-.page.active{
-display:block;
-}
-.card{
-background:#fff;
-border-radius:16px;
-padding:13px;
-margin-bottom:10px;
-box-shadow:0 2px 8px rgba(0,0,0,.07);
-}
-.card-title{
-font-size:16px;
-font-weight:1000;
-margin-bottom:9px;
-}
-.small{
-font-size:11px;
-color:#64748b;
-line-height:1.6;
-}
-/* 会場 */
-.venue-scroll{
-display:flex;
-gap:7px;
-overflow-x:auto;
-padding-bottom:2px;
--webkit-overflow-scrolling:touch;
-scrollbar-width:none;
-}
-.venue-scroll::-webkit-scrollbar{
-display:none;
-}
-.venue-btn{
-border:1px solid #e2e8f0;
-background:#fff;
-border-radius:999px;
-padding:8px 13px;
-font-weight:900;
-white-space:nowrap;
-flex:0 0 auto;
-}
-.venue-btn.active{
-background:#2563eb;
-color:#fff;
-border-color:#2563eb;
-}
-/* レース */
-.race-grid{
-display:grid;
-grid-template-columns:repeat(8,1fr);
-gap:6px;
-}
-.race-btn{
-border:0;
-background:#f8fafc;
-border-radius:10px;
-padding:9px 3px;
-font-weight:1000;
-color:#334155;
-min-height:40px;
-}
-.race-btn.active{
-background:#2563eb;
-color:#fff;
-}
-.race-btn.settled{
-box-shadow:inset 0 -3px #16a34a;
-}
-.race-btn.confirmed{
-box-shadow:inset 0 -3px #2563eb;
-}
-.race-btn.result{
-box-shadow:inset 0 -3px #f59e0b;
-}
-.race-btn.error{
-box-shadow:inset 0 -3px #ef4444;
-}
-/* レースヘッダー */
-.race-head{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-gap:8px;
-}
-.race-name{
-font-size:21px;
-font-weight:1000;
-}
-.race-meta{
-font-size:11px;
-color:#64748b;
-margin-top:4px;
-}
-.grade{
-padding:7px 10px;
-border-radius:9px;
-font-weight:1000;
-white-space:nowrap;
-}
-.grade-S{
-background:#fee2e2;
-color:#991b1b;
-}
-.grade-A{
-background:#ffedd5;
-color:#9a3412;
-}
-.grade-B{
-background:#dbeafe;
-color:#1d4ed8;
-}
-.grade-C{
-background:#e5e7eb;
-color:#4b5563;
-}
-/* 本命・対抗・穴 */
-.key-box{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:7px;
-margin-top:10px;
-}
-.key-item{
-text-align:center;
-background:#f8fafc;
-border-radius:12px;
-padding:9px;
-}
-.key-label{
-font-size:10px;
-color:#64748b;
-font-weight:900;
-}
-.key-num{
-font-size:25px;
-font-weight:1000;
-margin-top:2px;
-}
-.main-num{
-color:#dc2626;
-}
-.opp-num{
-color:#2563eb;
-}
-.dark-num{
-color:#ea580c;
-}
-/* AI判定 */
-.verdict{
-margin-top:10px;
-border-radius:13px;
-padding:11px;
-color:#fff;
-}
-.verdict.S{
-background:linear-gradient(135deg,#991b1b,#dc2626);
-}
-.verdict.A{
-background:linear-gradient(135deg,#c2410c,#f97316);
-}
-.verdict.B{
-background:linear-gradient(135deg,#1d4ed8,#2563eb);
-}
-.verdict.C{
-background:linear-gradient(135deg,#4b5563,#6b7280);
-}
-.verdict-top{
-display:flex;
-justify-content:space-between;
-font-weight:1000;
-}
-/* 買い目 */
-.bet-list{
-display:grid;
-gap:7px;
-}
-.bet{
-display:grid;
-grid-template-columns:28px 1fr auto;
-gap:8px;
-align-items:center;
-border:1px solid #e2e8f0;
-border-radius:11px;
-padding:8px;
-}
-.bet.main{
-border:2px solid #ef4444;
-background:#fff7f7;
-}
-.bet-no{
-width:27px;
-height:27px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#f1f5f9;
-font-size:11px;
-font-weight:1000;
-}
-.bet.main .bet-no{
-background:#dc2626;
-color:#fff;
-}
-.ticket{
-font-size:18px;
-font-weight:1000;
-letter-spacing:1px;
-}
-.bet-type{
-font-size:10px;
-color:#64748b;
-margin-top:2px;
-}
-.bet-right{
-text-align:right;
-}
-.bet-yen{
-font-size:11px;
-font-weight:900;
-}
-.odds{
-font-size:12px;
-font-weight:1000;
-color:#2563eb;
-margin-top:2px;
-}
-.odds.missing{
-color:#94a3b8;
-}
-.expected{
-font-size:10px;
-color:#64748b;
-margin-top:1px;
-}
-.value{
-font-size:9px;
-color:#64748b;
-margin-top:2px;
-}
-/* 結果 */
-.result-box{
-border-radius:14px;
-padding:12px;
-margin-top:8px;
-}
-.result-pre{
-background:#f8fafc;
-border:1px solid #e2e8f0;
-}
-.result-confirmed{
-background:#eff6ff;
-border:1px solid #bfdbfe;
-}
-.result-settled{
-background:#ecfdf5;
-border:1px solid #bbf7d0;
-}
-.result-error{
-background:#fff7ed;
-border:1px solid #fed7aa;
-}
-.result-ticket{
-font-size:27px;
-font-weight:1000;
-letter-spacing:2px;
-}
-.payout{
-font-size:19px;
-font-weight:1000;
-color:#047857;
-margin-top:3px;
-}
-.settlement-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:6px;
-margin-top:9px;
-}
-.stat{
-background:rgba(255,255,255,.75);
-border-radius:9px;
-padding:8px 4px;
-text-align:center;
-}
-.stat-label{
-font-size:9px;
-color:#64748b;
-}
-.stat-value{
-font-size:14px;
-font-weight:1000;
-margin-top:2px;
-}
-/* 展開 */
-.dev{
-background:#fff7ed;
-border-left:4px solid #f97316;
-border-radius:8px;
-padding:10px;
-font-size:12px;
-line-height:1.65;
-}
-/* ライン */
-.line-box{
-display:flex;
-flex-wrap:wrap;
-gap:6px;
-}
-.line-group{
-background:#f8fafc;
-border-radius:9px;
-padding:7px;
-font-size:11px;
-}
-/* 選手 */
-.rider-list{
-display:grid;
-gap:6px;
-}
-.rider{
-display:grid;
-grid-template-columns:37px 1fr auto;
-gap:8px;
-align-items:center;
-border:1px solid #e5e7eb;
-border-radius:12px;
-padding:8px;
-}
-.car{
-width:37px;
-height:37px;
-border-radius:8px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:1000;
-}
-.car-1{
-background:#fff;
-color:#111827;
-border:1px solid #94a3b8;
-}
-.car-2{
-background:#111827;
-color:#fff;
-}
-.car-3{
-background:#dc2626;
-color:#fff;
-}
-.car-4{
-background:#2563eb;
-color:#fff;
-}
-.car-5{
-background:#facc15;
-color:#111827;
-}
-.car-6{
-background:#16a34a;
-color:#fff;
-}
-/* 7番は必ずオレンジ */
-.car-7{
-background:#f97316;
-color:#fff;
-}
-.rider-name{
-font-weight:1000;
-font-size:13px;
-}
-.rider-info{
-font-size:10px;
-color:#64748b;
-margin-top:2px;
-}
-.rider-score{
-text-align:right;
-}
-.ai-score{
-font-weight:1000;
-font-size:15px;
-}
-.rider-finish{
-font-size:10px;
-color:#64748b;
-}
-/* 状態 */
-.state-pill{
-display:inline-block;
-border-radius:999px;
-padding:4px 8px;
-font-size:10px;
-font-weight:1000;
-}
-.pill-pre{
-background:#e2e8f0;
-color:#475569;
-}
-.pill-confirmed{
-background:#dbeafe;
-color:#1d4ed8;
-}
-.pill-settled{
-background:#dcfce7;
-color:#166534;
-}
-.pill-error{
-background:#ffedd5;
-color:#9a3412;
-}
-.notice{
-padding:9px 11px;
-border-radius:10px;
-background:#eff6ff;
-color:#1e40af;
-font-size:10px;
-line-height:1.6;
-}
-/* 収支 */
-.profit-hero{
-background:#111827;
-color:#fff;
-border-radius:18px;
-padding:16px;
-margin-bottom:10px;
-}
-.profit-title{
-font-size:12px;
-opacity:.72;
-}
-.profit-main{
-display:flex;
-justify-content:space-between;
-align-items:end;
-margin-top:4px;
-}
-.profit-number{
-font-size:34px;
-font-weight:1000;
-}
-.plus{
-color:#22c55e;
-}
-.minus{
-color:#f87171;
-}
-.profit-sub{
-text-align:right;
-font-size:11px;
-line-height:1.6;
-}
-.summary-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:7px;
-}
-.summary-stat{
-background:#f8fafc;
-border-radius:10px;
-padding:9px 4px;
-text-align:center;
-}
-.summary-label{
-font-size:9px;
-color:#64748b;
-}
-.summary-value{
-font-size:14px;
-font-weight:1000;
-margin-top:2px;
-}
-/* テーブル */
-.data-table{
-width:100%;
-border-collapse:collapse;
-font-size:11px;
-min-width:560px;
-}
-.table-wrap{
-overflow-x:auto;
--webkit-overflow-scrolling:touch;
-}
-.data-table th{
-background:#f1f5f9;
-padding:7px 5px;
-}
-.data-table td{
-border-bottom:1px solid #e5e7eb;
-padding:7px 5px;
-text-align:center;
-}
-.profit-plus{
-color:#16a34a;
-font-weight:1000;
-}
-.profit-minus{
-color:#dc2626;
-font-weight:1000;
-}
-/* バックテスト */
-.strategy{
-border:1px solid #e2e8f0;
-border-radius:11px;
-padding:9px;
-margin-bottom:6px;
-}
-.strategy-head{
-display:flex;
-justify-content:space-between;
-gap:8px;
-font-weight:900;
-}
-.strategy-stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:5px;
-margin-top:6px;
-}
-.strategy-stat{
-background:#f8fafc;
-border-radius:7px;
-padding:5px 2px;
-text-align:center;
-font-size:9px;
-}
-.strategy-stat b{
-display:block;
-font-size:11px;
-}
-/* 読み込み */
-.loading{
-text-align:center;
-padding:45px 10px;
-color:#64748b;
-}
-.error{
-background:#fff1f2;
-color:#be123c;
-padding:14px;
-border-radius:12px;
-line-height:1.6;
-}
-/* 下部ナビ */
-.bottom-nav{
-position:fixed;
-left:0;
-right:0;
-bottom:0;
-z-index:9999;
-min-height:74px;
-background:rgba(255,255,255,.98);
-backdrop-filter:blur(12px);
-border-top:1px solid #dbe2ea;
-display:grid;
-grid-template-columns:1fr 1fr;
-padding-bottom:env(safe-area-inset-bottom);
-box-shadow:0 -3px 12px rgba(0,0,0,.08);
-}
-.nav-btn{
-border:0;
-background:#fff;
-color:#64748b;
-font-weight:1000;
-font-size:12px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:1px;
-min-height:74px;
-}
-.nav-icon{
-font-size:24px;
-line-height:27px;
-}
-.nav-btn.active{
-color:#2563eb;
-background:#eff6ff;
-}
-/* スマホ */
-@media(max-width:600px){
-main{
-padding:9px 9px 25px;
-}
-.race-grid{
-grid-template-columns:repeat(6,1fr);
-}
-.settlement-grid,
-.summary-grid{
-grid-template-columns:repeat(2,1fr);
-}
-.ticket{
-font-size:17px;
-}
-.race-name{
-font-size:19px;
-}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  background: #f3f5f8;
+  color: #17202a;
+}
+body {
+  padding-bottom: 78px;
+}
+button,
+select {
+  font: inherit;
+}
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+.hidden {
+  display: none !important;
+}
+/* =========================
+   Header
+========================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #111827;
+  color: #fff;
+  padding:
+    calc(12px + env(safe-area-inset-top))
+    14px
+    12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.header-title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.header-sub {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: .78;
+}
+#updateInfo {
+  margin-top: 6px;
+  font-size: 11px;
+  opacity: .7;
+}
+/* =========================
+   Main
+========================= */
+.main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px;
+}
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+/* =========================
+   Venue
+========================= */
+.section-title {
+  margin: 4px 0 10px;
+  font-size: 17px;
+  font-weight: 800;
+}
+.venue-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.venue-scroll::-webkit-scrollbar {
+  display: none;
+}
+.venue-btn {
+  flex: 0 0 auto;
+  border: 1px solid #d8dee8;
+  background: #fff;
+  color: #344054;
+  border-radius: 12px;
+  padding: 9px 13px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.venue-btn.active {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+/* =========================
+   Race
+========================= */
+.race-scroll {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 3px;
+  scrollbar-width: none;
+}
+.race-scroll::-webkit-scrollbar {
+  display: none;
+}
+.race-btn {
+  flex: 0 0 auto;
+  min-width: 54px;
+  border: 1px solid #d8dee8;
+  background: #fff;
+  color: #344054;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+}
+.race-btn.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+/* =========================
+   Cards
+========================= */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  margin-top: 12px;
+  box-shadow: 0 2px 10px rgba(15,23,42,.06);
+  border: 1px solid #e7ebf1;
+}
+.card-title {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.race-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.race-name {
+  font-size: 21px;
+  font-weight: 900;
+}
+.race-meta {
+  margin-top: 4px;
+  color: #667085;
+  font-size: 12px;
+}
+.state-badge {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 6px 9px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.state-pre {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+.state-confirmed {
+  background: #dcfce7;
+  color: #166534;
+}
+.state-payout {
+  background: #fef3c7;
+  color: #92400e;
+}
+.state-settled {
+  background: #dcfce7;
+  color: #166534;
+}
+.state-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+/* =========================
+   AI Summary
+========================= */
+.ai-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.ai-box {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+}
+.ai-box-label {
+  font-size: 10px;
+  color: #667085;
+  margin-bottom: 4px;
+}
+.ai-box-value {
+  font-size: 18px;
+  font-weight: 900;
+}
+.ai-score {
+  font-size: 26px;
+  font-weight: 900;
+  color: #2563eb;
+}
+.rank-s {
+  color: #dc2626;
+}
+.rank-a {
+  color: #2563eb;
+}
+.rank-b {
+  color: #d97706;
+}
+.rank-c {
+  color: #64748b;
+}
+/* =========================
+   Bets
+========================= */
+.bet-list {
+  display: grid;
+  gap: 8px;
+}
+.bet-row {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 9px;
+}
+.bet-num {
+  font-size: 12px;
+  color: #667085;
+  font-weight: 800;
+}
+.bet-ticket {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: .5px;
+}
+.bet-label {
+  font-size: 11px;
+  color: #667085;
+  margin-top: 2px;
+}
+.bet-right {
+  text-align: right;
+}
+.bet-score {
+  font-size: 12px;
+  font-weight: 800;
+}
+.bet-odds {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #475467;
+}
+.odds-value {
+  color: #d97706;
+  font-weight: 900;
+}
+.no-odds {
+  color: #98a2b3;
+}
+/* =========================
+   Result
+========================= */
+.result-box {
+  border-radius: 13px;
+  padding: 12px;
+  background: #f8fafc;
+}
+.result-ticket {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.result-message {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #667085;
+}
+.payout {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 900;
+}
+.hit {
+  color: #dc2626;
+  font-weight: 900;
+}
+.miss {
+  color: #667085;
+}
+/* =========================
+   Development / Line
+========================= */
+.info-text {
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  color: #344054;
+}
+.line-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.line-chip {
+  background: #f2f4f7;
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+/* =========================
+   Ranking
+========================= */
+.ranking-list {
+  display: grid;
+  gap: 6px;
+}
+.ranking-row {
+  display: grid;
+  grid-template-columns: 28px 42px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 9px;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+.ranking-position {
+  font-weight: 900;
+  color: #667085;
+}
+.car-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  background: #f2f4f7;
+  color: #111827;
+}
+.car-1 {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+}
+.car-2 {
+  background: #111827;
+  color: #fff;
+}
+.car-3 {
+  background: #dc2626;
+  color: #fff;
+}
+.car-4 {
+  background: #2563eb;
+  color: #fff;
+}
+.car-5 {
+  background: #facc15;
+  color: #111827;
+}
+.car-6 {
+  background: #f97316;
+  color: #fff;
+}
+.car-7 {
+  background: #f97316;
+  color: #fff;
+}
+.ranking-name {
+  font-weight: 800;
+  min-width: 0;
+}
+.ranking-detail {
+  font-size: 11px;
+  color: #667085;
+  margin-top: 2px;
+}
+.ranking-score {
+  font-weight: 900;
+  font-size: 14px;
+}
+/* =========================
+   Riders
+========================= */
+.rider-table-wrap {
+  overflow-x: auto;
+}
+.rider-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.rider-table th,
+.rider-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #edf0f4;
+  text-align: center;
+  white-space: nowrap;
+}
+.rider-table th {
+  color: #667085;
+  background: #f8fafc;
+}
+.rider-name {
+  text-align: left !important;
+  font-weight: 800;
+}
+/* =========================
+   Profit
+========================= */
+.profit-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.profit-box {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 11px;
+}
+.profit-label {
+  font-size: 11px;
+  color: #667085;
+}
+.profit-value {
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: 900;
+}
+.profit-plus {
+  color: #16a34a;
+}
+.profit-minus {
+  color: #dc2626;
+}
+.profit-neutral {
+  color: #344054;
+}
+.profit-table-wrap {
+  overflow-x: auto;
+}
+.profit-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.profit-table th,
+.profit-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #edf0f4;
+  text-align: center;
+  white-space: nowrap;
+}
+.profit-table th {
+  background: #f8fafc;
+  color: #667085;
+}
+/* =========================
+   Loading / Error
+========================= */
+.loading {
+  text-align: center;
+  padding: 50px 15px;
+  color: #667085;
+}
+.error-box {
+  background: #fff;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  border-radius: 14px;
+  padding: 15px;
+  line-height: 1.7;
+}
+.empty-box {
+  text-align: center;
+  padding: 25px 10px;
+  color: #667085;
+  font-size: 13px;
+}
+/* =========================
+   Bottom Nav
+========================= */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding:
+    7px
+    7px
+    calc(7px + env(safe-area-inset-bottom));
+  background: rgba(255,255,255,.97);
+  border-top: 1px solid #dfe4ea;
+  box-shadow: 0 -3px 14px rgba(15,23,42,.08);
+}
+.nav-btn {
+  border: 0;
+  background: transparent;
+  color: #667085;
+  border-radius: 12px;
+  min-height: 50px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+}
+.nav-btn.active {
+  background: #111827;
+  color: #fff;
+}
+/* =========================
+   Desktop
+========================= */
+@media (min-width: 700px) {
+  .main {
+    padding: 20px;
+  }
+  .profit-summary {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .ai-summary {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 </style>
 </head>
 <body>
 <header class="header">
-<div class="header-inner">
-<div>
-<div class="title">🚴 競輪AI予想</div>
-<div class="date" id="headerDate">データ読み込み中…</div>
-</div>
-<div class="header-status" id="headerStatus">v6.11</div>
-</div>
+  <div class="header-inner">
+    <div class="header-title">🏁 競輪AI予想</div>
+    <div class="header-sub">v6.11 / AI凍結予想</div>
+    <div id="updateInfo">データ読み込み中...</div>
+  </div>
 </header>
-<main>
-<!-- =========================
-     予想ページ
-========================= -->
-<section id="predictionPage" class="page active">
+<main class="main">
+  <!-- =====================
+       Prediction Page
+  ====================== -->
+  <section id="predictionPage" class="page active">
+<div class="section-title">開催場</div>
+<div id="venueList" class="venue-scroll"></div>
 <div class="card">
-<div class="card-title">開催場</div>
-<div id="venues" class="venue-scroll"></div>
+  <div class="section-title">レース</div>
+  <div id="raceList" class="race-scroll"></div>
 </div>
-<div class="card">
-<div class="card-title">
-<span id="selectedVenueName">レース</span>
+<div id="raceContent">
+  <div class="loading">データを読み込んでいます...</div>
 </div>
-<div id="raceButtons" class="race-grid"></div>
-</div>
-<div id="predictionContent">
-<div class="loading">
-データを読み込んでいます…
-</div>
-</div>
-</section>
-<!-- =========================
-     収支ページ
-========================= -->
-<section id="profitPage" class="page">
+  </section>
+  <!-- =====================
+       Profit Page
+  ====================== -->
+  <section id="profitPage" class="page">
+<div class="section-title">💰 収支</div>
 <div id="profitContent">
-<div class="loading">
-収支データを読み込んでいます…
+  <div class="loading">収支を計算しています...</div>
 </div>
-</div>
-</section>
+  </section>
 </main>
-<!-- =========================
-     下部ナビ
-========================= -->
+<!-- =====================
+     Bottom Navigation
+====================== -->
 <nav class="bottom-nav">
-
-<button
-type=“button”
-class=“nav-btn active”
-id=“navPrediction”
-aria-label=“予想ページ”
 
 🏁
 予想
-<button
-type=“button”
-class=“nav-btn”
-id=“navProfit”
-aria-label=“収支ページ”
-
 💰
 収支
 </nav>
 <script>
-const DATA_URL="./data/today.json";
-const BET_YEN_DEFAULT=100;
-let DATA=null;
-let selectedVenue="";
-let selectedRace=null;
-/* ===============================
-   基本
-=============================== */
-function yen(n){
-return Number(n||0).toLocaleString("ja-JP")+"円";
-}
-function num(n){
-return Number(n||0);
-}
-function escapeHtml(str){
-return String(str??"")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-}
-function getRaces(){
-return Array.isArray(DATA?.races)
-?DATA.races
-:[];
-}
-function getPrediction(race){
-return race?.frozen_prediction||{};
-}
-function getBets(race){
-const p=getPrediction(race);
-if(Array.isArray(p.bets))
-return p.bets;
-if(Array.isArray(race?.bets))
-return race.bets;
-return[];
-}
-function getRanking(race){
-const p=getPrediction(race);
-if(Array.isArray(p.ranking))
-return p.ranking;
-if(Array.isArray(race?.ai?.ranking))
-return race.ai.ranking;
-return[];
-}
-function getGrade(race){
-return String(
-race?.frozen_prediction?.verdict?.rank||
-race?.verdict?.rank||
-""
-).toUpperCase();
-}
-function getBetYen(bet){
-return num(
-bet?.bet_yen||
-BET_YEN_DEFAULT
-);
-}
-/* ===============================
-   チケット
-=============================== */
-function isValidTicket(a){
-return Array.isArray(a)&&
-a.length===3&&
-a.every(n=>
-Number.isInteger(Number(n))&&
-Number(n)>=1&&
-Number(n)<=7
-)&&
-new Set(a.map(Number)).size===3;
-}
-function normalizeTicket(value){
-const m=String(value??"").match(
-/[1-7]\s*[-－ー→>]\s*[1-7]\s*[-－ー→>]\s*[1-7]/
-);
-if(!m)
-return"";
-const a=m[0]
-.replace(/－/g,"-")
-.replace(/ー/g,"-")
-.replace(/→/g,"-")
-.replace(/>/g,"-")
-.replace(/\s/g,"")
-.split("-")
-.map(Number);
-return isValidTicket(a)
-?a.join("-")
-:"";
-}
-/* ===============================
-   着順
-=============================== */
-function getFinishTicket(race){
-const finish=race?.result?.finish;
-if(Array.isArray(finish)&&finish.length>=3){
-const a=finish
-.slice(0,3)
-.map(Number);
-if(isValidTicket(a))
-return a.join("-");
-}
-if(typeof finish==="string"){
-const ticket=normalizeTicket(finish);
-if(ticket)
-return ticket;
-}
-return"";
-}
-/* ===============================
-   払戻
-=============================== */
-function parsePayoutSource(source){
-const s=String(source||"");
-const m=s.match(
-/3連単\s*([1-7])\s*[→\-－ー>]\s*([1-7])\s*[→\-－ー>]\s*([1-7])\s*([0-9,]+)円/
-);
-if(!m)
-return null;
-const ticket=normalizeTicket(
-`${m[1]}-${m[2]}-${m[3]}`
-);
-if(!ticket)
-return null;
-return{
-ticket,
-yen:Number(
-m[4].replace(/,/g,"")
-),
-available:true
-};
-}
-function getPayoutInfo(race){
-const result=race?.result||{};
-const source=parsePayoutSource(
-result.payout_source
-);
-if(source)
-return source;
-const ticket=normalizeTicket(
-result.payout_3tan
-);
-if(
-ticket&&
-result.payout_3tan_yen!=null&&
-Number(result.payout_3tan_yen)>0
-){
-return{
-ticket,
-yen:num(result.payout_3tan_yen),
-available:true
-};
-}
-return{
-ticket:"",
-yen:0,
-available:false
-};
-}
-/* ===============================
-   収支確定
-=============================== */
-function isSettled(race){
-return String(
-race?.settlement?.status||""
-).toLowerCase()==="settled";
-}
-/* ===============================
-   レース状態
-=============================== */
-function getRaceState(race){
-const result=race?.result||{};
-const finish=getFinishTicket(race);
-if(isSettled(race))
-return"settled";
-if(result.finished===true&&finish){
-const payout=getPayoutInfo(race);
-return payout.available
-?"confirmed"
-:"result";
-}
-if(result.finished===true&&!finish)
-return"error";
-return"pre";
-}
-function stateText(race){
-switch(getRaceState(race)){
-case"settled":
-return"✅ 結果・収支確定";
-case"confirmed":
-return"✅ 結果確定・収支集計待ち";
-case"result":
-return"🏁 着順確定・払戻待ち";
-case"error":
-return"⚠️ 結果データ確認中";
-default:
-return"🕐 発走前";
-}
-}
-function stateClass(race){
-switch(getRaceState(race)){
-case"settled":
-return"pill-settled";
-case"confirmed":
-case"result":
-return"pill-confirmed";
-case"error":
-return"pill-error";
-default:
-return"pill-pre";
-}
-}
-/* ===============================
-   オッズ
-=============================== */
-function getBetOdds(race,bet){
-const own=bet?.odds;
-if(
-own!==null&&
-own!==undefined&&
-Number(own)>0
-)
-return Number(own);
-const map=race?.odds?.odds;
-if(
-map&&
-typeof map==="object"&&
-map[bet?.ticket]!=null&&
-Number(map[bet.ticket])>0
-)
-return Number(map[bet.ticket]);
-return null;
-}
-/* ===============================
-   的中
-=============================== */
-function ticketHit(bet,race){
-const result=getFinishTicket(race);
-return!!result&&
-String(bet?.ticket)===result;
-}
-/* ===============================
-   ページ切替
-=============================== */
-function switchPage(page){
-const predictionPage=
-document.getElementById("predictionPage");
-const profitPage=
-document.getElementById("profitPage");
-const navPrediction=
-document.getElementById("navPrediction");
-const navProfit=
-document.getElementById("navProfit");
-if(page==="profit"){
-predictionPage.classList.remove("active");
-profitPage.classList.add("active");
-navPrediction.classList.remove("active");
-navProfit.classList.add("active");
-renderProfitPage();
-}else{
-profitPage.classList.remove("active");
-predictionPage.classList.add("active");
-navProfit.classList.remove("active");
-navPrediction.classList.add("active");
-}
-window.scrollTo(0,0);
-}
-/* ===============================
-   データ読み込み
-=============================== */
-async function loadData(){
-try{
-const response=await fetch(
-DATA_URL+"?t="+Date.now(),
-{
-cache:"no-store"
-}
-);
-if(!response.ok)
-throw new Error(
-"today.jsonを取得できませんでした"
-);
-DATA=await response.json();
-if(!Array.isArray(DATA.races))
-throw new Error(
-"today.jsonの形式が正しくありません"
-);
-document.getElementById(
-"headerDate"
-).textContent=
-`${DATA.target_date||""}　全${DATA.races.length}R`;
-document.getElementById(
-"headerStatus"
-).textContent=
-`v${DATA.version||"6.11"}`;
-/* 初期会場 */
-const venueNames=[
-...new Set(
-DATA.races
-.map(r=>r.venue_name)
-.filter(Boolean)
-)
-];
-if(
-!selectedVenue||
-!venueNames.includes(selectedVenue)
-){
-selectedVenue=
-venueNames[0]||"";
-}
-/* 初期レース */
-const venueRaces=getRaces()
-.filter(
-r=>r.venue_name===selectedVenue
-)
-.sort(
-(a,b)=>
-Number(a.race_no)-Number(b.race_no)
-);
-if(
-!selectedRace||
-!venueRaces.some(
-r=>
-r===selectedRace||
-Number(r.race_no)===
-Number(selectedRace.race_no)
-)
-){
-selectedRace=
-venueRaces[0]||null;
-}else{
-selectedRace=
-venueRaces.find(
-r=>
-Number(r.race_no)===
-Number(selectedRace.race_no)
-)||venueRaces[0]||null;
-}
-renderVenues();
-renderRaceButtons();
-renderRace();
-renderProfitPage();
-}
-catch(error){
-console.error(error);
-document.getElementById(
-"predictionContent"
-).innerHTML=
-`
-<div class="error">
-<b>データの読み込みに失敗しました。</b>
-<br><br>
-${escapeHtml(error.message)}
-<br><br>
-today.jsonがGitHub Pagesから取得できるか確認してください。
-</div>
-`;
-document.getElementById(
-"profitContent"
-).innerHTML=
-`
-<div class="error">
-収支データを読み込めませんでした。
-</div>
-`;
-}
-}
-/* ===============================
-   会場表示
-=============================== */
-function renderVenues(){
-const venues=[
-...new Set(
-getRaces()
-.map(r=>r.venue_name)
-.filter(Boolean)
-)
-];
-const container=
-document.getElementById("venues");
-container.innerHTML=
-venues.map(
-(venue,index)=>`
-<button
-type="button"
-class="venue-btn ${venue===selectedVenue?"active":""}"
-data-venue-index="${index}"
->
-${escapeHtml(venue)}
-</button>
-`
-).join("");
-container
-.querySelectorAll(".venue-btn")
-.forEach(button=>{
-button.addEventListener(
-"click",
-function(){
-const index=
-Number(
-this.getAttribute("data-venue-index")
-);
-const venue=
-venues[index];
-if(venue)
-selectVenue(venue);
-},
-false
-);
-});
-}
-/* ===============================
-   会場選択
-=============================== */
-function selectVenue(venue){
-if(!venue)
-return;
-selectedVenue=venue;
-const venueRaces=
-getRaces()
-.filter(
-r=>r.venue_name===venue
-)
-.sort(
-(a,b)=>
-Number(a.race_no)-Number(b.race_no)
-);
-selectedRace=
-venueRaces[0]||null;
-renderVenues();
-renderRaceButtons();
-renderRace();
-window.scrollTo(0,0);
-}
-/* ===============================
-   レースボタン
-=============================== */
-function renderRaceButtons(){
-const races=
-getRaces()
-.filter(
-r=>r.venue_name===selectedVenue
-)
-.sort(
-(a,b)=>
-Number(a.race_no)-Number(b.race_no)
-);
-document.getElementById(
-"selectedVenueName"
-).textContent=
-`${selectedVenue||"レース"}　${races.length}R`;
-const container=
-document.getElementById("raceButtons");
-container.innerHTML=
-races.map(
-(r,index)=>{
-const state=
-getRaceState(r);
-const active=
-selectedRace&&
-Number(selectedRace.race_no)===
-Number(r.race_no);
-return`
-<button
-type="button"
-class="race-btn ${state} ${active?"active":""}"
-data-race-index="${index}"
->
-${escapeHtml(r.race_no)}R
-</button>
-`;
-}
-).join("");
-container
-.querySelectorAll(".race-btn")
-.forEach(button=>{
-button.addEventListener(
-"click",
-function(){
-const index=
-Number(
-this.getAttribute("data-race-index")
-);
-selectedRace=
-races[index]||null;
-renderRaceButtons();
-renderRace();
-window.scrollTo(0,0);
-},
-false
-);
-});
-}
-/* ===============================
-   予想
-=============================== */
-function renderRace(){
-if(!selectedRace){
-document.getElementById(
-"predictionContent"
-).innerHTML=
-`
-<div class="loading">
-レースがありません。
-</div>
-`;
-return;
-}
-const race=selectedRace;
-const prediction=
-getPrediction(race);
-const verdict=
-prediction.verdict||
-race.verdict||
-{};
-const grade=
-getGrade(race);
-document.getElementById(
-"predictionContent"
-).innerHTML=
-`
-<div class="card">
-<div class="race-head">
-<div>
-<div class="race-name">
-${escapeHtml(race.venue_name)} ${escapeHtml(race.race_no)}R
-</div>
-<div class="race-meta">
-<span class="state-pill ${stateClass(race)}">
-${stateText(race)}
-</span>
-</div>
-</div>
-<div class="grade grade-${grade||"C"}">
-${grade||"－"}ランク
-</div>
-</div>
-<div class="key-box">
-<div class="key-item">
-<div class="key-label">
-本命
-</div>
-<div class="key-num main-num">
-${escapeHtml(prediction.main??"－")}
-</div>
-</div>
-<div class="key-item">
-<div class="key-label">
-対抗
-</div>
-<div class="key-num opp-num">
-${escapeHtml(prediction.opponent??"－")}
-</div>
-</div>
-<div class="key-item">
-<div class="key-label">
-穴
-</div>
-<div class="key-num dark-num">
-${escapeHtml(prediction.dark_horse??"－")}
-</div>
-</div>
-</div>
-<div class="verdict ${grade||"C"}">
-<div class="verdict-top">
-<div>
-${escapeHtml(verdict.label||"AI判定")}
-</div>
-<div>
-${
-verdict.score!=null
-?`AI ${escapeHtml(verdict.score)}点`
-:""
-}
-</div>
-</div>
-<div style="font-size:11px;margin-top:5px">
-${escapeHtml(verdict.reason||"")}
-</div>
-</div>
-</div>
-${renderBets(race)}
-${renderResult(race)}
-${renderDevelopment(race)}
-${renderLine(race)}
-${renderRanking(race)}
-${renderRiders(race)}
-`;
-}
-/* ===============================
-   買い目
-=============================== */
-function renderBets(race){
-const bets=getBets(race);
-if(!bets.length)
-return"";
-return`
-<div class="card">
-<div class="card-title">
-🎯 AIおすすめ買い目
-<span class="small">
-${bets.length}点
-</span>
-</div>
-<div class="bet-list">
-${bets.map(
-(bet,index)=>{
-const odds=
-getBetOdds(race,bet);
-const potential=
-odds
-?Math.round(
-getBetYen(bet)*odds
-)
-:0;
-return`
-<div class="bet ${index===0?"main":""}">
-<div class="bet-no">
-${index+1}
-</div>
-<div>
-<div class="ticket">
-${escapeHtml(bet.ticket||"")}
-</div>
-<div class="bet-type">
-${escapeHtml(bet.type||"")}
-</div>
-</div>
-<div class="bet-right">
-<div class="bet-yen">
-${yen(getBetYen(bet))}
-</div>
-<div class="odds ${odds?"":"missing"}">
-${
-odds
-?`${odds.toFixed(1)}倍`
-:"オッズ未取得"
-}
-</div>
-${
-odds
-?`
-<div class="expected">
-100円→${yen(potential)}
-</div>
-`
-:""
-}
-<div class="value">
-${escapeHtml(bet.value_flag||"")}
-</div>
-</div>
-</div>
-`;
-}
-).join("")}
-</div>
-</div>
-`;
-}
-/* ===============================
-   結果
-=============================== */
-function renderResult(race){
-const state=
-getRaceState(race);
-const bets=
-getBets(race);
-const finish=
-getFinishTicket(race);
-const payout=
-getPayoutInfo(race);
-const settlement=
-race.settlement||{};
-const hit=
-bets.find(
-bet=>ticketHit(bet,race)
-);
-/* 発走前 */
-if(state==="pre"){
-return`
-<div class="card">
-<div class="card-title">
-🏆 レース結果
-</div>
-<div class="result-box result-pre">
-<b>🕐 発走前</b>
-<br>
-<span class="small">
-まだレースは発走前です。
-</span>
-</div>
-</div>
-`;
-}
-/* 不正結果 */
-if(state==="error"){
-return`
-<div class="card">
-<div class="card-title">
-🏆 レース結果
-</div>
-<div class="result-box result-error">
-<b>⚠️ 結果データ確認中</b>
-<br>
-<span class="small">
-取得された着順データが不正または未確定のため、
-的中・収支には反映していません。
-</span>
-</div>
-</div>
-`;
-}
-/* 着順確定・払戻待ち */
-if(state==="result"){
-return`
-<div class="card">
-<div class="card-title">
-🏆 レース結果
-</div>
-<div class="result-box result-confirmed">
-<div class="small">
-🏁 着順確定
-</div>
-<div class="result-ticket">
-${escapeHtml(finish)}
-</div>
-<div class="small">
-払戻情報：
-${payout.available
-?`3連単 ${yen(payout.yen)}`
-:"まだ取得されていません"
-}
-</div>
-<div class="settlement-grid">
-<div class="stat">
-<div class="stat-label">
-AI買い目
-</div>
-<div class="stat-value">
-${bets.length}点
-</div>
-</div>
-<div class="stat">
-<div class="stat-label">
-的中
-</div>
-<div class="stat-value">
-${hit?"🎯":"－"}
-</div>
-</div>
-<div class="stat">
-<div class="stat-label">
-投資
-</div>
-<div class="stat-value">
-未確定
-</div>
-</div>
-<div class="stat">
-<div class="stat-label">
-収支
-</div>
-<div class="stat-value">
-未確定
-</div>
-</div>
-</div>
-</div>
-</div>
-`;
-}
-/* 収支確定 */
-return`
-<div class="card">
-<div class="card-title">
-🏆 レース結果
-</div>
-<div class="result-box result-settled">
-<div class="small">
-結果・払戻・収支確定
-</div>
-<div class="result-ticket">
-${escapeHtml(
-finish||
-settlement.hit_ticket||
-payout.ticket||
-"－"
-)}
-</div>
-<div class="payout">
-払戻 ${yen(settlement.payout)}
-</div>
-<div class="settlement-grid">
-<div class="stat">
-<div class="stat-label">
-AI買い目
-</div>
-<div class="stat-value">
-${bets.length}点
-</div>
-</div>
-<div class="stat">
-<div class="stat-label">
-的中
-</div>
-<div class="stat-value">
-${settlement.hit?"🎯":"－"}
-</div>
-</div>
-<div class="stat">
-<div class="stat-label">
-投資
-</div>
-<div class="stat-value">
-${yen(settlement.investment)}
-</div>
-</div>
-<div class="stat">
-<div class="stat-label">
-収支
-</div>
-<div
-class="stat-value ${
-num(settlement.profit)>=0
-?"profit-plus"
-:"profit-minus"
-}"
->
-${num(settlement.profit)>=0?"+":""}
-${yen(settlement.profit)}
-</div>
-</div>
-</div>
-${
-settlement.hit_ticket
-?`
-<div
-style="margin-top:8px;font-weight:1000;color:#047857"
->
-🎯 的中買い目：
-${escapeHtml(settlement.hit_ticket)}
-</div>
-`
-:""
-}
-</div>
-</div>
-`;
-}
-/* ===============================
-   展開
-=============================== */
-function renderDevelopment(race){
-if(!race.development)
-return"";
-return`
-<div class="card">
-<div class="card-title">
-🧠 AI展開予想
-</div>
-<div class="dev">
-${escapeHtml(race.development)}
-</div>
-</div>
-`;
-}
-/* ===============================
-   ライン
-=============================== */
-function renderLine(race){
-const groups=race.line_groups;
-const line=race.line;
-if(
-!(
-(Array.isArray(groups)&&groups.length)||
-(Array.isArray(line)&&line.length)
-)
-){
-return`
-<div class="card">
-<div class="card-title">
-🚴 ライン
-</div>
-<div class="small">
-ライン情報は取得されていません。
-</div>
-</div>
-`;
-}
-return`
-<div class="card">
-<div class="card-title">
-🚴 ライン
-</div>
-<div class="line-box">
-${
-Array.isArray(groups)&&groups.length
-?
-groups.map(
-g=>`
-<div class="line-group">
-${escapeHtml(
-typeof g==="string"
-?g
-:JSON.stringify(g)
-)}
-</div>
-`
-).join("")
-:
-escapeHtml(
-typeof line==="string"
-?line
-:JSON.stringify(line)
-)
-}
-</div>
-</div>
-`;
-}
-/* ===============================
-   AIランキング
-=============================== */
-function renderRanking(race){
-const ranking=
-getRanking(race);
-if(!ranking.length)
-return"";
-return`
-<div class="card">
-<div class="card-title">
-📊 AIランキング
-</div>
-<div class="rider-list">
-${ranking.map(
-(item,index)=>`
-<div class="rider">
-<div class="car car-${item.car_no}">
-${escapeHtml(item.car_no)}
-</div>
-<div>
-<div class="rider-name">
-${escapeHtml(item.name||"")}
-</div>
-<div class="rider-info">
-AI ${index+1}位
-</div>
-</div>
-<div class="rider-score">
-<div class="ai-score">
-${
-item.score!=null
-?num(item.score).toFixed(1)
-:"－"
-}
-</div>
-<div class="rider-finish">
-${escapeHtml(item.mark||"")}
-</div>
-</div>
-</div>
-`
-).join("")}
-</div>
-</div>
-`;
-}
-/* ===============================
-   選手
-=============================== */
-function renderRiders(race){
-const riders=
-Array.isArray(race.riders)
-?race.riders
-:[];
-if(!riders.length)
-return"";
-const rankingMap=
-new Map(
-getRanking(race).map(
-(item,index)=>[
-Number(item.car_no),
-{
-rank:index+1,
-score:item.score
-}
-]
-)
-);
-return`
-<div class="card">
-<div class="card-title">
-🚴 出走選手
-</div>
-<div class="rider-list">
-${riders.map(
-item=>{
-const ai=
-rankingMap.get(
-Number(item.car_no)
-);
-return`
-<div class="rider">
-<div class="car car-${item.car_no}">
-${escapeHtml(item.car_no)}
-</div>
-<div>
-<div class="rider-name">
-${escapeHtml(item.name||"")}
-</div>
-<div class="rider-info">
-${escapeHtml(item.style||"")}
-${item.period
-?`　${escapeHtml(item.period)}期`
-:""
-}
-${item.prefecture
-?`　${escapeHtml(item.prefecture)}`
-:""
-}
-</div>
-<div class="rider-info">
-直近：
-${item.finish_1||0}勝 /
-${item.finish_2||0}回 /
-${item.finish_3||0}回 /
-${item.finish_out||0}着外
-</div>
-</div>
-<div class="rider-score">
-${
-ai
-?
-`
-<div class="ai-score">
-${num(ai.score).toFixed(1)}
-</div>
-<div class="rider-finish">
-AI ${ai.rank}位
-</div>
-`
-:
-`
-<div class="ai-score">
-－
-</div>
-`
-}
-</div>
-</div>
-`;
-}
-).join("")}
-</div>
-</div>
-`;
-}
-/* ===============================
-   収支
-=============================== */
-function renderProfitPage(){
-if(!DATA)
-return;
-const summary=
-DATA.summary||{};
-const settled=
-num(summary.settled_races);
-const pending=
-num(summary.pending_races);
-const investment=
-num(summary.investment);
-const payout=
-num(summary.payout);
-const profit=
-num(summary.profit);
-const hits=
-num(summary.hits);
-const hitRate=
-num(summary.hit_rate);
-const roi=
-num(summary.roi);
-const resultCount=
-num(DATA.result_count);
-const payoutCount=
-num(DATA.payout_count);
-document.getElementById(
-"profitContent"
-).innerHTML=
-`
-<div class="profit-hero">
-<div class="profit-title">
-💰 本日のAI買い目収支
-</div>
-<div class="profit-main">
-<div class="profit-number ${profit>=0?"plus":"minus"}">
-${profit>=0?"+":""}${yen(profit)}
-</div>
-<div class="profit-sub">
-確定 ${settled}R
-<br>
-ROI ${roi.toFixed(1)}%
-</div>
-</div>
-</div>
-<div class="card">
-<div class="card-title">
-📊 本日の収支
-</div>
-<div class="summary-grid">
-<div class="summary-stat">
-<div class="summary-label">
-投資
-</div>
-<div class="summary-value">
-${yen(investment)}
-</div>
-</div>
-<div class="summary-stat">
-<div class="summary-label">
-払戻
-</div>
-<div class="summary-value">
-${yen(payout)}
-</div>
-</div>
-<div class="summary-stat">
-<div class="summary-label">
-的中
-</div>
-<div class="summary-value">
-${hits}R
-</div>
-</div>
-<div class="summary-stat">
-<div class="summary-label">
-的中率
-</div>
-<div class="summary-value">
-${hitRate.toFixed(1)}%
-</div>
-</div>
-</div>
-<div class="notice" style="margin-top:9px">
-収支は
-<b>settlement.status = settled</b>
-のレースだけを集計。
-<br>
-現在：
-確定 ${settled}R /
-結果取得 ${resultCount}R /
-払戻取得 ${payoutCount}R /
-未確定 ${pending}R
-</div>
-</div>
-${renderGradeProfit()}
-${renderVenueProfit()}
-${renderRaceProfit()}
-${renderStrategies()}
-${renderRecommendations()}
-`;
-}
-/* ===============================
-   S/A/B/C
-=============================== */
-function renderGradeProfit(){
-const grades=
-DATA?.summary?.by_rank||{};
-return`
-<div class="card">
-<div class="card-title">
-🏆 S / A / B / C別収支
-</div>
-<div class="table-wrap">
-<table class="data-table">
-<thead>
-<tr>
-<th>ランク</th>
-<th>確定R</th>
-<th>投資</th>
-<th>払戻</th>
-<th>収支</th>
-<th>的中率</th>
-<th>ROI</th>
-</tr>
-</thead>
-<tbody>
-${["S","A","B","C"].map(
-grade=>{
-const x=
-grades[grade]||{};
-return`
-<tr>
-<td>
-<b>${grade}</b>
-</td>
-<td>
-${num(x.races)}
-</td>
-<td>
-${yen(x.investment)}
-</td>
-<td>
-${yen(x.payout)}
-</td>
-<td
-class="${
-num(x.profit)>=0
-?"profit-plus"
-:"profit-minus"
-}"
->
-${num(x.profit)>=0?"+":""}
-${yen(x.profit)}
-</td>
-<td>
-${num(x.hit_rate).toFixed(1)}%
-</td>
-<td>
-${num(x.roi).toFixed(1)}%
-</td>
-</tr>
-`;
-}
-).join("")}
-</tbody>
-</table>
-</div>
-</div>
-`;
-}
-/* ===============================
-   会場別収支
-=============================== */
-function renderVenueProfit(){
-const venues=
-DATA?.summary?.by_venue||{};
-const entries=
-Object.entries(venues);
-if(!entries.length)
-return"";
-return`
-<div class="card">
-<div class="card-title">
-🏟 会場別収支
-</div>
-<div class="table-wrap">
-<table class="data-table">
-<thead>
-<tr>
-<th>会場</th>
-<th>確定R</th>
-<th>投資</th>
-<th>払戻</th>
-<th>収支</th>
-<th>的中</th>
-<th>ROI</th>
-</tr>
-</thead>
-<tbody>
-${entries.map(
-([name,x])=>`
-<tr>
-<td>
-<b>${escapeHtml(name)}</b>
-</td>
-<td>
-${num(x.races)}
-</td>
-<td>
-${yen(x.investment)}
-</td>
-<td>
-${yen(x.payout)}
-</td>
-<td
-class="${
-num(x.profit)>=0
-?"profit-plus"
-:"profit-minus"
-}"
->
-${num(x.profit)>=0?"+":""}
-${yen(x.profit)}
-</td>
-<td>
-${num(x.hits)}R
-</td>
-<td>
-${num(x.roi).toFixed(1)}%
-</td>
-</tr>
-`
-).join("")}
-</tbody>
-</table>
-</div>
-</div>
-`;
-}
-/* ===============================
-   レース別収支
-=============================== */
-function renderRaceProfit(){
-const races=
-getRaces()
-.filter(
-race=>isSettled(race)
-)
-.sort(
-(a,b)=>
-String(a.venue_name)
-.localeCompare(
-String(b.venue_name),
-"ja"
-)||
-Number(a.race_no)-Number(b.race_no)
-);
-return`
-<div class="card">
-<div class="card-title">
-📋 確定レース別収支
-</div>
-${
-races.length
-?
-`
-<div class="table-wrap">
-<table class="data-table">
-<thead>
-<tr>
-<th>会場</th>
-<th>R</th>
-<th>ランク</th>
-<th>結果</th>
-<th>投資</th>
-<th>払戻</th>
-<th>収支</th>
-</tr>
-</thead>
-<tbody>
-${races
-.slice()
-.reverse()
-.map(
-race=>{
-const s=
-race.settlement||{};
-const ticket=
-getFinishTicket(race)||
-s.hit_ticket||
-getPayoutInfo(race).ticket||
-"－";
-return`
-<tr>
-<td>
-${escapeHtml(
-race.venue_name||""
-)}
-</td>
-<td>
-${escapeHtml(
-race.race_no
-)}R
-</td>
-<td>
-${escapeHtml(
-getGrade(race)||"－"
-)}
-</td>
-<td>
-${
-s.hit
-?
-`
-<span class="profit-plus">
-🎯 ${escapeHtml(
-s.hit_ticket||ticket
-)}
-</span>
-`
-:
-escapeHtml(ticket)
-}
-</td>
-<td>
-${yen(s.investment)}
-</td>
-<td>
-${yen(s.payout)}
-</td>
-<td
-class="${
-num(s.profit)>=0
-?"profit-plus"
-:"profit-minus"
-}"
->
-${num(s.profit)>=0?"+":""}
-${yen(s.profit)}
-</td>
-</tr>
-`;
-}
-).join("")}
-</tbody>
-</table>
-</div>
-`
-:
-`
-<div class="notice">
-まだ収支確定したレースはありません。
-</div>
-`
-}
-</div>
-`;
-}
-/* ===============================
-   バックテスト
-=============================== */
-function renderStrategies(){
-const data=
-DATA?.backtests||{};
-const entries=
-Object.entries(data);
-if(!entries.length)
-return"";
-return`
-<div class="card">
-<div class="card-title">
-📈 AI買い目バックテスト
-</div>
-${entries.slice(0,20).map(
-([name,x])=>`
-<div class="strategy">
-<div class="strategy-head">
-<span>
-${escapeHtml(name)}
-</span>
-<span
-class="${
-num(x.profit)>=0
-?"profit-plus"
-:"profit-minus"
-}"
->
-${num(x.profit)>=0?"+":""}
-${yen(x.profit)}
-</span>
-</div>
-<div class="strategy-stats">
-<div class="strategy-stat">
-確定R
-<b>
-${num(
-x.settled_races??
-x.races
-)}
-</b>
-</div>
-<div class="strategy-stat">
-的中
-<b>
-${num(x.hits)}
-</b>
-</div>
-<div class="strategy-stat">
-的中率
-<b>
-${num(x.hit_rate).toFixed(1)}%
-</b>
-</div>
-<div class="strategy-stat">
-ROI
-<b>
-${num(x.roi).toFixed(1)}%
-</b>
-</div>
-</div>
-</div>
-`
-).join("")}
-</div>
-`;
-}
-/* ===============================
-   本日のおすすめ
-=============================== */
-function renderRecommendations(){
-const rec=
-DATA?.today_recommendations;
-if(!rec)
-return"";
-let entries=[];
-if(Array.isArray(rec)){
-entries=rec;
-}else if(
-typeof rec==="object"
-){
-entries=
-Object.entries(rec)
-.map(
-([name,value])=>{
-if(
-value&&
-typeof value==="object"
-){
-return{
-name,
-...value
-};
-}
-return{
-name,
-value
-};
-}
-);
-}
-if(!entries.length)
-return"";
-return`
-<div class="card">
-<div class="card-title">
-⭐ 本日のAIおすすめ
-</div>
-${entries.slice(0,20).map(
-item=>`
-<div class="strategy">
-<div class="strategy-head">
-<span>
-${escapeHtml(
-item.venue_name||
-item.name||
-item.title||
-""
-)}
-${
-item.race_no
-?` ${escapeHtml(item.race_no)}R`
-:""
-}
-</span>
-<span>
-${
-item.rank
-?`${escapeHtml(item.rank)}ランク`
-:""
-}
-</span>
-</div>
-${
-item.ticket
-?
-`
-<div style="margin-top:5px;font-weight:1000">
-🎯 ${escapeHtml(item.ticket)}
-</div>
-`
-:""
-}
-${
-item.reason
-?
-`
-<div class="small" style="margin-top:4px">
-${escapeHtml(item.reason)}
-</div>
-`
-:""
-}
-</div>
-`
-).join("")}
-</div>
-`;
-}
-/* ===============================
-   ナビゲーション
-=============================== */
-function bindNavigation(){
-const navPrediction=
-document.getElementById(
-"navPrediction"
-);
-const navProfit=
-document.getElementById(
-"navProfit"
-);
-if(navPrediction){
-navPrediction.addEventListener(
-"click",
-function(){
-switchPage("prediction");
-},
-false
-);
-}
-if(navProfit){
-navProfit.addEventListener(
-"click",
-function(){
-switchPage("profit");
-},
-false
-);
-}
-}
-/* ===============================
-   起動
-=============================== */
-bindNavigation();
-loadData();
-setInterval(
-loadData,
-5*60*1000
-);
+"use strict";
+/* =========================================================
+   Configuration
+========================================================= */
+const DATA_URL = "./data/today.json";
+const BET_YEN_DEFAULT = 100;
+let DATA = null;
+let RACES = [];
+let currentVenueIndex = 0;
+let currentRaceIndex = 0;
+/* =========================================================
+   Safe helpers
+========================================================= */
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+function yen(value) {
+  const n = Number(value || 0);
+  return "¥" + n.toLocaleString("ja-JP");
+}
+function num(value, fallback = 0) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
+function safeArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+function safeObject(value) {
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? value
+    : {};
+}
+function normalizeTicket(value) {
+  if (value === null || value === undefined) {
+    return "";
+  }
+  return String(value)
+    .trim()
+    .replace(/[－ー→>]/g, "-")
+    .replace(/\s+/g, "")
+    .replace(/-+/g, "-");
+}
+function isValidTicket(ticket) {
+  const normalized = normalizeTicket(ticket);
+  const parts = normalized.split("-");
+  if (parts.length !== 3) {
+    return false;
+  }
+  const nums = parts.map(Number);
+  if (nums.some(n => !Number.isInteger(n) || n < 1 || n > 7)) {
+    return false;
+  }
+  return new Set(nums).size === 3;
+}
+function formatTicket(ticket) {
+  const t = normalizeTicket(ticket);
+  return isValidTicket(t) ? t : "—";
+}
+function getBetYen(bet) {
+  return num(
+    bet?.bet_yen ??
+    bet?.yen ??
+    BET_YEN_DEFAULT,
+    BET_YEN_DEFAULT
+  );
+}
+/* =========================================================
+   Data access
+========================================================= */
+function getRaces(data) {
+  if (Array.isArray(data?.races)) {
+    return data.races;
+  }
+  if (Array.isArray(data?.data?.races)) {
+    return data.data.races;
+  }
+  if (Array.isArray(data?.venues)) {
+    const result = [];
+    data.venues.forEach(venue => {
+      safeArray(venue.races).forEach(race => {
+        result.push({
+          ...race,
+          venue_name: race.venue_name || venue.venue_name || venue.name,
+          venue_code: race.venue_code || venue.venue_code || venue.code
+        });
+      });
+    });
+    return result;
+  }
+  return [];
+}
+function getPrediction(race) {
+  return safeObject(
+    race?.frozen_prediction ||
+    race?.prediction ||
+    race?.ai_prediction
+  );
+}
+function getBets(race) {
+  const prediction = getPrediction(race);
+  if (Array.isArray(prediction.bets)) {
+    return prediction.bets;
+  }
+  if (Array.isArray(race?.bets)) {
+    return race.bets;
+  }
+  return [];
+}
+function getRanking(race) {
+  const prediction = getPrediction(race);
+  if (Array.isArray(prediction.ranking)) {
+    return prediction.ranking;
+  }
+  if (Array.isArray(race?.ai?.ranking)) {
+    return race.ai.ranking;
+  }
+  return [];
+}
+function getGrade(race) {
+  const prediction = getPrediction(race);
+  const verdict = safeObject(
+    prediction.verdict ||
+    race?.verdict
+  );
+  return {
+    rank: verdict.rank || "—",
+    label: verdict.label || "",
+    score: num(verdict.score, 0),
+    reason: verdict.reason || ""
+  };
+}
+/* =========================================================
+   Result validation
+========================================================= */
+function getValidFinish(result) {
+  if (!result || !Array.isArray(result.finish)) {
+    return null;
+  }
+  const finish = result.finish
+    .slice(0, 7)
+    .map(Number);
+  if (finish.length < 3) {
+    return null;
+  }
+  const validNumbers = finish.every(
+    n => Number.isInteger(n) && n >= 1 && n <= 7
+  );
+  if (!validNumbers) {
+    return null;
+  }
+  const unique = new Set(finish);
+  if (unique.size !== finish.length) {
+    return null;
+  }
+  return finish;
+}
+function getFinishTicket(race) {
+  const finish = getValidFinish(race?.result);
+  if (!finish) {
+    return "";
+  }
+  const ticket = finish.slice(0, 3).join("-");
+  return isValidTicket(ticket) ? ticket : "";
+}
+/* =========================================================
+   Settlement
+========================================================= */
+function isSettled(race) {
+  return race?.settlement?.status === "settled";
+}
+function getPayoutInfo(race) {
+  const result = safeObject(race?.result);
+  const payout =
+    result.payout_3tan_yen ??
+    result.payout_3t_yen ??
+    result.payout_yen ??
+    race?.settlement?.payout ??
+    0;
+  const ticket =
+    result.payout_3tan ||
+    result.payout_3t ||
+    race?.settlement?.hit_ticket ||
+    "";
+  const available =
+    result.payout_available === true ||
+    Number(payout) > 0;
+  return {
+    available,
+    payout: num(payout, 0),
+    ticket: isValidTicket(ticket) ? normalizeTicket(ticket) : ""
+  };
+}
+function getRaceState(race) {
+  if (isSettled(race)) {
+    return "settled";
+  }
+  const result = safeObject(race?.result);
+  const finish = getValidFinish(result);
+  /*
+   * 正常な結果確定
+   */
+  if (result.finished === true && finish) {
+    const payout = getPayoutInfo(race);
+    if (payout.available) {
+      return "confirmed";
+    }
+    return "payout";
+  }
+  /*
+   * finish が存在するのに finished=false、
+   * または finished=trueなのに不正な着順。
+   * upstreamの一時的不整合として扱う。
+   */
+  if (finish && result.finished !== true) {
+    return "error";
+  }
+  if (result.finished === true && !finish) {
+    return "error";
+  }
+  /*
+   * 本当にまだ結果がない状態
+   */
+  return "pre";
+}
+function getStateLabel(state) {
+  switch (state) {
+    case "settled":
+      return "収支確定";
+    case "confirmed":
+      return "結果確定";
+    case "payout":
+      return "払戻待ち";
+    case "error":
+      return "結果確認中";
+    case "pre":
+    default:
+      return "発走前";
+  }
+}
+function getStateClass(state) {
+  switch (state) {
+    case "settled":
+      return "state-settled";
+    case "confirmed":
+      return "state-confirmed";
+    case "payout":
+      return "state-payout";
+    case "error":
+      return "state-error";
+    case "pre":
+    default:
+      return "state-pre";
+  }
+}
+/* =========================================================
+   Odds
+========================================================= */
+function findOddsInObject(obj, ticket) {
+  if (!obj || typeof obj !== "object") {
+    return null;
+  }
+  const target = normalizeTicket(ticket);
+  const directKeys = [
+    target,
+    target.replace(/-/g, ""),
+    "sanrentan",
+    "3tan",
+    "3連単"
+  ];
+  for (const key of directKeys) {
+    if (
+      Object.prototype.hasOwnProperty.call(obj, key) &&
+      typeof obj[key] !== "object"
+    ) {
+      const value = Number(obj[key]);
+      if (Number.isFinite(value) && value > 0) {
+        return value;
+      }
+    }
+  }
+  for (const [key, value] of Object.entries(obj)) {
+    if (normalizeTicket(key) === target) {
+      const n = Number(value);
+      if (Number.isFinite(n) && n > 0) {
+        return n;
+      }
+    }
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        if (!item || typeof item !== "object") {
+          continue;
+        }
+        const itemTicket =
+          item.ticket ??
+          item.bet ??
+          item.combination ??
+          item.combo ??
+          item.name;
+        if (normalizeTicket(itemTicket) === target) {
+          const itemOdds =
+            item.odds ??
+            item.value ??
+            item.rate;
+          const n = Number(itemOdds);
+          if (Number.isFinite(n) && n > 0) {
+            return n;
+          }
+        }
+      }
+    }
+  }
+  return null;
+}
+function getBetOdds(race, bet) {
+  const direct = Number(bet?.odds);
+  if (Number.isFinite(direct) && direct > 0) {
+    return direct;
+  }
+  const ticket = normalizeTicket(bet?.ticket);
+  if (!ticket) {
+    return null;
+  }
+  const odds = race?.odds;
+  if (!odds) {
+    return null;
+  }
+  if (Array.isArray(odds)) {
+    for (const item of odds) {
+      if (!item || typeof item !== "object") {
+        continue;
+      }
+      const itemTicket =
+        item.ticket ??
+        item.bet ??
+        item.combination ??
+        item.combo;
+      if (normalizeTicket(itemTicket) === ticket) {
+        const value = Number(
+          item.odds ??
+          item.value ??
+          item.rate
+        );
+        if (Number.isFinite(value) && value > 0) {
+          return value;
+        }
+      }
+    }
+  }
+  if (typeof odds === "object") {
+    const found = findOddsInObject(odds, ticket);
+    if (found !== null) {
+      return found;
+    }
+    if (odds.odds && typeof odds.odds === "object") {
+      const nested = findOddsInObject(odds.odds, ticket);
+      if (nested !== null) {
+        return nested;
+      }
+    }
+    if (odds.sanrentan && typeof odds.sanrentan === "object") {
+      const nested = findOddsInObject(odds.sanrentan, ticket);
+      if (nested !== null) {
+        return nested;
+      }
+    }
+  }
+  return null;
+}
+/* =========================================================
+   Navigation
+========================================================= */
+function showPage(page) {
+  const predictionPage = document.getElementById("predictionPage");
+  const profitPage = document.getElementById("profitPage");
+  const navPrediction = document.getElementById("navPrediction");
+  const navProfit = document.getElementById("navProfit");
+  const isPrediction = page === "prediction";
+  predictionPage.classList.toggle("active", isPrediction);
+  profitPage.classList.toggle("active", !isPrediction);
+  navPrediction.classList.toggle("active", isPrediction);
+  navProfit.classList.toggle("active", !isPrediction);
+}
+function bindNavigation() {
+  document
+    .getElementById("navPrediction")
+    .addEventListener("click", () => {
+      showPage("prediction");
+    });
+  document
+    .getElementById("navProfit")
+    .addEventListener("click", () => {
+      showPage("profit");
+    });
+}
+/* =========================================================
+   Venue
+========================================================= */
+function getVenues() {
+  const map = new Map();
+  RACES.forEach((race, index) => {
+    const name =
+      race?.venue_name ||
+      race?.venue ||
+      race?.place ||
+      "会場不明";
+    const code =
+      race?.venue_code ||
+      race?.jo_code ||
+      "";
+    const key = String(code || name);
+    if (!map.has(key)) {
+      map.set(key, {
+        key,
+        name,
+        code,
+        raceIndexes: []
+      });
+    }
+    map.get(key).raceIndexes.push(index);
+  });
+  return Array.from(map.values());
+}
+function renderVenues() {
+  const container = document.getElementById("venueList");
+  const venues = getVenues();
+  if (!venues.length) {
+    container.innerHTML =
+      '<div class="empty-box">開催データがありません。</div>';
+    return;
+  }
+  if (currentVenueIndex >= venues.length) {
+    currentVenueIndex = 0;
+  }
+  container.innerHTML = venues
+    .map((venue, index) => `
+      <button
+        type="button"
+        class="venue-btn ${index === currentVenueIndex ? "active" : ""}"
+        data-venue-index="${index}">
+        ${escapeHtml(venue.name)}
+      </button>
+    `)
+    .join("");
+  container.querySelectorAll(".venue-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.venueIndex);
+      selectVenue(index);
+    });
+  });
+}
+function selectVenue(index) {
+  const venues = getVenues();
+  if (!venues[index]) {
+    return;
+  }
+  currentVenueIndex = index;
+  const venue = venues[index];
+  currentRaceIndex = venue.raceIndexes.length
+    ? venue.raceIndexes[0]
+    : 0;
+  renderVenues();
+  renderRaceButtons();
+  renderRace();
+}
+/* =========================================================
+   Race buttons
+========================================================= */
+function renderRaceButtons() {
+  const container = document.getElementById("raceList");
+  const venues = getVenues();
+  const venue = venues[currentVenueIndex];
+  if (!venue) {
+    container.innerHTML = "";
+    return;
+  }
+  container.innerHTML = venue.raceIndexes
+    .map(index => {
+      const race = RACES[index];
+      const raceNo = race?.race_no ?? race?.race ?? "?";
+      return `
+        <button
+          type="button"
+          class="race-btn ${index === currentRaceIndex ? "active" : ""}"
+          data-race-index="${index}">
+          ${escapeHtml(raceNo)}R
+        </button>
+      `;
+    })
+    .join("");
+  container.querySelectorAll(".race-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const index = Number(button.dataset.raceIndex);
+      currentRaceIndex = index;
+      renderRaceButtons();
+      renderRace();
+    });
+  });
+}
+/* =========================================================
+   Race rendering
+========================================================= */
+function renderRace() {
+  const container = document.getElementById("raceContent");
+  const race = RACES[currentRaceIndex];
+  if (!race) {
+    container.innerHTML =
+      '<div class="empty-box">レースデータがありません。</div>';
+    return;
+  }
+  const prediction = getPrediction(race);
+  const grade = getGrade(race);
+  const state = getRaceState(race);
+  const main =
+    prediction.main ??
+    race?.ai?.main ??
+    "—";
+  const opponent =
+    prediction.opponent ??
+    race?.ai?.opponent ??
+    "—";
+  const darkHorse =
+    prediction.dark_horse ??
+    race?.ai?.dark_horse ??
+    "—";
+  const venue =
+    race?.venue_name ||
+    race?.venue ||
+    "会場不明";
+  const raceNo =
+    race?.race_no ??
+    race?.race ??
+    "?";
+  container.innerHTML = `
+    <div class="card">
+      <div class="race-head">
+        <div>
+          <div class="race-name">
+            ${escapeHtml(venue)} ${escapeHtml(raceNo)}R
+          </div>
+          <div class="race-meta">
+            ${escapeHtml(race?.date || DATA?.target_date || DATA?.date || "")}
+          </div>
+        </div>
+        <div class="state-badge ${getStateClass(state)}">
+          ${getStateLabel(state)}
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">🤖 AI判定</div>
+      <div class="ai-summary">
+        <div class="ai-box">
+          <div class="ai-box-label">ランク</div>
+          <div class="ai-box-value rank-${escapeHtml(String(grade.rank).toLowerCase())}">
+            ${escapeHtml(grade.rank)}
+          </div>
+        </div>
+        <div class="ai-box">
+          <div class="ai-box-label">AI点</div>
+          <div class="ai-score">
+            ${grade.score}
+          </div>
+        </div>
+        <div class="ai-box">
+          <div class="ai-box-label">本命</div>
+          <div class="ai-box-value">
+            ${escapeHtml(main)}番
+          </div>
+        </div>
+        <div class="ai-box">
+          <div class="ai-box-label">対抗</div>
+          <div class="ai-box-value">
+            ${escapeHtml(opponent)}番
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:#667085;">
+        ${escapeHtml(grade.label)}
+      </div>
+      ${
+        grade.reason
+          ? `
+            <div class="info-text" style="margin-top:7px;">
+              ${escapeHtml(grade.reason)}
+            </div>
+          `
+          : ""
+      }
+      <div style="margin-top:10px;font-size:13px;">
+        <strong>穴：</strong>${escapeHtml(darkHorse)}番
+      </div>
+    </div>
+    <div id="betsCard"></div>
+    <div id="resultCard"></div>
+    <div id="developmentCard"></div>
+    <div id="lineCard"></div>
+    <div id="rankingCard"></div>
+    <div id="ridersCard"></div>
+  `;
+  renderBets(race);
+  renderResult(race);
+  renderDevelopment(race);
+  renderLine(race);
+  renderRanking(race);
+  renderRiders(race);
+}
+/* =========================================================
+   Bets
+========================================================= */
+function renderBets(race) {
+  const container = document.getElementById("betsCard");
+  const bets = getBets(race);
+  if (!bets.length) {
+    container.innerHTML = `
+      <div class="card">
+        <div class="card-title">🎯 AI買い目</div>
+        <div class="empty-box">AI買い目がありません。</div>
+      </div>
+    `;
+    return;
+  }
+  const validBets = bets.filter(
+    bet => isValidTicket(bet?.ticket)
+  );
+  if (!validBets.length) {
+    container.innerHTML = `
+      <div class="card">
+        <div class="card-title">🎯 AI買い目</div>
+        <div class="empty-box">有効な買い目がありません。</div>
+      </div>
+    `;
+    return;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">
+        🎯 AI買い目
+        <span style="font-size:11px;color:#667085;">
+          ${validBets.length}点 / 1点 ${yen(BET_YEN_DEFAULT)}
+        </span>
+      </div>
+      <div class="bet-list">
+        ${validBets.map((bet, index) => {
+          const ticket = formatTicket(bet.ticket);
+          const odds = getBetOdds(race, bet);
+          return `
+            <div class="bet-row">
+              <div class="bet-num">
+                ${index + 1}
+              </div>
+              <div>
+                <div class="bet-ticket">
+                  ${escapeHtml(ticket)}
+                </div>
+                <div class="bet-label">
+                  ${escapeHtml(bet.label || bet.type || "")}
+                </div>
+              </div>
+              <div class="bet-right">
+                <div class="bet-score">
+                  ${num(bet.score, 0)}点
+                </div>
+                <div class="bet-odds">
+                  ${
+                    odds !== null
+                      ? `<span class="odds-value">${odds.toLocaleString("ja-JP")}倍</span>`
+                      : `<span class="no-odds">オッズ未取得</span>`
+                  }
+                </div>
+              </div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:#667085;">
+        投資額：<strong>${yen(
+          validBets.reduce(
+            (sum, bet) => sum + getBetYen(bet),
+            0
+          )
+        )}</strong>
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Result
+========================================================= */
+function renderResult(race) {
+  const container = document.getElementById("resultCard");
+  const state = getRaceState(race);
+  const finish = getValidFinish(race?.result);
+  const payout = getPayoutInfo(race);
+  let html = "";
+  if (state === "pre") {
+    html = `
+      <div class="card">
+        <div class="card-title">🏁 レース結果</div>
+        <div class="result-box">
+          <div class="result-message">
+            まだ発走前、または結果データがありません。
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  else if (state === "error") {
+    html = `
+      <div class="card">
+        <div class="card-title">🏁 レース結果</div>
+        <div class="result-box">
+          <div style="font-weight:900;color:#991b1b;">
+            結果確認中
+          </div>
+          <div class="result-message">
+            取得した結果データに不整合があるため、
+            確定結果として表示していません。
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  else {
+    const ticket =
+      finish
+        ? finish.slice(0, 3).join("-")
+        : "—";
+    const settled = isSettled(race);
+    const settlement = safeObject(race?.settlement);
+    let hitHtml = "";
+    if (settled) {
+      hitHtml = settlement.hit === true
+        ? `
+          <div class="hit" style="margin-top:8px;">
+            🎯 的中
+            ${settlement.hit_ticket
+              ? " " + escapeHtml(settlement.hit_ticket)
+              : ""}
+          </div>
+        `
+        : `
+          <div class="miss" style="margin-top:8px;">
+            的中なし
+          </div>
+        `;
+    }
+    html = `
+      <div class="card">
+        <div class="card-title">🏁 レース結果</div>
+        <div class="result-box">
+          <div class="result-ticket">
+            ${escapeHtml(ticket)}
+          </div>
+          ${
+            payout.available
+              ? `
+                <div class="payout">
+                  払戻：${yen(payout.payout)}
+                </div>
+              `
+              : `
+                <div class="result-message">
+                  ${state === "payout"
+                    ? "着順確定・払戻情報待ち"
+                    : "払戻情報なし"}
+                </div>
+              `
+          }
+          ${hitHtml}
+        </div>
+      </div>
+    `;
+  }
+  container.innerHTML = html;
+}
+/* =========================================================
+   Development
+========================================================= */
+function renderDevelopment(race) {
+  const container = document.getElementById("developmentCard");
+  const development =
+    race?.development ||
+    race?.development_text ||
+    "";
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">📈 展開</div>
+      ${
+        development
+          ? `<div class="info-text">${escapeHtml(development)}</div>`
+          : `<div class="empty-box">展開情報は取得されていません。</div>`
+      }
+    </div>
+  `;
+}
+/* =========================================================
+   Line
+========================================================= */
+function renderLine(race) {
+  const container = document.getElementById("lineCard");
+  const line = safeArray(race?.line);
+  const groups = safeArray(race?.line_groups);
+  let items = [];
+  if (line.length) {
+    items = line.map(item => {
+      if (Array.isArray(item)) {
+        return item.join("-");
+      }
+      if (typeof item === "object") {
+        return (
+          item.cars ||
+          item.members ||
+          item.line ||
+          item.name ||
+          ""
+        );
+      }
+      return String(item);
+    }).filter(Boolean);
+  }
+  if (!items.length && groups.length) {
+    items = groups.map(group => {
+      if (Array.isArray(group)) {
+        return group.join("-");
+      }
+      if (typeof group === "object") {
+        return (
+          group.cars ||
+          group.members ||
+          group.line ||
+          group.name ||
+          ""
+        );
+      }
+      return String(group);
+    }).filter(Boolean);
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">🚴 ライン</div>
+      ${
+        items.length
+          ? `
+            <div class="line-list">
+              ${items.map(item => `
+                <div class="line-chip">
+                  ${escapeHtml(item)}
+                </div>
+              `).join("")}
+            </div>
+          `
+          : `
+            <div class="empty-box">
+              ライン情報は取得されていません。
+            </div>
+          `
+      }
+    </div>
+  `;
+}
+/* =========================================================
+   Ranking
+========================================================= */
+function renderRanking(race) {
+  const container = document.getElementById("rankingCard");
+  const ranking = getRanking(race);
+  if (!ranking.length) {
+    container.innerHTML = `
+      <div class="card">
+        <div class="card-title">🏆 AIランキング</div>
+        <div class="empty-box">ランキング情報がありません。</div>
+      </div>
+    `;
+    return;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">🏆 AIランキング</div>
+      <div class="ranking-list">
+        ${ranking.map((item, index) => {
+          const car =
+            item.car_no ??
+            item.car ??
+            item.number ??
+            "";
+          const name =
+            item.name ||
+            "選手";
+          const score =
+            item.score ??
+            item.ai_score ??
+            item.prediction_score ??
+            0;
+          const mark =
+            item.mark ||
+            item.prediction_mark ||
+            "";
+          return `
+            <div class="ranking-row">
+              <div class="ranking-position">
+                ${index + 1}
+              </div>
+              <div>
+                <span class="car-number car-${escapeHtml(car)}">
+                  ${escapeHtml(car)}
+                </span>
+              </div>
+              <div class="ranking-name">
+                ${escapeHtml(name)}
+                ${
+                  mark
+                    ? `<div class="ranking-detail">${escapeHtml(mark)}</div>`
+                    : ""
+                }
+              </div>
+              <div class="ranking-score">
+                ${num(score, 0)}
+              </div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Riders
+========================================================= */
+function renderRiders(race) {
+  const container = document.getElementById("ridersCard");
+  const riders = safeArray(race?.riders);
+  if (!riders.length) {
+    container.innerHTML = `
+      <div class="card">
+        <div class="card-title">🚴 選手</div>
+        <div class="empty-box">選手情報がありません。</div>
+      </div>
+    `;
+    return;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">🚴 選手情報</div>
+      <div class="rider-table-wrap">
+        <table class="rider-table">
+          <thead>
+            <tr>
+              <th>車</th>
+              <th>選手</th>
+              <th>期</th>
+              <th>級班</th>
+              <th>脚質</th>
+              <th>競走得点</th>
+              <th>1着</th>
+              <th>2着</th>
+              <th>3着</th>
+              <th>AI点</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${riders.map(rider => {
+              const car = rider.car_no ?? "";
+              const name = rider.name ?? "";
+              return `
+                <tr>
+                  <td>
+                    <span class="car-number car-${escapeHtml(car)}">
+                      ${escapeHtml(car)}
+                    </span>
+                  </td>
+                  <td class="rider-name">
+                    ${escapeHtml(name)}
+                  </td>
+                  <td>
+                    ${escapeHtml(rider.period ?? "")}
+                  </td>
+                  <td>
+                    ${escapeHtml(rider.grade ?? "")}
+                  </td>
+                  <td>
+                    ${escapeHtml(rider.style ?? "")}
+                  </td>
+                  <td>
+                    ${num(rider.score, 0)}
+                  </td>
+                  <td>
+                    ${num(rider.finish_1, 0)}
+                  </td>
+                  <td>
+                    ${num(rider.finish_2, 0)}
+                  </td>
+                  <td>
+                    ${num(rider.finish_3, 0)}
+                  </td>
+                  <td>
+                    <strong>${num(rider.ai_score, 0)}</strong>
+                  </td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Profit helpers
+========================================================= */
+function getSummary() {
+  return safeObject(DATA?.summary);
+}
+function renderMoneyClass(value) {
+  const n = num(value, 0);
+  if (n > 0) {
+    return "profit-plus";
+  }
+  if (n < 0) {
+    return "profit-minus";
+  }
+  return "profit-neutral";
+}
+function renderProfitCard(label, value) {
+  return `
+    <div class="profit-box">
+      <div class="profit-label">${escapeHtml(label)}</div>
+      <div class="profit-value ${renderMoneyClass(value)}">
+        ${yen(value)}
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Profit page
+========================================================= */
+function renderProfit() {
+  const container = document.getElementById("profitContent");
+  const summary = getSummary();
+  const races =
+    num(summary.races, RACES.length);
+  const settled =
+    num(summary.settled_races, 0);
+  const investment =
+    num(summary.investment, 0);
+  const payout =
+    num(summary.payout, 0);
+  const profit =
+    num(summary.profit, payout - investment);
+  const hits =
+    num(summary.hits, 0);
+  const hitRate =
+    num(summary.hit_rate, 0);
+  const roi =
+    num(summary.roi, investment > 0
+      ? payout / investment * 100
+      : 0);
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">
+        📊 本日の収支
+      </div>
+      <div class="profit-summary">
+        <div class="profit-box">
+          <div class="profit-label">対象レース</div>
+          <div class="profit-value">
+            ${races}R
+          </div>
+        </div>
+        <div class="profit-box">
+          <div class="profit-label">収支確定</div>
+          <div class="profit-value">
+            ${settled}R
+          </div>
+        </div>
+        ${renderProfitCard("投資", investment)}
+        ${renderProfitCard("払戻", payout)}
+        ${renderProfitCard("収支", profit)}
+        <div class="profit-box">
+          <div class="profit-label">的中</div>
+          <div class="profit-value">
+            ${hits}R
+          </div>
+        </div>
+        <div class="profit-box">
+          <div class="profit-label">的中率</div>
+          <div class="profit-value">
+            ${hitRate.toFixed(1)}%
+          </div>
+        </div>
+        <div class="profit-box">
+          <div class="profit-label">回収率</div>
+          <div class="profit-value ${renderMoneyClass(profit)}">
+            ${roi.toFixed(1)}%
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px;font-size:11px;color:#667085;">
+        AI買い目を1点100円で購入した場合の集計。
+        未確定・払戻待ち・不正データは収支に含めません。
+      </div>
+    </div>
+    <div id="venueProfitCard"></div>
+    <div id="rankProfitCard"></div>
+    <div id="raceProfitCard"></div>
+    <div id="strategyCard"></div>
+    <div id="recommendationCard"></div>
+  `;
+  renderVenueProfit();
+  renderRankProfit();
+  renderRaceProfit();
+  renderStrategies();
+  renderRecommendations();
+}
+/* =========================================================
+   Venue profit
+========================================================= */
+function renderVenueProfit() {
+  const container = document.getElementById("venueProfitCard");
+  const byVenue = safeObject(DATA?.summary?.by_venue);
+  const entries = Object.entries(byVenue);
+  if (!entries.length) {
+    container.innerHTML = "";
+    return;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">🏟 会場別収支</div>
+      <div class="profit-table-wrap">
+        <table class="profit-table">
+          <thead>
+            <tr>
+              <th>会場</th>
+              <th>R</th>
+              <th>投資</th>
+              <th>払戻</th>
+              <th>収支</th>
+              <th>的中</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${entries.map(([name, value]) => {
+              const v = safeObject(value);
+              return `
+                <tr>
+                  <td>${escapeHtml(name)}</td>
+                  <td>${num(v.races, 0)}</td>
+                  <td>${yen(v.investment)}</td>
+                  <td>${yen(v.payout)}</td>
+                  <td class="${renderMoneyClass(v.profit)}">
+                    ${yen(v.profit)}
+                  </td>
+                  <td>
+                    ${num(v.hits, 0)}
+                  </td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Rank profit
+========================================================= */
+function renderRankProfit() {
+  const container = document.getElementById("rankProfitCard");
+  const byRank = safeObject(DATA?.summary?.by_rank);
+  const order = ["S", "A", "B", "C"];
+  const exists = order.some(rank => byRank[rank]);
+  if (!exists) {
+    container.innerHTML = "";
+    return;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">🏆 S / A / B / C別</div>
+      <div class="profit-table-wrap">
+        <table class="profit-table">
+          <thead>
+            <tr>
+              <th>ランク</th>
+              <th>R</th>
+              <th>投資</th>
+              <th>払戻</th>
+              <th>収支</th>
+              <th>的中率</th>
+              <th>回収率</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${order.map(rank => {
+              const v = safeObject(byRank[rank]);
+              return `
+                <tr>
+                  <td>
+                    <strong>${rank}</strong>
+                  </td>
+                  <td>
+                    ${num(v.races, 0)}
+                  </td>
+                  <td>
+                    ${yen(v.investment)}
+                  </td>
+                  <td>
+                    ${yen(v.payout)}
+                  </td>
+                  <td class="${renderMoneyClass(v.profit)}">
+                    ${yen(v.profit)}
+                  </td>
+                  <td>
+                    ${num(v.hit_rate, 0).toFixed(1)}%
+                  </td>
+                  <td>
+                    ${num(v.roi, 0).toFixed(1)}%
+                  </td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Race profit
+========================================================= */
+function renderRaceProfit() {
+  const container = document.getElementById("raceProfitCard");
+  const rows = [];
+  RACES.forEach(race => {
+    if (!isSettled(race)) {
+      return;
+    }
+    const settlement = safeObject(race.settlement);
+    const venue =
+      race?.venue_name ||
+      race?.venue ||
+      "";
+    const raceNo =
+      race?.race_no ??
+      race?.race ??
+      "";
+    rows.push({
+      venue,
+      raceNo,
+      hit: settlement.hit === true,
+      ticket: settlement.hit_ticket || "",
+      investment: num(
+        settlement.investment,
+        getBets(race).reduce(
+          (sum, bet) => sum + getBetYen(bet),
+          0
+        )
+      ),
+      payout: num(settlement.payout, 0),
+      profit: num(settlement.profit, 0)
+    });
+  });
+  if (!rows.length) {
+    container.innerHTML = `
+      <div class="card">
+        <div class="card-title">🧾 レース別収支</div>
+        <div class="empty-box">
+          まだ収支確定したレースがありません。
+        </div>
+      </div>
+    `;
+    return;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">🧾 レース別収支</div>
+      <div class="profit-table-wrap">
+        <table class="profit-table">
+          <thead>
+            <tr>
+              <th>会場</th>
+              <th>R</th>
+              <th>結果</th>
+              <th>投資</th>
+              <th>払戻</th>
+              <th>収支</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map(row => `
+              <tr>
+                <td>
+                  ${escapeHtml(row.venue)}
+                </td>
+                <td>
+                  ${escapeHtml(row.raceNo)}R
+                </td>
+                <td>
+                  ${
+                    row.hit
+                      ? `<span class="hit">的中 ${escapeHtml(row.ticket)}</span>`
+                      : `<span class="miss">ハズレ</span>`
+                  }
+                </td>
+                <td>
+                  ${yen(row.investment)}
+                </td>
+                <td>
+                  ${yen(row.payout)}
+                </td>
+                <td class="${renderMoneyClass(row.profit)}">
+                  ${yen(row.profit)}
+                </td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Backtests
+========================================================= */
+function renderStrategies() {
+  const container = document.getElementById("strategyCard");
+  const backtests = safeObject(DATA?.backtests);
+  const entries = Object.entries(backtests);
+  if (!entries.length) {
+    container.innerHTML = "";
+    return;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">🧪 バックテスト</div>
+      <div class="profit-table-wrap">
+        <table class="profit-table">
+          <thead>
+            <tr>
+              <th>戦略</th>
+              <th>R</th>
+              <th>投資</th>
+              <th>払戻</th>
+              <th>収支</th>
+              <th>回収率</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${entries.map(([name, value]) => {
+              const v = safeObject(value);
+              return `
+                <tr>
+                  <td>
+                    ${escapeHtml(name)}
+                  </td>
+                  <td>
+                    ${num(v.races, 0)}
+                  </td>
+                  <td>
+                    ${yen(v.investment)}
+                  </td>
+                  <td>
+                    ${yen(v.payout)}
+                  </td>
+                  <td class="${renderMoneyClass(v.profit)}">
+                    ${yen(v.profit)}
+                  </td>
+                  <td>
+                    ${num(v.roi, 0).toFixed(1)}%
+                  </td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Today's recommendations
+========================================================= */
+function renderRecommendations() {
+  const container =
+    document.getElementById("recommendationCard");
+  const recommendations =
+    safeObject(DATA?.today_recommendations);
+  const entries =
+    Object.entries(recommendations);
+  if (!entries.length) {
+    container.innerHTML = "";
+    return;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-title">🔥 今日のおすすめ</div>
+      <div class="ranking-list">
+        ${entries.map(([name, raw]) => {
+          const value =
+            raw && typeof raw === "object"
+              ? raw
+              : {};
+          const description =
+            value.description ||
+            value.reason ||
+            value.ticket ||
+            value.hit_ticket ||
+            "";
+          return `
+            <div class="ranking-row">
+              <div class="ranking-position">
+                🔥
+              </div>
+              <div class="ranking-name">
+                ${escapeHtml(name)}
+                ${
+                  description
+                    ? `<div class="ranking-detail">
+                        ${escapeHtml(description)}
+                       </div>`
+                    : ""
+                }
+              </div>
+              <div></div>
+              <div></div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   Load
+========================================================= */
+async function loadData() {
+  const updateInfo =
+    document.getElementById("updateInfo");
+  try {
+    updateInfo.textContent =
+      "データを読み込んでいます...";
+    const response = await fetch(
+      DATA_URL + "?t=" + Date.now(),
+      {
+        cache: "no-store"
+      }
+    );
+    if (!response.ok) {
+      throw new Error(
+        "today.json の取得に失敗しました。HTTP " +
+        response.status
+      );
+    }
+    const data = await response.json();
+    const races = getRaces(data);
+    if (!races.length) {
+      throw new Error(
+        "today.json にレースデータがありません。"
+      );
+    }
+    DATA = data;
+    RACES = races;
+    if (currentRaceIndex >= RACES.length) {
+      currentRaceIndex = 0;
+    }
+    const venues = getVenues();
+    if (
+      currentVenueIndex >= venues.length
+    ) {
+      currentVenueIndex = 0;
+    }
+    const currentVenue =
+      venues[currentVenueIndex];
+    if (
+      !currentVenue ||
+      !currentVenue.raceIndexes.includes(currentRaceIndex)
+    ) {
+      currentRaceIndex =
+        currentVenue?.raceIndexes?.[0] ??
+        0;
+    }
+    const targetDate =
+      data.target_date ||
+      data.date ||
+      "";
+    const updatedAt =
+      data.updated_at ||
+      "";
+    updateInfo.textContent =
+      `${targetDate ? targetDate + " / " : ""}` +
+      `${RACES.length}レース` +
+      `${updatedAt ? " / 更新 " + updatedAt : ""}`;
+    renderVenues();
+    renderRaceButtons();
+    renderRace();
+    renderProfit();
+  } catch (error) {
+    console.error(error);
+    updateInfo.textContent =
+      "データ読み込みエラー";
+    document.getElementById("venueList").innerHTML = "";
+    document.getElementById("raceList").innerHTML = "";
+    document.getElementById("raceContent").innerHTML = `
+      <div class="error-box">
+        <strong>データを読み込めませんでした。</strong>
+        <br><br>
+        ${escapeHtml(error.message)}
+        <br><br>
+        <small>
+          GitHub Pagesのデータ更新直後は、
+          少し時間を置いて再読み込みしてください。
+        </small>
+      </div>
+    `;
+    document.getElementById("profitContent").innerHTML = `
+      <div class="error-box">
+        収支データを読み込めませんでした。
+      </div>
+    `;
+  }
+}
+/* =========================================================
+   Start
+========================================================= */
+function init() {
+  bindNavigation();
+  loadData();
+  /*
+   * 5分ごとに最新today.jsonを取得。
+   * 選択中の会場・レースは可能な限り維持する。
+   */
+  setInterval(() => {
+    loadData();
+  }, 5 * 60 * 1000);
+}
+if (
+  document.readyState === "loading"
+) {
+  document.addEventListener(
+    "DOMContentLoaded",
+    init
+  );
+} else {
+  init();
+}
 </script>
 </body>
 </html>
