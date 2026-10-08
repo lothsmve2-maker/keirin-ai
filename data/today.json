@@ -1,6 +1,6 @@
 {
-  "version": "6.3",
-  "updated_at": "2026-10-08T00:27:57.348442",
+  "version": "6.4",
+  "updated_at": "2026-10-08T00:56:40.207135",
   "target_date": "2026-10-08",
   "data_complete": true,
   "venue_count": 7,
@@ -14,25 +14,25 @@
   "ai_race_count": 60,
   "ai_rider_count": 414,
   "frozen_prediction_count": 60,
-  "result_count": 3,
-  "payout_count": 3,
+  "result_count": 20,
+  "payout_count": 4,
   "odds_count": 60,
   "summary": {
     "races": 60,
-    "settled_races": 3,
-    "pending_races": 57,
-    "investment": 2400,
+    "settled_races": 4,
+    "pending_races": 56,
+    "investment": 3200,
     "payout": 0,
-    "profit": -2400,
+    "profit": -3200,
     "hits": 0,
     "hit_rate": 0.0,
     "roi": 0.0,
     "by_rank": {
       "S": {
-        "races": 1,
-        "investment": 800,
+        "races": 2,
+        "investment": 1600,
         "payout": 0,
-        "profit": -800,
+        "profit": -1600,
         "hits": 0,
         "hit_rate": 0.0,
         "roi": 0.0
@@ -67,10 +67,10 @@
     },
     "by_venue": {
       "高知": {
-        "races": 3,
-        "investment": 2400,
+        "races": 4,
+        "investment": 3200,
         "payout": 0,
-        "profit": -2400,
+        "profit": -3200,
         "hits": 0,
         "hit_rate": 0.0,
         "roi": 0.0
@@ -418,73 +418,49 @@
           "ticket": "1-2-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 10.4,
-          "market_rank": 3,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 12.4,
-          "market_rank": 4,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 54.6,
-          "market_rank": 11,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 34.9,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -876,73 +852,49 @@
           "ticket": "1-2-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 23.2,
-          "market_rank": 5,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 31.0,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 93.0,
-          "market_rank": 16,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-4",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 31.0,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -1150,7 +1102,7 @@
           "name": "山口 貴弘",
           "age": 48,
           "period": 84,
-          "prefecture": "栃木",
+          "prefecture": "山口",
           "grade": "",
           "style": "追",
           "score": 83.541,
@@ -1318,73 +1270,49 @@
           "ticket": "2-3-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-3",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 24.0,
-          "market_rank": 7,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-3",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-4",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -1636,7 +1564,7 @@
           "name": "石川 恭規",
           "age": 48,
           "period": 93,
-          "prefecture": "福島",
+          "prefecture": "石川",
           "grade": "",
           "style": "追",
           "score": 81.0,
@@ -1788,73 +1716,49 @@
           "ticket": "1-2-6",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 96.5,
-          "market_rank": 4,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-6-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 144.7,
-          "market_rank": 17,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-6",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "6-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-6-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 289.5,
-          "market_rank": 25,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-6",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-6-3",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 144.7,
-          "market_rank": 18,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -2274,73 +2178,49 @@
           "ticket": "1-2-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 144.3,
-          "market_rank": 13,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 144.3,
-          "market_rank": 12,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 72.1,
-          "market_rank": 5,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-6",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 144.3,
-          "market_rank": 15,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -2760,73 +2640,49 @@
           "ticket": "1-5-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 96.3,
-          "market_rank": 17,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-5",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 64.2,
-          "market_rank": 11,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-5",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-3-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-5",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 48.1,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-4",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 96.3,
-          "market_rank": 14,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -3246,73 +3102,49 @@
           "ticket": "3-1-6",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-6-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-6",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 0.0,
-          "market_rank": 2,
-          "value_flag": "⚠️ 人気"
+          "bet_yen": 100
         },
         {
           "ticket": "6-3-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-6-3",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 43.7,
-          "market_rank": 15,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-6",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-6-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -3732,73 +3564,49 @@
           "ticket": "1-2-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 6.7,
-          "market_rank": 3,
-          "value_flag": "⚠️ 人気"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 6.0,
-          "market_rank": 2,
-          "value_flag": "⚠️ 人気"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 75.1,
-          "market_rank": 12,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 23.0,
-          "market_rank": 5,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -4218,73 +4026,49 @@
           "ticket": "1-2-5",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 26.9,
-          "market_rank": 5,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 35.4,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-5",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 14.9,
-          "market_rank": 2,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-5",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-6",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 134.5,
-          "market_rank": 19,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -4741,73 +4525,49 @@
           "ticket": "1-3-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 56.2,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-3",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 68.6,
-          "market_rank": 9,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-3",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-3",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 28.2,
-          "market_rank": 2,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 81.8,
-          "market_rank": 11,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -5270,73 +5030,49 @@
           "ticket": "3-4-2",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-4",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-2",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-4",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-2-3",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-4",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": 233.2,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -5471,13 +5207,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          2,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=25&kaisaiBi=20261008&raceNo=2"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=25&joCode=25&kaisaiBi=20261008&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -5793,73 +5533,49 @@
           "ticket": "5-3-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-3",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-5-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-3",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 129.2,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-5",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-7-3",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-5-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-4",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -6310,73 +6026,49 @@
           "ticket": "7-2-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-7-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-7",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-4-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-7-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -6827,73 +6519,49 @@
           "ticket": "4-7-5",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-7",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-4-5",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-7",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-5-4",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-7",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-5",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": 88.9,
-          "market_rank": 3,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -7334,73 +7002,49 @@
           "ticket": "1-2-7",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 61.6,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 30.6,
-          "market_rank": 1,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-7",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 69.5,
-          "market_rank": 9,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-7",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 61.6,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -7690,7 +7334,7 @@
           "name": "山口 貴弘",
           "age": 42,
           "period": 92,
-          "prefecture": "佐賀",
+          "prefecture": "山口",
           "grade": "",
           "style": "追",
           "score": 99.19,
@@ -7851,73 +7495,49 @@
           "ticket": "2-5-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-5",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-5",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 189.8,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-5",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-2-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-7",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -8374,73 +7994,49 @@
           "ticket": "4-7-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-7",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-4-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-7",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 84.4,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-4",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-7",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -8897,73 +8493,49 @@
           "ticket": "2-4-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-4",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-2-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-4",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 29.2,
-          "market_rank": 2,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-4",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -9420,73 +8992,49 @@
           "ticket": "3-4-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-4",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-4",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 44.0,
-          "market_rank": 1,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-3",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-7-4",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -9937,73 +9485,49 @@
           "ticket": "1-6-7",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 9.4,
-          "market_rank": 3,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-6",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 3.1,
-          "market_rank": 1,
-          "value_flag": "⚠️ 人気"
+          "bet_yen": 100
         },
         {
           "ticket": "6-1-7",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-6",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "6-7-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-6",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 28.8,
-          "market_rank": 9,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-7",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 19.0,
-          "market_rank": 5,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -10138,13 +9662,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          1,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=25&kaisaiBi=20261008&raceNo=11"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=25&joCode=25&kaisaiBi=20261008&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -10454,73 +9982,49 @@
           "ticket": "5-7-2",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-7",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-5-2",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-7",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-5",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-7",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-2",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-3",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -10655,13 +10159,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          2,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=25&kaisaiBi=20261008&raceNo=12"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=25&joCode=25&kaisaiBi=20261008&raceNo=12"
       },
       "odds": {
         "available": true,
@@ -10983,73 +10491,49 @@
           "ticket": "1-4-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 37.2,
-          "market_rank": 4,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-4",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 77.1,
-          "market_rank": 11,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-4",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-4",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 62.1,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-6",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 81.8,
-          "market_rank": 13,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -11512,73 +10996,49 @@
           "ticket": "4-2-5",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-5",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-4",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-7-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-4-5",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-1",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -12055,73 +11515,49 @@
           "ticket": "2-3-7",
           "score": 106,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-3",
           "score": 103,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-7",
           "score": 100,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-3",
           "score": 88,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-7-2",
           "score": 86,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 82,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-7",
           "score": 78,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": 206.9,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-5",
           "score": 74,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -12584,73 +12020,49 @@
           "ticket": "2-5-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-5",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-5",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 61.0,
-          "market_rank": 2,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-5",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-2-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-7",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -12785,13 +12197,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          7,
+          2,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=4"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -13127,73 +12543,49 @@
           "ticket": "7-3-5",
           "score": 106,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-5-3",
           "score": 103,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-7-5",
           "score": 100,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-7-3",
           "score": 88,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-5-7",
           "score": 86,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-3",
           "score": 80,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-5",
           "score": 76,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-5-4",
           "score": 74,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -13650,73 +13042,49 @@
           "ticket": "4-7-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-7",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-4-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-7",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-4",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-7",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-1",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -13851,13 +13219,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          7,
+          2,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=6"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -14195,82 +13567,55 @@
           "ticket": "1-2-7",
           "score": 106,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 54.8,
-          "market_rank": 5,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-2",
           "score": 103,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 57.0,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-7",
           "score": 100,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-1",
           "score": 94,
           "type": "🚴 ライン本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-1",
           "score": 91,
           "type": "🔄 番手差し",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-2",
           "score": 88,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 82,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 15.0,
-          "market_rank": 1,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-7",
           "score": 78,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-3",
           "score": 74,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 95.1,
-          "market_rank": 12,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -14756,73 +14101,49 @@
           "ticket": "7-5-1",
           "score": 106,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-5",
           "score": 103,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-7-1",
           "score": 100,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-5",
           "score": 88,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 97.6,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-7",
           "score": 86,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-5",
           "score": 82,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-7-1",
           "score": 78,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-6",
           "score": 74,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -14957,13 +14278,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          7,
+          2,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=8"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=8"
       },
       "odds": {
         "available": true,
@@ -15301,73 +14626,49 @@
           "ticket": "3-5-2",
           "score": 106,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-5",
           "score": 103,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-3-2",
           "score": 100,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-5",
           "score": 88,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-3",
           "score": 86,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-5",
           "score": 82,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 78,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": 142.8,
-          "market_rank": 12,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-4",
           "score": 74,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -15830,73 +15131,49 @@
           "ticket": "1-4-5",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 13.2,
-          "market_rank": 2,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-4",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 40.4,
-          "market_rank": 3,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-5",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-4",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-4",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 65.7,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-5",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 112.7,
-          "market_rank": 9,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -16031,13 +15308,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          7,
+          2,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=10"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=10"
       },
       "odds": {
         "available": true,
@@ -16359,73 +15640,49 @@
           "ticket": "5-1-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 15.6,
-          "market_rank": 2,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-5",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 86.5,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-6",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -16560,13 +15817,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          1,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261008&raceNo=11"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=38&joCode=38&kaisaiBi=20261008&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -16789,73 +16050,49 @@
           "ticket": "1-2-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 9.3,
-          "market_rank": 1,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 20.6,
-          "market_rank": 3,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 74.4,
-          "market_rank": 9,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-4",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 53.1,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -17217,73 +16454,49 @@
           "ticket": "1-2-5",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 46.5,
-          "market_rank": 12,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 93.0,
-          "market_rank": 17,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-5",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 0.0,
-          "market_rank": 3,
-          "value_flag": "⚠️ 人気"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-5",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-3",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 31.0,
-          "market_rank": 9,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -17687,73 +16900,49 @@
           "ticket": "2-1-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 103.5,
-          "market_rank": 19,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 103.5,
-          "market_rank": 18,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-6",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -17888,13 +17077,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          5,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=44&kaisaiBi=20261008&raceNo=3"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=44&joCode=44&kaisaiBi=20261008&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -18173,73 +17366,49 @@
           "ticket": "2-1-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 8.1,
-          "market_rank": 11,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "4-2-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 0.0,
-          "market_rank": 4,
-          "value_flag": "⚠️ 人気"
+          "bet_yen": 100
         },
         {
           "ticket": "2-3-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-7",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -18659,73 +17828,49 @@
           "ticket": "1-2-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 8.6,
-          "market_rank": 8,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 0.0,
-          "market_rank": 4,
-          "value_flag": "⚠️ 人気"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 0.0,
-          "market_rank": 1,
-          "value_flag": "⚠️ 人気"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 103.5,
-          "market_rank": 23,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -19145,73 +18290,49 @@
           "ticket": "2-3-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-3",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-2-3",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": 10.2,
-          "market_rank": 14,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -19346,13 +18467,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          5,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=44&kaisaiBi=20261008&raceNo=6"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=44&joCode=44&kaisaiBi=20261008&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -19631,73 +18756,49 @@
           "ticket": "2-1-5",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-5",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 34.7,
-          "market_rank": 15,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 104.2,
-          "market_rank": 22,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-2-5",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-3",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -20117,73 +19218,49 @@
           "ticket": "1-6-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 51.8,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-6",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 51.8,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "6-1-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-6",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "6-4-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-6",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 155.5,
-          "market_rank": 22,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 38.8,
-          "market_rank": 4,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -20603,73 +19680,49 @@
           "ticket": "2-3-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-3",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 111.4,
-          "market_rank": 2,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-3",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-2-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -20804,13 +19857,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          5,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=44&kaisaiBi=20261008&raceNo=9"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=44&joCode=44&kaisaiBi=20261008&raceNo=9"
       },
       "odds": {
         "available": true,
@@ -21132,73 +20189,49 @@
           "ticket": "1-4-7",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 12.4,
-          "market_rank": 1,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-4",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 16.3,
-          "market_rank": 2,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-7",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-4",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-7-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-4",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 209.8,
-          "market_rank": 20,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-7",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-3",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 45.6,
-          "market_rank": 9,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -21532,7 +20565,7 @@
           "name": "山口幸太郎",
           "age": 47,
           "period": 99,
-          "prefecture": "山口",
+          "prefecture": "長崎",
           "grade": "",
           "style": "追",
           "score": 80.869,
@@ -21661,73 +20694,49 @@
           "ticket": "3-1-6",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-6-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-6",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 29.5,
-          "market_rank": 3,
-          "value_flag": "🎯 中穴"
+          "bet_yen": 100
         },
         {
           "ticket": "6-3-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-6-3",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 78.6,
-          "market_rank": 11,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-5-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-3-6",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-6-4",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -21862,13 +20871,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          6,
+          1,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261008&raceNo=2"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=48&joCode=48&kaisaiBi=20261008&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -22190,73 +21203,49 @@
           "ticket": "2-1-5",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-5",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 159.7,
-          "market_rank": 14,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 61.4,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-5",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-6",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -22719,73 +21708,49 @@
           "ticket": "1-3-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 90.5,
-          "market_rank": 9,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-3",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 12.9,
-          "market_rank": 2,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-3",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-3",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 203.8,
-          "market_rank": 17,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-7",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 81.5,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -23248,73 +22213,49 @@
           "ticket": "1-3-2",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 33.7,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-3",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 39.3,
-          "market_rank": 8,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-3",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-3",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 30.7,
-          "market_rank": 5,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-2",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 141.6,
-          "market_rank": 22,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -23560,7 +22501,7 @@
           "name": "山口 泰生",
           "age": 44,
           "period": 89,
-          "prefecture": "岐阜",
+          "prefecture": "山口",
           "grade": "",
           "style": "追",
           "score": 94.111,
@@ -23743,73 +22684,49 @@
           "ticket": "5-2-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-5",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-6-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "6-5-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-3",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -24256,73 +23173,49 @@
           "ticket": "7-1-2",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-2",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 54.1,
-          "market_rank": 4,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-7",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 99.2,
-          "market_rank": 11,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "7-4-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-7-2",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -24457,13 +23350,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          4,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261008&raceNo=7"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=48&joCode=48&kaisaiBi=20261008&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -24612,7 +23509,7 @@
           "name": "石川 裕二",
           "age": 42,
           "period": 99,
-          "prefecture": "茨城",
+          "prefecture": "石川",
           "grade": "",
           "style": "追",
           "score": 96.846,
@@ -24785,73 +23682,49 @@
           "ticket": "4-2-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 48.0,
-          "market_rank": 2,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-4",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-7",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -25314,73 +24187,49 @@
           "ticket": "1-5-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": 69.1,
-          "market_rank": 9,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-5",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": 230.5,
-          "market_rank": 22,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "5-1-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-1-5",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-1",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-5",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": 62.8,
-          "market_rank": 7,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": 172.8,
-          "market_rank": 14,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -25843,73 +24692,49 @@
           "ticket": "5-2-7",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-7-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-7",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-5-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-5",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-7",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-7-3",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -26372,73 +25197,49 @@
           "ticket": "7-6-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-6",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "6-7-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-6",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 107.0,
-          "market_rank": 5,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "6-1-7",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-5-6",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-7-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -26573,13 +25374,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          1,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261008&raceNo=11"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=48&joCode=48&kaisaiBi=20261008&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -26901,73 +25706,49 @@
           "ticket": "4-1-5",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-4-5",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 13.4,
-          "market_rank": 1,
-          "value_flag": "⭐ 適正"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-5-4",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 49.5,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-5",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-5-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -27102,13 +25883,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          2,
+          5,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261008&raceNo=12"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=48&joCode=48&kaisaiBi=20261008&raceNo=12"
       },
       "odds": {
         "available": true,
@@ -27418,73 +26203,49 @@
           "ticket": "3-7-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-7",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-7",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 91.6,
-          "market_rank": 2,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-3",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-7",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -27955,73 +26716,49 @@
           "ticket": "7-2-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-4-2",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-7-2",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-4-7",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-2",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-7-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-4-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -28486,73 +27223,49 @@
           "ticket": "3-7-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-7",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-7",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 207.8,
-          "market_rank": 11,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-3",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-7",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-5",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -29017,73 +27730,49 @@
           "ticket": "2-7-1",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-7",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-1",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-2-7",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": 253.2,
-          "market_rank": 4,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "7-1-2",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-7",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-1",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-1-6",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -29217,14 +27906,22 @@
         ]
       },
       "result": {
-        "finished": false,
-        "result_finished": false,
-        "finish": [],
-        "payout_available": false,
-        "payout_3tan": null,
-        "payout_3tan_yen": 0,
-        "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261008&raceNo=4"
+        "finished": true,
+        "result_finished": true,
+        "finish": [
+          2,
+          4,
+          3,
+          5,
+          1,
+          6,
+          7
+        ],
+        "payout_available": true,
+        "payout_3tan": "2-4-3",
+        "payout_3tan_yen": 24250,
+        "payout_source": "3連単 2→4→3 24,250円 62人気",
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=74&joCode=74&kaisaiBi=20261008&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -29263,14 +27960,14 @@
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=74&joCode=74&kaisaiBi=20261008&raceNo=4"
       },
       "settlement": {
-        "status": "pending",
+        "status": "settled",
         "bet_count": 8,
-        "investment": 0,
+        "investment": 800,
         "hit": false,
         "hit_ticket": "",
         "payout": 0,
-        "profit": 0,
-        "roi": 0
+        "profit": -800,
+        "roi": 0.0
       }
     },
     {
@@ -29540,73 +28237,49 @@
           "ticket": "7-1-3",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-1",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-7-3",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": 37.8,
-          "market_rank": 1,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-7-1",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-7",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": 111.1,
-          "market_rank": 6,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "7-2-1",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-7-3",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "7-3-4",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -30063,73 +28736,49 @@
           "ticket": "3-5-4",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-5",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-3-4",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "4-3-5",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-4-3",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-1-5",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "1-3-4",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": 165.2,
-          "market_rank": 4,
-          "value_flag": "💎 穴・期待値候補"
+          "bet_yen": 100
         },
         {
           "ticket": "3-4-2",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
@@ -30264,13 +28913,17 @@
       },
       "result": {
         "finished": false,
-        "result_finished": false,
-        "finish": [],
+        "result_finished": true,
+        "finish": [
+          4,
+          6,
+          2
+        ],
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261008&raceNo=6"
+        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=74&joCode=74&kaisaiBi=20261008&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -30592,73 +29245,49 @@
           "ticket": "5-3-2",
           "score": 100,
           "type": "🔥 AI本線",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-3",
           "score": 97,
           "type": "🔥 本線入替",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-5-2",
           "score": 94,
           "type": "⭐ 対抗頭",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "2-5-3",
           "score": 82,
           "type": "💥 逆転",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "3-2-5",
           "score": 80,
           "type": "💥 対抗展開",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-6-3",
           "score": 76,
           "type": "🎯 中穴",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "6-5-2",
           "score": 72,
           "type": "💥 高配当",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         },
         {
           "ticket": "5-2-7",
           "score": 68,
           "type": "💣 大穴警戒",
-          "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "value_flag": "オッズ未取得"
+          "bet_yen": 100
         }
       ],
       "frozen_prediction": {
