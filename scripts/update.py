@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.7'
+VERSION='6.8'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 TODAY=datetime.now().strftime('%Y%m%d'); TODAY_DISPLAY=datetime.now().strftime('%Y-%m-%d')
 TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
@@ -210,19 +210,35 @@ def parse_result_page(html):
     return empty
 
 def fetch_result(race):
-    urls=[race.get('result_url',''),result_url(race['venue_code'],race['race_no']),f"{BASE}/keirin/RaceResultInfo.do?joCode={race['venue_code']}&kaisaiBi={TODAY}&raceNo={race['race_no']}" ]
-    seen=set();best=None;had_page=False
-    for u in urls:
-        if not u or u in seen:continue
-        seen.add(u);html=get_html(u)
-        if html:had_page=True
+    # v6.8: use one canonical result URL first.  The old implementation tried
+    # up to three URLs for every pending race, which was the main runtime cost.
+    # Fallback is used only when the primary URL cannot be downloaded at all.
+    primary=race.get('result_url','') or result_url(race['venue_code'],race['race_no'])
+    fallback=f"{BASE}/keirin/RaceResultInfo.do?joCode={race['venue_code']}&kaisaiBi={TODAY}&raceNo={race['race_no']}"
+    urls=[]
+    for u in (primary, result_url(race['venue_code'],race['race_no']), fallback):
+        if u and u not in urls: urls.append(u)
+    first_url=urls[0] if urls else result_url(race['venue_code'],race['race_no'])
+    html=get_html(first_url)
+    if html:
+        res=parse_result_page(html);res['url']=first_url
+        # A valid result page is authoritative even when the race/payout is not
+        # ready yet. Do not waste requests trying alternate URLs.
+        if res.get('result_finished') or res.get('payout_available') or res.get('result_status')=='finished' or res.get('payout_status')=='available':
+            return res
+        return res
+    # Only a download failure triggers one fallback request.
+    for u in urls[1:]:
+        html=get_html(u)
+        if not html: continue
         res=parse_result_page(html);res['url']=u
-        score=(1 if res.get('result_finished') else 0,len(res.get('finish',[])),1 if res.get('payout_available') else 0,int(res.get('payout_3tan_yen',0) or 0))
-        if best is None or score>(1 if best.get('result_finished') else 0,len(best.get('finish',[])),1 if best.get('payout_available') else 0,int(best.get('payout_3tan_yen',0) or 0)):best=res
-        if res.get('result_finished') and res.get('payout_available'):return res
-    if best is not None:
-        if not best.get('result_finished') and not had_page:best['result_status']='error';best['payout_status']='error'
-        return best
+        if res.get('result_finished') or res.get('payout_available'):
+            return res
+        # Keep the first successfully loaded pending page; there is no need to
+        # try another URL when the site is reachable.
+        res['result_status']=res.get('result_status') or 'pending'
+        res['payout_status']=res.get('payout_status') or 'pending'
+        return res
     return {'result_finished':False,'finished':False,'finish':[],'result_status':'error','payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'','payout_status':'error'}
 
 def parse_odds_page(html):
@@ -303,7 +319,17 @@ def main():
         for c,(n,s) in VENUES.items():
             v={'code':c,'name':n,'slug':s};venues.append(v);rs=discover_real_races(v);v['race_numbers']=[x['race_no'] for x in rs];print(f'  {c} {n}: {len(rs)}レース');all_races+=rs
     all_races.sort(key=lambda x:(int(x['venue_code']),x['race_no']))
-    print(f'詳細取得対象レース: {len(all_races)}')
+    # In v6.8 this means races present in today's dataset, not HTTP requests.
+    # Existing race pages are reused; only missing/incomplete records are fetched.
+    detail_targets=[r for r in all_races if not (5<=len(r.get('riders',[]))<=7 and r.get('url'))]
+    print(f'詳細取得対象レース: {len(detail_targets)}/{len(all_races)}レース')
+    if detail_targets:
+        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+            fs={ex.submit(fetch_race,{'venue_code':r['venue_code'],'venue_name':r['venue_name'],'venue_slug':r['venue_slug'],'race_no':r['race_no']}):r for r in detail_targets}
+            for f in as_completed(fs):
+                r=fs[f]
+                try:r.update(f.result())
+                except:pass
     print(f'選手データ取得結果: {sum(5<=len(r.get("riders",[]))<=7 for r in all_races)}/{len(all_races)}')
 
     # Only fetch prediction pages when frozen prediction data is missing/incomplete.
