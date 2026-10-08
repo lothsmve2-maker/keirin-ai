@@ -1,6 +1,6 @@
 {
-  "version": "6.11",
-  "updated_at": "2026-10-08T15:24:08.946273",
+  "version": "6.12",
+  "updated_at": "2026-10-08T16:19:31.047270",
   "target_date": "2026-10-08",
   "data_complete": true,
   "result_complete": false,
@@ -12,27 +12,27 @@
   "prediction_race_count": 46,
   "comment_count": 462,
   "line_race_count": 0,
-  "development_count": 62,
+  "development_count": 72,
   "ai_race_count": 72,
   "ai_rider_count": 498,
   "frozen_prediction_count": 72,
-  "result_count": 27,
-  "result_pending_count": 45,
+  "result_count": 20,
+  "result_pending_count": 52,
   "result_error_count": 0,
-  "payout_count": 14,
-  "payout_pending_count": 58,
+  "payout_count": 12,
+  "payout_pending_count": 60,
   "payout_error_count": 0,
   "odds_count": 71,
   "summary": {
     "races": 72,
-    "settled_races": 13,
-    "pending_races": 59,
-    "investment": 10400,
+    "settled_races": 12,
+    "pending_races": 60,
+    "investment": 9600,
     "payout": 8650,
-    "profit": -1750,
+    "profit": -950,
     "hits": 3,
-    "hit_rate": 23.1,
-    "roi": 83.2,
+    "hit_rate": 25.0,
+    "roi": 90.1,
     "by_rank": {
       "S": {
         "races": 5,
@@ -44,13 +44,13 @@
         "roi": 35.5
       },
       "A": {
-        "races": 7,
-        "investment": 5600,
+        "races": 6,
+        "investment": 4800,
         "payout": 7230,
-        "profit": 1630,
+        "profit": 2430,
         "hits": 1,
-        "hit_rate": 14.3,
-        "roi": 129.1
+        "hit_rate": 16.7,
+        "roi": 150.6
       },
       "B": {
         "races": 1,
@@ -73,10 +73,10 @@
     },
     "by_venue": {
       "大宮": {
-        "races": 3,
-        "investment": 2400,
+        "races": 2,
+        "investment": 1600,
         "payout": 0,
-        "profit": -2400,
+        "profit": -1600,
         "hits": 0,
         "hit_rate": 0.0,
         "roi": 0.0
@@ -103,327 +103,327 @@
   },
   "backtests": {
     "AI3": {
-      "races": 13,
-      "settled_races": 13,
-      "investment": 3900,
-      "payout": 7470,
-      "profit": 3570,
-      "hits": 2,
-      "hit_rate": 15.4,
-      "roi": 191.5,
+      "races": 12,
+      "settled_races": 12,
+      "investment": 3600,
+      "payout": 8650,
+      "profit": 5050,
+      "hits": 3,
+      "hit_rate": 25.0,
+      "roi": 240.3,
       "skipped_no_odds": 0,
-      "positive_races": 1,
-      "negative_races": 12,
-      "max_losing_streak": 12,
-      "max_drawdown": 3360,
-      "peak_profit": 3570,
-      "positive_rate": 7.7
+      "positive_races": 2,
+      "negative_races": 10,
+      "max_losing_streak": 9,
+      "max_drawdown": 2420,
+      "peak_profit": 5050,
+      "positive_rate": 16.7
     },
     "AI5": {
-      "races": 13,
-      "settled_races": 13,
-      "investment": 6500,
-      "payout": 8610,
-      "profit": 2110,
+      "races": 12,
+      "settled_races": 12,
+      "investment": 6000,
+      "payout": 8650,
+      "profit": 2650,
       "hits": 3,
-      "hit_rate": 23.1,
-      "roi": 132.5,
+      "hit_rate": 25.0,
+      "roi": 144.2,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 11,
-      "max_losing_streak": 10,
-      "max_drawdown": 4760,
-      "peak_profit": 2110,
-      "positive_rate": 15.4
+      "negative_races": 10,
+      "max_losing_streak": 9,
+      "max_drawdown": 4220,
+      "peak_profit": 2650,
+      "positive_rate": 16.7
     },
     "AI7": {
-      "races": 13,
-      "settled_races": 13,
-      "investment": 9100,
-      "payout": 8610,
-      "profit": -490,
+      "races": 12,
+      "settled_races": 12,
+      "investment": 8400,
+      "payout": 8650,
+      "profit": 250,
       "hits": 3,
-      "hit_rate": 23.1,
-      "roi": 94.6,
+      "hit_rate": 25.0,
+      "roi": 103.0,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 11,
-      "max_losing_streak": 10,
-      "max_drawdown": 7020,
-      "peak_profit": 0,
-      "positive_rate": 15.4
+      "negative_races": 10,
+      "max_losing_streak": 9,
+      "max_drawdown": 6280,
+      "peak_profit": 250,
+      "positive_rate": 16.7
     },
     "AI10": {
-      "races": 13,
-      "settled_races": 13,
-      "investment": 11700,
-      "payout": 8740,
-      "profit": -2960,
-      "hits": 4,
-      "hit_rate": 30.8,
-      "roi": 74.7,
+      "races": 12,
+      "settled_races": 12,
+      "investment": 9600,
+      "payout": 8650,
+      "profit": -950,
+      "hits": 3,
+      "hit_rate": 25.0,
+      "roi": 90.1,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 11,
-      "max_losing_streak": 10,
-      "max_drawdown": 9390,
+      "negative_races": 10,
+      "max_losing_streak": 9,
+      "max_drawdown": 7380,
       "peak_profit": 0,
-      "positive_rate": 15.4
+      "positive_rate": 16.7
     },
     "AI15": {
-      "races": 13,
-      "settled_races": 13,
-      "investment": 12100,
-      "payout": 8740,
-      "profit": -3360,
-      "hits": 4,
-      "hit_rate": 30.8,
-      "roi": 72.2,
+      "races": 12,
+      "settled_races": 12,
+      "investment": 9600,
+      "payout": 8650,
+      "profit": -950,
+      "hits": 3,
+      "hit_rate": 25.0,
+      "roi": 90.1,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 11,
-      "max_losing_streak": 10,
-      "max_drawdown": 9790,
+      "negative_races": 10,
+      "max_losing_streak": 9,
+      "max_drawdown": 7380,
       "peak_profit": 0,
-      "positive_rate": 15.4
+      "positive_rate": 16.7
     },
     "人気5倍以上+AI5": {
-      "races": 13,
-      "settled_races": 13,
-      "investment": 6500,
-      "payout": 8610,
-      "profit": 2110,
+      "races": 12,
+      "settled_races": 12,
+      "investment": 6000,
+      "payout": 8650,
+      "profit": 2650,
       "hits": 3,
-      "hit_rate": 23.1,
-      "roi": 132.5,
+      "hit_rate": 25.0,
+      "roi": 144.2,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 11,
-      "max_losing_streak": 10,
-      "max_drawdown": 4760,
-      "peak_profit": 2110,
-      "positive_rate": 15.4
+      "negative_races": 10,
+      "max_losing_streak": 9,
+      "max_drawdown": 4220,
+      "peak_profit": 2650,
+      "positive_rate": 16.7
     },
     "人気10倍以上+AI5": {
-      "races": 13,
-      "settled_races": 13,
-      "investment": 6500,
-      "payout": 8610,
-      "profit": 2110,
+      "races": 12,
+      "settled_races": 12,
+      "investment": 6000,
+      "payout": 8650,
+      "profit": 2650,
       "hits": 3,
-      "hit_rate": 23.1,
-      "roi": 132.5,
+      "hit_rate": 25.0,
+      "roi": 144.2,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 11,
-      "max_losing_streak": 10,
-      "max_drawdown": 4760,
-      "peak_profit": 2110,
-      "positive_rate": 15.4
+      "negative_races": 10,
+      "max_losing_streak": 9,
+      "max_drawdown": 4220,
+      "peak_profit": 2650,
+      "positive_rate": 16.7
     },
     "人気15倍以上+AI5": {
-      "races": 11,
-      "settled_races": 11,
-      "investment": 5500,
-      "payout": 8370,
-      "profit": 2870,
-      "hits": 2,
-      "hit_rate": 18.2,
-      "roi": 152.2,
+      "races": 10,
+      "settled_races": 10,
+      "investment": 5000,
+      "payout": 8650,
+      "profit": 3650,
+      "hits": 3,
+      "hit_rate": 30.0,
+      "roi": 173.0,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 9,
-      "max_losing_streak": 8,
-      "max_drawdown": 4000,
-      "peak_profit": 2870,
-      "positive_rate": 18.2
+      "negative_races": 8,
+      "max_losing_streak": 7,
+      "max_drawdown": 3220,
+      "peak_profit": 3650,
+      "positive_rate": 20.0
     },
     "人気20倍以上+AI5": {
-      "races": 11,
-      "settled_races": 11,
-      "investment": 5500,
-      "payout": 8370,
-      "profit": 2870,
-      "hits": 2,
-      "hit_rate": 18.2,
-      "roi": 152.2,
+      "races": 10,
+      "settled_races": 10,
+      "investment": 5000,
+      "payout": 8650,
+      "profit": 3650,
+      "hits": 3,
+      "hit_rate": 30.0,
+      "roi": 173.0,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 9,
-      "max_losing_streak": 8,
-      "max_drawdown": 4000,
-      "peak_profit": 2870,
-      "positive_rate": 18.2
+      "negative_races": 8,
+      "max_losing_streak": 7,
+      "max_drawdown": 3220,
+      "peak_profit": 3650,
+      "positive_rate": 20.0
     },
     "人気10倍以上+AI10": {
-      "races": 13,
-      "settled_races": 13,
-      "investment": 11700,
-      "payout": 8740,
-      "profit": -2960,
-      "hits": 4,
-      "hit_rate": 30.8,
-      "roi": 74.7,
+      "races": 12,
+      "settled_races": 12,
+      "investment": 9600,
+      "payout": 8650,
+      "profit": -950,
+      "hits": 3,
+      "hit_rate": 25.0,
+      "roi": 90.1,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 11,
-      "max_losing_streak": 10,
-      "max_drawdown": 9390,
+      "negative_races": 10,
+      "max_losing_streak": 9,
+      "max_drawdown": 7380,
       "peak_profit": 0,
-      "positive_rate": 15.4
+      "positive_rate": 16.7
     },
     "人気15倍以上+AI10": {
-      "races": 11,
-      "settled_races": 11,
-      "investment": 9900,
-      "payout": 8370,
-      "profit": -1530,
-      "hits": 2,
-      "hit_rate": 18.2,
-      "roi": 84.5,
+      "races": 10,
+      "settled_races": 10,
+      "investment": 8000,
+      "payout": 8650,
+      "profit": 650,
+      "hits": 3,
+      "hit_rate": 30.0,
+      "roi": 108.1,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 9,
-      "max_losing_streak": 8,
-      "max_drawdown": 7960,
-      "peak_profit": 0,
-      "positive_rate": 18.2
+      "negative_races": 8,
+      "max_losing_streak": 7,
+      "max_drawdown": 5780,
+      "peak_profit": 650,
+      "positive_rate": 20.0
     },
     "人気20倍以上+AI10": {
-      "races": 11,
-      "settled_races": 11,
-      "investment": 9900,
-      "payout": 8370,
-      "profit": -1530,
-      "hits": 2,
-      "hit_rate": 18.2,
-      "roi": 84.5,
+      "races": 10,
+      "settled_races": 10,
+      "investment": 8000,
+      "payout": 8650,
+      "profit": 650,
+      "hits": 3,
+      "hit_rate": 30.0,
+      "roi": 108.1,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 9,
-      "max_losing_streak": 8,
-      "max_drawdown": 7960,
-      "peak_profit": 0,
-      "positive_rate": 18.2
+      "negative_races": 8,
+      "max_losing_streak": 7,
+      "max_drawdown": 5780,
+      "peak_profit": 650,
+      "positive_rate": 20.0
     },
     "Sのみ+AI5": {
       "races": 5,
       "settled_races": 5,
       "investment": 2500,
-      "payout": 1140,
-      "profit": -1360,
-      "hits": 1,
-      "hit_rate": 20.0,
-      "roi": 45.6,
+      "payout": 1420,
+      "profit": -1080,
+      "hits": 2,
+      "hit_rate": 40.0,
+      "roi": 56.8,
       "skipped_no_odds": 0,
       "positive_races": 1,
       "negative_races": 4,
       "max_losing_streak": 4,
-      "max_drawdown": 2000,
+      "max_drawdown": 1720,
       "peak_profit": 0,
       "positive_rate": 20.0
     },
     "Aのみ+AI5": {
-      "races": 7,
-      "settled_races": 7,
-      "investment": 3500,
-      "payout": 7470,
-      "profit": 3970,
-      "hits": 2,
-      "hit_rate": 28.6,
-      "roi": 213.4,
+      "races": 6,
+      "settled_races": 6,
+      "investment": 3000,
+      "payout": 7230,
+      "profit": 4230,
+      "hits": 1,
+      "hit_rate": 16.7,
+      "roi": 241.0,
       "skipped_no_odds": 0,
       "positive_races": 1,
-      "negative_races": 6,
-      "max_losing_streak": 6,
-      "max_drawdown": 2760,
-      "peak_profit": 3970,
-      "positive_rate": 14.3
+      "negative_races": 5,
+      "max_losing_streak": 5,
+      "max_drawdown": 2500,
+      "peak_profit": 4230,
+      "positive_rate": 16.7
     },
     "S+Aのみ+AI5": {
-      "races": 12,
-      "settled_races": 12,
-      "investment": 6000,
-      "payout": 8610,
-      "profit": 2610,
+      "races": 11,
+      "settled_races": 11,
+      "investment": 5500,
+      "payout": 8650,
+      "profit": 3150,
       "hits": 3,
-      "hit_rate": 25.0,
-      "roi": 143.5,
+      "hit_rate": 27.3,
+      "roi": 157.3,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 10,
-      "max_losing_streak": 9,
-      "max_drawdown": 4260,
-      "peak_profit": 2610,
-      "positive_rate": 16.7
+      "negative_races": 9,
+      "max_losing_streak": 8,
+      "max_drawdown": 3720,
+      "peak_profit": 3150,
+      "positive_rate": 18.2
     },
     "Aのみ+AI10": {
-      "races": 7,
-      "settled_races": 7,
-      "investment": 6200,
-      "payout": 7600,
-      "profit": 1400,
-      "hits": 3,
-      "hit_rate": 42.9,
-      "roi": 122.6,
+      "races": 6,
+      "settled_races": 6,
+      "investment": 4800,
+      "payout": 7230,
+      "profit": 2430,
+      "hits": 1,
+      "hit_rate": 16.7,
+      "roi": 150.6,
       "skipped_no_odds": 0,
       "positive_races": 1,
-      "negative_races": 6,
-      "max_losing_streak": 6,
-      "max_drawdown": 5030,
-      "peak_profit": 1400,
-      "positive_rate": 14.3
+      "negative_races": 5,
+      "max_losing_streak": 5,
+      "max_drawdown": 4000,
+      "peak_profit": 2430,
+      "positive_rate": 16.7
     },
     "S+Aのみ+AI10": {
-      "races": 12,
-      "settled_races": 12,
-      "investment": 11000,
-      "payout": 8740,
-      "profit": -2260,
-      "hits": 4,
-      "hit_rate": 33.3,
-      "roi": 79.5,
+      "races": 11,
+      "settled_races": 11,
+      "investment": 8800,
+      "payout": 8650,
+      "profit": -150,
+      "hits": 3,
+      "hit_rate": 27.3,
+      "roi": 98.3,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 10,
-      "max_losing_streak": 9,
-      "max_drawdown": 8690,
+      "negative_races": 9,
+      "max_losing_streak": 8,
+      "max_drawdown": 6580,
       "peak_profit": 0,
-      "positive_rate": 16.7
+      "positive_rate": 18.2
     },
     "人気10倍以上+Aのみ+AI5": {
-      "races": 7,
-      "settled_races": 7,
-      "investment": 3500,
-      "payout": 7470,
-      "profit": 3970,
-      "hits": 2,
-      "hit_rate": 28.6,
-      "roi": 213.4,
+      "races": 6,
+      "settled_races": 6,
+      "investment": 3000,
+      "payout": 7230,
+      "profit": 4230,
+      "hits": 1,
+      "hit_rate": 16.7,
+      "roi": 241.0,
       "skipped_no_odds": 0,
       "positive_races": 1,
-      "negative_races": 6,
-      "max_losing_streak": 6,
-      "max_drawdown": 2760,
-      "peak_profit": 3970,
-      "positive_rate": 14.3
+      "negative_races": 5,
+      "max_losing_streak": 5,
+      "max_drawdown": 2500,
+      "peak_profit": 4230,
+      "positive_rate": 16.7
     },
     "人気10倍以上+S+A+AI5": {
-      "races": 12,
-      "settled_races": 12,
-      "investment": 6000,
-      "payout": 8610,
-      "profit": 2610,
+      "races": 11,
+      "settled_races": 11,
+      "investment": 5500,
+      "payout": 8650,
+      "profit": 3150,
       "hits": 3,
-      "hit_rate": 25.0,
-      "roi": 143.5,
+      "hit_rate": 27.3,
+      "roi": 157.3,
       "skipped_no_odds": 0,
       "positive_races": 2,
-      "negative_races": 10,
-      "max_losing_streak": 9,
-      "max_drawdown": 4260,
-      "peak_profit": 2610,
-      "positive_rate": 16.7
+      "negative_races": 9,
+      "max_losing_streak": 8,
+      "max_drawdown": 3720,
+      "peak_profit": 3150,
+      "positive_rate": 18.2
     }
   },
   "daily_cap_backtests": {
@@ -959,11 +959,11 @@
     "S+A上位4R+AI5": {
       "races": 4,
       "investment": 2000,
-      "payout": 1140,
-      "profit": -860,
-      "hits": 1,
-      "hit_rate": 25.0,
-      "roi": 57.0,
+      "payout": 1420,
+      "profit": -580,
+      "hits": 2,
+      "hit_rate": 50.0,
+      "roi": 71.0,
       "positive_races": 1,
       "positive_rate": 25.0,
       "selected_races": [
@@ -1003,20 +1003,20 @@
           "rank": "S",
           "verdict_score": 87.0,
           "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
+          "profit": -220,
+          "hit": true,
+          "ticket": "2-3-7"
         }
       ]
     },
     "S+A上位5R+AI5": {
       "races": 5,
       "investment": 2500,
-      "payout": 1140,
-      "profit": -1360,
-      "hits": 1,
-      "hit_rate": 20.0,
-      "roi": 45.6,
+      "payout": 1420,
+      "profit": -1080,
+      "hits": 2,
+      "hit_rate": 40.0,
+      "roi": 56.8,
       "positive_races": 1,
       "positive_rate": 20.0,
       "selected_races": [
@@ -1056,9 +1056,9 @@
           "rank": "S",
           "verdict_score": 87.0,
           "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
+          "profit": -220,
+          "hit": true,
+          "ticket": "2-3-7"
         },
         {
           "venue_name": "高知",
@@ -1075,11 +1075,11 @@
   },
   "backtest_recommendation": {
     "status": "provisional",
-    "strategy": "Aのみ+AI5",
-    "profit": 3970,
-    "roi": 213.4,
-    "hit_rate": 28.6,
-    "races": 7,
+    "strategy": "AI3",
+    "profit": 5050,
+    "roi": 240.3,
+    "hit_rate": 25.0,
+    "races": 12,
     "note": "確定レースが少ないため暫定。実際の凍結買い目は変更しません。"
   },
   "today_recommendations": {
@@ -1103,34 +1103,44 @@
         "budget_yen": 500,
         "bets": [
           {
-            "ticket": "5-1-4",
+            "ticket": "3-5-2",
             "score": 106,
             "type": "🔥 AI本線",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
-            "ticket": "5-4-1",
+            "ticket": "3-2-5",
             "score": 103,
             "type": "🔥 本線入替",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
-            "ticket": "1-5-4",
+            "ticket": "5-3-2",
             "score": 100,
             "type": "⭐ 対抗頭",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
-            "ticket": "5-1-2",
-            "score": 98,
-            "type": "🎯 穴絡み",
-            "odds": null
+            "ticket": "2-3-5",
+            "score": 88,
+            "type": "💥 逆転",
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
-            "ticket": "5-2-1",
-            "score": 96,
-            "type": "🎯 穴入替",
-            "odds": null
+            "ticket": "5-2-3",
+            "score": 86,
+            "type": "💥 対抗展開",
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           }
         ]
       },
@@ -1147,34 +1157,44 @@
         "budget_yen": 500,
         "bets": [
           {
-            "ticket": "5-3-2",
+            "ticket": "5-7-2",
             "score": 100,
             "type": "🔥 AI本線",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
-            "ticket": "5-2-3",
+            "ticket": "5-2-7",
             "score": 97,
             "type": "🔥 本線入替",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
-            "ticket": "3-5-2",
+            "ticket": "7-5-2",
             "score": 94,
             "type": "⭐ 対抗頭",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
-            "ticket": "2-5-3",
+            "ticket": "2-5-7",
             "score": 82,
             "type": "💥 逆転",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
-            "ticket": "3-2-5",
+            "ticket": "7-2-5",
             "score": 80,
             "type": "💥 対抗展開",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           }
         ]
       },
@@ -1194,31 +1214,41 @@
             "ticket": "1-3-4",
             "score": 100,
             "type": "🔥 AI本線",
-            "odds": null
+            "odds": 56.2,
+            "market_rank": 8,
+            "value_flag": "💎 穴・期待値候補"
           },
           {
             "ticket": "1-4-3",
             "score": 97,
             "type": "🔥 本線入替",
-            "odds": null
+            "odds": 68.6,
+            "market_rank": 9,
+            "value_flag": "💎 穴・期待値候補"
           },
           {
             "ticket": "3-1-4",
             "score": 94,
             "type": "⭐ 対抗頭",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
             "ticket": "4-1-3",
             "score": 82,
             "type": "💥 逆転",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           },
           {
             "ticket": "3-4-1",
             "score": 80,
             "type": "💥 対抗展開",
-            "odds": null
+            "odds": null,
+            "market_rank": null,
+            "value_flag": "オッズ未取得"
           }
         ]
       }
@@ -2383,7 +2413,7 @@
           "name": "山口 貴弘",
           "age": 48,
           "period": 84,
-          "prefecture": "山口",
+          "prefecture": "栃木",
           "grade": "",
           "style": "追",
           "score": 83.541,
@@ -2902,7 +2932,7 @@
           "name": "石川 恭規",
           "age": 48,
           "period": 93,
-          "prefecture": "石川",
+          "prefecture": "福島",
           "grade": "",
           "style": "追",
           "score": 81.0,
@@ -6968,20 +6998,16 @@
         }
       ],
       "result": {
-        "finished": true,
-        "result_finished": true,
-        "finish": [
-          2,
-          6,
-          2
-        ],
-        "result_status": "finished",
-        "payout_available": true,
-        "payout_3tan": "1-3-4",
-        "payout_3tan_yen": 310,
-        "payout_source": "1-4 310円 7人気 3連複 1-3-4 420円 2人気 3連単 3→4→1 1,070円 5人気",
-        "payout_status": "available",
-        "url": "https://sp.oddspark.com/keirin/SpRaceResultInfo.do?joCd=25&joCode=25&kaisaiBi=20261008&raceNo=2"
+        "finished": false,
+        "result_finished": false,
+        "finish": [],
+        "result_status": "pending",
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "payout_status": "pending",
+        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=25&kaisaiBi=20261008&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -7020,14 +7046,14 @@
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=25&joCode=25&kaisaiBi=20261008&raceNo=2"
       },
       "settlement": {
-        "status": "settled",
+        "status": "pending",
         "bet_count": 8,
-        "investment": 800,
+        "investment": 0,
         "hit": false,
         "hit_ticket": "",
         "payout": 0,
-        "profit": -800,
-        "roi": 0.0
+        "profit": 0,
+        "roi": 0
       }
     },
     {
@@ -8028,11 +8054,11 @@
         "result_finished": false,
         "finish": [],
         "result_status": "pending",
-        "payout_available": true,
-        "payout_3tan": "2-4-7",
-        "payout_3tan_yen": 110,
-        "payout_source": "2-7 110円 1人気 3連複 2-4-7 210円 1人気 3連単 4→7→2 6,230円 15人気",
-        "payout_status": "available",
+        "payout_available": false,
+        "payout_3tan": null,
+        "payout_3tan_yen": 0,
+        "payout_source": "",
+        "payout_status": "pending",
         "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=25&kaisaiBi=20261008&raceNo=4"
       },
       "odds": {
@@ -9210,7 +9236,7 @@
           "name": "山口 貴弘",
           "age": 42,
           "period": 92,
-          "prefecture": "山口",
+          "prefecture": "佐賀",
           "grade": "",
           "style": "追",
           "score": 99.19,
@@ -12189,13 +12215,9 @@
       ],
       "result": {
         "finished": false,
-        "result_finished": true,
-        "finish": [
-          2,
-          6,
-          2
-        ],
-        "result_status": "finished",
+        "result_finished": false,
+        "finish": [],
+        "result_status": "pending",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
@@ -16057,7 +16079,7 @@
           "name": "山口 貴嗣",
           "age": 48,
           "period": 82,
-          "prefecture": "山口",
+          "prefecture": "福岡",
           "grade": "",
           "style": "追",
           "score": 100.321,
@@ -19868,22 +19890,8 @@
           "prediction_score": 1
         }
       },
-      "line": [
-        2,
-        5,
-        3,
-        7,
-        1
-      ],
-      "line_groups": [
-        [
-          2,
-          5,
-          3,
-          7,
-          1
-        ]
-      ],
+      "line": [],
+      "line_groups": [],
       "development": "予選(2)片岡は末の粘り欠いたが、持ち味はスタミナ満点の強地脚。修正して押し切る。(5)肥後がマーク狙い目だが、(3)佐藤-(7)堀が猛攻。(1)山崎が脚を溜めて。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_3.html",
       "frozen_prediction": {
@@ -20686,13 +20694,9 @@
       ],
       "result": {
         "finished": false,
-        "result_finished": true,
-        "finish": [
-          7,
-          2,
-          2
-        ],
-        "result_status": "finished",
+        "result_finished": false,
+        "finish": [],
+        "result_status": "pending",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
@@ -20956,22 +20960,8 @@
           "prediction_score": 18
         }
       },
-      "line": [
-        7,
-        4,
-        3,
-        5,
-        6
-      ],
-      "line_groups": [
-        [
-          7,
-          4,
-          3,
-          5,
-          6
-        ]
-      ],
+      "line": [],
+      "line_groups": [],
       "development": "(7)鈴木は地元期待のルーキー。今開催は８月当所の分もの気持ちだろう。再度、突っ張るか。(4)田中とワンツーに期待。(3)山田-(5)中野、(6)磯村が一角崩すか。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_5.html",
       "frozen_prediction": {
@@ -21760,13 +21750,9 @@
       ],
       "result": {
         "finished": false,
-        "result_finished": true,
-        "finish": [
-          7,
-          2,
-          2
-        ],
-        "result_status": "finished",
+        "result_finished": false,
+        "finish": [],
+        "result_status": "pending",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
@@ -22030,24 +22016,8 @@
           "prediction_score": 12
         }
       },
-      "line": [
-        2,
-        7,
-        1,
-        4,
-        3,
-        6
-      ],
-      "line_groups": [
-        [
-          2,
-          7,
-          1,
-          4,
-          3,
-          6
-        ]
-      ],
+      "line": [],
+      "line_groups": [],
       "development": "(2)五輪が気合い再注入。初日の分もと主導権取りに闘志燃やすか。(7)須藤が続いて関東ワンツー。総合力では(1)根藤-(4)荻野も双璧。(3)福田も(6)江端次第では。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_7.html",
       "frozen_prediction": {
@@ -22595,22 +22565,8 @@
           "prediction_score": 18
         }
       },
-      "line": [
-        7,
-        3,
-        6,
-        5,
-        1
-      ],
-      "line_groups": [
-        [
-          7,
-          3,
-          6,
-          5,
-          1
-        ]
-      ],
+      "line": [],
+      "line_groups": [],
       "development": "予選不覚の(7)川田がリカバリーに全力。少々の早駆けでも主導権握り押し切る。(3)矢島と関東独占へ。(6)牛田の仕掛け次第では(5)松崎の浮上も。(1)神山に注意。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_8.html",
       "frozen_prediction": {
@@ -22874,13 +22830,9 @@
       ],
       "result": {
         "finished": false,
-        "result_finished": true,
-        "finish": [
-          7,
-          2,
-          2
-        ],
-        "result_status": "finished",
+        "result_finished": false,
+        "finish": [],
+        "result_status": "pending",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
@@ -23144,24 +23096,8 @@
           "prediction_score": 0
         }
       },
-      "line": [
-        3,
-        5,
-        1,
-        4,
-        2,
-        6
-      ],
-      "line_groups": [
-        [
-          3,
-          5,
-          1,
-          4,
-          2,
-          6
-        ]
-      ],
+      "line": [],
+      "line_groups": [],
       "development": "坪内君が捲られないように踏んでくれた。静岡では一年半ぶり位の一着。再度任せる。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_9.html",
       "frozen_prediction": {
@@ -23956,13 +23892,9 @@
       ],
       "result": {
         "finished": false,
-        "result_finished": true,
-        "finish": [
-          7,
-          2,
-          2
-        ],
-        "result_status": "finished",
+        "result_finished": false,
+        "finish": [],
+        "result_status": "pending",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
@@ -26204,22 +26136,8 @@
           "prediction_score": 1
         }
       },
-      "line": [
-        2,
-        1,
-        3,
-        4,
-        7
-      ],
-      "line_groups": [
-        [
-          2,
-          1,
-          3,
-          4,
-          7
-        ]
-      ],
+      "line": [],
+      "line_groups": [],
       "development": "今開催は不完全燃焼の(2)八嶋。その分も出し切る走りで(1)安部-(3)山崎を連れ込む。(4)枠元も自分の形に持ち込めば粘り脚強靭。補充(7)山田の位置は顔見せ必見",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1008_4.html",
       "frozen_prediction": {
@@ -26749,22 +26667,8 @@
           "prediction_score": 1
         }
       },
-      "line": [
-        1,
-        2,
-        4,
-        3,
-        7
-      ],
-      "line_groups": [
-        [
-          1,
-          2,
-          4,
-          3,
-          7
-        ]
-      ],
+      "line": [],
+      "line_groups": [],
       "development": "今開催未勝利の(1)秋末だがレース内容は好印象。ここも突っ張り含みで(2)吉川と近畿独占を決める。地元(4)竹田が三番手から。(3)梅原が再度(7)阿久津任せから。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1008_5.html",
       "frozen_prediction": {
@@ -27294,22 +27198,8 @@
           "prediction_score": 0
         }
       },
-      "line": [
-        3,
-        2,
-        1,
-        5,
-        6
-      ],
-      "line_groups": [
-        [
-          3,
-          2,
-          1,
-          5,
-          6
-        ]
-      ],
+      "line": [],
+      "line_groups": [],
       "development": "ライン三車の(3)土田が積極的に駆けてＧ前は(2)星野が番手有利に抜け出す。(1)中島が三番手から直線勝負。(5)松田が好位から反撃。(6)引地の脚力も軽視できない",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1008_6.html",
       "frozen_prediction": {
@@ -29442,7 +29332,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351094",
@@ -29906,7 +29796,7 @@
           "name": "山口幸太郎",
           "age": 47,
           "period": 99,
-          "prefecture": "山口",
+          "prefecture": "長崎",
           "grade": "",
           "style": "追",
           "score": 80.869,
@@ -29973,7 +29863,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_2.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351142",
@@ -30508,7 +30398,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_3.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351215",
@@ -31039,7 +30929,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_4.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351276",
@@ -31570,7 +31460,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_5.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351328",
@@ -31946,7 +31836,7 @@
           "name": "山口 泰生",
           "age": 44,
           "period": 89,
-          "prefecture": "山口",
+          "prefecture": "岐阜",
           "grade": "",
           "style": "追",
           "score": 94.111,
@@ -32582,7 +32472,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_7.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351425",
@@ -33117,7 +33007,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_8.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351473",
@@ -33648,7 +33538,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_9.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351523",
@@ -34710,7 +34600,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_11.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351630",
@@ -35245,7 +35135,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_12.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351678",
@@ -35508,13 +35398,9 @@
       ],
       "result": {
         "finished": false,
-        "result_finished": true,
-        "finish": [
-          2,
-          5,
-          2
-        ],
-        "result_status": "finished",
+        "result_finished": false,
+        "finish": [],
+        "result_status": "pending",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
