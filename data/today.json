@@ -1,6 +1,6 @@
 {
   "version": "6.11",
-  "updated_at": "2026-10-08T06:27:44.398713",
+  "updated_at": "2026-10-08T07:25:54.577419",
   "target_date": "2026-10-08",
   "data_complete": true,
   "result_complete": false,
@@ -9210,7 +9210,7 @@
           "name": "山口 貴弘",
           "age": 42,
           "period": 92,
-          "prefecture": "山口",
+          "prefecture": "佐賀",
           "grade": "",
           "style": "追",
           "score": 99.19,
