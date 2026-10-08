@@ -3,19 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
 <title>競輪AI予想</title>
-
 <style>
-
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
-
-body {
+html, body {
   margin: 0;
-  background: #f3f5f8;
-  color: #17202a;
+  padding: 0;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -24,2163 +20,2075 @@ body {
     "Yu Gothic",
     Meiryo,
     sans-serif;
+  background: #f3f5f8;
+  color: #172033;
 }
-
-header {
-  background: linear-gradient(135deg,#111827,#1f2937);
-  color: #fff;
-  padding: 20px 14px;
+body {
+  padding-bottom: calc(78px + env(safe-area-inset-bottom));
+}
+button,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+#app {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+/* =========================
+   HEADER
+========================= */
+.header {
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 3px 12px rgba(0,0,0,.18);
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: #fff;
+  padding: 15px 15px 14px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, .18);
 }
-
 .header-inner {
-  max-width: 950px;
-  margin: auto;
+  max-width: 1100px;
+  margin: 0 auto;
 }
-
-.title {
-  font-size: 24px;
+.header-title {
+  font-size: 21px;
   font-weight: 900;
+  letter-spacing: .02em;
 }
-
-.subtitle {
+.header-sub {
   margin-top: 4px;
-  font-size: 12px;
-  opacity: .75;
-}
-
-.container {
-  max-width: 950px;
-  margin: auto;
-  padding: 13px 10px 60px;
-}
-
-.section-title {
-  font-size: 18px;
-  font-weight: 900;
-  margin: 12px 2px 9px;
-}
-
-/* =========================
-   開催場
-========================= */
-
-.venue-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 8px;
-}
-
-.venue-card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 13px;
-  border: 2px solid transparent;
-  box-shadow: 0 2px 8px rgba(0,0,0,.07);
-  cursor: pointer;
-}
-
-.venue-card.active {
-  border-color: #2563eb;
-  background: #eff6ff;
-}
-
-.venue-name {
-  font-size: 17px;
-  font-weight: 900;
-}
-
-.venue-count {
-  margin-top: 4px;
-  color: #6b7280;
   font-size: 11px;
+  opacity: .78;
 }
-
 /* =========================
-   レース
+   PAGE
 ========================= */
-
-.race-list {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 7px;
+.page {
+  display: none;
+  padding: 12px;
 }
-
-.race-btn {
-  border: 0;
-  background: #fff;
-  border-radius: 11px;
-  padding: 10px 4px;
-  font-weight: 900;
-  box-shadow: 0 2px 7px rgba(0,0,0,.07);
-}
-
-.race-btn.active {
-  background: #2563eb;
-  color: #fff;
-}
-
-.race-number {
-  font-size: 17px;
-}
-
-.race-info {
+.page.active {
   display: block;
-  font-size: 10px;
-  margin-top: 2px;
-  opacity: .7;
 }
-
 /* =========================
-   レース
+   COMMON
 ========================= */
-
-.race-header {
+.card {
   background: #fff;
   border-radius: 16px;
-  padding: 15px;
-  margin-top: 14px;
-  box-shadow: 0 2px 9px rgba(0,0,0,.08);
-}
-
-.race-title {
-  font-size: 23px;
-  font-weight: 900;
-}
-
-.race-meta {
-  margin-top: 4px;
-  color: #6b7280;
-  font-size: 12px;
-}
-
-/* =========================
-   勝負判定
-========================= */
-
-.verdict-card {
-  margin-top: 11px;
-  border-radius: 16px;
-  padding: 15px;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
-}
-
-.verdict-s {
-  background: linear-gradient(135deg,#991b1b,#dc2626);
-}
-
-.verdict-a {
-  background: linear-gradient(135deg,#c2410c,#f97316);
-}
-
-.verdict-b {
-  background: linear-gradient(135deg,#1d4ed8,#2563eb);
-}
-
-.verdict-c {
-  background: linear-gradient(135deg,#4b5563,#6b7280);
-}
-
-.verdict-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.verdict-title {
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.verdict-grade {
-  font-size: 30px;
-  font-weight: 1000;
-}
-
-.verdict-action {
-  display: inline-block;
-  margin-top: 7px;
-  background: rgba(255,255,255,.18);
-  border-radius: 999px;
-  padding: 5px 11px;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.verdict-reason {
-  margin-top: 9px;
-  font-size: 12px;
-  line-height: 1.65;
-  opacity: .96;
-}
-
-/* =========================
-   AI本命
-========================= */
-
-.ai-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 8px;
-  margin-top: 11px;
-}
-
-.ai-card {
-  background: #fff;
-  border-radius: 15px;
-  padding: 12px 6px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
-}
-
-.ai-label {
-  font-size: 11px;
-  font-weight: 900;
-}
-
-.ai-car {
-  font-size: 27px;
-  font-weight: 900;
-  margin-top: 5px;
-}
-
-.ai-name {
-  margin-top: 4px;
-  font-size: 12px;
-  font-weight: 900;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.ai-score {
-  margin-top: 4px;
-  font-size: 11px;
-  color: #6b7280;
-}
-
-.main-card {
-  border-top: 5px solid #dc2626;
-}
-
-.opponent-card {
-  border-top: 5px solid #2563eb;
-}
-
-.dark-card {
-  border-top: 5px solid #f97316;
-}
-
-/* =========================
-   共通カード
-========================= */
-
-.info-card {
-  background: #fff;
-  border-radius: 16px;
-  margin-top: 12px;
   padding: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, .07);
+  border: 1px solid #e7ebf1;
 }
-
-.info-title {
-  font-size: 16px;
+.card-title {
+  font-size: 15px;
   font-weight: 900;
   margin-bottom: 10px;
 }
-
-/* =========================
-   車番色
-========================= */
-
-.car-1 {
-  background:#fff;
-  color:#111827;
-  border:1px solid #aeb4bc;
+.muted {
+  color: #718096;
+  font-size: 12px;
 }
-
-.car-2 {
-  background:#111827;
-  color:#fff;
+.small {
+  font-size: 11px;
 }
-
-.car-3 {
-  background:#dc2626;
-  color:#fff;
+.empty {
+  padding: 28px 12px;
+  text-align: center;
+  color: #718096;
 }
-
-.car-4 {
-  background:#2563eb;
-  color:#fff;
-}
-
-.car-5 {
-  background:#facc15;
-  color:#111827;
-}
-
-.car-6 {
-  background:#16a34a;
-  color:#fff;
-}
-
-/* 7番は必ずオレンジ */
-
-.car-7 {
-  background:#f97316;
-  color:#fff;
-}
-
-/* =========================
-   AI選手名カラー
-========================= */
-
-.c1 { color:#374151; }
-.c2 { color:#111827; }
-.c3 { color:#dc2626; }
-.c4 { color:#2563eb; }
-.c5 { color:#b77900; }
-.c6 { color:#15803d; }
-.c7 { color:#ea580c; }
-
-/* =========================
-   買い目
-========================= */
-
-.bet-summary {
-  background: linear-gradient(135deg,#fff7ed,#fff);
-  border: 2px solid #fed7aa;
-}
-
-.bet-header {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.bet-title {
-  font-size:18px;
-  font-weight:900;
-}
-
-.bet-badge {
-  background:#f97316;
-  color:#fff;
-  padding:5px 10px;
-  border-radius:999px;
-  font-size:11px;
-  font-weight:900;
-}
-
-.bet-explanation {
-  margin-top:7px;
-  color:#4b5563;
-  font-size:12px;
-  line-height:1.6;
-}
-
-.bet-list {
-  margin-top:11px;
-  display:grid;
-  gap:7px;
-}
-
-.bet-item {
-  display:grid;
-  grid-template-columns:29px 1fr auto;
-  align-items:center;
-  gap:8px;
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:11px;
-  padding:9px;
-}
-
-.bet-item.main {
-  border:2px solid #ef4444;
-  background:#fff7f7;
-}
-
-.bet-rank {
-  width:27px;
-  height:27px;
-  border-radius:50%;
-  background:#f3f4f6;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:11px;
-  font-weight:900;
-}
-
-.bet-item.main .bet-rank {
-  background:#dc2626;
-  color:#fff;
-}
-
-.bet-numbers {
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-
-.bet-type {
-  margin-top:2px;
-  font-size:10px;
-  color:#6b7280;
-}
-
-.bet-score {
-  font-size:11px;
-  font-weight:900;
-  color:#f97316;
-}
-
-/* =========================
-   展開
-========================= */
-
-.development {
-  background:#fff7ed;
-  border-left:4px solid #f97316;
-  border-radius:8px;
-  padding:11px;
-  font-size:13px;
-  line-height:1.65;
-}
-
-/* =========================
-   並び
-========================= */
-
-.line-display {
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-}
-
-.line-group {
-  display:flex;
-  align-items:center;
-  gap:4px;
-  padding:7px 8px;
-  background:#f3f4f6;
-  border-radius:10px;
-}
-
-.line-car {
-  width:31px;
-  height:31px;
-  border-radius:7px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:14px;
-  font-weight:900;
-}
-
-.arrow {
-  color:#6b7280;
-  font-weight:900;
-}
-
-/* =========================
-   AIランキング
-========================= */
-
-.ai-ranking {
-  display:grid;
-  gap:5px;
-}
-
-.ai-ranking-row {
-  display:grid;
-  grid-template-columns:26px 31px 1fr 52px 29px;
-  align-items:center;
-  gap:6px;
-  padding:7px 2px;
-  border-bottom:1px solid #edf0f3;
-}
-
-.ai-rank-number {
-  font-weight:900;
-  color:#6b7280;
-}
-
-.ai-ranking-car {
-  width:29px;
-  height:29px;
-  border-radius:6px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:900;
-}
-
-.ai-ranking-name {
-  font-size:13px;
-  font-weight:900;
-}
-
-.ai-ranking-score {
-  text-align:right;
-  font-size:13px;
-  font-weight:900;
-}
-
-.ai-grade {
-  width:27px;
-  height:27px;
-  border-radius:6px;
-  background:#f3f4f6;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:11px;
-  font-weight:900;
-}
-
-/* =========================
-   選手
-========================= */
-
-.rider {
-  border:1px solid #e5e7eb;
-  border-radius:13px;
-  margin-top:9px;
-  padding:11px;
-}
-
-.rider-top {
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.rider-car {
-  width:37px;
-  height:37px;
-  flex:0 0 37px;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:17px;
-  font-weight:900;
-}
-
-.rider-name {
-  flex:1;
-  font-size:15px;
-  font-weight:900;
-}
-
-.rider-mark {
-  min-width:30px;
-  height:30px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-  background:#f3f4f6;
-}
-
-.rider-meta {
-  margin-top:5px;
-  font-size:11px;
-  color:#6b7280;
-}
-
-.score-box {
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-top:8px;
-}
-
-.score {
-  background:#f1f5f9;
-  border-radius:7px;
-  padding:5px 8px;
-  font-size:11px;
-  font-weight:700;
-}
-
-.rider-comment {
-  margin-top:8px;
-  background:#f8fafc;
-  border-radius:8px;
-  padding:8px;
-  font-size:13px;
-  line-height:1.55;
-}
-
-/* =========================
-   読み込み
-========================= */
-
 .loading {
-  text-align:center;
-  padding:50px 10px;
-  color:#6b7280;
+  padding: 50px 15px;
+  text-align: center;
+  color: #64748b;
 }
-
 .error {
-  margin-top:15px;
-  padding:15px;
-  border-radius:12px;
-  background:#fee2e2;
-  color:#991b1b;
+  margin: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #be123c;
 }
-
-.status {
-  margin-top:13px;
-  text-align:center;
-  color:#6b7280;
-  font-size:11px;
-}
-
 /* =========================
-   スマホ
+   VENUE
 ========================= */
-
-@media(max-width:430px) {
-
-  .title {
-    font-size:22px;
-  }
-
-  .ai-car {
-    font-size:25px;
-  }
-
-  .ai-name {
-    font-size:11px;
-  }
-
-  .bet-numbers {
-    font-size:17px;
-  }
-
-  .ai-ranking-row {
-    grid-template-columns:24px 30px 1fr 48px 28px;
-  }
-
+.venue-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
 }
-
-@media(min-width:700px) {
-
-  .venue-grid {
-    grid-template-columns:repeat(4,1fr);
-  }
-
-  .race-list {
-    grid-template-columns:repeat(6,1fr);
-  }
-
+.venue-scroll::-webkit-scrollbar {
+  display: none;
 }
-
+.venue-btn {
+  flex: 0 0 auto;
+  border: 1px solid #d8dee8;
+  background: #fff;
+  color: #334155;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-weight: 800;
+  font-size: 13px;
+}
+.venue-btn.active {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #fff;
+}
+/* =========================
+   RACE BUTTONS
+========================= */
+.race-scroll {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.race-scroll::-webkit-scrollbar {
+  display: none;
+}
+.race-btn {
+  flex: 0 0 auto;
+  min-width: 46px;
+  border: 1px solid #d8dee8;
+  background: #fff;
+  border-radius: 10px;
+  padding: 9px 10px;
+  font-weight: 900;
+  color: #334155;
+}
+.race-btn.active {
+  background: #0f172a;
+  color: #fff;
+  border-color: #0f172a;
+}
+/* =========================
+   RACE HEADER
+========================= */
+.race-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.race-name {
+  font-size: 19px;
+  font-weight: 900;
+}
+.race-meta {
+  color: #64748b;
+  font-size: 11px;
+  margin-top: 4px;
+}
+.grade {
+  flex: 0 0 auto;
+  border-radius: 8px;
+  padding: 6px 9px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 12px;
+  font-weight: 900;
+}
+/* =========================
+   VERDICT
+========================= */
+.verdict {
+  border-radius: 14px;
+  padding: 14px;
+  color: #fff;
+  background: linear-gradient(135deg, #172554, #1d4ed8);
+}
+.verdict-label {
+  font-size: 11px;
+  opacity: .8;
+}
+.verdict-main {
+  font-size: 23px;
+  font-weight: 1000;
+  margin-top: 3px;
+}
+.verdict-sub {
+  font-size: 12px;
+  margin-top: 4px;
+  opacity: .9;
+}
+/* =========================
+   AI CARD
+========================= */
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+}
+.ai-item {
+  text-align: center;
+  border-radius: 11px;
+  padding: 9px 4px;
+  background: #f8fafc;
+}
+.ai-rank {
+  font-size: 10px;
+  color: #64748b;
+}
+.ai-number {
+  font-size: 23px;
+  font-weight: 1000;
+  margin-top: 2px;
+}
+.ai-score {
+  font-size: 10px;
+  color: #64748b;
+}
+/* =========================
+   RIDER NUMBER COLORS
+========================= */
+.car {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 1000;
+  margin-right: 5px;
+}
+.car-1 {
+  background: #fff;
+  color: #111827;
+  border: 1px solid #cbd5e1;
+}
+.car-2 {
+  background: #111827;
+  color: #fff;
+}
+.car-3 {
+  background: #dc2626;
+  color: #fff;
+}
+.car-4 {
+  background: #2563eb;
+  color: #fff;
+}
+.car-5 {
+  background: #facc15;
+  color: #111827;
+}
+.car-6 {
+  background: #16a34a;
+  color: #fff;
+}
+/* 7番車は必ずオレンジ */
+.car-7 {
+  background: #f97316 !important;
+  color: #fff !important;
+}
+.car-8 {
+  background: #111827;
+  color: #fff;
+}
+.car-9 {
+  background: #7c3aed;
+  color: #fff;
+}
+/* =========================
+   BETS
+========================= */
+.bet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+.bet-hit {
+  background: #ecfdf5;
+  border-color: #86efac;
+}
+.bet-rank {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #e2e8f0;
+  font-size: 11px;
+  font-weight: 900;
+}
+.bet-name {
+  flex: 1;
+  min-width: 0;
+}
+.bet-label {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 3px;
+}
+.bet-number {
+  font-size: 16px;
+  font-weight: 1000;
+  letter-spacing: .05em;
+}
+.bet-cost {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+}
+/* =========================
+   LINE
+========================= */
+.line-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.line {
+  padding: 7px 10px;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #1e40af;
+  font-size: 12px;
+  font-weight: 900;
+}
+/* =========================
+   DEVELOPMENT
+========================= */
+.development {
+  padding: 12px;
+  border-radius: 12px;
+  background: #f8fafc;
+  line-height: 1.7;
+  font-size: 13px;
+}
+/* =========================
+   RIDERS
+========================= */
+.rider-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rider {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px;
+  background: #f8fafc;
+  border-radius: 11px;
+}
+.rider-main {
+  flex: 1;
+  min-width: 0;
+}
+.rider-name {
+  font-size: 13px;
+  font-weight: 900;
+}
+.rider-info {
+  color: #64748b;
+  font-size: 10px;
+  margin-top: 2px;
+}
+.rider-score {
+  font-size: 13px;
+  font-weight: 900;
+}
+/* =========================
+   PROFIT
+========================= */
+.profit-total {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.metric {
+  padding: 12px;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+.metric-label {
+  color: #64748b;
+  font-size: 10px;
+}
+.metric-value {
+  font-size: 20px;
+  font-weight: 1000;
+  margin-top: 2px;
+}
+.profit-positive {
+  color: #059669;
+}
+.profit-negative {
+  color: #dc2626;
+}
+.metric-wide {
+  grid-column: span 2;
+}
+/* =========================
+   PROFIT TABLE
+========================= */
+.table-wrap {
+  overflow-x: auto;
+}
+.profit-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.profit-table th {
+  background: #f1f5f9;
+  color: #475569;
+  font-weight: 900;
+}
+.profit-table th,
+.profit-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: right;
+  white-space: nowrap;
+}
+.profit-table th:first-child,
+.profit-table td:first-child {
+  text-align: left;
+}
+.hit {
+  color: #059669;
+  font-weight: 1000;
+}
+.miss {
+  color: #94a3b8;
+}
+.unsettled {
+  color: #d97706;
+  font-weight: 900;
+}
+/* =========================
+   SUMMARY BADGE
+========================= */
+.summary-badge {
+  display: inline-block;
+  padding: 4px 7px;
+  border-radius: 7px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 10px;
+  font-weight: 900;
+}
+/* =========================
+   BOTTOM NAV
+========================= */
+.bottom-nav {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid #e2e8f0;
+  padding: 7px 10px calc(7px + env(safe-area-inset-bottom));
+}
+.bottom-nav-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.nav-btn {
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  padding: 7px;
+  border-radius: 12px;
+  font-weight: 900;
+}
+.nav-btn.active {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+.nav-icon {
+  font-size: 19px;
+  display: block;
+}
+.nav-label {
+  display: block;
+  font-size: 10px;
+  margin-top: 1px;
+}
+/* =========================
+   DESKTOP
+========================= */
+@media (min-width: 700px) {
+  .page {
+    padding: 18px;
+  }
+  .profit-total {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .metric-wide {
+    grid-column: auto;
+  }
+  .ai-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 </style>
 </head>
-
 <body>
-
-<header>
+<header class="header">
   <div class="header-inner">
-
-    <div class="title">
-      🏇 競輪AI予想
-    </div>
-
-    <div class="subtitle">
-      AI評価・展開・ラインから勝負レースを分析
-    </div>
-
+    <div class="header-title">🚴 競輪AI予想</div>
+    <div class="header-sub" id="headerSub">AI DATA LOADING...</div>
   </div>
 </header>
-
-<main class="container">
-
-  <div id="loading" class="loading">
-    データを読み込んでいます…
+<div id="app">
+  <!-- =========================
+       PREDICTION PAGE
+  ========================== -->
+  <main id="predictionPage" class="page active">
+<section class="card">
+  <div class="card-title">開催場</div>
+  <div id="venueButtons" class="venue-scroll"></div>
+</section>
+<section class="card">
+  <div class="card-title" id="selectedVenueTitle">レース選択</div>
+  <div id="raceButtons" class="race-scroll"></div>
+</section>
+<div id="predictionContent"></div>
+  </main>
+  <!-- =========================
+       PROFIT PAGE
+  ========================== -->
+  <main id="profitPage" class="page">
+<section class="card">
+  <div class="card-title">💰 AI買い目収支</div>
+  <div class="muted">
+    AIが選択した買い目を1点100円で購入した場合の自動集計
   </div>
-
-  <div id="app" style="display:none;">
-
-    <div class="section-title">
-      🏟 開催場
-    </div>
-
-    <div id="venues" class="venue-grid"></div>
-
-    <div class="section-title" style="margin-top:18px;">
-      🏁 レース
-    </div>
-
-    <div id="races" class="race-list"></div>
-
-    <div id="racePanel"></div>
-
-    <div id="status" class="status"></div>
-
+</section>
+<div id="profitContent"></div>
+  </main>
+</div>
+<nav class="bottom-nav">
+  <div class="bottom-nav-inner">
+<button id="navPrediction"
+        class="nav-btn active"
+        onclick="switchPage('prediction')">
+  <span class="nav-icon">🏁</span>
+  <span class="nav-label">予想</span>
+</button>
+<button id="navProfit"
+        class="nav-btn"
+        onclick="switchPage('profit')">
+  <span class="nav-icon">💰</span>
+  <span class="nav-label">収支</span>
+</button>
   </div>
-
-  <div id="error" style="display:none;"></div>
-
-</main>
-
+</nav>
 <script>
-
+"use strict";
+/* =========================================================
+   GLOBAL
+========================================================= */
 let DATA = null;
-let selectedVenue = null;
-let selectedRace = null;
-
-const DATA_URL = "./data/today.json";
-
-/* =====================================================
-   データ
-===================================================== */
-
-async function loadData() {
-
-  try {
-
-    const response =
-      await fetch(
-        DATA_URL + "?t=" + Date.now()
-      );
-
-    if (!response.ok) {
-      throw new Error(
-        "today.jsonを取得できませんでした"
-      );
-    }
-
-    DATA = await response.json();
-
-    if (!DATA.races?.length) {
-      throw new Error(
-        "レースデータがありません"
-      );
-    }
-
-    document.getElementById("loading")
-      .style.display = "none";
-
-    document.getElementById("app")
-      .style.display = "block";
-
-    renderVenues();
-
-    const first =
-      DATA.venues?.[0]?.venue_code ||
-      DATA.races[0].venue_code;
-
-    selectVenue(first);
-
-    document.getElementById("status")
-      .textContent =
-      `${DATA.target_date || ""} / ` +
-      `${DATA.race_count || DATA.races.length}レース / ` +
-      `${DATA.rider_count || 0}選手`;
-
-  } catch(error) {
-
-    document.getElementById("loading")
-      .style.display = "none";
-
-    const box =
-      document.getElementById("error");
-
-    box.style.display = "block";
-
-    box.innerHTML =
-      "⚠️ データ読み込み失敗<br><br>" +
-      escapeHtml(error.message);
-
-  }
-
+let selectedVenueIndex = 0;
+let selectedRaceIndex = 0;
+let currentPage = "prediction";
+const BET_UNIT = 100;
+const $ = id => document.getElementById(id);
+function num(v, fallback = 0) {
+  const n = Number(v);
+  return Number.isFinite(n) ? n : fallback;
 }
-
-/* =====================================================
-   開催場
-===================================================== */
-
-function renderVenues() {
-
-  const box =
-    document.getElementById("venues");
-
-  box.innerHTML = "";
-
-  DATA.venues.forEach(v => {
-
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "venue-card";
-
-    div.dataset.code =
-      v.venue_code;
-
-    div.innerHTML = `
-      <div class="venue-name">
-        ${escapeHtml(v.venue_name)}
-      </div>
-
-      <div class="venue-count">
-        ${v.race_count}レース
-      </div>
-    `;
-
-    div.onclick =
-      () => selectVenue(v.venue_code);
-
-    box.appendChild(div);
-
-  });
-
+function str(v, fallback = "") {
+  if (v === null || v === undefined) return fallback;
+  return String(v);
 }
-
-function selectVenue(code) {
-
-  selectedVenue =
-    String(code);
-
-  document
-    .querySelectorAll(".venue-card")
-    .forEach(card => {
-
-      card.classList.toggle(
-        "active",
-        String(card.dataset.code) ===
-        selectedVenue
-      );
-
-    });
-
-  const races =
-    DATA.races
-      .filter(
-        r =>
-          String(r.venue_code) ===
-          selectedVenue
-      )
-      .sort(
-        (a,b) =>
-          a.race_no - b.race_no
-      );
-
-  renderRaceButtons(races);
-
-  if (races.length) {
-    selectRace(races[0]);
-  }
-
+function arr(v) {
+  return Array.isArray(v) ? v : [];
 }
-
-/* =====================================================
-   レース
-===================================================== */
-
-function renderRaceButtons(races) {
-
-  const box =
-    document.getElementById("races");
-
-  box.innerHTML = "";
-
+function escapeHtml(value) {
+  return str(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+/* =========================================================
+   DATA HELPERS
+========================================================= */
+function getRaces() {
+  return arr(DATA?.races);
+}
+function getVenues() {
+  const races = getRaces();
+  const map = new Map();
   races.forEach(race => {
-
-    const btn =
-      document.createElement("button");
-
-    btn.className =
-      "race-btn";
-
-    btn.dataset.race =
-      `${race.venue_code}-${race.race_no}`;
-
-    btn.innerHTML = `
-      <span class="race-number">
-        ${race.race_no}R
-      </span>
-
-      <span class="race-info">
-        ${race.riders.length}車
-      </span>
-    `;
-
-    btn.onclick =
-      () => selectRace(race);
-
-    box.appendChild(btn);
-
+    const name =
+      race.venue_name ??
+      race.venue ??
+      race.place ??
+      race.keirin_venue ??
+      "不明";
+    if (!map.has(name)) {
+      map.set(name, []);
+    }
+    map.get(name).push(race);
   });
-
+  return [...map.entries()].map(([name, races]) => ({
+    name,
+    races
+  }));
 }
-
-function selectRace(race) {
-
-  selectedRace = race;
-
-  document
-    .querySelectorAll(".race-btn")
-    .forEach(btn => {
-
-      btn.classList.toggle(
-        "active",
-        btn.dataset.race ===
-        `${race.venue_code}-${race.race_no}`
-      );
-
-    });
-
-  renderRace(race);
-
+function getCurrentVenue() {
+  return getVenues()[selectedVenueIndex] || null;
 }
-
-/* =====================================================
-   レース全体
-===================================================== */
-
-function renderRace(race) {
-
-  const panel =
-    document.getElementById("racePanel");
-
-  const ai =
-    race.ai || {};
-
-  const main =
-    findRider(race, ai.main);
-
-  const opponent =
-    findRider(race, ai.opponent);
-
-  const dark =
-    findRider(race, ai.dark_horse);
-
-  const verdict =
-    calculateVerdict(
-      race,
-      main,
-      opponent,
-      dark
-    );
-
-  panel.innerHTML = `
-
-    <div class="race-header">
-
-      <div class="race-title">
-        ${escapeHtml(race.venue_name)}
-        ${race.race_no}R
-      </div>
-
-      <div class="race-meta">
-        ${race.riders.length}車立て /
-        AIデータ取得済み
-      </div>
-
-    </div>
-
-    ${renderVerdict(verdict)}
-
-    <div class="ai-grid">
-
-      ${renderAICard(
-        "🔥 本命",
-        main,
-        "main-card"
-      )}
-
-      ${renderAICard(
-        "⭐ 対抗",
-        opponent,
-        "opponent-card"
-      )}
-
-      ${renderAICard(
-        "💥 穴",
-        dark,
-        "dark-card"
-      )}
-
-    </div>
-
-    ${renderBets(
-      race,
-      verdict
-    )}
-
-    ${renderLine(race)}
-
-    ${renderDevelopment(race)}
-
-    ${renderRanking(race)}
-
-    ${renderRiders(race)}
-
-  `;
-
+function getCurrentRace() {
+  const venue = getCurrentVenue();
+  return venue?.races?.[selectedRaceIndex] || null;
 }
-
-/* =====================================================
-   勝負度
-===================================================== */
-
-function calculateVerdict(
-  race,
-  main,
-  opponent,
-  dark
-) {
-
-  const riders =
-    [...race.riders]
-      .sort(
-        (a,b) =>
-          (b.ai_score || 0) -
-          (a.ai_score || 0)
-      );
-
-  if (!riders.length) {
-
-    return {
-      grade:"C",
-      action:"見送り",
-      score:0,
-      reason:"AI評価データ不足"
-    };
-
-  }
-
-  const first =
-    riders[0]?.ai_score || 0;
-
-  const second =
-    riders[1]?.ai_score || 0;
-
-  const third =
-    riders[2]?.ai_score || 0;
-
-  const spread =
-    first - second;
-
-  let score = 50;
-
-  /*
-   * 本命の優位性
-   */
-
-  score +=
-    Math.min(
-      20,
-      spread * 2
-    );
-
-  /*
-   * 2番手と3番手の差
-   */
-
-  if (
-    second - third >= 5
-  ) {
-    score += 8;
-  }
-
-  /*
-   * ラインがある場合
-   */
-
-  if (
-    race.line &&
-    race.line.length ===
-    race.riders.length
-  ) {
-    score += 8;
-  }
-
-  /*
-   * 展開コメントあり
-   */
-
-  if (race.development) {
-    score += 5;
-  }
-
-  /*
-   * 予想情報あり
-   */
-
-  if (
-    race.prediction_url
-  ) {
-    score += 4;
-  }
-
-  score =
-    Math.max(
-      0,
-      Math.min(
-        100,
-        score
-      )
-    );
-
-  let grade;
-  let action;
-
-  if (score >= 82) {
-
-    grade = "S";
-    action = "🔥 勝負";
-
-  } else if (score >= 72) {
-
-    grade = "A";
-    action = "🎯 買い";
-
-  } else if (score >= 61) {
-
-    grade = "B";
-    action = "⭐ 少額";
-
-  } else {
-
-    grade = "C";
-    action = "⚠️ 見送り";
-
-  }
-
-  const reasons = [];
-
-  if (spread >= 8) {
-
-    reasons.push(
-      `本命${main?.car_no || ""}番のAI評価が上位に明確に抜けています`
-    );
-
-  } else if (spread >= 4) {
-
-    reasons.push(
-      `本命${main?.car_no || ""}番が対抗より優勢です`
-    );
-
-  } else {
-
-    reasons.push(
-      "上位勢のAI評価が接近しており混戦です"
-    );
-
-  }
-
-  if (
-    race.line_groups &&
-    race.line_groups.length
-  ) {
-
-    reasons.push(
-      "予想ラインを考慮して展開別の買い目を生成しています"
-    );
-
-  }
-
-  if (dark) {
-
-    reasons.push(
-      `穴は${dark.car_no}番。展開次第で上位進出を警戒`
-    );
-
-  }
-
-  return {
-    grade,
-    action,
-    score: Math.round(score),
-    reason: reasons.join("。") + "。"
-  };
-
+function getRaceNumber(race) {
+  return num(
+    race?.race_number ??
+    race?.race_no ??
+    race?.r ?? 
+    race?.number ??
+    0
+  );
 }
-
-/* =====================================================
-   勝負度表示
-===================================================== */
-
-function renderVerdict(v) {
-
-  const cls =
-    v.grade === "S"
-      ? "verdict-s"
-      : v.grade === "A"
-      ? "verdict-a"
-      : v.grade === "B"
-      ? "verdict-b"
-      : "verdict-c";
-
-  return `
-
-    <div class="verdict-card ${cls}">
-
-      <div class="verdict-top">
-
-        <div>
-
-          <div class="verdict-title">
-            AI勝負度
-          </div>
-
-          <div class="verdict-action">
-            ${v.action}
-          </div>
-
-        </div>
-
-        <div class="verdict-grade">
-          ${v.grade}
-        </div>
-
-      </div>
-
-      <div class="verdict-reason">
-        ${escapeHtml(v.reason)}
-      </div>
-
-    </div>
-
-  `;
-
+function getGrade(race) {
+  return str(
+    race?.grade ??
+    race?.class ??
+    race?.race_grade ??
+    race?.grade_name ??
+    ""
+  );
 }
-
-/* =====================================================
-   AIカード
-===================================================== */
-
-function renderAICard(
-  label,
-  rider,
-  cls
-) {
-
-  if (!rider) {
-
-    return `
-      <div class="ai-card ${cls}">
-        <div class="ai-label">
-          ${label}
-        </div>
-        <div class="ai-car">
-          -
-        </div>
-        <div class="ai-name">
-          ---
-        </div>
+function getRiders(race) {
+  return arr(
+    race?.riders ??
+    race?.entries ??
+    race?.players ??
+    race?.members
+  );
+}
+function getCarNumber(rider) {
+  return num(
+    rider?.car_number ??
+    rider?.car ??
+    rider?.number ??
+    rider?.frame ??
+    0
+  );
+}
+function getRiderName(rider) {
+  return str(
+    rider?.name ??
+    rider?.rider_name ??
+    rider?.player_name ??
+    rider?.full_name ??
+    "選手"
+  );
+}
+function getAIScore(rider) {
+  return num(
+    rider?.ai_score ??
+    rider?.score ??
+    rider?.prediction_score ??
+    rider?.ai ??
+    0
+  );
+}
+/* =========================================================
+   LOAD
+========================================================= */
+async function loadData() {
+  try {
+    const response = await fetch(
+      "./data/today.json?t=" + Date.now(),
+      { cache: "no-store" }
+    );
+    if (!response.ok) {
+      throw new Error("today.json の取得に失敗しました");
+    }
+    DATA = await response.json();
+    if (!Array.isArray(DATA?.races)) {
+      throw new Error("today.json に races がありません");
+    }
+    const date =
+      DATA.date ??
+      DATA.target_date ??
+      DATA.race_date ??
+      "";
+    $("headerSub").textContent =
+      date ? `対象日：${date}` : "本日のAI予想";
+    renderVenues();
+  } catch (error) {
+    console.error(error);
+    $("predictionContent").innerHTML = `
+      <div class="error">
+        <strong>データ読み込みエラー</strong><br>
+        ${escapeHtml(error.message)}
       </div>
     `;
-
   }
-
-  return `
-
-    <div class="ai-card ${cls}">
-
-      <div class="ai-label">
-        ${label}
-      </div>
-
-      <div class="
-        ai-car c${rider.car_no}">
-        ${rider.car_no}番
-      </div>
-
-      <div class="
-        ai-name c${rider.car_no}">
-        ${escapeHtml(rider.name)}
-      </div>
-
-      <div class="ai-score">
-        AI ${formatScore(
-          rider.ai_score
-        )}点
-      </div>
-
-    </div>
-
-  `;
-
 }
-
-/* =====================================================
-   買い目生成
-===================================================== */
-
+/* =========================================================
+   NAV
+========================================================= */
+function switchPage(page) {
+  currentPage = page;
+  $("predictionPage").classList.toggle(
+    "active",
+    page === "prediction"
+  );
+  $("profitPage").classList.toggle(
+    "active",
+    page === "profit"
+  );
+  $("navPrediction").classList.toggle(
+    "active",
+    page === "prediction"
+  );
+  $("navProfit").classList.toggle(
+    "active",
+    page === "profit"
+  );
+  if (page === "profit") {
+    renderProfitPage();
+  }
+}
+/* =========================================================
+   VENUES
+========================================================= */
+function renderVenues() {
+  const venues = getVenues();
+  if (!venues.length) {
+    $("venueButtons").innerHTML =
+      `<div class="empty">開催データがありません</div>`;
+    return;
+  }
+  if (selectedVenueIndex >= venues.length) {
+    selectedVenueIndex = 0;
+  }
+  $("venueButtons").innerHTML = venues
+    .map((venue, index) => `
+      <button
+        class="venue-btn ${index === selectedVenueIndex ? "active" : ""}"
+        onclick="selectVenue(${index})">
+        ${escapeHtml(venue.name)}
+      </button>
+    `)
+    .join("");
+  renderRaceButtons();
+}
+function selectVenue(index) {
+  selectedVenueIndex = index;
+  selectedRaceIndex = 0;
+  renderVenues();
+  renderPrediction();
+}
+function renderRaceButtons() {
+  const venue = getCurrentVenue();
+  if (!venue) return;
+  $("selectedVenueTitle").textContent =
+    `${venue.name}　${venue.races.length}R`;
+  $("raceButtons").innerHTML = venue.races
+    .map((race, index) => {
+      const r = getRaceNumber(race);
+      return `
+        <button
+          class="race-btn ${index === selectedRaceIndex ? "active" : ""}"
+          onclick="selectRace(${index})">
+          ${r ? r + "R" : (index + 1) + "R"}
+        </button>
+      `;
+    })
+    .join("");
+}
+function selectRace(index) {
+  selectedRaceIndex = index;
+  renderRaceButtons();
+  renderPrediction();
+}
+/* =========================================================
+   PREDICTION
+========================================================= */
+function renderPrediction() {
+  const race = getCurrentRace();
+  if (!race) {
+    $("predictionContent").innerHTML =
+      `<div class="empty">レースデータがありません</div>`;
+    return;
+  }
+  $("predictionContent").innerHTML = `
+    ${renderRaceHeader(race)}
+    ${renderVerdict(race)}
+    ${renderAICard(race)}
+    ${renderBets(race)}
+    ${renderLine(race)}
+    ${renderDevelopment(race)}
+    ${renderRanking(race)}
+  `;
+}
+function renderRaceHeader(race) {
+  const venue =
+    race.venue_name ??
+    race.venue ??
+    race.place ??
+    "";
+  const raceNo = getRaceNumber(race);
+  const grade = getGrade(race);
+  return `
+    <section class="card">
+      <div class="race-header">
+        <div>
+          <div class="race-name">
+            ${escapeHtml(venue)}
+            ${raceNo ? raceNo + "R" : ""}
+          </div>
+          <div class="race-meta">
+            ${escapeHtml(
+              race.race_name ??
+              race.title ??
+              race.name ??
+              ""
+            )}
+          </div>
+        </div>
+        ${grade
+          ? `<div class="grade">${escapeHtml(grade)}</div>`
+          : ""}
+      </div>
+    </section>
+  `;
+}
+/* =========================================================
+   VERDICT
+========================================================= */
+function calculateVerdict(race) {
+  const riders = getRiders(race)
+    .slice()
+    .sort((a, b) => getAIScore(b) - getAIScore(a));
+  const main = riders[0];
+  const second = riders[1];
+  const third = riders[2];
+  if (!main) {
+    return {
+      main: "—",
+      sub: "AI予想データなし"
+    };
+  }
+  const mainNo = getCarNumber(main);
+  const secondNo = getCarNumber(second);
+  const thirdNo = getCarNumber(third);
+  return {
+    main: mainNo ? `${mainNo}番` : getRiderName(main),
+    sub:
+      `対抗 ${secondNo || "—"}番　穴 ${thirdNo || "—"}番`
+  };
+}
+function renderVerdict(race) {
+  const verdict = calculateVerdict(race);
+  return `
+    <section class="card">
+      <div class="verdict">
+        <div class="verdict-label">AI総合判断</div>
+        <div class="verdict-main">
+          ◎ ${escapeHtml(verdict.main)}
+        </div>
+        <div class="verdict-sub">
+          ${escapeHtml(verdict.sub)}
+        </div>
+      </div>
+    </section>
+  `;
+}
+/* =========================================================
+   AI CARD
+========================================================= */
+function renderAICard(race) {
+  const riders = getRiders(race)
+    .slice()
+    .sort((a, b) => getAIScore(b) - getAIScore(a))
+    .slice(0, 4);
+  return `
+    <section class="card">
+      <div class="card-title">🤖 AI評価</div>
+      <div class="ai-grid">
+        ${riders.map((rider, index) => {
+          const car = getCarNumber(rider);
+          return `
+            <div class="ai-item">
+              <div class="ai-rank">
+                ${["本命","対抗","穴","注"][index] || "評価"}
+              </div>
+              <div class="ai-number">
+                <span class="car car-${car}">
+                  ${car || "?"}
+                </span>
+              </div>
+              <div class="ai-score">
+                ${getAIScore(rider).toFixed(1)}
+              </div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+/* =========================================================
+   BET GENERATOR
+========================================================= */
 function generateBets(race) {
-
-  const riders =
-    [...race.riders]
-      .sort(
-        (a,b) =>
-          (b.ai_score || 0) -
-          (a.ai_score || 0)
-      );
-
+  const riders = getRiders(race)
+    .slice()
+    .sort((a, b) => getAIScore(b) - getAIScore(a));
   if (riders.length < 3) {
     return [];
   }
-
-  const main =
-    riders[0];
-
-  const second =
-    riders[1];
-
-  const third =
-    riders[2];
-
-  const fourth =
-    riders[3];
-
-  const fifth =
-    riders[4];
-
-  const dark =
-    findRider(
-      race,
-      race.ai?.dark_horse
-    ) || third;
-
-  const candidates = [];
-
-  function add(
-    a,
-    b,
-    c,
-    type,
-    score
-  ) {
-
-    if (!a || !b || !c) {
-      return;
-    }
-
-    const nums = [
-      Number(a.car_no),
-      Number(b.car_no),
-      Number(c.car_no)
-    ];
-
-    if (
-      new Set(nums).size !== 3
-    ) {
-      return;
-    }
-
-    const key =
-      nums.join("-");
-
-    if (
-      candidates.some(
-        x => x.key === key
-      )
-    ) {
-      return;
-    }
-
-    candidates.push({
-      key,
-      nums,
-      type,
+  const numbers = riders
+    .map(getCarNumber)
+    .filter(Boolean);
+  const line = getLineGroups(race);
+  const bets = [];
+  const used = new Set();
+  function add(label, a, b, c, score = 0) {
+    if (!a || !b || !c) return;
+    if (a === b || a === c || b === c) return;
+    const key = `${a}-${b}-${c}`;
+    if (used.has(key)) return;
+    used.add(key);
+    bets.push({
+      label,
+      numbers: [a, b, c],
       score
     });
-
   }
-
+  const n = numbers;
   /*
-   * AI本線
+   * 基本AI買い目
    */
-
-  add(
-    main,
-    second,
-    third,
-    "🔥 AI本線",
-    100
-  );
-
-  add(
-    main,
-    third,
-    second,
-    "🔥 本線入替",
-    97
-  );
-
-  add(
-    second,
-    main,
-    third,
-    "⭐ 対抗頭",
-    94
-  );
-
-  add(
-    main,
-    second,
-    dark,
-    "🎯 穴絡み",
-    92
-  );
-
-  add(
-    main,
-    dark,
-    second,
-    "🎯 穴入替",
-    90
-  );
-
-  /*
-   * ライン展開
-   */
-
-  const groups =
-    race.line_groups || [];
-
-  groups.forEach(group => {
-
-    if (group.length < 2) {
-      return;
-    }
-
-    const a =
-      findRider(
-        race,
-        group[0]
-      );
-
-    const b =
-      findRider(
-        race,
-        group[1]
-      );
-
-    if (!a || !b) {
-      return;
-    }
-
+  if (n.length >= 3) {
     add(
-      a,
-      b,
-      main,
-      "🚴 ライン本線",
-      88
+      "🔥 AI本線",
+      n[0],
+      n[1],
+      n[2],
+      100
     );
-
+  }
+  if (n.length >= 4) {
     add(
-      b,
-      a,
-      main,
-      "🔄 番手差し",
-      85
+      "🔥 本線入替",
+      n[1],
+      n[0],
+      n[2],
+      95
     );
-
     add(
-      a,
-      main,
-      b,
-      "⚡ 先頭残り",
+      "⭐ 対抗頭",
+      n[1],
+      n[2],
+      n[0],
+      90
+    );
+    add(
+      "🎯 穴絡み",
+      n[0],
+      n[1],
+      n[3],
+      86
+    );
+    add(
+      "🎯 穴入替",
+      n[0],
+      n[3],
+      n[1],
+      84
+    );
+    add(
+      "💥 逆転",
+      n[2],
+      n[0],
+      n[1],
       82
     );
-
-  });
-
-  /*
-   * 逆転
-   */
-
-  add(
-    third,
-    main,
-    second,
-    "💥 逆転",
-    82
-  );
-
-  add(
-    second,
-    third,
-    main,
-    "💥 対抗展開",
-    80
-  );
-
-  /*
-   * 中穴
-   */
-
-  if (fourth) {
-
     add(
-      main,
-      fourth,
-      second,
+      "💥 対抗展開",
+      n[2],
+      n[1],
+      n[0],
+      80
+    );
+  }
+  if (n.length >= 5) {
+    add(
       "🎯 中穴",
+      n[0],
+      n[2],
+      n[4],
       76
     );
-
     add(
-      fourth,
-      main,
-      third,
       "💥 高配当",
+      n[3],
+      n[0],
+      n[1],
       72
     );
-
-  }
-
-  /*
-   * 大穴
-   */
-
-  if (fifth) {
-
     add(
-      main,
-      dark,
-      fifth,
       "💣 大穴警戒",
+      n[3],
+      n[1],
+      n[4],
       68
     );
-
     add(
-      dark,
-      main,
-      second,
       "💣 穴頭",
-      65
+      n[4],
+      n[0],
+      n[1],
+      64
     );
-
   }
-
   /*
-   * ライン内の選手を評価
+   * ラインを考慮した追加
    */
-
-  const line =
-    race.line || [];
-
-  candidates.forEach(
-    bet => {
-
-      const count =
-        bet.nums.filter(
-          n => line.includes(n)
-        ).length;
-
-      bet.score +=
-        count * 2;
-
-    }
-  );
-
-  candidates.sort(
-    (a,b) =>
-      b.score - a.score
-  );
-
-  return candidates.slice(
-    0,
-    10
-  );
-
+  if (line.length) {
+    line.forEach((group, gi) => {
+      const g = group.filter(n => numbers.includes(n));
+      if (g.length >= 2) {
+        const other = numbers.find(x => !g.includes(x));
+        if (other) {
+          add(
+            `ライン${gi + 1}展開`,
+            g[0],
+            g[1],
+            other,
+            60 - gi
+          );
+          add(
+            `ライン${gi + 1}逆転`,
+            g[1],
+            g[0],
+            other,
+            58 - gi
+          );
+        }
+      }
+    });
+  }
+  return bets
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
 }
-
-/* =====================================================
-   買い目表示
-===================================================== */
-
-function renderBets(
-  race,
-  verdict
-) {
-
-  const bets =
-    generateBets(race);
-
+/* =========================================================
+   BET RENDER
+========================================================= */
+function renderBets(race) {
+  const bets = generateBets(race);
   if (!bets.length) {
-    return "";
+    return `
+      <section class="card">
+        <div class="card-title">🎯 AI買い目</div>
+        <div class="empty">買い目を生成できません</div>
+      </section>
+    `;
   }
-
-  let explanation;
-
-  if (verdict.grade === "S") {
-
-    explanation =
-      "本命の優位性が高いため、本線を厚めに。後半は展開違い・穴絡みを押さえています。";
-
-  } else if (verdict.grade === "A") {
-
-    explanation =
-      "本線を中心に、ラインの入れ替わりと穴選手の浮上までカバーしています。";
-
-  } else if (verdict.grade === "B") {
-
-    explanation =
-      "混戦傾向です。本線を絞りすぎず、展開が変わった場合の買い目も押さえています。";
-
-  } else {
-
-    explanation =
-      "AI評価が接近しているため、無理な勝負はおすすめしません。買う場合は少額で。";
-
-  }
-
   return `
-
-    <div class="info-card bet-summary">
-
-      <div class="bet-header">
-
-        <div class="bet-title">
-          🎯 AI推奨買い目
-        </div>
-
-        <div class="bet-badge">
-          ${bets.length}点
-        </div>
-
+    <section class="card">
+      <div class="card-title">
+        🎯 AI推奨買い目
+        <span class="summary-badge">
+          ${bets.length}点 / ${bets.length * BET_UNIT}円
+        </span>
       </div>
-
-      <div class="bet-explanation">
-        ${explanation}
-      </div>
-
       <div class="bet-list">
-
-        ${bets.map(
-          (bet,index) => `
-
-          <div class="
-            bet-item
-            ${index === 0 ? "main" : ""}
-          ">
-
+        ${bets.map((bet, index) => `
+          <div class="bet">
             <div class="bet-rank">
               ${index + 1}
             </div>
-
-            <div>
-
-              <div class="bet-numbers">
-                ${bet.nums.join(" - ")}
+            <div class="bet-name">
+              <div class="bet-label">
+                ${escapeHtml(bet.label)}
               </div>
-
-              <div class="bet-type">
-                ${escapeHtml(
-                  bet.type
-                )}
+              <div class="bet-number">
+                ${bet.numbers.map((n, i) => `
+                  <span class="car car-${n}">
+                    ${n}
+                  </span>
+                  ${i < 2 ? "→" : ""}
+                `).join("")}
               </div>
-
             </div>
-
-            <div class="bet-score">
-              ${bet.score}
+            <div class="bet-cost">
+              ¥100
             </div>
-
           </div>
-
-        `
-        ).join("")}
-
+        `).join("")}
       </div>
-
-    </div>
-
+    </section>
   `;
-
 }
-
-/* =====================================================
-   並び
-===================================================== */
-
-function renderLine(race) {
-
-  const groups =
-    race.line_groups || [];
-
-  let html = "";
-
-  if (groups.length) {
-
-    html =
-      groups.map(
-        group => `
-
-        <div class="line-group">
-
-          ${group.map(
-            (car,index) => `
-
-            ${
-              index > 0
-              ? `<span class="arrow">→</span>`
-              : ""
-            }
-
-            <div class="
-              line-car car-${car}">
-              ${car}
-            </div>
-
-          `
-          ).join("")}
-
-        </div>
-
-      `
-      ).join("");
-
-  } else if (
-    race.line?.length
-  ) {
-
-    html = `
-
-      <div class="line-group">
-
-        ${race.line.map(
-          (car,index) => `
-
-          ${
-            index > 0
-            ? `<span class="arrow">→</span>`
-            : ""
-          }
-
-          <div class="
-            line-car car-${car}">
-            ${car}
-          </div>
-
-        `
-        ).join("")}
-
-      </div>
-
-    `;
-
-  } else {
-
-    html =
-      "並び情報なし";
-
-  }
-
-  return `
-
-    <div class="info-card">
-
-      <div class="info-title">
-        🚴 予想ライン
-      </div>
-
-      <div class="line-display">
-        ${html}
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-/* =====================================================
-   展開
-===================================================== */
-
-function renderDevelopment(race) {
-
-  if (!race.development) {
-    return "";
-  }
-
-  return `
-
-    <div class="info-card">
-
-      <div class="info-title">
-        🧠 AI展開予想
-      </div>
-
-      <div class="development">
-        ${escapeHtml(
-          race.development
-        )}
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-/* =====================================================
-   AIランキング
-===================================================== */
-
-function renderRanking(race) {
-
-  const ranking =
-    [...(
-      race.ai?.ranking || []
-    )];
-
-  if (!ranking.length) {
-    return "";
-  }
-
-  return `
-
-    <div class="info-card">
-
-      <div class="info-title">
-        📊 AI評価ランキング
-      </div>
-
-      <div class="ai-ranking">
-
-        ${ranking.map(
-          (r,index) => {
-
-            const grade =
-              index === 0
-              ? "S"
-              : index === 1
-              ? "A"
-              : index === 2
-              ? "B"
-              : "C";
-
-            return `
-
-              <div class="
-                ai-ranking-row">
-
-                <div class="
-                  ai-rank-number">
-                  ${index + 1}
-                </div>
-
-                <div class="
-                  ai-ranking-car
-                  car-${r.car_no}">
-                  ${r.car_no}
-                </div>
-
-                <div class="
-                  ai-ranking-name
-                  c${r.car_no}">
-                  ${escapeHtml(
-                    r.name
-                  )}
-                </div>
-
-                <div class="
-                  ai-ranking-score
-                  c${r.car_no}">
-                  ${formatScore(
-                    r.score
-                  )}
-                </div>
-
-                <div class="
-                  ai-grade">
-                  ${grade}
-                </div>
-
-              </div>
-
-            `;
-
-          }
-        ).join("")}
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-/* =====================================================
-   選手
-===================================================== */
-
-function renderRiders(race) {
-
-  const riders =
-    [...race.riders]
-      .sort(
-        (a,b) =>
-          (b.ai_score || 0) -
-          (a.ai_score || 0)
+/* =========================================================
+   LINE
+========================================================= */
+function getLineGroups(race) {
+  const raw =
+    race?.line ??
+    race?.lines ??
+    race?.line_groups ??
+    race?.formation ??
+    [];
+  if (Array.isArray(raw)) {
+    if (raw.every(x => Array.isArray(x))) {
+      return raw.map(x =>
+        x.map(Number).filter(Boolean)
       );
-
-  return `
-
-    <div class="info-card">
-
-      <div class="info-title">
-        👤 AI選手評価
-      </div>
-
-      ${riders.map(
-        (r,index) =>
-          renderRider(
-            r,
-            index
-          )
-      ).join("")}
-
-    </div>
-
-  `;
-
-}
-
-function renderRider(
-  rider,
-  index
-) {
-
-  let mark =
-    rider.prediction_mark;
-
-  if (!mark) {
-
-    if (index === 0) {
-      mark = "◎";
-    } else if (index === 1) {
-      mark = "○";
-    } else if (index === 2) {
-      mark = "▲";
-    } else {
-      mark = "△";
     }
-
+    if (raw.every(x => typeof x === "object")) {
+      return raw.map(group => {
+        const members =
+          group.members ??
+          group.cars ??
+          group.riders ??
+          group.numbers ??
+          [];
+        return arr(members)
+          .map(x =>
+            typeof x === "object"
+              ? getCarNumber(x)
+              : num(x)
+          )
+          .filter(Boolean);
+      });
+    }
+    return [raw.map(Number).filter(Boolean)];
   }
-
-  const finish =
-    [
-      rider.finish_1,
-      rider.finish_2,
-      rider.finish_3,
-      rider.finish_out
-    ]
-    .filter(
-      v =>
-        v !== null &&
-        v !== undefined
-    )
-    .join("-");
-
-  return `
-
-    <div class="rider">
-
-      <div class="rider-top">
-
-        <div class="
-          rider-car
-          car-${rider.car_no}">
-          ${rider.car_no}
-        </div>
-
-        <div class="
-          rider-name
-          c${rider.car_no}">
-          ${escapeHtml(
-            rider.name
-          )}
-        </div>
-
-        <div class="rider-mark">
-          ${escapeHtml(mark)}
-        </div>
-
-      </div>
-
-      <div class="rider-meta">
-
-        ${
-          rider.age
-          ? rider.age + "歳"
-          : ""
-        }
-
-        ${
-          rider.period
-          ? " / " +
-            rider.period +
-            "期"
-          : ""
-        }
-
-        ${
-          rider.prefecture
-          ? " / " +
-            escapeHtml(
-              rider.prefecture
-            )
-          : ""
-        }
-
-        ${
-          rider.grade
-          ? " / " +
-            escapeHtml(
-              rider.grade
-            )
-          : ""
-        }
-
-        ${
-          rider.style
-          ? " / " +
-            escapeHtml(
-              rider.style
-            )
-          : ""
-        }
-
-      </div>
-
-      <div class="score-box">
-
-        <span class="score">
-
-          AI
-
-          <strong class="
-            c${rider.car_no}">
-            ${formatScore(
-              rider.ai_score
-            )}
-          </strong>
-
-        </span>
-
-        ${
-          rider.score != null
-          ? `
-            <span class="score">
-              競走得点
-              ${rider.score}
-            </span>
-          `
-          : ""
-        }
-
-        ${
-          finish
-          ? `
-            <span class="score">
-              着順 ${finish}
-            </span>
-          `
-          : ""
-        }
-
-      </div>
-
-      ${
-        rider.comment
-        ? `
-          <div class="rider-comment">
-            💬
-            ${escapeHtml(
-              rider.comment
-            )}
-          </div>
-        `
-        : ""
-      }
-
-    </div>
-
-  `;
-
+  if (typeof raw === "string") {
+    return raw
+      .split(/[\/｜|、,\s]+/)
+      .map(part =>
+        part
+          .split(/[-→:>]/)
+          .map(Number)
+          .filter(Boolean)
+      )
+      .filter(group => group.length);
+  }
+  return [];
 }
-
-/* =====================================================
-   共通
-===================================================== */
-
-function findRider(
-  race,
-  carNo
-) {
-
-  if (
-    carNo === null ||
-    carNo === undefined
-  ) {
+function renderLine(race) {
+  const groups = getLineGroups(race);
+  if (!groups.length) {
+    return `
+      <section class="card">
+        <div class="card-title">🚴 ライン</div>
+        <div class="muted">ライン情報なし</div>
+      </section>
+    `;
+  }
+  return `
+    <section class="card">
+      <div class="card-title">🚴 ライン</div>
+      <div class="line-box">
+        ${groups.map((group, index) => `
+          <div class="line">
+            ${index + 1}：
+            ${group.join("-")}
+          </div>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+/* =========================================================
+   DEVELOPMENT
+========================================================= */
+function renderDevelopment(race) {
+  const text =
+    race?.development ??
+    race?.development_text ??
+    race?.展開 ??
+    race?.comment ??
+    race?.analysis ??
+    "AI展開情報なし";
+  return `
+    <section class="card">
+      <div class="card-title">🧠 AI展開予想</div>
+      <div class="development">
+        ${escapeHtml(text)}
+      </div>
+    </section>
+  `;
+}
+/* =========================================================
+   RANKING
+========================================================= */
+function renderRanking(race) {
+  const riders = getRiders(race)
+    .slice()
+    .sort((a, b) => getAIScore(b) - getAIScore(a));
+  return `
+    <section class="card">
+      <div class="card-title">📊 AI評価ランキング</div>
+      <div class="rider-list">
+        ${riders.map((rider, index) =>
+          renderRider(rider, index)
+        ).join("")}
+      </div>
+    </section>
+  `;
+}
+function renderRider(rider, index) {
+  const car = getCarNumber(rider);
+  const finishes = [
+    rider?.finish_1,
+    rider?.finish_2,
+    rider?.finish_3,
+    rider?.finish_out
+  ]
+    .filter(v =>
+      v !== undefined &&
+      v !== null &&
+      String(v) !== ""
+    );
+  return `
+    <div class="rider">
+      <span class="car car-${car}">
+        ${car || "?"}
+      </span>
+      <div class="rider-main">
+        <div class="rider-name">
+          ${escapeHtml(getRiderName(rider))}
+        </div>
+        <div class="rider-info">
+          ${finishes.length
+            ? `近況 ${finishes.join("-")}`
+            : "近況データなし"}
+        </div>
+      </div>
+      <div class="rider-score">
+        ${getAIScore(rider).toFixed(1)}
+      </div>
+    </div>
+  `;
+}
+/* =========================================================
+   RESULT DETECTION
+========================================================= */
+function getRaceResult(race) {
+  /*
+   * v6系で考えられる着順フィールドを幅広く吸収
+   */
+  const candidates = [
+    race?.result,
+    race?.results,
+    race?.finish,
+    race?.finishes,
+    race?.race_result,
+    race?.arrival,
+    race?.order,
+    race?.ranking,
+    race?.着順
+  ];
+  for (const candidate of candidates) {
+    if (Array.isArray(candidate)) {
+      const nums = candidate
+        .map(x => {
+          if (typeof x === "object") {
+            return num(
+              x.car_number ??
+              x.car ??
+              x.number ??
+              x.position_number ??
+              x.着
+            );
+          }
+          return num(x);
+        })
+        .filter(Boolean);
+      if (nums.length >= 3) {
+        return nums.slice(0, 3);
+      }
+    }
+    if (typeof candidate === "object" && candidate) {
+      const arr1 = [
+        candidate.first,
+        candidate.second,
+        candidate.third
+      ]
+        .map(num)
+        .filter(Boolean);
+      if (arr1.length >= 3) {
+        return arr1.slice(0, 3);
+      }
+      const arr2 = [
+        candidate["1"],
+        candidate["2"],
+        candidate["3"]
+      ]
+        .map(num)
+        .filter(Boolean);
+      if (arr2.length >= 3) {
+        return arr2.slice(0, 3);
+      }
+    }
+    if (typeof candidate === "string") {
+      const nums = candidate
+        .split(/[→\-－=／\/,\s]+/)
+        .map(num)
+        .filter(Boolean);
+      if (nums.length >= 3) {
+        return nums.slice(0, 3);
+      }
+    }
+  }
+  /*
+   * race直下のfinish_1〜
+   */
+  const direct = [
+    race?.finish_1,
+    race?.finish_2,
+    race?.finish_3
+  ]
+    .map(num)
+    .filter(Boolean);
+  if (direct.length >= 3) {
+    return direct.slice(0, 3);
+  }
+  /*
+   * riderにfinish_positionがあるケース
+   */
+  const riderResults = getRiders(race)
+    .map(rider => ({
+      car: getCarNumber(rider),
+      pos: num(
+        rider?.finish_position ??
+        rider?.finish ??
+        rider?.arrival ??
+        rider?.rank ??
+        rider?.着順
+      )
+    }))
+    .filter(x => x.car && x.pos);
+  if (riderResults.length >= 3) {
+    riderResults.sort((a, b) => a.pos - b.pos);
+    return riderResults
+      .slice(0, 3)
+      .map(x => x.car);
+  }
+  return null;
+}
+/* =========================================================
+   BET HIT
+========================================================= */
+function isWinningBet(bet, result) {
+  if (!result || result.length < 3) {
+    return false;
+  }
+  return (
+    bet.numbers[0] === result[0] &&
+    bet.numbers[1] === result[1] &&
+    bet.numbers[2] === result[2]
+  );
+}
+/* =========================================================
+   PAYOUT
+========================================================= */
+function normalizePayout(value) {
+  if (value === null || value === undefined) {
     return null;
   }
-
-  return race.riders.find(
-    r =>
-      Number(r.car_no) ===
-      Number(carNo)
-  ) || null;
-
-}
-
-function formatScore(value) {
-
-  if (
-    value === null ||
-    value === undefined ||
-    isNaN(value)
-  ) {
-    return "-";
+  if (typeof value === "number") {
+    return value > 0 ? value : null;
   }
-
-  return Number(value).toFixed(1);
-
+  const cleaned = String(value)
+    .replace(/,/g, "")
+    .replace(/[円¥]/g, "")
+    .trim();
+  const n = Number(cleaned);
+  return n > 0 ? n : null;
 }
-
-function escapeHtml(value) {
-
-  if (
-    value === null ||
-    value === undefined
-  ) {
+function findPayoutInObject(obj) {
+  if (!obj || typeof obj !== "object") {
+    return null;
+  }
+  const directKeys = [
+    "payout",
+    "payouts",
+    "return",
+    "returns",
+    "refund",
+    "refunds",
+    "dividend",
+    "dividends",
+    "pay",
+    "amount",
+    "払戻",
+    "払戻金",
+    "配当",
+    "配当金"
+  ];
+  for (const key of directKeys) {
+    const value = obj[key];
+    if (typeof value === "number" || typeof value === "string") {
+      const p = normalizePayout(value);
+      if (p !== null) return p;
+    }
+  }
+  const nestedKeys = [
+    "3tan",
+    "trifecta",
+    "exacta",
+    "sanrentan",
+    "triple",
+    "result",
+    "results",
+    "payout"
+  ];
+  for (const key of nestedKeys) {
+    const value = obj[key];
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        const p = findPayoutInObject(item);
+        if (p !== null) return p;
+      }
+    }
+    if (value && typeof value === "object") {
+      const p = findPayoutInObject(value);
+      if (p !== null) return p;
+    }
+  }
+  return null;
+}
+function getPayoutForBet(race, bet) {
+  /*
+   * まずレース全体から払戻を探す
+   */
+  const containers = [
+    race?.payouts,
+    race?.refunds,
+    race?.returns,
+    race?.dividends,
+    race?.payoffs,
+    race?.result
+  ];
+  for (const container of containers) {
+    if (Array.isArray(container)) {
+      for (const item of container) {
+        if (!item || typeof item !== "object") {
+          continue;
+        }
+        const combination = str(
+          item.combination ??
+          item.combo ??
+          item.numbers ??
+          item.number ??
+          item.bet ??
+          item["組合せ"] ??
+          ""
+        )
+          .replace(/\s/g, "")
+          .replace(/→/g, "-")
+          .replace(/＞/g, "-")
+          .replace(/－/g, "-")
+          .replace(/＝/g, "-");
+        const target = bet.numbers.join("-");
+        if (
+          combination === target ||
+          combination.includes(target)
+        ) {
+          const payout = findPayoutInObject(item);
+          if (payout !== null) {
+            return payout;
+          }
+        }
+      }
+    }
+  }
+  /*
+   * race直下
+   */
+  return findPayoutInObject(race);
+}
+/* =========================================================
+   GRADE
+========================================================= */
+function getRaceGrade(race) {
+  const grade = str(
+    race?.grade ??
+    race?.class ??
+    race?.race_grade ??
+    race?.grade_name ??
+    ""
+  ).toUpperCase();
+  if (/S/.test(grade)) return "S";
+  if (/A/.test(grade)) return "A";
+  if (/B/.test(grade)) return "B";
+  if (/C/.test(grade)) return "C";
+  return grade || "その他";
+}
+/* =========================================================
+   TODAY PROFIT CALC
+========================================================= */
+function calculateTodayProfit() {
+  const races = getRaces();
+  let investment = 0;
+  let payout = 0;
+  let hits = 0;
+  let settled = 0;
+  let unsettled = 0;
+  const raceRows = [];
+  const gradeMap = {};
+  races.forEach((race, raceIndex) => {
+    const bets = generateBets(race);
+    if (!bets.length) {
+      return;
+    }
+    const result = getRaceResult(race);
+    const settledRace =
+      Array.isArray(result) &&
+      result.length >= 3;
+    const raceInvestment =
+      bets.length * BET_UNIT;
+    let racePayout = 0;
+    let raceHit = false;
+    if (settledRace) {
+      settled++;
+      bets.forEach(bet => {
+        if (isWinningBet(bet, result)) {
+          raceHit = true;
+          hits++;
+          const p = getPayoutForBet(race, bet);
+          if (p !== null) {
+            racePayout += p;
+          }
+        }
+      });
+    } else {
+      unsettled++;
+    }
+    if (settledRace) {
+      investment += raceInvestment;
+      payout += racePayout;
+    }
+    const grade = getRaceGrade(race);
+    if (!gradeMap[grade]) {
+      gradeMap[grade] = {
+        grade,
+        races: 0,
+        hits: 0,
+        investment: 0,
+        payout: 0
+      };
+    }
+    if (settledRace) {
+      gradeMap[grade].races++;
+      gradeMap[grade].investment += raceInvestment;
+      gradeMap[grade].payout += racePayout;
+      if (raceHit) {
+        gradeMap[grade].hits++;
+      }
+    }
+    raceRows.push({
+      race,
+      raceIndex,
+      bets,
+      result,
+      settled: settledRace,
+      investment: raceInvestment,
+      payout: racePayout,
+      hit: raceHit,
+      profit: racePayout - raceInvestment
+    });
+  });
+  return {
+    investment,
+    payout,
+    profit: payout - investment,
+    hits,
+    settled,
+    unsettled,
+    hitRate:
+      settled > 0
+        ? hits / settled * 100
+        : 0,
+    roi:
+      investment > 0
+        ? payout / investment * 100
+        : 0,
+    raceRows,
+    grades: Object.values(gradeMap)
+  };
+}
+/* =========================================================
+   PROFIT PAGE
+========================================================= */
+function renderProfitPage() {
+  if (!DATA) {
+    $("profitContent").innerHTML =
+      `<div class="loading">データ読み込み中…</div>`;
+    return;
+  }
+  const calc = calculateTodayProfit();
+  $("profitContent").innerHTML = `
+    <!-- TOTAL -->
+    <section class="card">
+      <div class="card-title">
+        📊 本日のAI買い目収支
+      </div>
+      <div class="profit-total">
+        <div class="metric">
+          <div class="metric-label">投資額</div>
+          <div class="metric-value">
+            ¥${calc.investment.toLocaleString()}
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">払戻</div>
+          <div class="metric-value">
+            ¥${calc.payout.toLocaleString()}
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">収支</div>
+          <div class="metric-value ${
+            calc.profit >= 0
+              ? "profit-positive"
+              : "profit-negative"
+          }">
+            ${calc.profit >= 0 ? "+" : ""}
+            ¥${calc.profit.toLocaleString()}
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">回収率</div>
+          <div class="metric-value">
+            ${calc.roi.toFixed(1)}%
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">的中</div>
+          <div class="metric-value">
+            ${calc.hits} / ${calc.settled}
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">的中率</div>
+          <div class="metric-value">
+            ${calc.hitRate.toFixed(1)}%
+          </div>
+        </div>
+        <div class="metric metric-wide">
+          <div class="metric-label">未確定レース</div>
+          <div class="metric-value">
+            ${calc.unsettled}R
+          </div>
+        </div>
+      </div>
+      <div class="muted" style="margin-top:10px">
+        ※ AI推奨買い目を各100円購入した場合。
+        未確定レースは収支計算から除外しています。
+      </div>
+    </section>
+    ${renderGradeProfitTable(calc)}
+    ${renderRaceProfitTable(calc)}
+    ${renderV611Data()}
+  `;
+}
+/* =========================================================
+   GRADE PROFIT TABLE
+========================================================= */
+function renderGradeProfitTable(calc) {
+  if (!calc.grades.length) {
     return "";
   }
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
+  return `
+    <section class="card">
+      <div class="card-title">
+        🏆 S/A/B/C別収支
+      </div>
+      <div class="table-wrap">
+        <table class="profit-table">
+          <thead>
+            <tr>
+              <th>区分</th>
+              <th>R数</th>
+              <th>的中</th>
+              <th>投資</th>
+              <th>払戻</th>
+              <th>収支</th>
+              <th>回収率</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${calc.grades.map(row => {
+              const profit =
+                row.payout - row.investment;
+              const roi =
+                row.investment > 0
+                  ? row.payout / row.investment * 100
+                  : 0;
+              return `
+                <tr>
+                  <td>
+                    <strong>
+                      ${escapeHtml(row.grade)}
+                    </strong>
+                  </td>
+                  <td>${row.races}</td>
+                  <td>
+                    ${row.hits}
+                  </td>
+                  <td>
+                    ¥${row.investment.toLocaleString()}
+                  </td>
+                  <td>
+                    ¥${row.payout.toLocaleString()}
+                  </td>
+                  <td class="${
+                    profit >= 0
+                      ? "profit-positive"
+                      : "profit-negative"
+                  }">
+                    ${profit >= 0 ? "+" : ""}
+                    ¥${profit.toLocaleString()}
+                  </td>
+                  <td>
+                    ${roi.toFixed(1)}%
+                  </td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
 }
-
-loadData();
-
+/* =========================================================
+   RACE PROFIT TABLE
+========================================================= */
+function renderRaceProfitTable(calc) {
+  return `
+    <section class="card">
+      <div class="card-title">
+        🧾 レース別収支
+      </div>
+      <div class="table-wrap">
+        <table class="profit-table">
+          <thead>
+            <tr>
+              <th>会場</th>
+              <th>R</th>
+              <th>買い目</th>
+              <th>結果</th>
+              <th>投資</th>
+              <th>払戻</th>
+              <th>収支</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${calc.raceRows.map(row => {
+              const race = row.race;
+              const venue =
+                race?.venue_name ??
+                race?.venue ??
+                race?.place ??
+                "—";
+              const resultText =
+                row.settled
+                  ? row.result.join("-")
+                  : "未確定";
+              return `
+                <tr>
+                  <td>
+                    ${escapeHtml(venue)}
+                  </td>
+                  <td>
+                    ${getRaceNumber(race)}R
+                  </td>
+                  <td>
+                    ${row.bets.length}点
+                  </td>
+                  <td class="${
+                    row.settled
+                      ? (row.hit ? "hit" : "miss")
+                      : "unsettled"
+                  }">
+                    ${resultText}
+                  </td>
+                  <td>
+                    ${row.settled
+                      ? "¥" + row.investment.toLocaleString()
+                      : "—"}
+                  </td>
+                  <td>
+                    ${row.settled
+                      ? "¥" + row.payout.toLocaleString()
+                      : "—"}
+                  </td>
+                  <td class="${
+                    row.settled
+                      ? (
+                        row.profit >= 0
+                          ? "profit-positive"
+                          : "profit-negative"
+                      )
+                      : ""
+                  }">
+                    ${
+                      row.settled
+                        ? `${row.profit >= 0 ? "+" : ""}¥${row.profit.toLocaleString()}`
+                        : "—"
+                    }
+                  </td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+/* =========================================================
+   V6.11 DATA
+========================================================= */
+function renderV611Data() {
+  const sections = [];
+  if (Array.isArray(DATA?.today_recommendations)) {
+    sections.push(`
+      <section class="card">
+        <div class="card-title">
+          🎯 v6.11 今日おすすめ
+        </div>
+        <div class="rider-list">
+          ${DATA.today_recommendations
+            .slice(0, 20)
+            .map(item => `
+              <div class="rider">
+                <div class="rider-main">
+                  <div class="rider-name">
+                    ${escapeHtml(
+                      item.venue ??
+                      item.venue_name ??
+                      item.race ??
+                      item.title ??
+                      "おすすめ"
+                    )}
+                  </div>
+                  <div class="rider-info">
+                    ${escapeHtml(
+                      item.reason ??
+                      item.comment ??
+                      item.message ??
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div class="rider-score">
+                  ${escapeHtml(
+                    item.score ??
+                    item.ai_score ??
+                    ""
+                  )}
+                </div>
+              </div>
+            `)
+            .join("")}
+        </div>
+      </section>
+    `);
+  }
+  if (Array.isArray(DATA?.daily_cap_backtests)) {
+    sections.push(`
+      <section class="card">
+        <div class="card-title">
+          📈 1日上限バックテスト
+        </div>
+        <div class="table-wrap">
+          <table class="profit-table">
+            <thead>
+              <tr>
+                <th>戦略</th>
+                <th>投資</th>
+                <th>払戻</th>
+                <th>収支</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${DATA.daily_cap_backtests
+                .slice(0, 20)
+                .map(item => {
+                  const investment =
+                    num(
+                      item.investment ??
+                      item.total_investment ??
+                      item.bet_total
+                    );
+                  const payout =
+                    num(
+                      item.payout ??
+                      item.total_payout ??
+                      item.return_total
+                    );
+                  const profit =
+                    num(
+                      item.profit ??
+                      item.balance ??
+                      payout - investment
+                    );
+                  return `
+                    <tr>
+                      <td>
+                        ${escapeHtml(
+                          item.strategy ??
+                          item.name ??
+                          "戦略"
+                        )}
+                      </td>
+                      <td>
+                        ¥${investment.toLocaleString()}
+                      </td>
+                      <td>
+                        ¥${payout.toLocaleString()}
+                      </td>
+                      <td class="${
+                        profit >= 0
+                          ? "profit-positive"
+                          : "profit-negative"
+                      }">
+                        ${profit >= 0 ? "+" : ""}
+                        ¥${profit.toLocaleString()}
+                      </td>
+                    </tr>
+                  `;
+                })
+                .join("")}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    `);
+  }
+  if (Array.isArray(DATA?.backtests)) {
+    sections.push(`
+      <section class="card">
+        <div class="card-title">
+          🧪 バックテスト
+        </div>
+        <div class="table-wrap">
+          <table class="profit-table">
+            <thead>
+              <tr>
+                <th>戦略</th>
+                <th>R</th>
+                <th>的中</th>
+                <th>投資</th>
+                <th>払戻</th>
+                <th>回収率</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${DATA.backtests
+                .slice(0, 30)
+                .map(item => {
+                  const investment =
+                    num(
+                      item.investment ??
+                      item.total_investment ??
+                      item.bet_total
+                    );
+                  const payout =
+                    num(
+                      item.payout ??
+                      item.total_payout ??
+                      item.return_total
+                    );
+                  const races =
+                    num(
+                      item.races ??
+                      item.finished_races ??
+                      item.settled_races
+                    );
+                  const hits =
+                    num(
+                      item.hits ??
+                      item.hit_races ??
+                      item.wins
+                    );
+                  const roi =
+                    investment > 0
+                      ? payout / investment * 100
+                      : num(
+                        item.roi ??
+                        item.return_rate ??
+                        item.recovery_rate
+                      );
+                  return `
+                    <tr>
+                      <td>
+                        ${escapeHtml(
+                          item.strategy ??
+                          item.name ??
+                          "戦略"
+                        )}
+                      </td>
+                      <td>${races}</td>
+                      <td>${hits}</td>
+                      <td>
+                        ¥${investment.toLocaleString()}
+                      </td>
+                      <td>
+                        ¥${payout.toLocaleString()}
+                      </td>
+                      <td>
+                        ${roi.toFixed(1)}%
+                      </td>
+                    </tr>
+                  `;
+                })
+                .join("")}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    `);
+  }
+  return sections.join("");
+}
+/* =========================================================
+   INITIALIZE
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  loadData();
+});
 </script>
-
 </body>
 </html>
