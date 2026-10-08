@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.9'
+VERSION='6.10'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 TODAY=datetime.now().strftime('%Y%m%d'); TODAY_DISPLAY=datetime.now().strftime('%Y-%m-%d')
 TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
@@ -262,38 +262,109 @@ def settle_bets(race):
     if not ready:return {'status':'pending','bet_count':len(bets),'investment':0,'hit':False,'hit_ticket':'','payout':0,'profit':0,'roi':0}
     hit=any(b.get('ticket')==tk for b in bets);pay=y if hit else 0
     return {'status':'settled','bet_count':len(bets),'investment':inv,'hit':hit,'hit_ticket':tk if hit else '','payout':pay,'profit':pay-inv,'roi':round(pay/inv*100,1) if inv else 0}
-def backtest_strategy(races, limit=10, favorite_min=None):
-    out={'races':0,'settled_races':0,'investment':0,'payout':0,'profit':0,'hits':0,'hit_rate':0,'roi':0,'skipped_no_odds':0}
-    for race in races:
-        res=race.get('result',{})
-        if not (res.get('result_finished') and res.get('payout_available') and res.get('payout_3tan') and int(res.get('payout_3tan_yen',0) or 0)>0):
+def _race_rank(race):
+    v=race.get('verdict',{}) or {}
+    rank=v.get('rank') or v.get('rating') or ''
+    return str(rank).upper().strip()
+
+def _favorite_odds(race):
+    om=(race.get('odds',{}) or {}).get('odds',{}) or {}
+    vals=[]
+    for v in om.values():
+        try:
+            x=float(v)
+            if x>0: vals.append(x)
+        except: pass
+    return min(vals) if vals else None
+
+def backtest_strategy(races, limit=10, favorite_min=None, rank_filter=None):
+    out={
+        'races':0,'settled_races':0,'investment':0,'payout':0,'profit':0,
+        'hits':0,'hit_rate':0,'roi':0,'skipped_no_odds':0,
+        'positive_races':0,'negative_races':0,'max_losing_streak':0,
+        'max_drawdown':0,'peak_profit':0
+    }
+    running=0; peak=0; losing_streak=0
+    for race in sorted(races,key=lambda x:int(x.get('race_no',0) or 0)):
+        res=race.get('result',{}) or {}
+        if not (res.get('result_finished') and res.get('payout_available') and
+                res.get('payout_3tan') and int(res.get('payout_3tan_yen',0) or 0)>0):
             continue
+        if rank_filter:
+            if _race_rank(race) not in rank_filter:
+                continue
         if favorite_min is not None:
-            om=race.get('odds',{}).get('odds',{})
-            if not om:
+            fav=_favorite_odds(race)
+            if fav is None:
                 out['skipped_no_odds']+=1
                 continue
-            fav=min(om.values())
             if fav < favorite_min:
                 continue
         bets=generate_bets(race,limit=limit)
-        if not bets: continue
-        out['races']+=1; out['settled_races']+=1
-        inv=len(bets)*BET_UNIT; out['investment']+=inv
-        tk=res.get('payout_3tan'); hit=any(b.get('ticket')==tk for b in bets)
-        if hit:
-            out['hits']+=1; out['payout']+=int(res.get('payout_3tan_yen',0) or 0)
+        if not bets:
+            continue
+        out['races']+=1
+        out['settled_races']+=1
+        inv=len(bets)*BET_UNIT
+        payout=0
+        tk=res.get('payout_3tan')
+        if any(b.get('ticket')==tk for b in bets):
+            out['hits']+=1
+            payout=int(res.get('payout_3tan_yen',0) or 0)
+        out['investment']+=inv
+        out['payout']+=payout
+        race_profit=payout-inv
+        if race_profit>0:
+            out['positive_races']+=1
+            losing_streak=0
+        else:
+            out['negative_races']+=1
+            losing_streak+=1
+            out['max_losing_streak']=max(out['max_losing_streak'],losing_streak)
+        running+=race_profit
+        peak=max(peak,running)
+        out['max_drawdown']=max(out['max_drawdown'],peak-running)
     out['profit']=out['payout']-out['investment']
+    out['peak_profit']=peak
     out['hit_rate']=round(out['hits']/out['settled_races']*100,1) if out['settled_races'] else 0
     out['roi']=round(out['payout']/out['investment']*100,1) if out['investment'] else 0
+    out['positive_rate']=round(out['positive_races']/out['settled_races']*100,1) if out['settled_races'] else 0
     return out
 
 def calculate_backtests(races):
     specs=[
-        ('AI5',5,None),('AI10',10,None),('AI15',15,None),
-        ('人気10倍以上+AI10',10,10),('人気15倍以上+AI10',10,15),('人気20倍以上+AI10',10,20),
-        ('人気10倍以上+AI15',15,10)]
-    return {name:backtest_strategy(races,limit,threshold) for name,limit,threshold in specs}
+        ('AI3',3,None,None),('AI5',5,None,None),('AI7',7,None,None),
+        ('AI10',10,None,None),('AI15',15,None,None),
+        ('人気5倍以上+AI5',5,5,None),('人気10倍以上+AI5',5,10,None),
+        ('人気15倍以上+AI5',5,15,None),('人気20倍以上+AI5',5,20,None),
+        ('人気10倍以上+AI10',10,10,None),
+        ('人気15倍以上+AI10',10,15,None),('人気20倍以上+AI10',10,20,None),
+        ('Sのみ+AI5',5,None,{'S'}),('Aのみ+AI5',5,None,{'A'}),
+        ('S+Aのみ+AI5',5,None,{'S','A'}),
+        ('Aのみ+AI10',10,None,{'A'}),('S+Aのみ+AI10',10,None,{'S','A'}),
+        ('人気10倍以上+Aのみ+AI5',5,10,{'A'}),
+        ('人気10倍以上+S+A+AI5',5,10,{'S','A'}),
+    ]
+    return {name:backtest_strategy(races,limit,threshold,ranks)
+            for name,limit,threshold,ranks in specs}
+
+def select_backtest_recommendation(backtests):
+    valid=[(name,b) for name,b in backtests.items() if b.get('settled_races',0)>=5 and b.get('investment',0)>0]
+    if not valid:
+        return {'status':'insufficient_data','strategy':None,'reason':'確定5R未満のため推奨判定を保留'}
+    # Profit first; ROI is the tie-breaker. This is a diagnostic recommendation,
+    # not an automatic change to the real frozen bets.
+    best=max(valid,key=lambda x:(x[1].get('profit',-10**18),x[1].get('roi',-10**18),x[1].get('positive_rate',-10**18)))
+    name,b=best
+    return {
+        'status':'provisional',
+        'strategy':name,
+        'profit':b['profit'],
+        'roi':b['roi'],
+        'hit_rate':b['hit_rate'],
+        'races':b['settled_races'],
+        'note':'確定レースが少ないため暫定。実際の凍結買い目は変更しません。'
+    }
 
 def load_existing():
     try:
@@ -448,8 +519,9 @@ def main():
     print(f'オッズ取得: {odds_count}/{len(all_races)}')
     for r in all_races:attach_bet_odds(r);r['settlement']=settle_bets(r)
     backtests=calculate_backtests(all_races)
+    backtest_recommendation=select_backtest_recommendation(backtests)
     summary=calculate_summary(all_races);rider_count=sum(len(r['riders']) for r in all_races);correct_names=sum(bool(x.get('name')) for r in all_races for x in r['riders']);frozen=sum(bool(r.get('frozen_prediction')) for r in all_races)
-    output={'version':VERSION,'updated_at':datetime.now().isoformat(),'target_date':TODAY_DISPLAY,'data_complete':bool(all_races and correct_names==rider_count and frozen==len(all_races)),'result_complete':result_count==len(all_races),'payout_complete':payout_count==len(all_races),'venue_count':len(venues),'race_count':len(all_races),'rider_count':rider_count,'correct_name_count':correct_names,'prediction_race_count':sum(len(r.get('comments',{}))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'comment_count':sum(len(r.get('comments',{})) for r in all_races),'line_race_count':sum(len(r.get('line',[]))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'development_count':sum(bool(r.get('development')) for r in all_races),'ai_race_count':sum(bool(r.get('ai')) for r in all_races),'ai_rider_count':sum(x.get('ai_score') is not None for r in all_races for x in r['riders']),'frozen_prediction_count':frozen,'result_count':result_count,'result_pending_count':len(result_pending),'result_error_count':len(result_failed),'payout_count':payout_count,'payout_pending_count':len(payout_pending),'payout_error_count':len(payout_failed),'odds_count':odds_count,'summary':summary,'backtests':backtests,'venues':[{'venue_code':v['code'],'venue_name':v['name'],'race_count':len(v['race_numbers']),'race_numbers':v['race_numbers']} for v in venues],'races':all_races}
+    output={'version':VERSION,'updated_at':datetime.now().isoformat(),'target_date':TODAY_DISPLAY,'data_complete':bool(all_races and correct_names==rider_count and frozen==len(all_races)),'result_complete':result_count==len(all_races),'payout_complete':payout_count==len(all_races),'venue_count':len(venues),'race_count':len(all_races),'rider_count':rider_count,'correct_name_count':correct_names,'prediction_race_count':sum(len(r.get('comments',{}))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'comment_count':sum(len(r.get('comments',{})) for r in all_races),'line_race_count':sum(len(r.get('line',[]))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'development_count':sum(bool(r.get('development')) for r in all_races),'ai_race_count':sum(bool(r.get('ai')) for r in all_races),'ai_rider_count':sum(x.get('ai_score') is not None for r in all_races for x in r['riders']),'frozen_prediction_count':frozen,'result_count':result_count,'result_pending_count':len(result_pending),'result_error_count':len(result_failed),'payout_count':payout_count,'payout_pending_count':len(payout_pending),'payout_error_count':len(payout_failed),'odds_count':odds_count,'summary':summary,'backtests':backtests,'backtest_recommendation':backtest_recommendation,'venues':[{'venue_code':v['code'],'venue_name':v['name'],'race_count':len(v['race_numbers']),'race_numbers':v['race_numbers']} for v in venues],'races':all_races}
     os.makedirs('data',exist_ok=True);tmp='data/today.json.tmp'
     with open(tmp,'w',encoding='utf-8') as f:json.dump(output,f,ensure_ascii=False,indent=2)
     os.replace(tmp,'data/today.json')
@@ -459,7 +531,14 @@ def main():
         s=summary['by_rank'][k];print(f"{k}: {s['races']}R / 的中{s['hits']}R / 的中率{s['hit_rate']:.1f}% / 投資¥{s['investment']:,} / 払戻¥{s['payout']:,} / 収支{s['profit']:+,}円 / 回収率{s['roi']:.1f}%")
     print('==============================\n 【買い方バックテスト】\n==============================')
     for name,b in backtests.items():
-        print(f"{name}: {b['races']}R / 的中{b['hits']}R / 的中率{b['hit_rate']:.1f}% / 投資¥{b['investment']:,} / 払戻¥{b['payout']:,} / 収支{b['profit']:+,}円 / 回収率{b['roi']:.1f}%")
+        print(f"{name}: {b['races']}R / 的中{b['hits']}R / 的中率{b['hit_rate']:.1f}% / 投資¥{b['investment']:,} / 払戻¥{b['payout']:,} / 収支{b['profit']:+,}円 / 回収率{b['roi']:.1f}% / プラスR率{b.get('positive_rate',0):.1f}%")
+    print('--- 暫定おすすめ ---')
+    br=backtest_recommendation
+    if br.get('strategy'):
+        print(f"推奨買い方: {br['strategy']} / 収支{br['profit']:+,}円 / 回収率{br['roi']:.1f}% / 的中率{br['hit_rate']:.1f}% / 対象{br['races']}R")
+        print(br.get('note',''))
+    else:
+        print(br.get('reason','データ不足'))
     print('==============================');print(f'結果待ちレース: {len(result_pending)}');print(f'結果取得エラー: {len(result_failed)}');print(f'払戻待ちレース: {len(payout_pending)}');print(f'払戻取得エラー: {len(payout_failed)}');print(f'オッズ未取得レース: {len(odds_failed)}');print(f'処理時間: {time.time()-started:.1f}秒');print('データ完全性: '+('OK' if output['data_complete'] else '要確認'));print(f'結果完全性: {result_count}/{len(all_races)}');print(f'払戻完全性: {payout_count}/{len(all_races)}')
     if result_pending:print('結果待ち: '+', '.join(result_pending))
     if result_failed:print('結果取得エラー: '+', '.join(result_failed))
