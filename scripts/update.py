@@ -1,13 +1,16 @@
 import json, os, re, time, warnings
-from datetime import datetime
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.15'
+VERSION='6.16'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
-TODAY=datetime.now().strftime('%Y%m%d'); TODAY_DISPLAY=datetime.now().strftime('%Y-%m-%d')
+JST=ZoneInfo('Asia/Tokyo')
+def now_jst(): return datetime.now(JST)
+TODAY=now_jst().strftime('%Y%m%d'); TODAY_DISPLAY=now_jst().strftime('%Y-%m-%d')
 TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
 # 利益重視の暫定運用設定。実際の凍結予想は変更せず、推奨購入だけを別管理します。
 DAILY_MAX_RACES=3; DAILY_BET_COUNT=5; DAILY_BUDGET=DAILY_MAX_RACES*DAILY_BET_COUNT*BET_UNIT
@@ -94,9 +97,22 @@ def discover_related(sp):
         if not out['odds_url'] and ('オッズ' in txt or 'oddsinfo' in low or 'odds' in low):out['odds_url']=u
         if not out['result_url'] and ('結果' in txt or 'raceresult' in low or 'resultinfo' in low):out['result_url']=u
     return out
+def parse_start_time(sp):
+    """開催ページから発走時刻を保守的に抽出。取れない場合は推測しない。"""
+    if not sp:return ''
+    text=clean(sp.get_text(' ',strip=True))
+    patterns=(r'(?:発走予定|発走時刻|発走)\s*[:：]?\s*(\d{1,2}:\d{2})',
+              r'(\d{1,2}:\d{2})\s*(?:発走予定|発走時刻|発走)')
+    for pat in patterns:
+        m=re.search(pat,text)
+        if m:
+            hh,mm=map(int,m.group(1).split(':'))
+            if 0<=hh<=23 and 0<=mm<=59:return f'{hh:02d}:{mm:02d}'
+    return ''
+
 def fetch_race(job):
     u=race_url(job['venue_code'],job['race_no']); sp=soup(get_html(u)); rel=discover_related(sp); riders=parse_riders(sp)
-    return {**job,'url':u,'riders':riders,**rel,'success':5<=len(riders)<=7}
+    return {**job,'url':u,'riders':riders,'start_time':parse_start_time(sp),**rel,'success':5<=len(riders)<=7}
 def discover_real_races(v):
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         rs=[f.result() for f in as_completed([ex.submit(fetch_race,{'venue_code':v['code'],'venue_name':v['name'],'venue_slug':v['slug'],'race_no':n}) for n in range(1,13)])]
@@ -606,6 +622,76 @@ def build_daily_strategy_report(races):
     return {'tests':tests,'best_name':best[0],'best':best[1],
             'operating':backtest_daily_top_strategy(races,DAILY_MAX_RACES,DAILY_BET_COUNT,{'A'},None)}
 
+def create_daily_strategy_lock(races, date_text, now=None):
+    """Lock a prospective A-rank strategy only for races with a known future start time."""
+    now=now or now_jst()
+    eligible=[]
+    for r in races:
+        st=clean(r.get('start_time',''))
+        if not st: continue
+        try:
+            hh,mm=map(int,st.split(':'))
+            start=now.replace(hour=hh,minute=mm,second=0,microsecond=0)
+            if start <= now + timedelta(minutes=2): continue
+        except Exception:
+            continue
+        fp=r.get('frozen_prediction',{}) or {}
+        verdict=fp.get('verdict',{}) or {}
+        rank=verdict.get('rank','C')
+        if rank!='A': continue
+        bets=fp.get('bets',[]) or []
+        picks=[{'ticket':b.get('ticket'),'bet_yen':int(b.get('bet_yen',BET_UNIT) or BET_UNIT)} for b in bets[:DAILY_BET_COUNT] if b.get('ticket')]
+        if len(picks)<DAILY_BET_COUNT: continue
+        eligible.append({'venue_code':str(r.get('venue_code')),'venue_name':r.get('venue_name',''),
+                         'race_no':int(r.get('race_no',0)),'start_time':st,'rank':rank,
+                         'verdict_score':int(verdict.get('score',0) or 0),
+                         'model':verdict.get('model',''),'prediction_created_at':fp.get('created_at',''),
+                         'bets':picks,'investment_yen':sum(x['bet_yen'] for x in picks),
+                         'status':'pending','result_ticket':'','payout_yen':0,'hit':False,'return_yen':0,'profit_yen':0})
+    eligible.sort(key=lambda x:(x['verdict_score'],x['start_time']),reverse=True)
+    selected=eligible[:DAILY_MAX_RACES]
+    return {'date':date_text,'locked_at':now.isoformat(),'status':'locked' if selected else 'no_eligible_races',
+            'selection_rule':'Aランクのみ・発走2分以上前に時刻確認できたレース・判定スコア上位',
+            'max_races':DAILY_MAX_RACES,'points_per_race':DAILY_BET_COUNT,
+            'investment_cap_yen':DAILY_BUDGET,'eligible_count':len(eligible),'selected_count':len(selected),
+            'selected':selected,'note':'発走時刻を取得できないレース、発走済みレースは選外。選定後の買い目は変更しない。'}
+
+def settle_daily_strategy_lock(lock, races):
+    """Update only settlement fields; never change the locked races or tickets."""
+    if not isinstance(lock,dict): return lock
+    lookup={(str(r.get('venue_code')),int(r.get('race_no',0))):r for r in races}
+    for pick in lock.get('selected',[]):
+        r=lookup.get((str(pick.get('venue_code')),int(pick.get('race_no',0))))
+        if not r: continue
+        res=r.get('result',{}) or {}
+        if not (res.get('result_finished') and res.get('payout_available') and res.get('payout_3tan')): continue
+        winning=str(res.get('payout_3tan')); payout=int(res.get('payout_3tan_yen',0) or 0)
+        if payout<=0: continue
+        hit=any(str(b.get('ticket'))==winning for b in pick.get('bets',[]))
+        pick.update({'status':'settled','result_ticket':winning,'payout_yen':payout,
+                     'hit':hit,'return_yen':payout if hit else 0,
+                     'profit_yen':(payout if hit else 0)-int(pick.get('investment_yen',0) or 0)})
+    settled=[x for x in lock.get('selected',[]) if x.get('status')=='settled']
+    investment=sum(int(x.get('investment_yen',0) or 0) for x in settled)
+    payout=sum(int(x.get('return_yen',0) or 0) for x in settled)
+    hits=sum(bool(x.get('hit')) for x in settled)
+    lock['settlement_summary']={'settled_races':len(settled),'hits':hits,'investment_yen':investment,
+                                'return_yen':payout,'profit_yen':payout-investment,
+                                'hit_rate_pct':round(hits/len(settled)*100,1) if settled else 0,
+                                'roi_pct':round(payout/investment*100,1) if investment else 0}
+    return lock
+
+def summarize_locked_strategy_history(history):
+    locks=[d.get('strategy_lock') for d in history if isinstance(d,dict) and isinstance(d.get('strategy_lock'),dict)]
+    settled=[x for lock in locks for x in lock.get('selected',[]) if x.get('status')=='settled']
+    inv=sum(int(x.get('investment_yen',0) or 0) for x in settled)
+    ret=sum(int(x.get('return_yen',0) or 0) for x in settled)
+    hits=sum(bool(x.get('hit')) for x in settled)
+    return {'days_with_lock':sum(lock.get('status')=='locked' for lock in locks),'selected_races':sum(len(lock.get('selected',[])) for lock in locks),
+            'settled_races':len(settled),'hits':hits,'investment_yen':inv,'return_yen':ret,
+            'profit_yen':ret-inv,'hit_rate_pct':round(hits/len(settled)*100,1) if settled else 0,
+            'roi_pct':round(ret/inv*100,1) if inv else 0}
+
 def load_performance_history():
     """today.json内の履歴を日付切替後も読む。別ファイル不要なので既存Actions設定で保存できる。"""
     try:
@@ -615,7 +701,7 @@ def load_performance_history():
     except Exception:
         return []
 
-def update_performance_history(history,races,date_text):
+def update_performance_history(history,races,date_text,strategy_lock=None):
     by_date={str(x.get('date')):x for x in history if isinstance(x,dict) and x.get('date')}
     day=by_date.get(date_text,{'date':date_text,'races':[]})
     records={f"{x.get('venue_code')}:{x.get('race_no')}":x for x in day.get('races',[]) if isinstance(x,dict)}
@@ -638,6 +724,20 @@ def update_performance_history(history,races,date_text):
             'return_yen':payout if hit else 0,'profit_yen':(payout if hit else 0)-investment,
             'odds_available':bool((r.get('odds',{}) or {}).get('available'))}
     day['races']=sorted(records.values(),key=lambda x:(str(x.get('venue_code')),int(x.get('race_no',0))))
+    if strategy_lock is not None:
+        # Keep the original locked tickets; only settlement fields may advance.
+        previous=day.get('strategy_lock')
+        if previous and previous.get('selected'):
+            original={(str(x.get('venue_code')),int(x.get('race_no',0))):x for x in previous.get('selected',[])}
+            for item in strategy_lock.get('selected',[]):
+                key=(str(item.get('venue_code')),int(item.get('race_no',0)))
+                if key in original:
+                    original[key].update({k:item.get(k) for k in ('status','result_ticket','payout_yen','hit','return_yen','profit_yen')})
+            previous['selected']=list(original.values())
+            previous['settlement_summary']=strategy_lock.get('settlement_summary',{})
+            day['strategy_lock']=previous
+        else:
+            day['strategy_lock']=strategy_lock
     by_date[date_text]=day
     # 180日分に制限してtoday.jsonが無制限に肥大化しないようにする。
     return [by_date[k] for k in sorted(by_date)[-180:]]
@@ -666,7 +766,7 @@ def freeze_prediction(race,old):
         race['verdict']=fp.get('verdict',{})
         race['bets']=fp.get('bets',[])
         return
-    race['frozen_prediction']={'created_at':datetime.now().isoformat(),'main':race['ai']['main'],'opponent':race['ai']['opponent'],'dark_horse':race['ai']['dark_horse'],'verdict':race['verdict'],'ranking':race['ai']['ranking'],'bets':race['bets']}
+    race['frozen_prediction']={'created_at':now_jst().isoformat(),'main':race['ai']['main'],'opponent':race['ai']['opponent'],'dark_horse':race['ai']['dark_horse'],'verdict':race['verdict'],'ranking':race['ai']['ranking'],'bets':race['bets']}
 
 def old_race_ready_for_reuse(r):
     return bool(r.get('riders')) and 5<=len(r.get('riders',[]))<=7 and bool(r.get('venue_code')) and int(r.get('race_no',0))>0
@@ -752,6 +852,19 @@ def main():
         else:
             apply_ai(r);freeze_prediction(r,oldrace)
 
+    # v6.16: lock the daily strategy before fetching today's results. Never create it
+    # retroactively for a same-day dataset that already existed without a lock.
+    daily_strategy_lock=existing.get('daily_strategy_lock') if isinstance(existing,dict) else None
+    if not daily_strategy_lock:
+        if not old:
+            daily_strategy_lock=create_daily_strategy_lock(all_races,TODAY_DISPLAY,now_jst())
+            print(f"発走前戦略を固定: {daily_strategy_lock.get('selected_count',0)}R / 時刻確認済みAランク候補{daily_strategy_lock.get('eligible_count',0)}R")
+        else:
+            daily_strategy_lock={'date':TODAY_DISPLAY,'status':'legacy_no_lock','locked_at':'',
+                                 'selected':[],'selected_count':0,
+                                 'note':'同日データが既に存在したため、結果確認後の後付け選定を防止。翌開催日から発走前固定を開始。'}
+            print('発走前戦略: 既存日の後付け選定を防止（翌開催日から記録）')
+
     print('レース結果を確認中...');result_count=payout_count=0;result_pending=[];result_failed=[];payout_pending=[];payout_failed=[]
     result_targets=[]
     for r in all_races:
@@ -808,10 +921,14 @@ def main():
     backtests=calculate_backtests(all_races)
     backtest_recommendation=select_backtest_recommendation(backtests)
     daily_strategy=build_daily_strategy_report(all_races)
-    history=update_performance_history(history,all_races,TODAY_DISPLAY)
+    daily_strategy['is_hindsight_backtest']=True
+    daily_strategy['note']='確定結果を使って選び直す参考バックテストです。発走前の固定予想・将来成績として扱いません。'
+    daily_strategy_lock=settle_daily_strategy_lock(daily_strategy_lock,all_races)
+    history=update_performance_history(history,all_races,TODAY_DISPLAY,daily_strategy_lock)
     history_summary=summarize_performance_history(history)
+    locked_strategy_summary=summarize_locked_strategy_history(history)
     summary=calculate_summary(all_races);rider_count=sum(len(r['riders']) for r in all_races);correct_names=sum(bool(x.get('name')) for r in all_races for x in r['riders']);frozen=sum(bool(r.get('frozen_prediction')) for r in all_races)
-    output={'version':VERSION,'performance_history':history,'performance_history_summary':history_summary,'updated_at':datetime.now().isoformat(),'target_date':TODAY_DISPLAY,'data_complete':bool(all_races and correct_names==rider_count and frozen==len(all_races)),'result_complete':result_count==len(all_races),'payout_complete':payout_count==len(all_races),'venue_count':len(venues),'race_count':len(all_races),'rider_count':rider_count,'correct_name_count':correct_names,'prediction_race_count':sum(len(r.get('comments',{}))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'comment_count':sum(len(r.get('comments',{})) for r in all_races),'line_race_count':sum(len(r.get('line',[]))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'development_count':sum(bool(r.get('development')) for r in all_races),'ai_race_count':sum(bool(r.get('ai')) for r in all_races),'ai_rider_count':sum(x.get('ai_score') is not None for r in all_races for x in r['riders']),'frozen_prediction_count':frozen,'result_count':result_count,'result_pending_count':len(result_pending),'result_error_count':len(result_failed),'payout_count':payout_count,'payout_pending_count':len(payout_pending),'payout_error_count':len(payout_failed),'odds_count':odds_count,'summary':summary,'backtests':backtests,'backtest_recommendation':backtest_recommendation,'daily_strategy':daily_strategy,'venues':[{'venue_code':v['code'],'venue_name':v['name'],'race_count':len(v['race_numbers']),'race_numbers':v['race_numbers']} for v in venues],'races':all_races}
+    output={'version':VERSION,'performance_history':history,'performance_history_summary':history_summary,'locked_strategy_summary':locked_strategy_summary,'daily_strategy_lock':daily_strategy_lock,'updated_at':now_jst().isoformat(),'target_date':TODAY_DISPLAY,'data_complete':bool(all_races and correct_names==rider_count and frozen==len(all_races)),'result_complete':result_count==len(all_races),'payout_complete':payout_count==len(all_races),'venue_count':len(venues),'race_count':len(all_races),'rider_count':rider_count,'correct_name_count':correct_names,'prediction_race_count':sum(len(r.get('comments',{}))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'comment_count':sum(len(r.get('comments',{})) for r in all_races),'line_race_count':sum(len(r.get('line',[]))==len(r['riders']) and len(r['riders'])>=5 for r in all_races),'development_count':sum(bool(r.get('development')) for r in all_races),'ai_race_count':sum(bool(r.get('ai')) for r in all_races),'ai_rider_count':sum(x.get('ai_score') is not None for r in all_races for x in r['riders']),'frozen_prediction_count':frozen,'result_count':result_count,'result_pending_count':len(result_pending),'result_error_count':len(result_failed),'payout_count':payout_count,'payout_pending_count':len(payout_pending),'payout_error_count':len(payout_failed),'odds_count':odds_count,'summary':summary,'backtests':backtests,'backtest_recommendation':backtest_recommendation,'daily_strategy':daily_strategy,'venues':[{'venue_code':v['code'],'venue_name':v['name'],'race_count':len(v['race_numbers']),'race_numbers':v['race_numbers']} for v in venues],'races':all_races}
     os.makedirs('data',exist_ok=True);tmp='data/today.json.tmp'
     with open(tmp,'w',encoding='utf-8') as f:json.dump(output,f,ensure_ascii=False,indent=2)
     os.replace(tmp,'data/today.json')
@@ -829,19 +946,19 @@ def main():
         print(br.get('note',''))
     else:
         print(br.get('reason','データ不足'))
-    print('==============================\n 【1日利益重視・購入戦略】\n==============================')
+    print('==============================\n 【過去結果による参考バックテスト（実運用推奨ではない）】\n==============================')
     op=daily_strategy.get('operating',{})
     print(f"運用設定: Aランク上位{DAILY_MAX_RACES}R × AI{DAILY_BET_COUNT}点 / 予算上限¥{DAILY_BUDGET:,}")
     print(f"候補{op.get('candidate_count',0)}R → 推奨{op.get('selected_count',0)}R / 確定{op.get('settled_count',0)}R")
     print(f"投資¥{op.get('investment',0):,} / 払戻¥{op.get('payout',0):,} / 収支{op.get('profit',0):+,}円 / 回収率{op.get('roi',0):.1f}% / 的中率{op.get('hit_rate',0):.1f}%")
-    print('--- 今日の推奨購入候補 ---')
+    print('--- 結果判明後に選ばれた参考候補（発走前予想ではない）---')
     for x in op.get('selected',[]):
         print(f"  {x['venue_name']} {x['race_no']}R / {x['rank']} / AIスコア{x['verdict_score']:.0f} / 選定スコア{x['selection_score']:.1f} / 5点¥{x['investment']:,}")
     print('--- 1日上限比較 ---')
     for name,x in daily_strategy.get('tests',{}).items():
         print(f"{name}: {x.get('settled_count',0)}R / 的中{x.get('hits',0)}R / 投資¥{x.get('investment',0):,} / 払戻¥{x.get('payout',0):,} / 収支{x.get('profit',0):+,}円 / 回収率{x.get('roi',0):.1f}%")
-    print(f"暫定最良: {daily_strategy.get('best_name') or 'データ不足'}")
-    print('==============================');print(f"累積履歴: {history_summary['days']}日 / {history_summary['settled_races']}確定R / 累積収支 {history_summary['profit_yen']:+,}円 / 回収率 {history_summary['roi_pct']:.1f}%");print(f'結果待ちレース: {len(result_pending)}');print(f'結果取得エラー: {len(result_failed)}');print(f'払戻待ちレース: {len(payout_pending)}');print(f'払戻取得エラー: {len(payout_failed)}');print(f'オッズ未取得レース: {len(odds_failed)}');print(f'処理時間: {time.time()-started:.1f}秒');print('データ完全性: '+('OK' if output['data_complete'] else '要確認'));print(f'結果完全性: {result_count}/{len(all_races)}');print(f'払戻完全性: {payout_count}/{len(all_races)}')
+    print(f"参考バックテスト上の最良（後付け選定）: {daily_strategy.get('best_name') or 'データ不足'}")
+    print('==============================');print(' 【発走前固定戦略・結果検証】');print(f"固定状態: {daily_strategy_lock.get('status','unknown')} / 選定{daily_strategy_lock.get('selected_count',0)}R");print(f"今回までの固定戦略: {locked_strategy_summary['settled_races']}確定R / 的中{locked_strategy_summary['hits']}R / 投資¥{locked_strategy_summary['investment_yen']:,} / 払戻¥{locked_strategy_summary['return_yen']:,} / 収支{locked_strategy_summary['profit_yen']:+,}円 / 回収率{locked_strategy_summary['roi_pct']:.1f}%");print(f"累積履歴: {history_summary['days']}日 / {history_summary['settled_races']}確定R / 累積収支 {history_summary['profit_yen']:+,}円 / 回収率 {history_summary['roi_pct']:.1f}%");print(f'結果待ちレース: {len(result_pending)}');print(f'結果取得エラー: {len(result_failed)}');print(f'払戻待ちレース: {len(payout_pending)}');print(f'払戻取得エラー: {len(payout_failed)}');print(f'オッズ未取得レース: {len(odds_failed)}');print(f'処理時間: {time.time()-started:.1f}秒');print('データ完全性: '+('OK' if output['data_complete'] else '要確認'));print(f'結果完全性: {result_count}/{len(all_races)}');print(f'払戻完全性: {payout_count}/{len(all_races)}')
     if result_pending:print('結果待ち: '+', '.join(result_pending))
     if result_failed:print('結果取得エラー: '+', '.join(result_failed))
     if payout_pending:print('払戻待ち: '+', '.join(payout_pending))
