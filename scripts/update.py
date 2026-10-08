@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.12'
+VERSION='6.13'
 
 BASE='https://www.oddspark.com'
 SP='https://sp.oddspark.com'
@@ -128,30 +128,51 @@ def numbers4(t):
 # URL
 # =========================================================
 
-def race_url(c,n):
-    return f'{BASE}/keirin/RaceList.do?joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
+def normalize_date(value):
+    # Keep the full Gregorian year in the data/URL layer.
+    # Accept YYYY-MM-DD, YYYYMMDD, datetime, or fall back to today's date.
+    if isinstance(value, datetime):
+        return value.strftime('%Y%m%d')
+    v=str(value or '').strip()
+    m=re.fullmatch(r'(\d{4})[-/]?(\d{2})[-/]?(\d{2})',v)
+    if m:
+        return ''.join(m.groups())
+    return TODAY
 
 
-def prediction_url(slug,n):
+def display_date(value):
+    d=normalize_date(value)
+    return f'{d[:4]}-{d[4:6]}-{d[6:8]}'
+
+
+def race_url(c,n,date=None):
+    d=normalize_date(date)
+    return f'{BASE}/keirin/RaceList.do?joCode={c}&kaisaiBi={d}&raceNo={n}'
+
+
+def prediction_url(slug,n,date=None):
+    d=normalize_date(date)
     return (
-        f'{SP}/keirin/yosou/{slug}/{TODAY[:4]}/{TODAY[4:]}'
+        f'{SP}/keirin/yosou/{slug}/{d[:4]}/{d[4:]}'
         + ('.html' if n==1 else f'_{n}.html')
     )
 
 
-def odds_url(c,n):
+def odds_url(c,n,date=None):
+    d=normalize_date(date)
     return (
         f'{SP}/keirin/SpOddsInfo.do?'
         f'betType=9&dispMode=1&joCd={c}&joCode={c}'
-        f'&kaisaiBi={TODAY}&raceNo={n}'
+        f'&kaisaiBi={d}&raceNo={n}'
     )
 
 
-def result_url(c,n):
+def result_url(c,n,date=None):
+    d=normalize_date(date)
     return (
         f'{SP}/keirin/SpRaceResultInfo.do?'
         f'joCd={c}&joCode={c}'
-        f'&kaisaiBi={TODAY}&raceNo={n}'
+        f'&kaisaiBi={d}&raceNo={n}'
     )
 
 
@@ -366,7 +387,8 @@ def fetch_race(job):
 
     u=race_url(
         job['venue_code'],
-        job['race_no']
+        job['race_no'],
+        job.get('target_date') or TODAY
     )
 
     sp=soup(get_html(u))
@@ -671,7 +693,7 @@ def parse_development(sp):
 
 
 def fetch_prediction(r):
-    u=prediction_url(r['venue_slug'],r['race_no'])
+    u=prediction_url(r['venue_slug'],r['race_no'],r.get('target_date') or TODAY)
     sp=soup(get_html(u))
 
     comments=parse_prediction_table(sp)
@@ -680,7 +702,7 @@ def fetch_prediction(r):
 
     # 予想ページで並びが取れない場合は出走表をフォールバック。
     if not valid_line(line,r.get('riders')):
-        race_sp=soup(get_html(race_url(r['venue_code'],r['race_no'])))
+        race_sp=soup(get_html(race_url(r['venue_code'],r['race_no'],r.get('target_date') or TODAY)))
         race_line,race_groups=parse_line(race_sp)
         if valid_line(race_line,r.get('riders')):
             line,groups=race_line,race_groups
@@ -1059,237 +1081,155 @@ def payout_scan(sp,text):
     return None,0,''
 
 
-def parse_result_page(html):
+def _extract_finish_candidates(sp):
+    """Extract finish order from several OddsPark result-table layouts."""
+    candidates=[]
+    if not sp:
+        return candidates
 
+    # Normal OddsPark table: 着順 / 枠番 / 車番 ...
+    for table in sp.find_all('table'):
+        rows=table.find_all('tr')
+        for ri,tr in enumerate(rows[:10]):
+            cells=[clean(c.get_text(' ',strip=True)).replace(' ','') for c in tr.find_all(['th','td'])]
+            if not cells:
+                continue
+            pos_idx=next((i for i,v in enumerate(cells) if '着順' in v),None)
+            car_idx=next((i for i,v in enumerate(cells) if '車番' in v),None)
+            if pos_idx is None or car_idx is None:
+                continue
+            mp={}
+            for rr in rows[ri+1:]:
+                vals=[clean(c.get_text(' ',strip=True)) for c in rr.find_all(['th','td'])]
+                if max(pos_idx,car_idx)>=len(vals):
+                    continue
+                pm=re.fullmatch(r'\s*([1-9])\s*',vals[pos_idx])
+                cm=re.fullmatch(r'\s*([1-7])\s*',vals[car_idx])
+                if pm and cm:
+                    mp[int(pm.group(1))]=int(cm.group(1))
+            if len(mp)>=3:
+                finish=[mp[k] for k in sorted(mp)]
+                candidates.append(finish)
+
+    # Text fallback: the result section often survives even when table cells
+    # have nested spans/rowspans that BeautifulSoup presents inconsistently.
+    lines=[clean(x) for x in sp.get_text('\n',strip=True).splitlines() if clean(x)]
+    pairs=[]
+    for line in lines:
+        m=re.match(r'^([1-9])\s+(?:[1-7])\s+([1-7])(?:\s|$)',line)
+        if m:
+            pairs.append((int(m.group(1)),int(m.group(2))))
+    if len(pairs)>=3:
+        mp={p:c for p,c in pairs if 1<=p<=9 and 1<=c<=7}
+        candidates.append([mp[k] for k in sorted(mp)])
+    return candidates
+
+
+def _best_finish(candidates):
+    valid=[]
+    for f in candidates:
+        if valid_finish(f):
+            valid.append(f)
+    if not valid:
+        return []
+    # Prefer the candidate containing the maximum number of distinct positions.
+    return max(valid,key=lambda f:(len(f),len(set(f))))
+
+
+def parse_result_page(html):
     empty={
-        'finished':False,
-        'result_finished':False,
-        'finish':[],
-        'result_status':'pending',
-        'payout_available':False,
-        'payout_3tan':None,
-        'payout_3tan_yen':0,
-        'payout_source':'',
+        'finished':False,'result_finished':False,'finish':[],
+        'result_status':'pending','payout_available':False,
+        'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'',
         'payout_status':'pending'
     }
-
     sp=soup(html)
-
     if not sp:
+        empty['result_status']='error';empty['payout_status']='error';return empty
 
-        empty['result_status']='error'
-        empty['payout_status']='error'
+    finish=_best_finish(_extract_finish_candidates(sp))
+    text=clean(sp.get_text(' ',strip=True))
+    tk,y,src=payout_scan(sp,text)
 
-        return empty
+    # The payout row is authoritative when present. If a result is complete
+    # but the payout ticket itself is omitted from the page text, derive the
+    # 3-tan ticket from the first three official finishers.
+    if not tk and valid_finish(finish):
+        tk='-'.join(map(str,finish[:3])) if y>0 else None
 
-    finish_map={}
-
-    for table in sp.find_all('table'):
-
-        rows=table.find_all('tr')
-
-        header_idx=None
-        pos_idx=None
-        car_idx=None
-
-        for ri,tr in enumerate(rows[:8]):
-
-            cells=[
-                clean(
-                    c.get_text(
-                        ' ',
-                        strip=True
-                    )
-                ).replace(' ','')
-                for c in tr.find_all(
-                    ['th','td']
-                )
-            ]
-
-            for i,v in enumerate(cells):
-
-                if '着順' in v and pos_idx is None:
-                    pos_idx=i
-
-                if '車番' in v and car_idx is None:
-                    car_idx=i
-
-            if (
-                pos_idx is not None
-                and car_idx is not None
-            ):
-                header_idx=ri
-                break
-
-        if header_idx is None:
-            continue
-
-        for tr in rows[header_idx+1:]:
-
-            cells=[
-                clean(
-                    c.get_text(
-                        ' ',
-                        strip=True
-                    )
-                )
-                for c in tr.find_all(
-                    ['th','td']
-                )
-            ]
-
-            if (
-                not cells
-                or max(pos_idx,car_idx)>=len(cells)
-            ):
-                continue
-
-            pm=re.search(
-                r'(?<!\d)([1-9])(?!\d)',
-                cells[pos_idx]
-            )
-
-            cm=re.search(
-                r'(?<!\d)([1-9])(?!\d)',
-                cells[car_idx]
-            )
-
-            if pm and cm:
-
-                pos=int(pm.group(1))
-                car=int(cm.group(1))
-
-                if (
-                    1<=pos<=9
-                    and 1<=car<=7
-                ):
-                    finish_map[pos]=car
-
-    finish=[
-        finish_map[p]
-        for p in sorted(finish_map)
-        if 1<=p<=9
-    ]
-
-    text=clean(
-        sp.get_text(
-            ' ',
-            strip=True
-        )
-    )
-
-    tk,y,src=payout_scan(
-        sp,
-        text
-    )
-
-    if not tk and y and len(finish)>=3:
-        tk='-'.join(
-            map(str,finish[:3])
-        )
-
+    ticket_finish=[]
+    if isinstance(tk,str):
+        m=re.fullmatch(r'([1-7])-([1-7])-([1-7])',tk)
+        if m:
+            ticket_finish=[int(x) for x in m.groups()]
+    payout_ticket_valid=valid_finish(ticket_finish)
+    pa=bool(valid_finish(finish) and payout_ticket_valid and y>0)
     rf=valid_finish(finish)
-    payout_ticket_valid=bool(
-        isinstance(tk,str)
-        and re.fullmatch(r'[1-7]-[1-7]-[1-7]',tk)
-        and valid_finish([int(x) for x in tk.split('-')])
-    )
-    pa=bool(rf and payout_ticket_valid and y>0)
 
     if rf:
         empty['result_status']='finished'
     elif finish:
         empty['result_status']='error'
-
     if pa:
         empty['payout_status']='available'
     elif rf:
         empty['payout_status']='pending'
 
     empty.update({
-        'finished':rf and pa,
+        'finished':bool(rf and pa),
         'result_finished':rf,
         'finish':finish,
         'payout_available':pa,
-        'payout_3tan':tk,
-        'payout_3tan_yen':y,
-        'payout_source':src
+        'payout_3tan':tk if payout_ticket_valid else None,
+        'payout_3tan_yen':int(y or 0) if payout_ticket_valid else 0,
+        'payout_source':src,
     })
-
     return empty
 
 
+def _result_quality(res):
+    if not isinstance(res,dict):
+        return (-1,0,0,0)
+    finish=res.get('finish',[])
+    rf=bool(res.get('result_finished') and valid_finish(finish))
+    pa=bool(res.get('payout_available') and res.get('payout_3tan') and int(res.get('payout_3tan_yen',0) or 0)>0)
+    return (int(pa),int(rf),len(finish) if isinstance(finish,list) else 0,int(res.get('payout_3tan_yen',0) or 0))
+
+
 def fetch_result(race):
-
-    primary=(
-        race.get('result_url','')
-        or result_url(
-            race['venue_code'],
-            race['race_no']
-        )
-    )
-
-    fallback=(
-        f"{BASE}/keirin/RaceResultInfo.do?"
-        f"joCode={race['venue_code']}"
-        f"&kaisaiBi={TODAY}"
-        f"&raceNo={race['race_no']}"
-    )
-
+    d=normalize_date(race.get('target_date') or TODAY)
+    c=race['venue_code'];n=race['race_no']
     urls=[]
-
     for u in (
-        primary,
-        result_url(
-            race['venue_code'],
-            race['race_no']
-        ),
-        fallback
+        race.get('result_url',''),
+        result_url(c,n,d),
+        f'{BASE}/keirin/RaceResultInfo.do?joCode={c}&kaisaiBi={d}&raceNo={n}',
+        f'{SP}/keirin/RaceResultInfo.do?joCd={c}&joCode={c}&kaisaiBi={d}&raceNo={n}'
     ):
-
         if u and u not in urls:
             urls.append(u)
 
-    first_url=(
-        urls[0]
-        if urls
-        else result_url(
-            race['venue_code'],
-            race['race_no']
-        )
-    )
-
-    html=get_html(first_url)
-
-    if html:
-
-        res=parse_result_page(html)
-        res['url']=first_url
-
-        return res
-
-    for u in urls[1:]:
-
+    best=None
+    best_url=''
+    for u in urls:
         html=get_html(u)
-
         if not html:
             continue
-
         res=parse_result_page(html)
         res['url']=u
+        if best is None or _result_quality(res)>_result_quality(best):
+            best=res;best_url=u
+        # A fully valid result + payout is definitive; no need for more URLs.
+        if _result_quality(res)[0:2]==(1,1):
+            return res
 
-        return res
-
+    if best is not None:
+        return best
     return {
-        'result_finished':False,
-        'finished':False,
-        'finish':[],
-        'result_status':'error',
-        'payout_available':False,
-        'payout_3tan':None,
-        'payout_3tan_yen':0,
-        'payout_source':'',
-        'payout_status':'error'
+        'result_finished':False,'finished':False,'finish':[],
+        'result_status':'error','payout_available':False,
+        'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'',
+        'payout_status':'error','url':best_url
     }
 
 
@@ -1336,7 +1276,8 @@ def fetch_odds(race):
         race.get('odds_url',''),
         odds_url(
             race['venue_code'],
-            race['race_no']
+            race['race_no'],
+            race.get('target_date') or TODAY
         )
     ]:
 
@@ -1355,7 +1296,8 @@ def fetch_odds(race):
         'odds':{},
         'url':odds_url(
             race['venue_code'],
-            race['race_no']
+            race['race_no'],
+            race.get('target_date') or TODAY
         )
     }
 
@@ -2221,9 +2163,7 @@ def load_existing():
 
         return (
             d
-            if d.get(
-                'target_date'
-            )==TODAY_DISPLAY
+            if normalize_date(d.get('target_date'))==TODAY
             else {}
         )
 
@@ -2310,6 +2250,7 @@ def merge_existing_race(oldrace):
         'settlement',
         None
     )
+    r['target_date']=display_date(r.get('target_date') or TODAY)
 
     return r
 
@@ -2861,7 +2802,7 @@ def main():
     print(
         f'結果更新対象: '
         f'{len(result_targets)}/{len(all_races)}レース'
-        f'（確定済みは再取得しません）'
+        f'（有効な結果＋払戻が揃ったレースのみ再取得しません）'
     )
 
     with ThreadPoolExecutor(
@@ -3204,6 +3145,8 @@ def main():
         'version':VERSION,
         'updated_at':datetime.now().isoformat(),
         'target_date':TODAY_DISPLAY,
+        'target_year':int(TODAY[:4]),
+        'target_date_compact':TODAY,
 
         'data_complete':bool(
             all_races
