@@ -2,86 +2,324 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>競輪AI予想</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f3f5f8;color:#17202a;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;padding-bottom:82px}
-button{font:inherit;cursor:pointer}
-.header{position:sticky;top:0;z-index:50;background:linear-gradient(135deg,#111827,#1f2937);color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.18)}
-.header-inner{max-width:980px;margin:auto;padding:15px 12px;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.title{font-size:22px;font-weight:1000}
-.date{font-size:11px;opacity:.72;margin-top:3px}
-.status{font-size:11px;opacity:.75}
-main{max-width:980px;margin:auto;padding:10px 10px 30px}
+html,body{margin:0;padding:0}
+body{
+ background:#f3f5f8;
+ color:#17202a;
+ font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+ padding-bottom:90px
+}
+button{font:inherit}
+.header{
+ position:sticky;
+ top:0;
+ z-index:50;
+ background:linear-gradient(135deg,#111827,#1f2937);
+ color:#fff;
+ box-shadow:0 3px 12px rgba(0,0,0,.18)
+}
+.header-inner{
+ max-width:980px;
+ margin:auto;
+ padding:14px 12px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center
+}
+.title{font-size:21px;font-weight:1000}
+.date{font-size:11px;opacity:.7;margin-top:3px}
+.header-status{font-size:11px;opacity:.75}
+main{
+ max-width:980px;
+ margin:auto;
+ padding:10px
+}
 .page{display:none}
 .page.active{display:block}
-.card{background:#fff;border-radius:16px;padding:13px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.07)}
-.card-title{font-size:16px;font-weight:1000;margin-bottom:9px}
-.small{font-size:11px;color:#64748b;line-height:1.6}
-.venue-scroll{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px}
-.venue-btn{border:1px solid #e2e8f0;background:#fff;border-radius:999px;padding:8px 13px;font-weight:900;white-space:nowrap}
-.venue-btn.active{background:#2563eb;color:#fff;border-color:#2563eb}
-.race-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
-.race-btn{border:0;background:#f8fafc;border-radius:10px;padding:9px 3px;font-weight:1000;color:#334155}
-.race-btn.active{background:#2563eb;color:#fff}
+.card{
+ background:#fff;
+ border-radius:16px;
+ padding:13px;
+ margin-bottom:10px;
+ box-shadow:0 2px 8px rgba(0,0,0,.07)
+}
+.card-title{
+ font-size:16px;
+ font-weight:1000;
+ margin-bottom:9px
+}
+.small{
+ font-size:11px;
+ color:#64748b;
+ line-height:1.6
+}
+.venue-scroll{
+ display:flex;
+ gap:7px;
+ overflow-x:auto;
+ padding-bottom:2px
+}
+.venue-btn{
+ border:1px solid #e2e8f0;
+ background:#fff;
+ border-radius:999px;
+ padding:8px 13px;
+ font-weight:900;
+ white-space:nowrap
+}
+.venue-btn.active{
+ background:#2563eb;
+ color:#fff;
+ border-color:#2563eb
+}
+.race-grid{
+ display:grid;
+ grid-template-columns:repeat(8,1fr);
+ gap:6px
+}
+.race-btn{
+ border:0;
+ background:#f8fafc;
+ border-radius:10px;
+ padding:9px 3px;
+ font-weight:1000;
+ color:#334155
+}
+.race-btn.active{
+ background:#2563eb;
+ color:#fff
+}
 .race-btn.settled{box-shadow:inset 0 -3px #16a34a}
-.race-btn.confirmed{box-shadow:inset 0 -3px #f59e0b}
-.race-btn.invalid{box-shadow:inset 0 -3px #ef4444}
-.race-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.race-name{font-size:22px;font-weight:1000}
-.race-meta{font-size:11px;color:#64748b;margin-top:3px}
-.grade{padding:7px 9px;border-radius:9px;font-weight:1000;white-space:nowrap}
+.race-btn.confirmed{box-shadow:inset 0 -3px #2563eb}
+.race-btn.result{box-shadow:inset 0 -3px #f59e0b}
+.race-btn.error{box-shadow:inset 0 -3px #ef4444}
+.race-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:flex-start;
+ gap:8px
+}
+.race-name{
+ font-size:21px;
+ font-weight:1000
+}
+.race-meta{
+ font-size:11px;
+ color:#64748b;
+ margin-top:4px
+}
+.grade{
+ padding:7px 10px;
+ border-radius:9px;
+ font-weight:1000;
+ white-space:nowrap
+}
 .grade-S{background:#fee2e2;color:#991b1b}
 .grade-A{background:#ffedd5;color:#9a3412}
 .grade-B{background:#dbeafe;color:#1d4ed8}
 .grade-C{background:#e5e7eb;color:#4b5563}
-.key-box{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
-.key-item{text-align:center;background:#f8fafc;border-radius:12px;padding:9px}
-.key-label{font-size:10px;color:#64748b;font-weight:900}
-.key-num{font-size:25px;font-weight:1000;margin-top:2px}
+.key-box{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:7px;
+ margin-top:10px
+}
+.key-item{
+ text-align:center;
+ background:#f8fafc;
+ border-radius:12px;
+ padding:9px
+}
+.key-label{
+ font-size:10px;
+ color:#64748b;
+ font-weight:900
+}
+.key-num{
+ font-size:25px;
+ font-weight:1000;
+ margin-top:2px
+}
 .main-num{color:#dc2626}
 .opp-num{color:#2563eb}
 .dark-num{color:#ea580c}
-.verdict{margin-top:10px;border-radius:13px;padding:11px;color:#fff}
+.verdict{
+ margin-top:10px;
+ border-radius:13px;
+ padding:11px;
+ color:#fff
+}
 .verdict.S{background:linear-gradient(135deg,#991b1b,#dc2626)}
 .verdict.A{background:linear-gradient(135deg,#c2410c,#f97316)}
 .verdict.B{background:linear-gradient(135deg,#1d4ed8,#2563eb)}
 .verdict.C{background:linear-gradient(135deg,#4b5563,#6b7280)}
-.verdict-top{display:flex;justify-content:space-between;gap:8px}
-.verdict-label,.verdict-score{font-weight:1000}
-.bet-list{display:grid;gap:7px}
-.bet{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;border:1px solid #e2e8f0;border-radius:11px;padding:8px}
-.bet.main{border:2px solid #ef4444;background:#fff7f7}
-.bet-no{width:27px;height:27px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f1f5f9;font-size:11px;font-weight:1000}
-.bet.main .bet-no{background:#dc2626;color:#fff}
-.ticket{font-size:18px;font-weight:1000;letter-spacing:1px}
-.bet-type{font-size:10px;color:#64748b;margin-top:2px}
+.verdict-top{
+ display:flex;
+ justify-content:space-between;
+ font-weight:1000
+}
+.bet-list{
+ display:grid;
+ gap:7px
+}
+.bet{
+ display:grid;
+ grid-template-columns:28px 1fr auto;
+ gap:8px;
+ align-items:center;
+ border:1px solid #e2e8f0;
+ border-radius:11px;
+ padding:8px
+}
+.bet.main{
+ border:2px solid #ef4444;
+ background:#fff7f7
+}
+.bet-no{
+ width:27px;
+ height:27px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ background:#f1f5f9;
+ font-size:11px;
+ font-weight:1000
+}
+.bet.main .bet-no{
+ background:#dc2626;
+ color:#fff
+}
+.ticket{
+ font-size:18px;
+ font-weight:1000;
+ letter-spacing:1px
+}
+.bet-type{
+ font-size:10px;
+ color:#64748b;
+ margin-top:2px
+}
 .bet-right{text-align:right}
-.bet-yen{font-size:11px;font-weight:900}
-.odds{font-size:12px;font-weight:1000;color:#2563eb;margin-top:2px}
+.bet-yen{
+ font-size:11px;
+ font-weight:900
+}
+.odds{
+ font-size:12px;
+ font-weight:1000;
+ color:#2563eb;
+ margin-top:2px
+}
 .odds.missing{color:#94a3b8}
-.expected{font-size:10px;color:#64748b;margin-top:1px}
-.value{font-size:9px;color:#64748b;margin-top:2px}
-.result-box{border-radius:14px;padding:12px;margin-top:8px}
-.result-pre{background:#f8fafc;border:1px solid #e2e8f0}
-.result-confirmed{background:#eff6ff;border:1px solid #bfdbfe}
-.result-settled{background:#ecfdf5;border:1px solid #bbf7d0}
-.result-error{background:#fff7ed;border:1px solid #fed7aa}
-.result-ticket{font-size:27px;font-weight:1000;letter-spacing:2px}
-.payout{font-size:19px;font-weight:1000;color:#047857;margin-top:3px}
-.settlement-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:9px}
-.stat{background:rgba(255,255,255,.75);border-radius:9px;padding:8px 4px;text-align:center}
-.stat-label{font-size:9px;color:#64748b}
-.stat-value{font-size:14px;font-weight:1000;margin-top:2px}
-.profit-plus{color:#16a34a;font-weight:1000}
-.profit-minus{color:#dc2626;font-weight:1000}
-.dev{background:#fff7ed;border-left:4px solid #f97316;border-radius:8px;padding:10px;font-size:12px;line-height:1.65}
-.line-box{display:flex;flex-wrap:wrap;gap:6px}
-.line-group{background:#f8fafc;border-radius:9px;padding:7px;font-size:11px}
-.rider-list{display:grid;gap:6px}
-.rider{display:grid;grid-template-columns:37px 1fr auto;gap:8px;align-items:center;border:1px solid #e5e7eb;border-radius:12px;padding:8px}
-.car{width:37px;height:37px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:1000}
+.expected{
+ font-size:10px;
+ color:#64748b;
+ margin-top:1px
+}
+.value{
+ font-size:9px;
+ color:#64748b;
+ margin-top:2px
+}
+.result-box{
+ border-radius:14px;
+ padding:12px;
+ margin-top:8px
+}
+.result-pre{
+ background:#f8fafc;
+ border:1px solid #e2e8f0
+}
+.result-confirmed{
+ background:#eff6ff;
+ border:1px solid #bfdbfe
+}
+.result-settled{
+ background:#ecfdf5;
+ border:1px solid #bbf7d0
+}
+.result-error{
+ background:#fff7ed;
+ border:1px solid #fed7aa
+}
+.result-ticket{
+ font-size:27px;
+ font-weight:1000;
+ letter-spacing:2px
+}
+.payout{
+ font-size:19px;
+ font-weight:1000;
+ color:#047857;
+ margin-top:3px
+}
+.settlement-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:6px;
+ margin-top:9px
+}
+.stat{
+ background:rgba(255,255,255,.75);
+ border-radius:9px;
+ padding:8px 4px;
+ text-align:center
+}
+.stat-label{
+ font-size:9px;
+ color:#64748b
+}
+.stat-value{
+ font-size:14px;
+ font-weight:1000;
+ margin-top:2px
+}
+.dev{
+ background:#fff7ed;
+ border-left:4px solid #f97316;
+ border-radius:8px;
+ padding:10px;
+ font-size:12px;
+ line-height:1.65
+}
+.line-box{
+ display:flex;
+ flex-wrap:wrap;
+ gap:6px
+}
+.line-group{
+ background:#f8fafc;
+ border-radius:9px;
+ padding:7px;
+ font-size:11px
+}
+.rider-list{
+ display:grid;
+ gap:6px
+}
+.rider{
+ display:grid;
+ grid-template-columns:37px 1fr auto;
+ gap:8px;
+ align-items:center;
+ border:1px solid #e5e7eb;
+ border-radius:12px;
+ padding:8px
+}
+.car{
+ width:37px;
+ height:37px;
+ border-radius:8px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-weight:1000
+}
 .car-1{background:#fff;color:#111827;border:1px solid #94a3b8}
 .car-2{background:#111827;color:#fff}
 .car-3{background:#dc2626;color:#fff}
@@ -90,48 +328,213 @@ main{max-width:980px;margin:auto;padding:10px 10px 30px}
 .car-6{background:#16a34a;color:#fff}
 .car-7{background:#f97316;color:#fff}
 .rider-name{font-weight:1000;font-size:13px}
-.rider-info{font-size:10px;color:#64748b;margin-top:2px}
+.rider-info{
+ font-size:10px;
+ color:#64748b;
+ margin-top:2px
+}
 .rider-score{text-align:right}
-.ai-score{font-weight:1000;font-size:15px}
-.rider-finish{font-size:10px;color:#64748b}
-.profit-hero{background:#111827;color:#fff;border-radius:18px;padding:16px;margin-bottom:10px}
-.profit-title{font-size:12px;opacity:.72}
-.profit-main{display:flex;justify-content:space-between;align-items:end;margin-top:4px}
-.profit-number{font-size:34px;font-weight:1000}
-.plus{color:#22c55e}
-.minus{color:#f87171}
-.profit-sub{text-align:right;font-size:11px;line-height:1.6}
-.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
-.summary-stat{background:#f8fafc;border-radius:10px;padding:9px 4px;text-align:center}
-.summary-label{font-size:9px;color:#64748b}
-.summary-value{font-size:14px;font-weight:1000;margin-top:2px}
-.data-table{width:100%;border-collapse:collapse;font-size:11px;min-width:560px}
-.table-wrap{overflow-x:auto}
-.data-table th{background:#f1f5f9;padding:7px 5px}
-.data-table td{border-bottom:1px solid #e5e7eb;padding:7px 5px;text-align:center}
-.strategy{border:1px solid #e2e8f0;border-radius:11px;padding:9px;margin-bottom:6px}
-.strategy-head{display:flex;justify-content:space-between;gap:8px;font-weight:900}
-.strategy-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:6px}
-.strategy-stat{background:#f8fafc;border-radius:7px;padding:5px 2px;text-align:center;font-size:9px}
-.strategy-stat b{display:block;font-size:11px}
-.notice{padding:9px 11px;border-radius:10px;background:#eff6ff;color:#1e40af;font-size:10px;line-height:1.6}
-.state-pill{display:inline-block;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:1000}
+.ai-score{
+ font-weight:1000;
+ font-size:15px
+}
+.rider-finish{
+ font-size:10px;
+ color:#64748b
+}
+.state-pill{
+ display:inline-block;
+ border-radius:999px;
+ padding:4px 8px;
+ font-size:10px;
+ font-weight:1000
+}
 .pill-pre{background:#e2e8f0;color:#475569}
 .pill-confirmed{background:#dbeafe;color:#1d4ed8}
 .pill-settled{background:#dcfce7;color:#166534}
 .pill-error{background:#ffedd5;color:#9a3412}
-.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:100;height:72px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid #e5e7eb;display:grid;grid-template-columns:1fr 1fr;padding-bottom:env(safe-area-inset-bottom)}
-.nav-btn{border:0;background:none;color:#64748b;font-weight:1000;font-size:12px}
-.nav-icon{display:block;font-size:24px;line-height:27px}
-.nav-btn.active{color:#2563eb}
-.loading{text-align:center;padding:45px 10px;color:#64748b}
-.error{background:#fff1f2;color:#be123c;padding:14px;border-radius:12px;line-height:1.6}
+.notice{
+ padding:9px 11px;
+ border-radius:10px;
+ background:#eff6ff;
+ color:#1e40af;
+ font-size:10px;
+ line-height:1.6
+}
+.profit-hero{
+ background:#111827;
+ color:#fff;
+ border-radius:18px;
+ padding:16px;
+ margin-bottom:10px
+}
+.profit-title{
+ font-size:12px;
+ opacity:.72
+}
+.profit-main{
+ display:flex;
+ justify-content:space-between;
+ align-items:end;
+ margin-top:4px
+}
+.profit-number{
+ font-size:34px;
+ font-weight:1000
+}
+.plus{
+ color:#22c55e
+}
+.minus{
+ color:#f87171
+}
+.profit-sub{
+ text-align:right;
+ font-size:11px;
+ line-height:1.6
+}
+.summary-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:7px
+}
+.summary-stat{
+ background:#f8fafc;
+ border-radius:10px;
+ padding:9px 4px;
+ text-align:center
+}
+.summary-label{
+ font-size:9px;
+ color:#64748b
+}
+.summary-value{
+ font-size:14px;
+ font-weight:1000;
+ margin-top:2px
+}
+.data-table{
+ width:100%;
+ border-collapse:collapse;
+ font-size:11px;
+ min-width:560px
+}
+.table-wrap{
+ overflow-x:auto
+}
+.data-table th{
+ background:#f1f5f9;
+ padding:7px 5px
+}
+.data-table td{
+ border-bottom:1px solid #e5e7eb;
+ padding:7px 5px;
+ text-align:center
+}
+.profit-plus{
+ color:#16a34a;
+ font-weight:1000
+}
+.profit-minus{
+ color:#dc2626;
+ font-weight:1000
+}
+.strategy{
+ border:1px solid #e2e8f0;
+ border-radius:11px;
+ padding:9px;
+ margin-bottom:6px
+}
+.strategy-head{
+ display:flex;
+ justify-content:space-between;
+ gap:8px;
+ font-weight:900
+}
+.strategy-stats{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:5px;
+ margin-top:6px
+}
+.strategy-stat{
+ background:#f8fafc;
+ border-radius:7px;
+ padding:5px 2px;
+ text-align:center;
+ font-size:9px
+}
+.strategy-stat b{
+ display:block;
+ font-size:11px
+}
+.loading{
+ text-align:center;
+ padding:45px 10px;
+ color:#64748b
+}
+.error{
+ background:#fff1f2;
+ color:#be123c;
+ padding:14px;
+ border-radius:12px;
+ line-height:1.6
+}
+/* =========================
+   下部ナビ
+========================= */
+.bottom-nav{
+ position:fixed;
+ left:0;
+ right:0;
+ bottom:0;
+ z-index:9999;
+ height:74px;
+ background:rgba(255,255,255,.98);
+ backdrop-filter:blur(12px);
+ border-top:1px solid #dbe2ea;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ padding-bottom:env(safe-area-inset-bottom);
+ box-shadow:0 -3px 12px rgba(0,0,0,.08)
+}
+.nav-btn{
+ border:0;
+ background:#fff;
+ color:#64748b;
+ font-weight:1000;
+ font-size:12px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ gap:1px
+}
+.nav-icon{
+ font-size:24px;
+ line-height:27px
+}
+.nav-btn.active{
+ color:#2563eb;
+ background:#eff6ff
+}
 @media(max-width:600px){
-main{padding:9px 9px 25px}
-.race-grid{grid-template-columns:repeat(6,1fr)}
-.settlement-grid,.summary-grid{grid-template-columns:repeat(2,1fr)}
-.ticket{font-size:17px}
-.race-name{font-size:20px}
+main{
+ padding:9px 9px 25px
+}
+.race-grid{
+ grid-template-columns:repeat(6,1fr)
+}
+.settlement-grid,
+.summary-grid{
+ grid-template-columns:repeat(2,1fr)
+}
+.ticket{
+ font-size:17px
+}
+.race-name{
+ font-size:19px
+}
 }
 </style>
 </head>
@@ -139,60 +542,132 @@ main{padding:9px 9px 25px}
 <header class="header">
 <div class="header-inner">
 <div>
-<div class="title">🚴 競輪AI予想</div>
-<div class="date" id="headerDate">データ読み込み中…</div>
+<div class="title">
+🚴 競輪AI予想
 </div>
-<div class="status" id="headerStatus">v6.11</div>
+<div
+class="date"
+id="headerDate"
+>
+データ読み込み中…
+</div>
+</div>
+<div
+class="header-status"
+id="headerStatus"
+>
+v6.11
+</div>
 </div>
 </header>
 <main>
-<section id="predictionPage" class="page active">
+<!-- =========================
+     予想ページ
+========================= -->
+<section
+id="predictionPage"
+class="page active"
+>
 <div class="card">
-<div class="card-title">開催場</div>
-<div id="venues" class="venue-scroll"></div>
+<div class="card-title">
+開催場
+</div>
+<div
+id="venues"
+class="venue-scroll"
+></div>
 </div>
 <div class="card">
 <div class="card-title">
-<span id="selectedVenueName">レース</span>
+<span id="selectedVenueName">
+レース
+</span>
 </div>
-<div id="raceButtons" class="race-grid"></div>
+<div
+id="raceButtons"
+class="race-grid"
+></div>
 </div>
 <div id="predictionContent">
-<div class="loading">データを読み込んでいます…</div>
+<div class="loading">
+データを読み込んでいます…
+</div>
 </div>
 </section>
-<section id="profitPage" class="page">
+<!-- =========================
+     収支ページ
+========================= -->
+<section
+id="profitPage"
+class="page"
+>
 <div id="profitContent">
-<div class="loading">収支を計算しています…</div>
+<div class="loading">
+収支データを読み込んでいます…
+</div>
 </div>
 </section>
 </main>
-<nav class="bottom-nav">
+<!-- =========================
+     下部ナビ
+========================= -->
+<nav
+class="bottom-nav"
+id="bottomNav"
+>
 
+<button
+type=“button”
+class=“nav-btn active”
+id=“navPrediction”
+onclick=“switchPage(‘prediction’)”
+
+<span class="nav-icon">
 🏁
+</span>
+<span>
 予想
+</span>
+</button>
+
+<button
+type=“button”
+class=“nav-btn”
+id=“navProfit”
+onclick=“switchPage(‘profit’)”
+
+<span class="nav-icon">
 💰
+</span>
+<span>
 収支
+</span>
+</button>
 </nav>
 <script>
 const DATA_URL="./data/today.json";
 const BET_YEN_DEFAULT=100;
 let DATA=null;
-let selectedVenue=null;
+let selectedVenue="";
 let selectedRace=null;
-/* =========================
-   基本
-========================= */
-const yen=n=>
-Number(n||0).toLocaleString("ja-JP")+"円";
-const num=n=>Number(n||0);
-const escapeHtml=str=>
-String(str??"")
+/* =================================
+   基本関数
+================================= */
+function yen(n){
+return Number(n||0)
+.toLocaleString("ja-JP")+"円";
+}
+function num(n){
+return Number(n||0);
+}
+function escapeHtml(str){
+return String(str??"")
 .replaceAll("&","&amp;")
 .replaceAll("<","&lt;")
 .replaceAll(">","&gt;")
 .replaceAll('"',"&quot;")
 .replaceAll("'","&#039;");
+}
 function getRaces(){
 return Array.isArray(DATA?.races)
 ?DATA.races
@@ -230,9 +705,9 @@ bet?.bet_yen ||
 BET_YEN_DEFAULT
 );
 }
-/* =========================
-   3連単チケット判定
-========================= */
+/* =================================
+   チケット
+================================= */
 function isValidTicket(a){
 return Array.isArray(a) &&
 a.length===3 &&
@@ -261,20 +736,16 @@ return isValidTicket(a)
 ?a.join("-")
 :"";
 }
-/* =========================
-   正しい着順だけ取得
-========================= */
+/* =================================
+   着順
+================================= */
 function getFinishTicket(race){
 const finish=race?.result?.finish;
-/* 配列 */
-if(Array.isArray(finish) && finish.length>=3){
-const a=finish
-.slice(0,3)
-.map(Number);
+if(Array.isArray(finish)&&finish.length>=3){
+const a=finish.slice(0,3).map(Number);
 if(isValidTicket(a))
 return a.join("-");
 }
-/* 文字列 */
 if(typeof finish==="string"){
 const ticket=normalizeTicket(finish);
 if(ticket)
@@ -282,12 +753,9 @@ return ticket;
 }
 return "";
 }
-/* =========================
-   payout_sourceから3連単を取得
-   payout_3tanには3連複が
-   入っているケースがあるため
-   sourceを優先
-========================= */
+/* =================================
+   払戻
+================================= */
 function parsePayoutSource(source){
 const s=String(source||"");
 const m=s.match(
@@ -301,165 +769,119 @@ const ticket=normalizeTicket(
 if(!ticket)
 return null;
 return{
-ticket:ticket,
-yen:Number(
-m[4].replace(/,/g,"")
-)
+ ticket,
+ yen:Number(m[4].replace(/,/g,""))
 };
 }
-/* =========================
-   払戻
-========================= */
 function getPayoutInfo(race){
 const result=race?.result||{};
-/* 最優先：payout_source */
 const source=
 parsePayoutSource(
 result.payout_source
 );
 if(source){
 return{
-ticket:source.ticket,
-yen:source.yen,
-available:true,
-source:true
+ ticket:source.ticket,
+ yen:source.yen,
+ available:true
 };
 }
-/* 次に明確なpayout_3tan */
-const fieldTicket=
-normalizeTicket(
-result.payout_3tan
-);
+const ticket=
+normalizeTicket(result.payout_3tan);
 if(
-fieldTicket &&
+ticket &&
 result.payout_3tan_yen!=null
 ){
 return{
-ticket:fieldTicket,
-yen:num(result.payout_3tan_yen),
-available:true,
-source:false
-};
-}
-/* 最後の保険 */
-const finishTicket=
-getFinishTicket(race);
-if(
-finishTicket &&
-result.payout_available===true &&
-num(result.payout_3tan_yen)>0
-){
-return{
-ticket:finishTicket,
-yen:num(result.payout_3tan_yen),
-available:true,
-source:false
+ ticket,
+ yen:num(result.payout_3tan_yen),
+ available:true
 };
 }
 return{
-ticket:"",
-yen:0,
-available:false,
-source:false
+ ticket:"",
+ yen:0,
+ available:false
 };
 }
-/* =========================
-   settlement
-========================= */
+/* =================================
+   収支確定
+================================= */
 function isSettled(race){
 return String(
 race?.settlement?.status||""
 ).toLowerCase()==="settled";
 }
-/* =========================
+/* =================================
    レース状態
-========================= */
+================================= */
 function getRaceState(race){
 const result=race?.result||{};
 const finish=
 getFinishTicket(race);
-/* 収支確定 */
 if(isSettled(race))
-return "settled";
-/* 正常な着順がある */
+return"settled";
 if(
 result.finished===true &&
 finish
 ){
-return getPayoutInfo(race).available
+const payout=
+getPayoutInfo(race);
+return payout.available
 ?"confirmed"
 :"result";
 }
-/* 払戻だけ先に取れている
-   ただし着順がない場合 */
-if(
-result.payout_available===true &&
-!finish
-)
-return "payout";
-/* finished=falseなら
-   result_finished=trueでも
-   無効な仮結果を表示しない */
 if(
 result.finished!==true &&
 !finish
 )
-return "pre";
-/* finished=trueなのに
-   有効着順がない */
+return"pre";
 if(
 result.finished===true &&
 !finish
 )
-return "error";
-return "pre";
+return"error";
+return"pre";
 }
 function stateText(race){
 switch(getRaceState(race)){
-case "settled":
-return "✅ 結果・収支確定";
-case "confirmed":
-return "✅ 結果確定・収支集計待ち";
-case "result":
-return "🏁 着順確定・払戻待ち";
-case "payout":
-return "⚠️ 払戻取得済み・着順確認中";
-case "error":
-return "⚠️ 結果データ確認中";
+case"settled":
+return"✅ 結果・収支確定";
+case"confirmed":
+return"✅ 結果確定・収支集計待ち";
+case"result":
+return"🏁 着順確定・払戻待ち";
+case"error":
+return"⚠️ 結果データ確認中";
 default:
-return "🕐 発走前・結果非表示";
+return"🕐 発走前";
 }
 }
 function stateClass(race){
-const state=getRaceState(race);
-if(state==="settled")
-return "pill-settled";
-if(
-state==="confirmed" ||
-state==="result"
-)
-return "pill-confirmed";
-if(
-state==="error" ||
-state==="payout"
-)
-return "pill-error";
-return "pill-pre";
+switch(getRaceState(race)){
+case"settled":
+return"pill-settled";
+case"confirmed":
+case"result":
+return"pill-confirmed";
+case"error":
+return"pill-error";
+default:
+return"pill-pre";
 }
-/* =========================
+}
+/* =================================
    オッズ
-========================= */
+================================= */
 function getBetOdds(race,bet){
-/* AI買い目内のオッズを優先 */
 const own=bet?.odds;
 if(
 own!==null &&
 own!==undefined &&
-Number.isFinite(Number(own)) &&
 Number(own)>0
 )
 return Number(own);
-/* race.oddsから補完 */
+/* race.odds.odds */
 const map=race?.odds?.odds;
 if(
 map &&
@@ -470,18 +892,47 @@ Number(map[bet.ticket])>0
 return Number(map[bet.ticket]);
 return null;
 }
-/* =========================
+/* =================================
    的中
-========================= */
+================================= */
 function ticketHit(bet,race){
 const result=
 getFinishTicket(race);
 return !!result &&
 String(bet?.ticket)===result;
 }
-/* =========================
-   起動
-========================= */
+/* =================================
+   ページ切替
+================================= */
+function switchPage(page){
+const prediction=
+document.getElementById("predictionPage");
+const profit=
+document.getElementById("profitPage");
+const navPrediction=
+document.getElementById("navPrediction");
+const navProfit=
+document.getElementById("navProfit");
+if(page==="profit"){
+prediction.classList.remove("active");
+profit.classList.add("active");
+navPrediction.classList.remove("active");
+navProfit.classList.add("active");
+renderProfitPage();
+}else{
+profit.classList.remove("active");
+prediction.classList.add("active");
+navProfit.classList.remove("active");
+navPrediction.classList.add("active");
+}
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+}
+/* =================================
+   データ読み込み
+================================= */
 async function loadData(){
 try{
 const response=
@@ -492,17 +943,10 @@ cache:"no-store"
 }
 );
 if(!response.ok)
-throw new Error(
-"today.jsonを取得できませんでした"
-);
+throw new Error("today.jsonを取得できませんでした");
 DATA=await response.json();
-if(
-!DATA ||
-!Array.isArray(DATA.races)
-)
-throw new Error(
-"today.jsonの形式が正しくありません"
-);
+if(!Array.isArray(DATA.races))
+throw new Error("today.jsonの形式が正しくありません");
 document.getElementById(
 "headerDate"
 ).textContent=
@@ -511,26 +955,20 @@ document.getElementById(
 "headerStatus"
 ).textContent=
 `v${DATA.version||"6.11"}`;
-renderVenues();
 if(!selectedVenue){
 selectedVenue=
 DATA.races[0]?.venue_name||"";
 }
-renderRaceButtons();
 const venueRaces=
 getRaces().filter(
 r=>r.venue_name===selectedVenue
 );
-if(
-!selectedRace ||
-!venueRaces.some(
-r=>Number(r.race_no)===
-Number(selectedRace.race_no)
-)
-){
+if(!selectedRace){
 selectedRace=
 venueRaces[0]||null;
 }
+renderVenues();
+renderRaceButtons();
 renderRace();
 renderProfitPage();
 }catch(error){
@@ -538,60 +976,29 @@ console.error(error);
 document.getElementById(
 "predictionContent"
 ).innerHTML=
-`<div class="error">
+`
+<div class="error">
 データの読み込みに失敗しました。<br>
 ${escapeHtml(error.message)}
-</div>`;
+</div>
+`;
 document.getElementById(
 "profitContent"
 ).innerHTML=
-`<div class="error">
+`
+<div class="error">
 収支データを読み込めませんでした。
-</div>`;
+</div>
+`;
 }
 }
-/* =========================
-   ページ
-========================= */
-function switchPage(page){
-document.getElementById(
-"predictionPage"
-).classList.toggle(
-"active",
-page==="prediction"
-);
-document.getElementById(
-"profitPage"
-).classList.toggle(
-"active",
-page==="profit"
-);
-document.getElementById(
-"navPrediction"
-).classList.toggle(
-"active",
-page==="prediction"
-);
-document.getElementById(
-"navProfit"
-).classList.toggle(
-"active",
-page==="profit"
-);
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-}
-/* =========================
+/* =================================
    開催場
-========================= */
+================================= */
 function renderVenues(){
 const venues=[
 ...new Set(
-getRaces().map(
-r=>r.venue_name
-)
+getRaces().map(r=>r.venue_name)
 )
 ];
 document.getElementById(
@@ -599,6 +1006,7 @@ document.getElementById(
 ).innerHTML=
 venues.map(v=>`
 <button
+type="button"
 class="venue-btn ${v===selectedVenue?"active":""}"
 onclick="selectVenue(${JSON.stringify(v)})"
 >
@@ -616,9 +1024,9 @@ renderVenues();
 renderRaceButtons();
 renderRace();
 }
-/* =========================
-   レース選択
-========================= */
+/* =================================
+   レースボタン
+================================= */
 function renderRaceButtons(){
 const races=
 getRaces()
@@ -626,12 +1034,12 @@ getRaces()
 r=>r.venue_name===selectedVenue
 )
 .sort(
-(a,b)=>a.race_no-b.race_no
+(a,b)=>Number(a.race_no)-Number(b.race_no)
 );
 document.getElementById(
 "selectedVenueName"
 ).textContent=
-`${selectedVenue||""}　${races.length}R`;
+`${selectedVenue}　${races.length}R`;
 document.getElementById(
 "raceButtons"
 ).innerHTML=
@@ -640,10 +1048,13 @@ const state=
 getRaceState(r);
 return`
 <button
-class="race-btn
-${selectedRace?.race_no===r.race_no?"active":""}
-${state}"
-onclick="selectRace(${r.race_no})"
+type="button"
+class="race-btn ${state} ${
+selectedRace &&
+Number(selectedRace.race_no)===Number(r.race_no)
+?"active":""
+}"
+onclick="selectRace(${Number(r.race_no)})"
 >
 ${r.race_no}R
 </button>
@@ -660,37 +1071,35 @@ Number(r.race_no)===Number(no)
 renderRaceButtons();
 renderRace();
 }
-/* =========================
-   予想画面
-========================= */
+/* =================================
+   予想
+================================= */
 function renderRace(){
 if(!selectedRace){
 document.getElementById(
 "predictionContent"
 ).innerHTML=
-`<div class="loading">
-レースがありません。
-</div>`;
+`<div class="loading">レースがありません。</div>`;
 return;
 }
 const race=selectedRace;
 const prediction=
 getPrediction(race);
 const verdict=
-prediction.verdict ||
-race.verdict ||
+prediction.verdict||
+race.verdict||
 {};
 const grade=
 getGrade(race);
 document.getElementById(
 "predictionContent"
-).innerHTML=`
+).innerHTML=
+`
 <div class="card">
 <div class="race-head">
 <div>
 <div class="race-name">
-${escapeHtml(race.venue_name)}
-${race.race_no}R
+${escapeHtml(race.venue_name)} ${race.race_no}R
 </div>
 <div class="race-meta">
 <span class="state-pill ${stateClass(race)}">
@@ -734,8 +1143,7 @@ ${verdict.score!=null
 </div>
 </div>
 <div
-class="small"
-style="color:#fff;margin-top:5px"
+style="font-size:11px;margin-top:5px"
 >
 ${escapeHtml(verdict.reason||"")}
 </div>
@@ -749,45 +1157,28 @@ ${renderRanking(race)}
 ${renderRiders(race)}
 `;
 }
-/* =========================
-   AI買い目
-========================= */
+/* =================================
+   買い目
+================================= */
 function renderBets(race){
-const bets=
-getBets(race);
+const bets=getBets(race);
 if(!bets.length)
-return "";
+return"";
 return`
 <div class="card">
 <div class="card-title">
 🎯 AIおすすめ買い目
 <span class="small">
-${bets.length}点・各100円
+${bets.length}点
 </span>
 </div>
-<div class="notice">
-凍結済みv6.11 AI予想の買い目を
-そのまま表示しています。
-オッズは
-「買い目内のオッズ」
-→
-「race.odds」
-の順で補完表示します。
-オッズ補完によって
-AI買い目そのものは変更しません。
-</div>
-<div
-class="bet-list"
-style="margin-top:9px"
->
+<div class="bet-list">
 ${bets.map((bet,index)=>{
 const odds=
 getBetOdds(race,bet);
 const potential=
 odds
-?Math.round(
-getBetYen(bet)*odds
-)
+?Math.round(getBetYen(bet)*odds)
 :0;
 return`
 <div class="bet ${index===0?"main":""}">
@@ -806,12 +1197,12 @@ ${escapeHtml(bet.type||"")}
 <div class="bet-yen">
 ${yen(getBetYen(bet))}
 </div>
-<div
-class="odds ${odds?"":"missing"}"
->
-${odds
+<div class="odds ${odds?"":"missing"}">
+${
+odds
 ?`${odds.toFixed(1)}倍`
-:"オッズ未取得"}
+:"オッズ未取得"
+}
 </div>
 ${
 odds
@@ -823,9 +1214,7 @@ odds
 :""
 }
 <div class="value">
-${escapeHtml(
-bet.value_flag||""
-)}
+${escapeHtml(bet.value_flag||"")}
 </div>
 </div>
 </div>
@@ -835,22 +1224,20 @@ bet.value_flag||""
 </div>
 `;
 }
-/* =========================
+/* =================================
    結果
-========================= */
+================================= */
 function renderResult(race){
 const state=
 getRaceState(race);
-const result=
-race.result||{};
-const settlement=
-race.settlement||{};
 const bets=
 getBets(race);
 const finish=
 getFinishTicket(race);
 const payout=
 getPayoutInfo(race);
+const settlement=
+race.settlement||{};
 const hit=
 bets.find(
 bet=>ticketHit(bet,race)
@@ -866,14 +1253,13 @@ return`
 <b>🕐 発走前</b>
 <br>
 <span class="small">
-結果・着順・払戻は表示しません。
-AI予想とオッズのみ表示します。
+まだレース結果はありません。
 </span>
 </div>
 </div>
 `;
 }
-/* 無効データ */
+/* 結果異常 */
 if(state==="error"){
 return`
 <div class="card">
@@ -886,34 +1272,14 @@ return`
 </b>
 <br>
 <span class="small">
-取得データに矛盾または無効な着順があります。
-収支には一切反映していません。
+取得された結果データが正しくないため、
+着順・的中・収支には反映していません。
 </span>
 </div>
 </div>
 `;
 }
-/* 払戻だけ先に取得 */
-if(state==="payout"){
-return`
-<div class="card">
-<div class="card-title">
-🏆 レース結果
-</div>
-<div class="result-box result-error">
-<b>
-⚠️ 払戻情報は取得済み・着順確認中
-</b>
-<br>
-<span class="small">
-着順が有効になるまで
-結果・的中・収支には反映しません。
-</span>
-</div>
-</div>
-`;
-}
-/* 着順確定・settlement待ち */
+/* 着順確定・払戻待ち */
 if(state==="result"){
 return`
 <div class="card">
@@ -922,7 +1288,7 @@ return`
 </div>
 <div class="result-box result-confirmed">
 <div class="small">
-3連単着順確定
+着順確定
 </div>
 <div class="result-ticket">
 ${escapeHtml(finish)}
@@ -937,36 +1303,26 @@ payout.available
 <div class="settlement-grid">
 <div class="stat">
 <div class="stat-label">AI買い目</div>
-<div class="stat-value">
-${bets.length}点
-</div>
+<div class="stat-value">${bets.length}点</div>
 </div>
 <div class="stat">
 <div class="stat-label">的中</div>
-<div class="stat-value">
-${hit?"🎯":"－"}
+<div class="stat-value">${hit?"🎯":"－"}</div>
 </div>
+<div class="stat">
+<div class="stat-label">投資</div>
+<div class="stat-value">未確定</div>
 </div>
 <div class="stat">
 <div class="stat-label">収支</div>
-<div class="stat-value">
-集計待ち
-</div>
-</div>
-<div class="stat">
-<div class="stat-label">状態</div>
-<div class="stat-value">
-${payout.available
-?"払戻取得"
-:"払戻待ち"}
-</div>
+<div class="stat-value">未確定</div>
 </div>
 </div>
 </div>
 </div>
 `;
 }
-/* settlement確定 */
+/* 確定 */
 return`
 <div class="card">
 <div class="card-title">
@@ -974,52 +1330,34 @@ return`
 </div>
 <div class="result-box result-settled">
 <div class="small">
-3連単・収支確定
+結果・払戻・収支確定
 </div>
 <div class="result-ticket">
 ${escapeHtml(
-finish ||
-payout.ticket ||
-settlement.hit_ticket ||
+finish||
+settlement.hit_ticket||
+payout.ticket||
 "－"
 )}
 </div>
 <div class="payout">
-払戻 ${yen(
-num(settlement.payout)
-)}
+払戻 ${yen(settlement.payout)}
 </div>
 <div class="settlement-grid">
 <div class="stat">
-<div class="stat-label">
-AI買い目
-</div>
-<div class="stat-value">
-${bets.length}点
-</div>
+<div class="stat-label">AI買い目</div>
+<div class="stat-value">${bets.length}点</div>
 </div>
 <div class="stat">
-<div class="stat-label">
-的中
-</div>
-<div class="stat-value">
-${settlement.hit?"🎯":"－"}
-</div>
+<div class="stat-label">的中</div>
+<div class="stat-value">${settlement.hit?"🎯":"－"}</div>
 </div>
 <div class="stat">
-<div class="stat-label">
-投資
-</div>
-<div class="stat-value">
-${yen(
-num(settlement.investment)
-)}
-</div>
+<div class="stat-label">投資</div>
+<div class="stat-value">${yen(settlement.investment)}</div>
 </div>
 <div class="stat">
-<div class="stat-label">
-収支
-</div>
+<div class="stat-label">収支</div>
 <div class="stat-value ${
 num(settlement.profit)>=0
 ?"profit-plus"
@@ -1029,8 +1367,7 @@ ${
 num(settlement.profit)>=0
 ?"+"
 :""
-}
-${yen(settlement.profit)}
+}${yen(settlement.profit)}
 </div>
 </div>
 </div>
@@ -1038,16 +1375,10 @@ ${
 settlement.hit_ticket
 ?`
 <div
-style="
-margin-top:8px;
-color:#047857;
-font-weight:1000
-"
+style="margin-top:8px;font-weight:1000;color:#047857"
 >
 🎯 的中買い目：
-${escapeHtml(
-settlement.hit_ticket
-)}
+${escapeHtml(settlement.hit_ticket)}
 </div>
 `
 :""
@@ -1056,12 +1387,12 @@ settlement.hit_ticket
 </div>
 `;
 }
-/* =========================
+/* =================================
    展開
-========================= */
+================================= */
 function renderDevelopment(race){
 if(!race.development)
-return "";
+return"";
 return`
 <div class="card">
 <div class="card-title">
@@ -1073,17 +1404,15 @@ ${escapeHtml(race.development)}
 </div>
 `;
 }
-/* =========================
+/* =================================
    ライン
-========================= */
+================================= */
 function renderLine(race){
-const groups=
-race.line_groups;
-const line=
-race.line;
+const groups=race.line_groups;
+const line=race.line;
 if(
 !(
-(Array.isArray(groups)&&groups.length) ||
+(Array.isArray(groups)&&groups.length)||
 (Array.isArray(line)&&line.length)
 )
 ){
@@ -1106,52 +1435,43 @@ return`
 <div class="line-box">
 ${
 Array.isArray(groups)&&groups.length
-?
-groups.map(
-group=>
-`<div class="line-group">
-${escapeHtml(
-JSON.stringify(group)
-)}
-</div>`
+?groups.map(
+g=>`
+<div class="line-group">
+${escapeHtml(JSON.stringify(g))}
+</div>
+`
 ).join("")
-:
-escapeHtml(
-JSON.stringify(line)
-)
+:escapeHtml(JSON.stringify(line))
 }
 </div>
 </div>
 `;
 }
-/* =========================
-   AIランキング
-========================= */
+/* =================================
+   ランキング
+================================= */
 function renderRanking(race){
-const ranking=
-getRanking(race);
+const ranking=getRanking(race);
 if(!ranking.length)
-return "";
+return"";
 return`
 <div class="card">
 <div class="card-title">
 📊 AIランキング
 </div>
 <div class="rider-list">
-${ranking.map(
-(item,index)=>`
+${ranking.map((item,index)=>`
 <div class="rider">
 <div class="car car-${item.car_no}">
 ${item.car_no}
 </div>
 <div>
 <div class="rider-name">
-${escapeHtml(
-item.name||""
-)}
+${escapeHtml(item.name||"")}
 </div>
 <div class="rider-info">
-AI順位 ${index+1}位
+AI ${index+1}位
 </div>
 </div>
 <div class="rider-score">
@@ -1159,28 +1479,25 @@ AI順位 ${index+1}位
 ${num(item.score).toFixed(1)}
 </div>
 <div class="rider-finish">
-${escapeHtml(
-item.mark||""
-)}
+${escapeHtml(item.mark||"")}
 </div>
 </div>
 </div>
-`
-).join("")}
+`).join("")}
 </div>
 </div>
 `;
 }
-/* =========================
+/* =================================
    選手
-========================= */
+================================= */
 function renderRiders(race){
 const riders=
 Array.isArray(race.riders)
 ?race.riders
 :[];
 if(!riders.length)
-return "";
+return"";
 const rankingMap=
 new Map(
 getRanking(race).map(
@@ -1211,35 +1528,14 @@ ${item.car_no}
 </div>
 <div>
 <div class="rider-name">
-${escapeHtml(
-item.name||""
-)}
-${
-item.prediction_mark
-?`<span>
-${escapeHtml(
-item.prediction_mark
-)}
-</span>`
-:""
-}
+${escapeHtml(item.name||"")}
 </div>
 <div class="rider-info">
-${escapeHtml(
-item.style||""
-)}
-${
-item.period
-?`　${item.period}期`
-:""
-}
-${
-item.prefecture
-?`　${escapeHtml(
-item.prefecture
-)}`
-:""
-}
+${escapeHtml(item.style||"")}
+${item.period?`　${item.period}期`:""}
+${item.prefecture
+?`　${escapeHtml(item.prefecture)}`
+:""}
 </div>
 <div class="rider-info">
 直近：
@@ -1261,9 +1557,7 @@ AI ${ai.rank}位
 </div>
 `
 :`
-<div class="ai-score">
-－
-</div>
+<div class="ai-score">－</div>
 `
 }
 </div>
@@ -1274,23 +1568,14 @@ AI ${ai.rank}位
 </div>
 `;
 }
-/* =========================
-   収支
-========================= */
-function getSummary(){
-return DATA?.summary||{};
-}
-function getSummaryGrades(){
-return getSummary().by_rank||{};
-}
-function getSummaryVenues(){
-return getSummary().by_venue||{};
-}
+/* =================================
+   収支ページ
+================================= */
 function renderProfitPage(){
 if(!DATA)
 return;
 const summary=
-getSummary();
+DATA.summary||{};
 const settled=
 num(summary.settled_races);
 const pending=
@@ -1313,18 +1598,15 @@ const payoutCount=
 num(DATA.payout_count);
 document.getElementById(
 "profitContent"
-).innerHTML=`
+).innerHTML=
+`
 <div class="profit-hero">
 <div class="profit-title">
-💰 AI買い目を各100円購入した場合
-（v6.11確定集計）
+💰 本日のAI買い目収支
 </div>
 <div class="profit-main">
-<div class="profit-number ${
-profit>=0?"plus":"minus"
-}">
-${profit>=0?"+":""}
-${yen(profit)}
+<div class="profit-number ${profit>=0?"plus":"minus"}">
+${profit>=0?"+":""}${yen(profit)}
 </div>
 <div class="profit-sub">
 確定 ${settled}R
@@ -1339,36 +1621,20 @@ ROI ${roi.toFixed(1)}%
 </div>
 <div class="summary-grid">
 <div class="summary-stat">
-<div class="summary-label">
-投資
-</div>
-<div class="summary-value">
-${yen(investment)}
-</div>
+<div class="summary-label">投資</div>
+<div class="summary-value">${yen(investment)}</div>
 </div>
 <div class="summary-stat">
-<div class="summary-label">
-払戻
-</div>
-<div class="summary-value">
-${yen(payout)}
-</div>
+<div class="summary-label">払戻</div>
+<div class="summary-value">${yen(payout)}</div>
 </div>
 <div class="summary-stat">
-<div class="summary-label">
-的中
-</div>
-<div class="summary-value">
-${hits}R
-</div>
+<div class="summary-label">的中</div>
+<div class="summary-value">${hits}R</div>
 </div>
 <div class="summary-stat">
-<div class="summary-label">
-的中率
-</div>
-<div class="summary-value">
-${hitRate.toFixed(1)}%
-</div>
+<div class="summary-label">的中率</div>
+<div class="summary-value">${hitRate.toFixed(1)}%</div>
 </div>
 </div>
 <div
@@ -1377,15 +1643,13 @@ style="margin-top:9px"
 >
 収支は
 <b>settlement.status = settled</b>
-の確定レースだけ。
-発走前・結果確認中・払戻待ちは
-一切含めません。
+のレースだけを集計。
 <br>
-現在：
-確定${settled}R /
-結果取得${resultCount}R /
-払戻取得${payoutCount}R /
-未確定${pending}R
+現在の状態：
+確定 ${settled}R /
+結果取得 ${resultCount}R /
+払戻取得 ${payoutCount}R /
+未確定 ${pending}R
 </div>
 </div>
 ${renderGradeProfit()}
@@ -1395,16 +1659,16 @@ ${renderStrategies()}
 ${renderRecommendations()}
 `;
 }
-/* =========================
+/* =================================
    S/A/B/C
-========================= */
+================================= */
 function renderGradeProfit(){
 const grades=
-getSummaryGrades();
+DATA?.summary?.by_rank||{};
 return`
 <div class="card">
 <div class="card-title">
-🏆 S / A / B / C別
+🏆 S / A / B / C別収支
 </div>
 <div class="table-wrap">
 <table class="data-table">
@@ -1421,24 +1685,14 @@ return`
 </thead>
 <tbody>
 ${
-["S","A","B","C"]
-.map(grade=>{
-const x=
-grades[grade]||{};
+["S","A","B","C"].map(grade=>{
+const x=grades[grade]||{};
 return`
 <tr>
-<td>
-<b>${grade}</b>
-</td>
-<td>
-${num(x.races)}
-</td>
-<td>
-${yen(x.investment)}
-</td>
-<td>
-${yen(x.payout)}
-</td>
+<td><b>${grade}</b></td>
+<td>${num(x.races)}</td>
+<td>${yen(x.investment)}</td>
+<td>${yen(x.payout)}</td>
 <td
 class="${
 num(x.profit)>=0
@@ -1446,23 +1700,13 @@ num(x.profit)>=0
 :"profit-minus"
 }"
 >
-${
-num(x.profit)>=0
-?"+"
-:""
-}
-${yen(x.profit)}
+${num(x.profit)>=0?"+":""}${yen(x.profit)}
 </td>
-<td>
-${num(x.hit_rate).toFixed(1)}%
-</td>
-<td>
-${num(x.roi).toFixed(1)}%
-</td>
+<td>${num(x.hit_rate).toFixed(1)}%</td>
+<td>${num(x.roi).toFixed(1)}%</td>
 </tr>
 `;
-})
-.join("")
+}).join("")
 }
 </tbody>
 </table>
@@ -1470,16 +1714,16 @@ ${num(x.roi).toFixed(1)}%
 </div>
 `;
 }
-/* =========================
+/* =================================
    会場別
-========================= */
+================================= */
 function renderVenueProfit(){
 const venues=
-getSummaryVenues();
+DATA?.summary?.by_venue||{};
 const entries=
 Object.entries(venues);
 if(!entries.length)
-return "";
+return"";
 return`
 <div class="card">
 <div class="card-title">
@@ -1499,24 +1743,14 @@ return`
 </tr>
 </thead>
 <tbody>
-${
-entries.map(
-([name,x])=>`
+${entries.map(([name,x])=>`
 <tr>
 <td>
-<b>
-${escapeHtml(name)}
-</b>
+<b>${escapeHtml(name)}</b>
 </td>
-<td>
-${num(x.races)}
-</td>
-<td>
-${yen(x.investment)}
-</td>
-<td>
-${yen(x.payout)}
-</td>
+<td>${num(x.races)}</td>
+<td>${yen(x.investment)}</td>
+<td>${yen(x.payout)}</td>
 <td
 class="${
 num(x.profit)>=0
@@ -1524,32 +1758,21 @@ num(x.profit)>=0
 :"profit-minus"
 }"
 >
-${
-num(x.profit)>=0
-?"+"
-:""
-}
-${yen(x.profit)}
+${num(x.profit)>=0?"+":""}${yen(x.profit)}
 </td>
-<td>
-${num(x.hits)}R
-</td>
-<td>
-${num(x.roi).toFixed(1)}%
-</td>
+<td>${num(x.hits)}R</td>
+<td>${num(x.roi).toFixed(1)}%</td>
 </tr>
-`
-).join("")
-}
+`).join("")}
 </tbody>
 </table>
 </div>
 </div>
 `;
 }
-/* =========================
+/* =================================
    レース別
-========================= */
+================================= */
 function renderRaceProfit(){
 const races=
 getRaces()
@@ -1557,36 +1780,21 @@ getRaces()
 race=>isSettled(race)
 )
 .sort(
-(a,b)=>{
-const venueA=
-String(a.venue_name);
-const venueB=
-String(b.venue_name);
-return venueA.localeCompare(
-venueB,
+(a,b)=>
+String(a.venue_name).localeCompare(
+String(b.venue_name),
 "ja"
-) ||
-Number(a.race_no)-
-Number(b.race_no);
-}
+)||
+Number(a.race_no)-Number(b.race_no)
 );
-if(!races.length){
 return`
 <div class="card">
 <div class="card-title">
-📋 レース別収支
+📋 確定レース別収支
 </div>
-<div class="notice">
-まだ確定したレースがありません。
-</div>
-</div>
-`;
-}
-return`
-<div class="card">
-<div class="card-title">
-📋 レース別収支
-</div>
+${
+races.length
+?`
 <div class="table-wrap">
 <table class="data-table">
 <thead>
@@ -1601,105 +1809,72 @@ return`
 </tr>
 </thead>
 <tbody>
-${
-races
-.slice()
-.reverse()
-.map(race=>{
-const settlement=
-race.settlement||{};
+${races.slice().reverse().map(race=>{
+const s=race.settlement||{};
 const ticket=
-getFinishTicket(race) ||
-settlement.hit_ticket ||
-getPayoutInfo(race).ticket;
+getFinishTicket(race)||
+s.hit_ticket||
+getPayoutInfo(race).ticket||
+"－";
 return`
 <tr>
-<td>
-${escapeHtml(
-race.venue_name||""
-)}
-</td>
-<td>
-${race.race_no}R
-</td>
-<td>
-${escapeHtml(
-getGrade(race)||"－"
-)}
-</td>
+<td>${escapeHtml(race.venue_name||"")}</td>
+<td>${race.race_no}R</td>
+<td>${escapeHtml(getGrade(race)||"－")}</td>
 <td>
 ${
-settlement.hit
+s.hit
 ?`
 <span class="profit-plus">
-🎯
-${escapeHtml(
-settlement.hit_ticket||
-ticket
-)}
+🎯 ${escapeHtml(s.hit_ticket||ticket)}
 </span>
 `
-:escapeHtml(
-ticket||"－"
-)
+:escapeHtml(ticket)
 }
 </td>
-<td>
-${yen(settlement.investment)}
-</td>
-<td>
-${yen(settlement.payout)}
-</td>
+<td>${yen(s.investment)}</td>
+<td>${yen(s.payout)}</td>
 <td
 class="${
-num(settlement.profit)>=0
+num(s.profit)>=0
 ?"profit-plus"
 :"profit-minus"
 }"
 >
-${
-num(settlement.profit)>=0
-?"+"
-:""
-}
-${yen(settlement.profit)}
+${num(s.profit)>=0?"+":""}${yen(s.profit)}
 </td>
 </tr>
 `;
-})
-.join("")
-}
+}).join("")}
 </tbody>
 </table>
 </div>
+`
+:`
+<div class="notice">
+まだ収支確定したレースはありません。
+</div>
+`
+}
 </div>
 `;
 }
-/* =========================
-   v6.11バックテスト
-========================= */
+/* =================================
+   バックテスト
+================================= */
 function renderStrategies(){
 const data=
 DATA?.backtests||{};
 const entries=
 Object.entries(data);
 if(!entries.length)
-return "";
+return"";
 return`
 <div class="card">
 <div class="card-title">
 📈 AI買い目バックテスト
 </div>
-<div class="small"
-style="margin-bottom:8px">
-v6.11に保存されている
-確定レース実績
-</div>
-${
-entries
-.slice(0,20)
-.map(
-([name,x])=>`
+${entries.slice(0,20).map(([name,x])=>`
 <div class="strategy">
 <div class="strategy-head">
 <span>
@@ -1712,115 +1887,81 @@ num(x.profit)>=0
 :"profit-minus"
 }"
 >
-${
-num(x.profit)>=0
-?"+"
-:""
-}
-${yen(x.profit)}
+${num(x.profit)>=0?"+":""}${yen(x.profit)}
 </span>
 </div>
 <div class="strategy-stats">
 <div class="strategy-stat">
 確定R
-<b>
-${num(
-x.settled_races ??
-x.races
-)}
-</b>
+<b>${num(x.settled_races??x.races)}</b>
 </div>
 <div class="strategy-stat">
 的中
-<b>
-${num(x.hits)}
-</b>
+<b>${num(x.hits)}</b>
 </div>
 <div class="strategy-stat">
 的中率
-<b>
-${num(x.hit_rate).toFixed(1)}%
-</b>
+<b>${num(x.hit_rate).toFixed(1)}%</b>
 </div>
 <div class="strategy-stat">
 ROI
-<b>
-${num(x.roi).toFixed(1)}%
-</b>
+<b>${num(x.roi).toFixed(1)}%</b>
 </div>
 </div>
 </div>
-`
-)
-.join("")
-}
+`).join("")}
 </div>
 `;
 }
-/* =========================
+/* =================================
    本日のおすすめ
-========================= */
+================================= */
 function renderRecommendations(){
-const recommendations=
+const rec=
 DATA?.today_recommendations;
-if(!recommendations)
-return "";
+if(!rec)
+return"";
 const entries=
-Array.isArray(recommendations)
-?recommendations
-:Object.entries(
-recommendations
-).map(
+Array.isArray(rec)
+?rec
+:Object.entries(rec).map(
 ([name,value])=>({
 name,
 ...value
 })
 );
 if(!entries.length)
-return "";
+return"";
 return`
 <div class="card">
 <div class="card-title">
 ⭐ 本日のAIおすすめ
 </div>
-${
-entries
-.slice(0,20)
-.map(item=>`
+${entries.slice(0,20).map(item=>`
 <div class="strategy">
 <div class="strategy-head">
 <span>
 ${escapeHtml(
-item.venue_name ||
-item.name ||
-item.title ||
+item.venue_name||
+item.name||
+item.title||
 ""
 )}
-${
-item.race_no
-?`${item.race_no}R`
-:""
-}
+${item.race_no?` ${item.race_no}R`:""}
 </span>
 <span>
-${
-item.rank
+${item.rank
 ?`${escapeHtml(item.rank)}ランク`
-:""
-}
+:""}
 </span>
 </div>
 ${
 item.ticket
 ?`
 <div
-style="
-margin-top:5px;
-font-weight:1000
-"
+style="margin-top:5px;font-weight:1000"
 >
-🎯
-${escapeHtml(item.ticket)}
+🎯 ${escapeHtml(item.ticket)}
 </div>
 `
 :""
@@ -1828,26 +1969,22 @@ ${escapeHtml(item.ticket)}
 ${
 item.reason
 ?`
-<div
-class="small"
-style="margin-top:4px"
->
+<div class="small" style="margin-top:4px">
 ${escapeHtml(item.reason)}
 </div>
 `
 :""
 }
 </div>
-`)
-.join("")
-}
+`).join("")}
 </div>
 `;
 }
-/* =========================
-   自動更新
-========================= */
+/* =================================
+   起動
+================================= */
 loadData();
+/* 5分ごと自動更新 */
 setInterval(
 loadData,
 5*60*1000
