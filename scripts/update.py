@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.3'
+VERSION='6.4'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 TODAY=datetime.now().strftime('%Y%m%d'); TODAY_DISPLAY=datetime.now().strftime('%Y-%m-%d')
 TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
@@ -187,27 +187,79 @@ def parse_result_page(html):
     empty={'finished':False,'result_finished':False,'finish':[],'payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':''}
     sp=soup(html)
     if not sp:return empty
-    text=clean(sp.get_text(' ',strip=True)); pairs=[]
-    for tr in sp.find_all('tr'):
-        cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]; nums=[int(x) for x in cells if re.fullmatch(r'[1-7]',x)]
-        if len(nums)>=2:pairs.append((nums[0],nums[1]))
-    fm={}; [fm.setdefault(p,c) for p,c in pairs]
-    finish=[fm[p] for p in sorted(fm) if 1<=p<=7]
+
+    # オッズパークの結果表は「着順・枠番・車番」の順なので、
+    # これまでの「最初の2つの数字」を取る方式だと枠番を車番として誤認します。
+    # 結果表そのものを特定して、着順 -> 車番を正確に取得します。
+    finish_map={}
+    for table in sp.find_all('table'):
+        table_text=clean(table.get_text(' ',strip=True))
+        if '着順' not in table_text or '車番' not in table_text:
+            continue
+        for tr in table.find_all('tr'):
+            cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
+            if not cells:
+                continue
+            pos=None
+            for i,v in enumerate(cells[:4]):
+                if re.fullmatch(r'[1-7]',v):
+                    pos=int(v)
+                    # 最初の数字は通常「着順」
+                    if i==0: break
+                    pos=None
+            if pos is None:
+                continue
+            numeric=[]
+            for v in cells[:6]:
+                if re.fullmatch(r'[1-7]',v):
+                    numeric.append(int(v))
+            # 着順・枠番・車番の3列を想定。車番は3番目の数字。
+            if len(numeric)>=3:
+                car=numeric[2]
+                if 1<=car<=7:
+                    finish_map[pos]=car
+
+    finish=[finish_map[p] for p in sorted(finish_map) if 1<=p<=7]
+
+    # HTMLの構造が変わった場合の予備解析。
     if len(finish)<3:
-        for pat in (r'1\s*着.*?([1-7]).*?2\s*着.*?([1-7]).*?3\s*着.*?([1-7])',r'1着.*?([1-7])\D+2着.*?([1-7])\D+3着.*?([1-7])'):
+        text=clean(sp.get_text(' ',strip=True))
+        patterns=[
+            r'1\s*[着位]?\s*(?:\d+\s*)?([1-7])\s+.*?2\s*[着位]?\s*(?:\d+\s*)?([1-7])\s+.*?3\s*[着位]?\s*(?:\d+\s*)?([1-7])',
+            r'1着.*?車番.*?([1-7]).*?2着.*?([1-7]).*?3着.*?([1-7])'
+        ]
+        for pat in patterns:
             m=re.search(pat,text)
-            if m:finish=[int(x) for x in m.groups()];break
+            if m:
+                finish=[int(x) for x in m.groups()]
+                break
+
+    text=clean(sp.get_text(' ',strip=True))
     tk,y,src=payout_scan(sp,text)
-    if not tk and y and len(finish)>=3:tk='-'.join(map(str,finish[:3]))
-    rf=len(finish)>=3; pa=bool(tk and y>0)
+    if not tk and y and len(finish)>=3:
+        tk='-'.join(map(str,finish[:3]))
+    rf=len(finish)>=3
+    pa=bool(tk and y>0)
     return {'finished':rf and pa,'result_finished':rf,'finish':finish,'payout_available':pa,'payout_3tan':tk,'payout_3tan_yen':y,'payout_source':src}
+
 def fetch_result(race):
-    urls=[race.get('result_url',''),result_url(race['venue_code'],race['race_no'])]; seen=set(); best=None
+    # SP版を第一候補。環境によってSP版が取得できない場合はPC版も試す。
+    urls=[
+        race.get('result_url',''),
+        result_url(race['venue_code'],race['race_no']),
+        f"{BASE}/keirin/RaceResultInfo.do?joCode={race['venue_code']}&kaisaiBi={TODAY}&raceNo={race['race_no']}",
+    ]
+    seen=set(); best=None
     for u in urls:
-        if not u or u in seen:continue
-        seen.add(u); res=parse_result_page(get_html(u)); res['url']=u
-        if best is None or (len(res.get('finish',[])),res.get('payout_3tan_yen',0))>(len(best.get('finish',[])),best.get('payout_3tan_yen',0)):best=res
-        if res.get('result_finished') and res.get('payout_available'):return res
+        if not u or u in seen:
+            continue
+        seen.add(u)
+        res=parse_result_page(get_html(u)); res['url']=u
+        score=(1 if res.get('result_finished') else 0, len(res.get('finish',[])), 1 if res.get('payout_available') else 0, int(res.get('payout_3tan_yen',0) or 0))
+        if best is None or score>(1 if best.get('result_finished') else 0, len(best.get('finish',[])), 1 if best.get('payout_available') else 0, int(best.get('payout_3tan_yen',0) or 0)):
+            best=res
+        if res.get('result_finished') and res.get('payout_available'):
+            return res
     return best or {'result_finished':False,'finished':False,'finish':[],'payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'','url':urls[0] if urls else ''}
 
 def parse_odds_page(html):
