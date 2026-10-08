@@ -1,9 +1,7 @@
 {
-  "version": "6.13",
-  "updated_at": "2026-10-08T16:52:47.865759",
+  "version": "6.14",
+  "updated_at": "2026-10-08T17:21:24.793707",
   "target_date": "2026-10-08",
-  "target_year": 2026,
-  "target_date_compact": "20261008",
   "data_complete": true,
   "result_complete": true,
   "payout_complete": true,
@@ -14,7 +12,7 @@
   "prediction_race_count": 46,
   "comment_count": 462,
   "line_race_count": 0,
-  "development_count": 72,
+  "development_count": 62,
   "ai_race_count": 72,
   "ai_rider_count": 498,
   "frozen_prediction_count": 72,
@@ -144,84 +142,84 @@
       "races": 72,
       "settled_races": 72,
       "investment": 21600,
-      "payout": 9770,
-      "profit": -11830,
-      "hits": 9,
-      "hit_rate": 12.5,
-      "roi": 45.2,
+      "payout": 8290,
+      "profit": -13310,
+      "hits": 7,
+      "hit_rate": 9.7,
+      "roi": 38.4,
       "skipped_no_odds": 0,
-      "positive_races": 3,
-      "negative_races": 69,
-      "max_losing_streak": 34,
-      "max_drawdown": 12100,
+      "positive_races": 1,
+      "negative_races": 71,
+      "max_losing_streak": 48,
+      "max_drawdown": 13770,
       "peak_profit": 0,
-      "positive_rate": 4.2
+      "positive_rate": 1.4
     },
     "AI5": {
       "races": 72,
       "settled_races": 72,
       "investment": 36000,
-      "payout": 10370,
-      "profit": -25630,
+      "payout": 9940,
+      "profit": -26060,
       "hits": 12,
       "hit_rate": 16.7,
-      "roi": 28.8,
+      "roi": 27.6,
       "skipped_no_odds": 0,
-      "positive_races": 3,
-      "negative_races": 69,
+      "positive_races": 2,
+      "negative_races": 70,
       "max_losing_streak": 34,
-      "max_drawdown": 25630,
+      "max_drawdown": 26060,
       "peak_profit": 0,
-      "positive_rate": 4.2
+      "positive_rate": 2.8
     },
     "AI7": {
       "races": 72,
       "settled_races": 72,
       "investment": 50400,
-      "payout": 10880,
-      "profit": -39520,
+      "payout": 10450,
+      "profit": -39950,
       "hits": 13,
       "hit_rate": 18.1,
-      "roi": 21.6,
+      "roi": 20.7,
       "skipped_no_odds": 0,
       "positive_races": 2,
       "negative_races": 70,
       "max_losing_streak": 34,
-      "max_drawdown": 39520,
+      "max_drawdown": 39950,
       "peak_profit": 0,
       "positive_rate": 2.8
     },
     "AI10": {
       "races": 72,
       "settled_races": 72,
-      "investment": 57700,
-      "payout": 10880,
-      "profit": -46820,
-      "hits": 13,
-      "hit_rate": 18.1,
-      "roi": 18.9,
+      "investment": 62300,
+      "payout": 10950,
+      "profit": -51350,
+      "hits": 15,
+      "hit_rate": 20.8,
+      "roi": 17.6,
       "skipped_no_odds": 0,
       "positive_races": 2,
       "negative_races": 70,
       "max_losing_streak": 34,
-      "max_drawdown": 46820,
+      "max_drawdown": 51350,
       "peak_profit": 0,
       "positive_rate": 2.8
     },
     "AI15": {
       "races": 72,
       "settled_races": 72,
-      "investment": 57700,
-      "payout": 10880,
-      "profit": -46820,
-      "hits": 13,
-      "hit_rate": 18.1,
-      "roi": 18.9,
+      "investment": 63800,
+      "payout": 10950,
+      "profit": -52850,
+      "hits": 15,
+      "hit_rate": 20.8,
+      "roi": 17.2,
       "skipped_no_odds": 0,
       "positive_races": 2,
       "negative_races": 70,
       "max_losing_streak": 34,
-      "max_drawdown": 46820,
+      "max_drawdown": 52850,
       "peak_profit": 0,
       "positive_rate": 2.8
     },
@@ -229,50 +227,50 @@
       "races": 68,
       "settled_races": 68,
       "investment": 34000,
-      "payout": 10370,
-      "profit": -23630,
-      "hits": 12,
-      "hit_rate": 17.6,
-      "roi": 30.5,
+      "payout": 9800,
+      "profit": -24200,
+      "hits": 11,
+      "hit_rate": 16.2,
+      "roi": 28.8,
       "skipped_no_odds": 1,
-      "positive_races": 3,
-      "negative_races": 65,
+      "positive_races": 2,
+      "negative_races": 66,
       "max_losing_streak": 32,
-      "max_drawdown": 23630,
+      "max_drawdown": 24200,
       "peak_profit": 0,
-      "positive_rate": 4.4
+      "positive_rate": 2.9
     },
     "人気10倍以上+AI5": {
       "races": 61,
       "settled_races": 61,
       "investment": 30500,
-      "payout": 9930,
-      "profit": -20570,
-      "hits": 8,
-      "hit_rate": 13.1,
-      "roi": 32.6,
+      "payout": 9210,
+      "profit": -21290,
+      "hits": 6,
+      "hit_rate": 9.8,
+      "roi": 30.2,
       "skipped_no_odds": 1,
-      "positive_races": 3,
-      "negative_races": 58,
+      "positive_races": 2,
+      "negative_races": 59,
       "max_losing_streak": 27,
-      "max_drawdown": 20570,
+      "max_drawdown": 21290,
       "peak_profit": 0,
-      "positive_rate": 4.9
+      "positive_rate": 3.3
     },
     "人気15倍以上+AI5": {
       "races": 48,
       "settled_races": 48,
       "investment": 24000,
-      "payout": 9370,
-      "profit": -14630,
-      "hits": 7,
-      "hit_rate": 14.6,
-      "roi": 39.0,
+      "payout": 8970,
+      "profit": -15030,
+      "hits": 5,
+      "hit_rate": 10.4,
+      "roi": 37.4,
       "skipped_no_odds": 1,
       "positive_races": 2,
       "negative_races": 46,
       "max_losing_streak": 21,
-      "max_drawdown": 14630,
+      "max_drawdown": 15030,
       "peak_profit": 0,
       "positive_rate": 4.2
     },
@@ -280,67 +278,67 @@
       "races": 40,
       "settled_races": 40,
       "investment": 20000,
-      "payout": 9220,
-      "profit": -10780,
-      "hits": 6,
-      "hit_rate": 15.0,
-      "roi": 46.1,
+      "payout": 8820,
+      "profit": -11180,
+      "hits": 4,
+      "hit_rate": 10.0,
+      "roi": 44.1,
       "skipped_no_odds": 1,
       "positive_races": 2,
       "negative_races": 38,
       "max_losing_streak": 18,
-      "max_drawdown": 11800,
+      "max_drawdown": 12200,
       "peak_profit": 0,
       "positive_rate": 5.0
     },
     "人気10倍以上+AI10": {
       "races": 61,
       "settled_races": 61,
-      "investment": 48900,
-      "payout": 10440,
-      "profit": -38460,
+      "investment": 52900,
+      "payout": 10220,
+      "profit": -42680,
       "hits": 9,
       "hit_rate": 14.8,
-      "roi": 21.3,
+      "roi": 19.3,
       "skipped_no_odds": 1,
       "positive_races": 2,
       "negative_races": 59,
       "max_losing_streak": 27,
-      "max_drawdown": 38460,
+      "max_drawdown": 42680,
       "peak_profit": 0,
       "positive_rate": 3.3
     },
     "人気15倍以上+AI10": {
       "races": 48,
       "settled_races": 48,
-      "investment": 38500,
-      "payout": 9880,
-      "profit": -28620,
-      "hits": 8,
-      "hit_rate": 16.7,
-      "roi": 25.7,
+      "investment": 41600,
+      "payout": 9850,
+      "profit": -31750,
+      "hits": 7,
+      "hit_rate": 14.6,
+      "roi": 23.7,
       "skipped_no_odds": 1,
       "positive_races": 2,
       "negative_races": 46,
       "max_losing_streak": 21,
-      "max_drawdown": 28620,
+      "max_drawdown": 31750,
       "peak_profit": 0,
       "positive_rate": 4.2
     },
     "人気20倍以上+AI10": {
       "races": 40,
       "settled_races": 40,
-      "investment": 32000,
-      "payout": 9730,
-      "profit": -22270,
-      "hits": 7,
-      "hit_rate": 17.5,
-      "roi": 30.4,
+      "investment": 34500,
+      "payout": 9700,
+      "profit": -24800,
+      "hits": 6,
+      "hit_rate": 15.0,
+      "roi": 28.1,
       "skipped_no_odds": 1,
       "positive_races": 2,
       "negative_races": 38,
       "max_losing_streak": 18,
-      "max_drawdown": 22270,
+      "max_drawdown": 24800,
       "peak_profit": 0,
       "positive_rate": 5.0
     },
@@ -348,16 +346,16 @@
       "races": 26,
       "settled_races": 26,
       "investment": 13000,
-      "payout": 1960,
-      "profit": -11040,
-      "hits": 5,
-      "hit_rate": 19.2,
-      "roi": 15.1,
+      "payout": 1680,
+      "profit": -11320,
+      "hits": 4,
+      "hit_rate": 15.4,
+      "roi": 12.9,
       "skipped_no_odds": 0,
       "positive_races": 1,
       "negative_races": 25,
       "max_losing_streak": 14,
-      "max_drawdown": 11040,
+      "max_drawdown": 11320,
       "peak_profit": 0,
       "positive_rate": 3.8
     },
@@ -365,67 +363,67 @@
       "races": 22,
       "settled_races": 22,
       "investment": 11000,
-      "payout": 7610,
-      "profit": -3390,
+      "payout": 7730,
+      "profit": -3270,
       "hits": 4,
       "hit_rate": 18.2,
-      "roi": 69.2,
+      "roi": 70.3,
       "skipped_no_odds": 0,
       "positive_races": 1,
       "negative_races": 21,
       "max_losing_streak": 13,
-      "max_drawdown": 6120,
-      "peak_profit": 610,
+      "max_drawdown": 6000,
+      "peak_profit": 730,
       "positive_rate": 4.5
     },
     "S+Aのみ+AI5": {
       "races": 48,
       "settled_races": 48,
       "investment": 24000,
-      "payout": 9570,
-      "profit": -14430,
-      "hits": 9,
-      "hit_rate": 18.8,
-      "roi": 39.9,
+      "payout": 9410,
+      "profit": -14590,
+      "hits": 8,
+      "hit_rate": 16.7,
+      "roi": 39.2,
       "skipped_no_odds": 0,
       "positive_races": 2,
       "negative_races": 46,
       "max_losing_streak": 20,
-      "max_drawdown": 14430,
+      "max_drawdown": 14590,
       "peak_profit": 0,
       "positive_rate": 4.2
     },
     "Aのみ+AI10": {
       "races": 22,
       "settled_races": 22,
-      "investment": 17600,
-      "payout": 7610,
-      "profit": -9990,
-      "hits": 4,
-      "hit_rate": 18.2,
-      "roi": 43.2,
+      "investment": 19800,
+      "payout": 8230,
+      "profit": -11570,
+      "hits": 6,
+      "hit_rate": 27.3,
+      "roi": 41.6,
       "skipped_no_odds": 0,
       "positive_races": 1,
       "negative_races": 21,
       "max_losing_streak": 13,
-      "max_drawdown": 10020,
+      "max_drawdown": 11570,
       "peak_profit": 0,
       "positive_rate": 4.5
     },
     "S+Aのみ+AI10": {
       "races": 48,
       "settled_races": 48,
-      "investment": 38400,
-      "payout": 10080,
-      "profit": -28320,
-      "hits": 10,
-      "hit_rate": 20.8,
-      "roi": 26.2,
+      "investment": 41700,
+      "payout": 10420,
+      "profit": -31280,
+      "hits": 11,
+      "hit_rate": 22.9,
+      "roi": 25.0,
       "skipped_no_odds": 0,
       "positive_races": 2,
       "negative_races": 46,
       "max_losing_streak": 20,
-      "max_drawdown": 28320,
+      "max_drawdown": 31280,
       "peak_profit": 0,
       "positive_rate": 4.2
     },
@@ -433,865 +431,1977 @@
       "races": 20,
       "settled_races": 20,
       "investment": 10000,
-      "payout": 7510,
-      "profit": -2490,
+      "payout": 7630,
+      "profit": -2370,
       "hits": 3,
       "hit_rate": 15.0,
-      "roi": 75.1,
+      "roi": 76.3,
       "skipped_no_odds": 0,
       "positive_races": 1,
       "negative_races": 19,
       "max_losing_streak": 12,
-      "max_drawdown": 5720,
-      "peak_profit": 1010,
+      "max_drawdown": 5600,
+      "peak_profit": 1130,
       "positive_rate": 5.0
     },
     "人気10倍以上+S+A+AI5": {
       "races": 43,
       "settled_races": 43,
       "investment": 21500,
-      "payout": 9370,
-      "profit": -12130,
-      "hits": 7,
-      "hit_rate": 16.3,
-      "roi": 43.6,
+      "payout": 9210,
+      "profit": -12290,
+      "hits": 6,
+      "hit_rate": 14.0,
+      "roi": 42.8,
       "skipped_no_odds": 1,
       "positive_races": 2,
       "negative_races": 41,
       "max_losing_streak": 18,
-      "max_drawdown": 12130,
+      "max_drawdown": 12290,
       "peak_profit": 0,
       "positive_rate": 4.7
-    }
-  },
-  "daily_cap_backtests": {
-    "A上位1R+AI5": {
-      "races": 1,
-      "investment": 500,
-      "payout": 0,
-      "profit": -500,
-      "hits": 0,
-      "hit_rate": 0.0,
-      "roi": 0.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "人気10倍以上+A上位1R+AI5": {
-      "races": 1,
-      "investment": 500,
-      "payout": 0,
-      "profit": -500,
-      "hits": 0,
-      "hit_rate": 0.0,
-      "roi": 0.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "A上位2R+AI5": {
-      "races": 2,
-      "investment": 1000,
-      "payout": 0,
-      "profit": -1000,
-      "hits": 0,
-      "hit_rate": 0.0,
-      "roi": 0.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "人気10倍以上+A上位2R+AI5": {
-      "races": 2,
-      "investment": 1000,
-      "payout": 0,
-      "profit": -1000,
-      "hits": 0,
-      "hit_rate": 0.0,
-      "roi": 0.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "A上位3R+AI5": {
-      "races": 3,
-      "investment": 1500,
-      "payout": 0,
-      "profit": -1500,
-      "hits": 0,
-      "hit_rate": 0.0,
-      "roi": 0.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 11,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "人気10倍以上+A上位3R+AI5": {
-      "races": 3,
-      "investment": 1500,
-      "payout": 0,
-      "profit": -1500,
-      "hits": 0,
-      "hit_rate": 0.0,
-      "roi": 0.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "A上位4R+AI5": {
-      "races": 4,
-      "investment": 2000,
-      "payout": 0,
-      "profit": -2000,
-      "hits": 0,
-      "hit_rate": 0.0,
-      "roi": 0.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 11,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "人気10倍以上+A上位4R+AI5": {
-      "races": 4,
-      "investment": 2000,
-      "payout": 7230,
-      "profit": 5230,
-      "hits": 1,
-      "hit_rate": 25.0,
-      "roi": 361.5,
-      "positive_races": 1,
-      "positive_rate": 25.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "高知",
-          "race_no": 7,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": 6730,
-          "hit": true,
-          "ticket": "3-5-2"
-        }
-      ]
-    },
-    "A上位5R+AI5": {
-      "races": 5,
-      "investment": 2500,
-      "payout": 7230,
-      "profit": 4730,
-      "hits": 1,
-      "hit_rate": 20.0,
-      "roi": 289.2,
-      "positive_races": 1,
-      "positive_rate": 20.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 11,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "高知",
-          "race_no": 7,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": 6730,
-          "hit": true,
-          "ticket": "3-5-2"
-        }
-      ]
-    },
-    "人気10倍以上+A上位5R+AI5": {
-      "races": 5,
-      "investment": 2500,
-      "payout": 7230,
-      "profit": 4730,
-      "hits": 1,
-      "hit_rate": 20.0,
-      "roi": 289.2,
-      "positive_races": 1,
-      "positive_rate": 20.0,
-      "selected_races": [
-        {
-          "venue_name": "大宮",
-          "race_no": 12,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 80.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 9,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "高知",
-          "race_no": 7,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": 6730,
-          "hit": true,
-          "ticket": "3-5-2"
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 6,
-          "rank": "A",
-          "verdict_score": 79.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "S+A上位1R+AI5": {
-      "races": 1,
-      "investment": 500,
-      "payout": 0,
-      "profit": -500,
-      "hits": 0,
-      "hit_rate": 0.0,
-      "roi": 0.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "平塚",
-          "race_no": 12,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "S+A上位2R+AI5": {
-      "races": 2,
-      "investment": 1000,
-      "payout": 150,
-      "profit": -850,
-      "hits": 1,
-      "hit_rate": 50.0,
-      "roi": 15.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "平塚",
-          "race_no": 12,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 11,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -350,
-          "hit": true,
-          "ticket": "1-4-5"
-        }
-      ]
-    },
-    "S+A上位3R+AI5": {
-      "races": 3,
-      "investment": 1500,
-      "payout": 150,
-      "profit": -1350,
-      "hits": 1,
-      "hit_rate": 33.3,
-      "roi": 10.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "平塚",
-          "race_no": 12,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 11,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -350,
-          "hit": true,
-          "ticket": "1-4-5"
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 10,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
-    },
-    "S+A上位4R+AI5": {
-      "races": 4,
-      "investment": 2000,
-      "payout": 250,
-      "profit": -1750,
-      "hits": 2,
-      "hit_rate": 50.0,
-      "roi": 12.5,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "平塚",
-          "race_no": 12,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 11,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -350,
-          "hit": true,
-          "ticket": "1-4-5"
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 10,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "平塚",
-          "race_no": 10,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -400,
-          "hit": true,
-          "ticket": "1-2-5"
-        }
-      ]
-    },
-    "S+A上位5R+AI5": {
-      "races": 5,
-      "investment": 2500,
-      "payout": 250,
-      "profit": -2250,
-      "hits": 2,
-      "hit_rate": 40.0,
-      "roi": 10.0,
-      "positive_races": 0,
-      "positive_rate": 0.0,
-      "selected_races": [
-        {
-          "venue_name": "平塚",
-          "race_no": 12,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 11,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -350,
-          "hit": true,
-          "ticket": "1-4-5"
-        },
-        {
-          "venue_name": "大宮",
-          "race_no": 10,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        },
-        {
-          "venue_name": "平塚",
-          "race_no": 10,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -400,
-          "hit": true,
-          "ticket": "1-2-5"
-        },
-        {
-          "venue_name": "静岡",
-          "race_no": 10,
-          "rank": "S",
-          "verdict_score": 87.0,
-          "bet_count": 5,
-          "profit": -500,
-          "hit": false,
-          "ticket": ""
-        }
-      ]
     }
   },
   "backtest_recommendation": {
     "status": "provisional",
     "strategy": "人気10倍以上+Aのみ+AI5",
-    "profit": -2490,
-    "roi": 75.1,
+    "profit": -2370,
+    "roi": 76.3,
     "hit_rate": 15.0,
     "races": 20,
     "note": "確定レースが少ないため暫定。実際の凍結買い目は変更しません。"
   },
-  "today_recommendations": {
-    "status": "ready",
-    "strategy": "Aランク上位3R・AI5",
-    "max_races": 3,
-    "bet_limit": 5,
-    "budget_yen": 1500,
-    "selected_count": 3,
-    "races": [
-      {
-        "venue_code": "38",
-        "venue_name": "静岡",
-        "race_no": 9,
-        "rank": "A",
-        "verdict_score": 80.0,
-        "main": 3,
-        "opponent": 5,
-        "dark_horse": 2,
+  "daily_strategy": {
+    "tests": {
+      "Aのみ・上位1R・AI5": {
+        "strategy": "Aのみ・上位1R・AI5",
+        "max_races": 1,
         "bet_count": 5,
-        "budget_yen": 500,
-        "bets": [
+        "candidate_count": 22,
+        "selected_count": 1,
+        "settled_count": 1,
+        "hits": 0,
+        "hit_rate": 0.0,
+        "investment": 500,
+        "payout": 0,
+        "profit": -500,
+        "roi": 0.0,
+        "positive_days": 0,
+        "negative_days": 1,
+        "zero_days": 0,
+        "selected": [
           {
-            "ticket": "3-5-2",
-            "score": 106,
-            "type": "🔥 AI本線",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
-          },
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
           {
-            "ticket": "3-2-5",
-            "score": 103,
-            "type": "🔥 本線入替",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
-          },
-          {
-            "ticket": "5-3-2",
-            "score": 100,
-            "type": "⭐ 対抗頭",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
-          },
-          {
-            "ticket": "2-3-5",
-            "score": 88,
-            "type": "💥 逆転",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
-          },
-          {
-            "ticket": "5-2-3",
-            "score": 86,
-            "type": "💥 対抗展開",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
           }
         ]
       },
-      {
-        "venue_code": "25",
-        "venue_name": "大宮",
-        "race_no": 12,
-        "rank": "A",
-        "verdict_score": 80.0,
-        "main": 5,
-        "opponent": 7,
-        "dark_horse": 2,
+      "Aのみ・上位2R・AI5": {
+        "strategy": "Aのみ・上位2R・AI5",
+        "max_races": 2,
         "bet_count": 5,
-        "budget_yen": 500,
-        "bets": [
+        "candidate_count": 22,
+        "selected_count": 2,
+        "settled_count": 2,
+        "hits": 0,
+        "hit_rate": 0.0,
+        "investment": 1000,
+        "payout": 0,
+        "profit": -1000,
+        "roi": 0.0,
+        "positive_days": 0,
+        "negative_days": 1,
+        "zero_days": 0,
+        "selected": [
           {
-            "ticket": "5-7-2",
-            "score": 100,
-            "type": "🔥 AI本線",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
           },
           {
-            "ticket": "5-2-7",
-            "score": 97,
-            "type": "🔥 本線入替",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 30.309999999999995,
+            "selection_score": 820.31,
+            "favorite_odds": 382.8,
+            "bets": [
+              {
+                "ticket": "2-7-3",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-3",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-4-7",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
+          {
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
           },
           {
-            "ticket": "7-5-2",
-            "score": 94,
-            "type": "⭐ 対抗頭",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
-          },
-          {
-            "ticket": "2-5-7",
-            "score": 82,
-            "type": "💥 逆転",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
-          },
-          {
-            "ticket": "7-2-5",
-            "score": 80,
-            "type": "💥 対抗展開",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "selection_score": 820.31,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
           }
         ]
       },
-      {
-        "venue_code": "25",
-        "venue_name": "大宮",
-        "race_no": 1,
-        "rank": "A",
-        "verdict_score": 79.0,
-        "main": 1,
-        "opponent": 3,
-        "dark_horse": 4,
+      "Aのみ・上位3R・AI5": {
+        "strategy": "Aのみ・上位3R・AI5",
+        "max_races": 3,
         "bet_count": 5,
-        "budget_yen": 500,
-        "bets": [
+        "candidate_count": 22,
+        "selected_count": 3,
+        "settled_count": 3,
+        "hits": 1,
+        "hit_rate": 33.3,
+        "investment": 1500,
+        "payout": 7230,
+        "profit": 5730,
+        "roi": 482.0,
+        "positive_days": 1,
+        "negative_days": 0,
+        "zero_days": 0,
+        "selected": [
           {
-            "ticket": "1-3-4",
-            "score": 100,
-            "type": "🔥 AI本線",
-            "odds": 56.2,
-            "market_rank": 8,
-            "value_flag": "💎 穴・期待値候補"
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
           },
           {
-            "ticket": "1-4-3",
-            "score": 97,
-            "type": "🔥 本線入替",
-            "odds": 68.6,
-            "market_rank": 9,
-            "value_flag": "💎 穴・期待値候補"
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 30.309999999999995,
+            "selection_score": 820.31,
+            "favorite_odds": 382.8,
+            "bets": [
+              {
+                "ticket": "2-7-3",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-3",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-4-7",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
           },
           {
-            "ticket": "3-1-4",
-            "score": 94,
-            "type": "⭐ 対抗頭",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 24.380000000000003,
+            "selection_score": 814.38,
+            "favorite_odds": 299.0,
+            "bets": [
+              {
+                "ticket": "5-3-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-2-3",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-5-3",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-5",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
+          {
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
           },
           {
-            "ticket": "4-1-3",
-            "score": 82,
-            "type": "💥 逆転",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "selection_score": 820.31,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
           },
           {
-            "ticket": "3-4-1",
-            "score": 80,
-            "type": "💥 対抗展開",
-            "odds": null,
-            "market_rank": null,
-            "value_flag": "オッズ未取得"
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "selection_score": 814.38,
+            "investment": 500,
+            "payout": 7230,
+            "profit": 6730,
+            "hit": true
+          }
+        ]
+      },
+      "Aのみ・上位4R・AI5": {
+        "strategy": "Aのみ・上位4R・AI5",
+        "max_races": 4,
+        "bet_count": 5,
+        "candidate_count": 22,
+        "selected_count": 4,
+        "settled_count": 4,
+        "hits": 1,
+        "hit_rate": 25.0,
+        "investment": 2000,
+        "payout": 7230,
+        "profit": 5230,
+        "roi": 361.5,
+        "positive_days": 1,
+        "negative_days": 0,
+        "zero_days": 0,
+        "selected": [
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 30.309999999999995,
+            "selection_score": 820.31,
+            "favorite_odds": 382.8,
+            "bets": [
+              {
+                "ticket": "2-7-3",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-3",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-4-7",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 24.380000000000003,
+            "selection_score": 814.38,
+            "favorite_odds": 299.0,
+            "bets": [
+              {
+                "ticket": "5-3-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-2-3",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-5-3",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-5",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "25",
+            "venue_name": "大宮",
+            "race_no": 11,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 22.89999999999999,
+            "selection_score": 812.9,
+            "favorite_odds": 3.1,
+            "bets": [
+              {
+                "ticket": "1-7-6",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-6-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-1-6",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-7",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-6-1",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
+          {
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "selection_score": 820.31,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "selection_score": 814.38,
+            "investment": 500,
+            "payout": 7230,
+            "profit": 6730,
+            "hit": true
+          },
+          {
+            "venue_name": "大宮",
+            "race_no": 11,
+            "rank": "A",
+            "selection_score": 812.9,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          }
+        ]
+      },
+      "Aのみ・上位5R・AI5": {
+        "strategy": "Aのみ・上位5R・AI5",
+        "max_races": 5,
+        "bet_count": 5,
+        "candidate_count": 22,
+        "selected_count": 5,
+        "settled_count": 5,
+        "hits": 1,
+        "hit_rate": 20.0,
+        "investment": 2500,
+        "payout": 7230,
+        "profit": 4730,
+        "roi": 289.2,
+        "positive_days": 1,
+        "negative_days": 0,
+        "zero_days": 0,
+        "selected": [
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 30.309999999999995,
+            "selection_score": 820.31,
+            "favorite_odds": 382.8,
+            "bets": [
+              {
+                "ticket": "2-7-3",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-3",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-4-7",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 24.380000000000003,
+            "selection_score": 814.38,
+            "favorite_odds": 299.0,
+            "bets": [
+              {
+                "ticket": "5-3-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-2-3",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-5-3",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-5",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "25",
+            "venue_name": "大宮",
+            "race_no": 11,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 22.89999999999999,
+            "selection_score": 812.9,
+            "favorite_odds": 3.1,
+            "bets": [
+              {
+                "ticket": "1-7-6",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-6-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-1-6",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-7",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-6-1",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "35",
+            "venue_name": "平塚",
+            "race_no": 3,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 22.599999999999994,
+            "selection_score": 812.6,
+            "favorite_odds": 23.1,
+            "bets": [
+              {
+                "ticket": "3-1-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-7",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-7-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
+          {
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "selection_score": 820.31,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "selection_score": 814.38,
+            "investment": 500,
+            "payout": 7230,
+            "profit": 6730,
+            "hit": true
+          },
+          {
+            "venue_name": "大宮",
+            "race_no": 11,
+            "rank": "A",
+            "selection_score": 812.9,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "平塚",
+            "race_no": 3,
+            "rank": "A",
+            "selection_score": 812.6,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          }
+        ]
+      },
+      "Aのみ・人気10倍以上・上位1R・AI5": {
+        "strategy": "Aのみ・上位1R・AI5",
+        "max_races": 1,
+        "bet_count": 5,
+        "candidate_count": 20,
+        "selected_count": 1,
+        "settled_count": 1,
+        "hits": 0,
+        "hit_rate": 0.0,
+        "investment": 500,
+        "payout": 0,
+        "profit": -500,
+        "roi": 0.0,
+        "positive_days": 0,
+        "negative_days": 1,
+        "zero_days": 0,
+        "selected": [
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
+          {
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          }
+        ]
+      },
+      "Aのみ・人気10倍以上・上位2R・AI5": {
+        "strategy": "Aのみ・上位2R・AI5",
+        "max_races": 2,
+        "bet_count": 5,
+        "candidate_count": 20,
+        "selected_count": 2,
+        "settled_count": 2,
+        "hits": 0,
+        "hit_rate": 0.0,
+        "investment": 1000,
+        "payout": 0,
+        "profit": -1000,
+        "roi": 0.0,
+        "positive_days": 0,
+        "negative_days": 1,
+        "zero_days": 0,
+        "selected": [
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 30.309999999999995,
+            "selection_score": 820.31,
+            "favorite_odds": 382.8,
+            "bets": [
+              {
+                "ticket": "2-7-3",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-3",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-4-7",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
+          {
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "selection_score": 820.31,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          }
+        ]
+      },
+      "Aのみ・人気10倍以上・上位3R・AI5": {
+        "strategy": "Aのみ・上位3R・AI5",
+        "max_races": 3,
+        "bet_count": 5,
+        "candidate_count": 20,
+        "selected_count": 3,
+        "settled_count": 3,
+        "hits": 1,
+        "hit_rate": 33.3,
+        "investment": 1500,
+        "payout": 7230,
+        "profit": 5730,
+        "roi": 482.0,
+        "positive_days": 1,
+        "negative_days": 0,
+        "zero_days": 0,
+        "selected": [
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 30.309999999999995,
+            "selection_score": 820.31,
+            "favorite_odds": 382.8,
+            "bets": [
+              {
+                "ticket": "2-7-3",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-3",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-4-7",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 24.380000000000003,
+            "selection_score": 814.38,
+            "favorite_odds": 299.0,
+            "bets": [
+              {
+                "ticket": "5-3-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-2-3",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-5-3",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-5",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
+          {
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "selection_score": 820.31,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "selection_score": 814.38,
+            "investment": 500,
+            "payout": 7230,
+            "profit": 6730,
+            "hit": true
+          }
+        ]
+      },
+      "Aのみ・人気10倍以上・上位5R・AI5": {
+        "strategy": "Aのみ・上位5R・AI5",
+        "max_races": 5,
+        "bet_count": 5,
+        "candidate_count": 20,
+        "selected_count": 5,
+        "settled_count": 5,
+        "hits": 1,
+        "hit_rate": 20.0,
+        "investment": 2500,
+        "payout": 7230,
+        "profit": 4730,
+        "roi": 289.2,
+        "positive_days": 1,
+        "negative_days": 0,
+        "zero_days": 0,
+        "selected": [
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 41.32,
+            "selection_score": 831.32,
+            "favorite_odds": 96.7,
+            "bets": [
+              {
+                "ticket": "3-1-5",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-5",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-4-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 30.309999999999995,
+            "selection_score": 820.31,
+            "favorite_odds": 382.8,
+            "bets": [
+              {
+                "ticket": "2-7-3",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-3",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-4",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-4-7",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "74",
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 24.380000000000003,
+            "selection_score": 814.38,
+            "favorite_odds": 299.0,
+            "bets": [
+              {
+                "ticket": "5-3-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-2-3",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-5-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-5-3",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-5",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "35",
+            "venue_name": "平塚",
+            "race_no": 3,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 22.599999999999994,
+            "selection_score": 812.6,
+            "favorite_odds": 23.1,
+            "bets": [
+              {
+                "ticket": "3-1-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-7",
+                "score": 93.0,
+                "type": "🎯 穴絡み",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-7-1",
+                "score": 91.0,
+                "type": "🎯 穴入替",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "35",
+            "venue_name": "平塚",
+            "race_no": 5,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 18.92,
+            "selection_score": 808.92,
+            "favorite_odds": 20.6,
+            "bets": [
+              {
+                "ticket": "5-1-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-2-1",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-5-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-5-1",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-5",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
+        "settled": [
+          {
+            "venue_name": "高知",
+            "race_no": 6,
+            "rank": "A",
+            "selection_score": 831.32,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 2,
+            "rank": "A",
+            "selection_score": 820.31,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "高知",
+            "race_no": 7,
+            "rank": "A",
+            "selection_score": 814.38,
+            "investment": 500,
+            "payout": 7230,
+            "profit": 6730,
+            "hit": true
+          },
+          {
+            "venue_name": "平塚",
+            "race_no": 3,
+            "rank": "A",
+            "selection_score": 812.6,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
+          },
+          {
+            "venue_name": "平塚",
+            "race_no": 5,
+            "rank": "A",
+            "selection_score": 808.92,
+            "investment": 500,
+            "payout": 0,
+            "profit": -500,
+            "hit": false
           }
         ]
       }
-    ],
-    "note": "実際の凍結買い目は変更せず、購入候補として表示する診断結果。"
+    },
+    "best_name": "Aのみ・上位3R・AI5",
+    "best": {
+      "strategy": "Aのみ・上位3R・AI5",
+      "max_races": 3,
+      "bet_count": 5,
+      "candidate_count": 22,
+      "selected_count": 3,
+      "settled_count": 3,
+      "hits": 1,
+      "hit_rate": 33.3,
+      "investment": 1500,
+      "payout": 7230,
+      "profit": 5730,
+      "roi": 482.0,
+      "positive_days": 1,
+      "negative_days": 0,
+      "zero_days": 0,
+      "selected": [
+        {
+          "venue_code": "74",
+          "venue_name": "高知",
+          "race_no": 6,
+          "rank": "A",
+          "verdict_score": 79.0,
+          "confidence_gap": 41.32,
+          "selection_score": 831.32,
+          "favorite_odds": 96.7,
+          "bets": [
+            {
+              "ticket": "3-1-5",
+              "score": 101.0,
+              "type": "🔥 AI本線",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-5-1",
+              "score": 98.0,
+              "type": "🔥 本線入替",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "1-3-5",
+              "score": 95.0,
+              "type": "⭐ 対抗頭",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-1-4",
+              "score": 93.0,
+              "type": "🎯 穴絡み",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-4-1",
+              "score": 91.0,
+              "type": "🎯 穴入替",
+              "bet_yen": 100
+            }
+          ],
+          "investment": 500
+        },
+        {
+          "venue_code": "74",
+          "venue_name": "高知",
+          "race_no": 2,
+          "rank": "A",
+          "verdict_score": 79.0,
+          "confidence_gap": 30.309999999999995,
+          "selection_score": 820.31,
+          "favorite_odds": 382.8,
+          "bets": [
+            {
+              "ticket": "2-7-3",
+              "score": 101.0,
+              "type": "🔥 AI本線",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "2-3-7",
+              "score": 98.0,
+              "type": "🔥 本線入替",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "7-2-3",
+              "score": 95.0,
+              "type": "⭐ 対抗頭",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "2-7-4",
+              "score": 93.0,
+              "type": "🎯 穴絡み",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "2-4-7",
+              "score": 91.0,
+              "type": "🎯 穴入替",
+              "bet_yen": 100
+            }
+          ],
+          "investment": 500
+        },
+        {
+          "venue_code": "74",
+          "venue_name": "高知",
+          "race_no": 7,
+          "rank": "A",
+          "verdict_score": 79.0,
+          "confidence_gap": 24.380000000000003,
+          "selection_score": 814.38,
+          "favorite_odds": 299.0,
+          "bets": [
+            {
+              "ticket": "5-3-2",
+              "score": 101.0,
+              "type": "🔥 AI本線",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "5-2-3",
+              "score": 98.0,
+              "type": "🔥 本線入替",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-5-2",
+              "score": 95.0,
+              "type": "⭐ 対抗頭",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "2-5-3",
+              "score": 83.0,
+              "type": "💥 逆転",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-2-5",
+              "score": 81.0,
+              "type": "💥 対抗展開",
+              "bet_yen": 100
+            }
+          ],
+          "investment": 500
+        }
+      ],
+      "settled": [
+        {
+          "venue_name": "高知",
+          "race_no": 6,
+          "rank": "A",
+          "selection_score": 831.32,
+          "investment": 500,
+          "payout": 0,
+          "profit": -500,
+          "hit": false
+        },
+        {
+          "venue_name": "高知",
+          "race_no": 2,
+          "rank": "A",
+          "selection_score": 820.31,
+          "investment": 500,
+          "payout": 0,
+          "profit": -500,
+          "hit": false
+        },
+        {
+          "venue_name": "高知",
+          "race_no": 7,
+          "rank": "A",
+          "selection_score": 814.38,
+          "investment": 500,
+          "payout": 7230,
+          "profit": 6730,
+          "hit": true
+        }
+      ]
+    },
+    "operating": {
+      "strategy": "Aのみ・上位3R・AI5",
+      "max_races": 3,
+      "bet_count": 5,
+      "candidate_count": 22,
+      "selected_count": 3,
+      "settled_count": 3,
+      "hits": 1,
+      "hit_rate": 33.3,
+      "investment": 1500,
+      "payout": 7230,
+      "profit": 5730,
+      "roi": 482.0,
+      "positive_days": 1,
+      "negative_days": 0,
+      "zero_days": 0,
+      "selected": [
+        {
+          "venue_code": "74",
+          "venue_name": "高知",
+          "race_no": 6,
+          "rank": "A",
+          "verdict_score": 79.0,
+          "confidence_gap": 41.32,
+          "selection_score": 831.32,
+          "favorite_odds": 96.7,
+          "bets": [
+            {
+              "ticket": "3-1-5",
+              "score": 101.0,
+              "type": "🔥 AI本線",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-5-1",
+              "score": 98.0,
+              "type": "🔥 本線入替",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "1-3-5",
+              "score": 95.0,
+              "type": "⭐ 対抗頭",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-1-4",
+              "score": 93.0,
+              "type": "🎯 穴絡み",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-4-1",
+              "score": 91.0,
+              "type": "🎯 穴入替",
+              "bet_yen": 100
+            }
+          ],
+          "investment": 500
+        },
+        {
+          "venue_code": "74",
+          "venue_name": "高知",
+          "race_no": 2,
+          "rank": "A",
+          "verdict_score": 79.0,
+          "confidence_gap": 30.309999999999995,
+          "selection_score": 820.31,
+          "favorite_odds": 382.8,
+          "bets": [
+            {
+              "ticket": "2-7-3",
+              "score": 101.0,
+              "type": "🔥 AI本線",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "2-3-7",
+              "score": 98.0,
+              "type": "🔥 本線入替",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "7-2-3",
+              "score": 95.0,
+              "type": "⭐ 対抗頭",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "2-7-4",
+              "score": 93.0,
+              "type": "🎯 穴絡み",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "2-4-7",
+              "score": 91.0,
+              "type": "🎯 穴入替",
+              "bet_yen": 100
+            }
+          ],
+          "investment": 500
+        },
+        {
+          "venue_code": "74",
+          "venue_name": "高知",
+          "race_no": 7,
+          "rank": "A",
+          "verdict_score": 79.0,
+          "confidence_gap": 24.380000000000003,
+          "selection_score": 814.38,
+          "favorite_odds": 299.0,
+          "bets": [
+            {
+              "ticket": "5-3-2",
+              "score": 101.0,
+              "type": "🔥 AI本線",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "5-2-3",
+              "score": 98.0,
+              "type": "🔥 本線入替",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-5-2",
+              "score": 95.0,
+              "type": "⭐ 対抗頭",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "2-5-3",
+              "score": 83.0,
+              "type": "💥 逆転",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "3-2-5",
+              "score": 81.0,
+              "type": "💥 対抗展開",
+              "bet_yen": 100
+            }
+          ],
+          "investment": 500
+        }
+      ],
+      "settled": [
+        {
+          "venue_name": "高知",
+          "race_no": 6,
+          "rank": "A",
+          "selection_score": 831.32,
+          "investment": 500,
+          "payout": 0,
+          "profit": -500,
+          "hit": false
+        },
+        {
+          "venue_name": "高知",
+          "race_no": 2,
+          "rank": "A",
+          "selection_score": 820.31,
+          "investment": 500,
+          "payout": 0,
+          "profit": -500,
+          "hit": false
+        },
+        {
+          "venue_name": "高知",
+          "race_no": 7,
+          "rank": "A",
+          "selection_score": 814.38,
+          "investment": 500,
+          "payout": 7230,
+          "profit": 6730,
+          "hit": true
+        }
+      ]
+    }
   },
   "venues": [
     {
@@ -2466,7 +3576,7 @@
           "name": "山口 貴弘",
           "age": 48,
           "period": 84,
-          "prefecture": "山口",
+          "prefecture": "栃木",
           "grade": "",
           "style": "追",
           "score": 83.541,
@@ -20159,8 +21269,22 @@
           "prediction_score": 1
         }
       },
-      "line": [],
-      "line_groups": [],
+      "line": [
+        2,
+        5,
+        3,
+        7,
+        1
+      ],
+      "line_groups": [
+        [
+          2,
+          5,
+          3,
+          7,
+          1
+        ]
+      ],
       "development": "予選(2)片岡は末の粘り欠いたが、持ち味はスタミナ満点の強地脚。修正して押し切る。(5)肥後がマーク狙い目だが、(3)佐藤-(7)堀が猛攻。(1)山崎が脚を溜めて。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_3.html",
       "frozen_prediction": {
@@ -21237,8 +22361,22 @@
           "prediction_score": 18
         }
       },
-      "line": [],
-      "line_groups": [],
+      "line": [
+        7,
+        4,
+        3,
+        5,
+        6
+      ],
+      "line_groups": [
+        [
+          7,
+          4,
+          3,
+          5,
+          6
+        ]
+      ],
       "development": "(7)鈴木は地元期待のルーキー。今開催は８月当所の分もの気持ちだろう。再度、突っ張るか。(4)田中とワンツーに期待。(3)山田-(5)中野、(6)磯村が一角崩すか。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_5.html",
       "frozen_prediction": {
@@ -22309,8 +23447,24 @@
           "prediction_score": 12
         }
       },
-      "line": [],
-      "line_groups": [],
+      "line": [
+        2,
+        7,
+        1,
+        4,
+        3,
+        6
+      ],
+      "line_groups": [
+        [
+          2,
+          7,
+          1,
+          4,
+          3,
+          6
+        ]
+      ],
       "development": "(2)五輪が気合い再注入。初日の分もと主導権取りに闘志燃やすか。(7)須藤が続いて関東ワンツー。総合力では(1)根藤-(4)荻野も双璧。(3)福田も(6)江端次第では。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_7.html",
       "frozen_prediction": {
@@ -22866,8 +24020,22 @@
           "prediction_score": 18
         }
       },
-      "line": [],
-      "line_groups": [],
+      "line": [
+        7,
+        3,
+        6,
+        5,
+        1
+      ],
+      "line_groups": [
+        [
+          7,
+          3,
+          6,
+          5,
+          1
+        ]
+      ],
       "development": "予選不覚の(7)川田がリカバリーに全力。少々の早駆けでも主導権握り押し切る。(3)矢島と関東独占へ。(6)牛田の仕掛け次第では(5)松崎の浮上も。(1)神山に注意。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_8.html",
       "frozen_prediction": {
@@ -23405,8 +24573,24 @@
           "prediction_score": 0
         }
       },
-      "line": [],
-      "line_groups": [],
+      "line": [
+        3,
+        5,
+        1,
+        4,
+        2,
+        6
+      ],
+      "line_groups": [
+        [
+          3,
+          5,
+          1,
+          4,
+          2,
+          6
+        ]
+      ],
       "development": "坪内君が捲られないように踏んでくれた。静岡では一年半ぶり位の一着。再度任せる。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/shizuoka/2026/1008_9.html",
       "frozen_prediction": {
@@ -26474,8 +27658,22 @@
           "prediction_score": 1
         }
       },
-      "line": [],
-      "line_groups": [],
+      "line": [
+        2,
+        1,
+        3,
+        4,
+        7
+      ],
+      "line_groups": [
+        [
+          2,
+          1,
+          3,
+          4,
+          7
+        ]
+      ],
       "development": "今開催は不完全燃焼の(2)八嶋。その分も出し切る走りで(1)安部-(3)山崎を連れ込む。(4)枠元も自分の形に持ち込めば粘り脚強靭。補充(7)山田の位置は顔見せ必見",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1008_4.html",
       "frozen_prediction": {
@@ -27013,8 +28211,22 @@
           "prediction_score": 1
         }
       },
-      "line": [],
-      "line_groups": [],
+      "line": [
+        1,
+        2,
+        4,
+        3,
+        7
+      ],
+      "line_groups": [
+        [
+          1,
+          2,
+          4,
+          3,
+          7
+        ]
+      ],
       "development": "今開催未勝利の(1)秋末だがレース内容は好印象。ここも突っ張り含みで(2)吉川と近畿独占を決める。地元(4)竹田が三番手から。(3)梅原が再度(7)阿久津任せから。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1008_5.html",
       "frozen_prediction": {
@@ -27552,8 +28764,22 @@
           "prediction_score": 0
         }
       },
-      "line": [],
-      "line_groups": [],
+      "line": [
+        3,
+        2,
+        1,
+        5,
+        6
+      ],
+      "line_groups": [
+        [
+          3,
+          2,
+          1,
+          5,
+          6
+        ]
+      ],
       "development": "ライン三車の(3)土田が積極的に駆けてＧ前は(2)星野が番手有利に抜け出す。(1)中島が三番手から直線勝負。(5)松田が好位から反撃。(6)引地の脚力も軽視できない",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/ogaki/2026/1008_6.html",
       "frozen_prediction": {
@@ -29702,7 +30928,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351094",
@@ -30241,7 +31467,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_2.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351142",
@@ -30776,7 +32002,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_3.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351215",
@@ -31315,7 +32541,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_4.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351276",
@@ -31854,7 +33080,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_5.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351328",
@@ -32237,7 +33463,7 @@
           "name": "山口 泰生",
           "age": 44,
           "period": 89,
-          "prefecture": "山口",
+          "prefecture": "岐阜",
           "grade": "",
           "style": "追",
           "score": 94.111,
@@ -32880,7 +34106,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_7.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351425",
@@ -33415,7 +34641,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_8.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351473",
@@ -33952,7 +35178,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_9.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351523",
@@ -35030,7 +36256,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_11.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351630",
@@ -35565,7 +36791,7 @@
       },
       "line": [],
       "line_groups": [],
-      "development": "投票会員の皆様には、「情報提供元」提供の予想情報を提供しております。",
+      "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yokkaichi/2026/1008_12.html",
       "frozen_prediction": {
         "created_at": "2026-10-08T00:22:44.351678",
