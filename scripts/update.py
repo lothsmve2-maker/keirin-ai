@@ -5,12 +5,12 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.4'
+VERSION='6.5'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 TODAY=datetime.now().strftime('%Y%m%d'); TODAY_DISPLAY=datetime.now().strftime('%Y-%m-%d')
 TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
 HEADERS={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36','Accept-Language':'ja-JP,ja;q=0.9,en;q=0.8'}
-VENUES={'22':('前橋','maebashi'),'25':('大宮','omiya'),'38':('静岡','shizuoka'),'44':('大垣','ogaki'),'48':('四日市','yokkaichi'),'53':('奈良','nara'),'74':('高知','kochi')}
+VENUES={'22':('前橋','maebashi'),'25':('大宮','omiya'),'35':('平塚','hiratsuka'),'38':('静岡','shizuoka'),'44':('大垣','ogaki'),'48':('四日市','yokkaichi'),'74':('高知','kochi')}
 MARK_SCORE={'◎':18,'○':12,'▲':8,'△':5,'×':1,'注':3}
 STYLE_WORDS={'逃捲','逃げ','先捲','捲り','捲','追込','追捲','自在','単騎','差脚','地差','先行'}
 PREFECTURES=set('北海道 青森 岩手 宮城 秋田 山形 福島 茨城 栃木 群馬 埼玉 千葉 東京 神奈川 新潟 富山 石川 福井 山梨 長野 岐阜 静岡 愛知 三重 滋賀 京都 大阪 兵庫 奈良 和歌山 鳥取 島根 岡山 広島 山口 徳島 香川 愛媛 高知 福岡 佐賀 長崎 熊本 大分 宮崎 鹿児島 沖縄'.split())
@@ -187,59 +187,37 @@ def parse_result_page(html):
     empty={'finished':False,'result_finished':False,'finish':[],'payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':''}
     sp=soup(html)
     if not sp:return empty
-
-    # オッズパークの結果表は「着順・枠番・車番」の順なので、
-    # これまでの「最初の2つの数字」を取る方式だと枠番を車番として誤認します。
-    # 結果表そのものを特定して、着順 -> 車番を正確に取得します。
     finish_map={}
     for table in sp.find_all('table'):
-        table_text=clean(table.get_text(' ',strip=True))
-        if '着順' not in table_text or '車番' not in table_text:
-            continue
-        for tr in table.find_all('tr'):
+        rows=table.find_all('tr'); header_idx=None; pos_idx=None; car_idx=None
+        for ri,tr in enumerate(rows[:5]):
             cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
-            if not cells:
-                continue
-            pos=None
-            for i,v in enumerate(cells[:4]):
-                if re.fullmatch(r'[1-7]',v):
-                    pos=int(v)
-                    # 最初の数字は通常「着順」
-                    if i==0: break
-                    pos=None
-            if pos is None:
-                continue
-            numeric=[]
-            for v in cells[:6]:
-                if re.fullmatch(r'[1-7]',v):
-                    numeric.append(int(v))
-            # 着順・枠番・車番の3列を想定。車番は3番目の数字。
-            if len(numeric)>=3:
-                car=numeric[2]
-                if 1<=car<=7:
-                    finish_map[pos]=car
-
-    finish=[finish_map[p] for p in sorted(finish_map) if 1<=p<=7]
-
-    # HTMLの構造が変わった場合の予備解析。
+            for i,v in enumerate(cells):
+                if '着順' in v and pos_idx is None: pos_idx=i
+                if ('車番' == v or '車番' in v) and car_idx is None: car_idx=i
+            if pos_idx is not None and car_idx is not None:
+                header_idx=ri; break
+        if header_idx is None: continue
+        for tr in rows[header_idx+1:]:
+            cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
+            if not cells or max(pos_idx,car_idx)>=len(cells): continue
+            pm=re.search(r'\b([1-9])\b',cells[pos_idx]); cm=re.search(r'\b([1-9])\b',cells[car_idx])
+            if pm and cm:
+                pos=int(pm.group(1)); car=int(cm.group(1))
+                if 1<=pos<=9 and 1<=car<=7: finish_map[pos]=car
+        if len(finish_map)>=3: break
+    finish=[finish_map[p] for p in sorted(finish_map) if 1<=p<=9]
     if len(finish)<3:
-        text=clean(sp.get_text(' ',strip=True))
-        patterns=[
-            r'1\s*[着位]?\s*(?:\d+\s*)?([1-7])\s+.*?2\s*[着位]?\s*(?:\d+\s*)?([1-7])\s+.*?3\s*[着位]?\s*(?:\d+\s*)?([1-7])',
-            r'1着.*?車番.*?([1-7]).*?2着.*?([1-7]).*?3着.*?([1-7])'
-        ]
-        for pat in patterns:
-            m=re.search(pat,text)
-            if m:
-                finish=[int(x) for x in m.groups()]
-                break
-
-    text=clean(sp.get_text(' ',strip=True))
-    tk,y,src=payout_scan(sp,text)
-    if not tk and y and len(finish)>=3:
-        tk='-'.join(map(str,finish[:3]))
-    rf=len(finish)>=3
-    pa=bool(tk and y>0)
+        for table in sp.find_all('table'):
+            for tr in table.find_all('tr'):
+                cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
+                if '着順' not in ' '.join(cells) and '車番' not in ' '.join(cells): continue
+                nums=[int(x) for x in cells if re.fullmatch(r'[1-7]',x)]
+                if len(nums)>=3: finish=[nums[2]]; break
+            if len(finish)>=1: break
+    text=clean(sp.get_text(' ',strip=True)); tk,y,src=payout_scan(sp,text)
+    if not tk and y and len(finish)>=3: tk='-'.join(map(str,finish[:3]))
+    rf=len(finish)>=3; pa=bool(tk and y>0)
     return {'finished':rf and pa,'result_finished':rf,'finish':finish,'payout_available':pa,'payout_3tan':tk,'payout_3tan_yen':y,'payout_source':src}
 
 def fetch_result(race):
@@ -331,8 +309,16 @@ def main():
             r=fs[f]; key=(str(r['venue_code']),r['race_no']); oldres=old.get(key,{}).get('result',{})
             try:res=f.result()
             except:res={}
-            if oldres.get('result_finished') and oldres.get('payout_available'):res=oldres
-            elif not res.get('result_finished') and oldres.get('result_finished'):res.update({k:v for k,v in oldres.items() if v})
+            if oldres.get('result_finished'):
+                if not res.get('result_finished'):
+                    res['result_finished']=True
+                    res['finish']=oldres.get('finish',res.get('finish',[]))
+                if (not res.get('payout_available')) and oldres.get('payout_available'):
+                    res['payout_available']=True
+                    res['payout_3tan']=oldres.get('payout_3tan')
+                    res['payout_3tan_yen']=oldres.get('payout_3tan_yen',0)
+                    res['payout_source']=oldres.get('payout_source','')
+                res['finished']=bool(res.get('result_finished') and res.get('payout_available'))
             r['result']=res
             if res.get('result_finished'):result_count+=1
             if res.get('payout_available'):payout_count+=1
