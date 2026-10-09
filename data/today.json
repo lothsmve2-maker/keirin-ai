@@ -4269,7 +4269,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-10T07:33:09.369582+09:00",
+  "updated_at": "2026-10-10T08:27:34.302655+09:00",
   "target_date": "2026-10-10",
   "data_complete": true,
   "result_complete": false,
@@ -4291,7 +4291,7 @@
   "payout_count": 0,
   "payout_pending_count": 72,
   "payout_error_count": 0,
-  "odds_count": 68,
+  "odds_count": 70,
   "summary": {
     "races": 72,
     "settled_races": 0,
@@ -4699,7 +4699,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 19.950000000000003,
             "selection_score": 849.95,
-            "favorite_odds": null,
+            "favorite_odds": 18.5,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -4762,7 +4762,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 19.950000000000003,
             "selection_score": 849.95,
-            "favorite_odds": null,
+            "favorite_odds": 18.5,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -4868,7 +4868,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 19.950000000000003,
             "selection_score": 849.95,
-            "favorite_odds": null,
+            "favorite_odds": 18.5,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -5017,7 +5017,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 19.950000000000003,
             "selection_score": 849.95,
-            "favorite_odds": null,
+            "favorite_odds": 18.5,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -5209,7 +5209,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 19.950000000000003,
             "selection_score": 849.95,
-            "favorite_odds": null,
+            "favorite_odds": 18.5,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -5423,7 +5423,7 @@
         "strategy": "Aのみ・上位1R・AI5",
         "max_races": 1,
         "bet_count": 5,
-        "candidate_count": 17,
+        "candidate_count": 18,
         "selected_count": 1,
         "settled_count": 0,
         "hits": 0,
@@ -5437,41 +5437,41 @@
         "zero_days": 0,
         "selected": [
           {
-            "venue_code": "46",
-            "venue_name": "富山",
-            "race_no": 4,
+            "venue_code": "43",
+            "venue_name": "岐阜",
+            "race_no": 7,
             "rank": "A",
             "verdict_score": 83.0,
-            "confidence_gap": 17.620000000000005,
-            "selection_score": 847.62,
-            "favorite_odds": 20.9,
+            "confidence_gap": 19.950000000000003,
+            "selection_score": 849.95,
+            "favorite_odds": 18.5,
             "bets": [
               {
-                "ticket": "5-7-3",
+                "ticket": "1-7-2",
                 "score": 101.0,
                 "type": "🔥 AI本線",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-3-7",
+                "ticket": "1-2-7",
                 "score": 98.0,
                 "type": "🔥 本線入替",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-5-3",
+                "ticket": "7-1-2",
                 "score": 95.0,
                 "type": "⭐ 対抗頭",
                 "bet_yen": 100
               },
               {
-                "ticket": "3-5-7",
+                "ticket": "2-1-7",
                 "score": 83.0,
                 "type": "💥 逆転",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-3-5",
+                "ticket": "7-2-1",
                 "score": 81.0,
                 "type": "💥 対抗展開",
                 "bet_yen": 100
@@ -5486,7 +5486,7 @@
         "strategy": "Aのみ・上位2R・AI5",
         "max_races": 2,
         "bet_count": 5,
-        "candidate_count": 17,
+        "candidate_count": 18,
         "selected_count": 2,
         "settled_count": 0,
         "hits": 0,
@@ -5499,6 +5499,49 @@
         "negative_days": 0,
         "zero_days": 0,
         "selected": [
+          {
+            "venue_code": "43",
+            "venue_name": "岐阜",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 83.0,
+            "confidence_gap": 19.950000000000003,
+            "selection_score": 849.95,
+            "favorite_odds": 18.5,
+            "bets": [
+              {
+                "ticket": "1-7-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-1-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-1-7",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-1",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
           {
             "venue_code": "46",
             "venue_name": "富山",
@@ -5535,49 +5578,6 @@
               },
               {
                 "ticket": "7-3-5",
-                "score": 81.0,
-                "type": "💥 対抗展開",
-                "bet_yen": 100
-              }
-            ],
-            "investment": 500
-          },
-          {
-            "venue_code": "43",
-            "venue_name": "岐阜",
-            "race_no": 4,
-            "rank": "A",
-            "verdict_score": 81.0,
-            "confidence_gap": 34.230000000000004,
-            "selection_score": 844.23,
-            "favorite_odds": 35.0,
-            "bets": [
-              {
-                "ticket": "3-5-1",
-                "score": 101.0,
-                "type": "🔥 AI本線",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-1-5",
-                "score": 98.0,
-                "type": "🔥 本線入替",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "5-3-1",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "1-3-5",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "5-1-3",
                 "score": 81.0,
                 "type": "💥 対抗展開",
                 "bet_yen": 100
@@ -5592,7 +5592,7 @@
         "strategy": "Aのみ・上位3R・AI5",
         "max_races": 3,
         "bet_count": 5,
-        "candidate_count": 17,
+        "candidate_count": 18,
         "selected_count": 3,
         "settled_count": 0,
         "hits": 0,
@@ -5605,6 +5605,49 @@
         "negative_days": 0,
         "zero_days": 0,
         "selected": [
+          {
+            "venue_code": "43",
+            "venue_name": "岐阜",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 83.0,
+            "confidence_gap": 19.950000000000003,
+            "selection_score": 849.95,
+            "favorite_odds": 18.5,
+            "bets": [
+              {
+                "ticket": "1-7-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-1-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-1-7",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-1",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
           {
             "venue_code": "46",
             "venue_name": "富山",
@@ -5690,49 +5733,6 @@
               }
             ],
             "investment": 500
-          },
-          {
-            "venue_code": "46",
-            "venue_name": "富山",
-            "race_no": 2,
-            "rank": "A",
-            "verdict_score": 83.0,
-            "confidence_gap": 12.589999999999996,
-            "selection_score": 842.59,
-            "favorite_odds": 91.3,
-            "bets": [
-              {
-                "ticket": "3-2-4",
-                "score": 101.0,
-                "type": "🔥 AI本線",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-4-2",
-                "score": 98.0,
-                "type": "🔥 本線入替",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-3-4",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "4-3-2",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-4-3",
-                "score": 81.0,
-                "type": "💥 対抗展開",
-                "bet_yen": 100
-              }
-            ],
-            "investment": 500
           }
         ],
         "settled": []
@@ -5741,7 +5741,7 @@
         "strategy": "Aのみ・上位5R・AI5",
         "max_races": 5,
         "bet_count": 5,
-        "candidate_count": 17,
+        "candidate_count": 18,
         "selected_count": 5,
         "settled_count": 0,
         "hits": 0,
@@ -5754,6 +5754,49 @@
         "negative_days": 0,
         "zero_days": 0,
         "selected": [
+          {
+            "venue_code": "43",
+            "venue_name": "岐阜",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 83.0,
+            "confidence_gap": 19.950000000000003,
+            "selection_score": 849.95,
+            "favorite_odds": 18.5,
+            "bets": [
+              {
+                "ticket": "1-7-2",
+                "score": 101.0,
+                "type": "🔥 AI本線",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-7",
+                "score": 98.0,
+                "type": "🔥 本線入替",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-1-2",
+                "score": 95.0,
+                "type": "⭐ 対抗頭",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-1-7",
+                "score": 83.0,
+                "type": "💥 逆転",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-1",
+                "score": 81.0,
+                "type": "💥 対抗展開",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
           {
             "venue_code": "46",
             "venue_name": "富山",
@@ -5925,49 +5968,6 @@
               }
             ],
             "investment": 500
-          },
-          {
-            "venue_code": "43",
-            "venue_name": "岐阜",
-            "race_no": 2,
-            "rank": "A",
-            "verdict_score": 80.0,
-            "confidence_gap": 28.4,
-            "selection_score": 828.4,
-            "favorite_odds": 52.5,
-            "bets": [
-              {
-                "ticket": "4-3-1",
-                "score": 101.0,
-                "type": "🔥 AI本線",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "4-1-3",
-                "score": 98.0,
-                "type": "🔥 本線入替",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-4-1",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "1-4-3",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-1-4",
-                "score": 81.0,
-                "type": "💥 対抗展開",
-                "bet_yen": 100
-              }
-            ],
-            "investment": 500
           }
         ],
         "settled": []
@@ -6000,7 +6000,7 @@
           "verdict_score": 83.0,
           "confidence_gap": 19.950000000000003,
           "selection_score": 849.95,
-          "favorite_odds": null,
+          "favorite_odds": 18.5,
           "bets": [
             {
               "ticket": "1-7-2",
@@ -12629,7 +12629,7 @@
           "name": "山口 拳矢",
           "age": 30,
           "period": 117,
-          "prefecture": "山口",
+          "prefecture": "岐阜",
           "grade": "",
           "style": "両",
           "score": 115.269,
@@ -32693,8 +32693,39 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=43&kaisaiBi=20261010&raceNo=5"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 0.0,
+          "1-2-3": 0.0,
+          "1-2-4": 0.0,
+          "1-3-4": 0.0,
+          "1-2-5": 1029.7,
+          "1-3-5": 0.0,
+          "1-2-6": 514.8,
+          "1-3-6": 0.0,
+          "1-2-7": 0.0,
+          "1-3-7": 1029.7,
+          "1-4-2": 0.0,
+          "1-5-2": 0.0,
+          "1-4-3": 0.0,
+          "1-5-3": 514.8,
+          "1-5-4": 1029.7,
+          "1-4-5": 1029.7,
+          "1-4-6": 0.0,
+          "1-5-6": 0.0,
+          "1-4-7": 0.0,
+          "1-5-7": 0.0,
+          "1-6-2": 1029.7,
+          "1-7-2": 0.0,
+          "1-6-3": 0.0,
+          "1-7-3": 0.0,
+          "1-6-4": 0.0,
+          "1-7-4": 0.0,
+          "1-6-5": 0.0,
+          "1-7-5": 1029.7,
+          "1-7-6": 1029.7,
+          "1-6-7": 1029.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=43&joCode=43&kaisaiBi=20261010&raceNo=5"
       },
       "settlement": {
@@ -33766,28 +33797,28 @@
           "score": 101.0,
           "type": "🔥 AI本線",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 21.6,
+          "market_rank": 10,
+          "break_even_hit_rate_pct": 4.63,
+          "gross_return_if_hit_yen": 2160,
+          "net_profit_if_hit_yen": 2060,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "1-2-7",
           "score": 98.0,
           "type": "🔥 本線入替",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 64.8,
+          "market_rank": 13,
+          "break_even_hit_rate_pct": 1.54,
+          "gross_return_if_hit_yen": 6480,
+          "net_profit_if_hit_yen": 6380,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "7-1-2",
@@ -33836,14 +33867,14 @@
           "score": 77.0,
           "type": "🎯 中穴",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 86.5,
+          "market_rank": 16,
+          "break_even_hit_rate_pct": 1.16,
+          "gross_return_if_hit_yen": 8650,
+          "net_profit_if_hit_yen": 8550,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "5-1-2",
@@ -33864,14 +33895,14 @@
           "score": 69.0,
           "type": "💣 大穴警戒",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
+          "odds": 0.0,
+          "market_rank": 1,
           "break_even_hit_rate_pct": null,
           "gross_return_if_hit_yen": null,
           "net_profit_if_hit_yen": null,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         }
       ],
       "frozen_prediction": {
@@ -33936,28 +33967,28 @@
             "score": 101.0,
             "type": "🔥 AI本線",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 21.6,
+            "market_rank": 10,
+            "break_even_hit_rate_pct": 4.63,
+            "gross_return_if_hit_yen": 2160,
+            "net_profit_if_hit_yen": 2060,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "1-2-7",
             "score": 98.0,
             "type": "🔥 本線入替",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 64.8,
+            "market_rank": 13,
+            "break_even_hit_rate_pct": 1.54,
+            "gross_return_if_hit_yen": 6480,
+            "net_profit_if_hit_yen": 6380,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "7-1-2",
@@ -34006,14 +34037,14 @@
             "score": 77.0,
             "type": "🎯 中穴",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 86.5,
+            "market_rank": 16,
+            "break_even_hit_rate_pct": 1.16,
+            "gross_return_if_hit_yen": 8650,
+            "net_profit_if_hit_yen": 8550,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "5-1-2",
@@ -34034,14 +34065,14 @@
             "score": 69.0,
             "type": "💣 大穴警戒",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
+            "odds": 0.0,
+            "market_rank": 1,
             "break_even_hit_rate_pct": null,
             "gross_return_if_hit_yen": null,
             "net_profit_if_hit_yen": null,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           }
         ]
       },
@@ -34058,8 +34089,39 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=43&kaisaiBi=20261010&raceNo=7"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 259.5,
+          "1-2-3": 0.0,
+          "1-2-4": 0.0,
+          "1-3-4": 0.0,
+          "1-2-5": 64.8,
+          "1-3-5": 0.0,
+          "1-2-6": 259.5,
+          "1-3-6": 259.5,
+          "1-2-7": 64.8,
+          "1-3-7": 86.5,
+          "1-4-2": 0.0,
+          "1-5-2": 129.7,
+          "1-4-3": 0.0,
+          "1-5-3": 64.8,
+          "1-5-4": 259.5,
+          "1-4-5": 259.5,
+          "1-4-6": 0.0,
+          "1-5-6": 259.5,
+          "1-4-7": 129.7,
+          "1-5-7": 86.5,
+          "1-6-2": 259.5,
+          "1-7-2": 21.6,
+          "1-6-3": 259.5,
+          "1-7-3": 23.5,
+          "1-6-4": 259.5,
+          "1-7-4": 259.5,
+          "1-6-5": 0.0,
+          "1-7-5": 18.5,
+          "1-7-6": 259.5,
+          "1-6-7": 259.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=43&joCode=43&kaisaiBi=20261010&raceNo=7"
       },
       "settlement": {
