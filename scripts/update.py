@@ -1239,17 +1239,17 @@ def main():
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
             fs={ex.submit(fetch_race,{'venue_code':r['venue_code'],'venue_name':r['venue_name'],'venue_slug':r['venue_slug'],'race_no':r['race_no']}):r for r in detail_targets}
             for f in as_completed(fs):
-    r = fs[f]
-
-    try:
-        fresh = f.result()
-    except Exception as e:
-        print(
-            f'選手データ取得エラー: '
-            f'{r.get("venue_name", "")} '
-            f'{r.get("race_no", "")}R: {e}'
-        )
-        continue
+                r = fs[f]
+                
+                try:
+                    fresh = f.result()
+                except Exception as e:
+                    print(
+                        f'選手データ取得エラー: '
+                        f'{r.get("venue_name", "")} '
+                        f'{r.get("race_no", "")}R: {e}'
+                    )
+                    continue
 
     new_riders = fresh.get('riders', [])
     old_riders = r.get('riders', [])
