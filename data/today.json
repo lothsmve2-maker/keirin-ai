@@ -4185,7 +4185,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-09T09:29:20.150895+09:00",
+  "updated_at": "2026-10-09T10:24:31.540390+09:00",
   "target_date": "2026-10-09",
   "data_complete": true,
   "result_complete": false,
@@ -22640,7 +22640,7 @@
           "name": "石川 裕二",
           "age": 42,
           "period": 99,
-          "prefecture": "茨城",
+          "prefecture": "石川",
           "grade": "",
           "style": "追",
           "score": 96.846,
