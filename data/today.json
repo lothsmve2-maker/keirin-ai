@@ -4243,7 +4243,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-09T17:26:36.217757+09:00",
+  "updated_at": "2026-10-09T18:28:11.582632+09:00",
   "target_date": "2026-10-09",
   "data_complete": true,
   "result_complete": false,
@@ -6113,8 +6113,8 @@
   },
   "venues": [
     {
-      "venue_code": "35",
-      "venue_name": "平塚",
+      "venue_code": "48",
+      "venue_name": "四日市",
       "race_count": 12,
       "race_numbers": [
         1,
@@ -6132,8 +6132,8 @@
       ]
     },
     {
-      "venue_code": "48",
-      "venue_name": "四日市",
+      "venue_code": "35",
+      "venue_name": "平塚",
       "race_count": 12,
       "race_numbers": [
         1,
