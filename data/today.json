@@ -4120,7 +4120,7 @@
       "races": [
         {
           "venue_code": "74",
-          "venue_name": "熊本",
+          "venue_name": "高知",
           "race_no": 2,
           "prediction_created_at": "2026-10-09T08:20:42.587862+09:00",
           "model": "v6.15",
@@ -4243,19 +4243,19 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-09T16:25:57.828086+09:00",
+  "updated_at": "2026-10-09T16:56:37.226651+09:00",
   "target_date": "2026-10-09",
   "data_complete": true,
   "result_complete": false,
   "payout_complete": false,
-  "venue_count": 10,
+  "venue_count": 8,
   "race_count": 79,
   "rider_count": 551,
   "correct_name_count": 551,
-  "prediction_race_count": 47,
-  "comment_count": 418,
+  "prediction_race_count": 54,
+  "comment_count": 520,
   "line_race_count": 0,
-  "development_count": 54,
+  "development_count": 70,
   "ai_race_count": 79,
   "ai_rider_count": 551,
   "frozen_prediction_count": 79,
@@ -4315,7 +4315,7 @@
       }
     },
     "by_venue": {
-      "熊本": {
+      "高知": {
         "races": 1,
         "investment": 800,
         "payout": 0,
@@ -4783,7 +4783,7 @@
           },
           {
             "venue_code": "74",
-            "venue_name": "熊本",
+            "venue_name": "高知",
             "race_no": 3,
             "rank": "A",
             "verdict_score": 82.0,
@@ -4889,7 +4889,7 @@
           },
           {
             "venue_code": "74",
-            "venue_name": "熊本",
+            "venue_name": "高知",
             "race_no": 3,
             "rank": "A",
             "verdict_score": 82.0,
@@ -5038,7 +5038,7 @@
           },
           {
             "venue_code": "74",
-            "venue_name": "熊本",
+            "venue_name": "高知",
             "race_no": 3,
             "rank": "A",
             "verdict_score": 82.0,
@@ -5230,7 +5230,7 @@
           },
           {
             "venue_code": "74",
-            "venue_name": "熊本",
+            "venue_name": "高知",
             "race_no": 3,
             "rank": "A",
             "verdict_score": 82.0,
@@ -5528,7 +5528,7 @@
           },
           {
             "venue_code": "74",
-            "venue_name": "熊本",
+            "venue_name": "高知",
             "race_no": 3,
             "rank": "A",
             "verdict_score": 82.0,
@@ -5634,7 +5634,7 @@
           },
           {
             "venue_code": "74",
-            "venue_name": "熊本",
+            "venue_name": "高知",
             "race_no": 3,
             "rank": "A",
             "verdict_score": 82.0,
@@ -5783,7 +5783,7 @@
           },
           {
             "venue_code": "74",
-            "venue_name": "熊本",
+            "venue_name": "高知",
             "race_no": 3,
             "rank": "A",
             "verdict_score": 82.0,
@@ -6021,7 +6021,7 @@
         },
         {
           "venue_code": "74",
-          "venue_name": "熊本",
+          "venue_name": "高知",
           "race_no": 3,
           "rank": "A",
           "verdict_score": 82.0,
@@ -6113,27 +6113,8 @@
   },
   "venues": [
     {
-      "venue_code": "21",
-      "venue_name": "弥彦",
-      "race_count": 12,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    {
       "venue_code": "48",
-      "venue_name": "福井",
+      "venue_name": "四日市",
       "race_count": 12,
       "race_numbers": [
         1,
@@ -6187,7 +6168,7 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
+      "venue_name": "奈良",
       "race_count": 9,
       "race_numbers": [
         1,
@@ -6199,6 +6180,25 @@
         7,
         8,
         9
+      ]
+    },
+    {
+      "venue_code": "21",
+      "venue_name": "弥彦",
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
       ]
     },
     {
@@ -6221,7 +6221,7 @@
     },
     {
       "venue_code": "74",
-      "venue_name": "熊本",
+      "venue_name": "高知",
       "race_count": 7,
       "race_numbers": [
         1,
@@ -6235,7 +6235,7 @@
     },
     {
       "venue_code": "84",
-      "venue_name": "佐賀",
+      "venue_name": "武雄",
       "race_count": 7,
       "race_numbers": [
         1,
@@ -6246,18 +6246,6 @@
         6,
         7
       ]
-    },
-    {
-      "venue_code": "51",
-      "venue_name": "奈良",
-      "race_count": 0,
-      "race_numbers": []
-    },
-    {
-      "venue_code": "42",
-      "venue_name": "岐阜",
-      "race_count": 0,
-      "race_numbers": []
     }
   ],
   "races": [
@@ -34893,8 +34881,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 1,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=1",
       "riders": [
@@ -35507,8 +35495,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 2,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=2",
       "riders": [
@@ -36121,8 +36109,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 3,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=3",
       "riders": [
@@ -36735,8 +36723,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 4,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=4",
       "riders": [
@@ -37349,8 +37337,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 5,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=5",
       "riders": [
@@ -37913,8 +37901,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 6,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=6",
       "riders": [
@@ -38527,8 +38515,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 7,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=7",
       "riders": [
@@ -39141,8 +39129,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 8,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=8",
       "riders": [
@@ -39755,8 +39743,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 9,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=9",
       "riders": [
@@ -40369,8 +40357,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 10,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=10",
       "riders": [
@@ -40983,8 +40971,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 11,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=11",
       "riders": [
@@ -41597,8 +41585,8 @@
     },
     {
       "venue_code": "48",
-      "venue_name": "福井",
-      "venue_slug": "fukui",
+      "venue_name": "四日市",
+      "venue_slug": "yokkaichi",
       "race_no": 12,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=48&kaisaiBi=20261009&raceNo=12",
       "riders": [
@@ -42211,8 +42199,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 1,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=1",
       "riders": [
@@ -42234,8 +42222,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 11,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 22.64,
           "ai_components": {
             "base_strength": 8.6,
@@ -42268,8 +42256,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 26.7,
           "ai_components": {
             "base_strength": 8.55,
@@ -42302,8 +42290,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 14.49,
           "ai_components": {
             "base_strength": 3.0,
@@ -42336,8 +42324,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 8.58,
           "ai_components": {
             "base_strength": 0,
@@ -42459,11 +42447,54 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=1",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "飯田君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "2": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "3": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "4": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "5": {
+          "name": "中嶋君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "古川君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "中国の３番手。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009.html",
+      "development": "自在戦を繰り広げる飯田が主役。一転、プランが崩れると波乱も…。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009.html",
       "ai": {
         "main": 2,
         "opponent": 1,
@@ -42866,8 +42897,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 2,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=2",
       "riders": [
@@ -42889,8 +42920,8 @@
           "kimari_sashi": 7,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 30.43,
           "ai_components": {
             "base_strength": 8.55,
@@ -42923,8 +42954,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 16.64,
           "ai_components": {
             "base_strength": 4.93,
@@ -42957,8 +42988,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 8.04,
           "ai_components": {
             "base_strength": 0.77,
@@ -42991,8 +43022,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 4.04,
           "ai_components": {
             "base_strength": 0.27,
@@ -43114,11 +43145,48 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=2",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "自力、自在に。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "楠本君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "自力、自在に。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "4": {
+          "name": "藤井君へ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "6": {
+          "name": "中近の３番手。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "土居君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_2.html",
+      "development": "地元連れた藤井の走りは？すんなりの逃げになれば福岡勢が優勢。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009_2.html",
       "ai": {
         "main": 1,
         "opponent": 2,
@@ -43521,8 +43589,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 3,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=3",
       "riders": [
@@ -43544,8 +43612,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 36.0,
           "ai_components": {
             "base_strength": 12.28,
@@ -43578,8 +43646,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 8,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 11.29,
           "ai_components": {
             "base_strength": 5.28,
@@ -43612,8 +43680,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 18.83,
           "ai_components": {
             "base_strength": 1.65,
@@ -43714,8 +43782,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 3.31,
           "ai_components": {
             "base_strength": 0,
@@ -43769,11 +43837,54 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=3",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "渡邉君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "4": {
+          "name": "四国勢へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "四国の３番手。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "花田君へ。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "7": {
+          "name": "決めずに。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_3.html",
+      "development": "渡邊の力が抜ける構成だが焦点は次位。捲りになれば他派介入も。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009_3.html",
       "ai": {
         "main": 1,
         "opponent": 3,
@@ -44176,8 +44287,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 4,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=4",
       "riders": [
@@ -44199,8 +44310,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 53.59,
           "ai_components": {
             "base_strength": 12.8,
@@ -44233,8 +44344,8 @@
           "kimari_sashi": 8,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 27.05,
           "ai_components": {
             "base_strength": 8.9,
@@ -44267,8 +44378,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 17.1,
           "ai_components": {
             "base_strength": 4.73,
@@ -44335,8 +44446,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 11.0,
           "ai_components": {
             "base_strength": 0,
@@ -44424,11 +44535,48 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=4",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "近藤君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "田山君へ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "4": {
+          "name": "九州の３番手。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "7": {
+          "name": "宮田君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_4.html",
+      "development": "チャレンジ予選メインの近藤が難なく快勝。穴なら次位で他派絡み。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009_4.html",
       "ai": {
         "main": 1,
         "opponent": 2,
@@ -44831,8 +44979,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 5,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=5",
       "riders": [
@@ -44854,8 +45002,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 36.34,
           "ai_components": {
             "base_strength": 28.42,
@@ -44888,8 +45036,8 @@
           "kimari_sashi": 6,
           "kimari_mark": 4,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 37.41,
           "ai_components": {
             "base_strength": 22.68,
@@ -44922,8 +45070,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 38.59,
           "ai_components": {
             "base_strength": 22.31,
@@ -44956,8 +45104,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 33.54,
           "ai_components": {
             "base_strength": 21.34,
@@ -45079,11 +45227,54 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=5",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "谷澤君へ。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "中野君へ。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "3": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "5": {
+          "name": "川野君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "自力、自在に。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "三重勢の後ろへ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_5.html",
+      "development": "中部勢本線となるが、完全Ｖと流れ良い川野や中四国勢も軽視不。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009_5.html",
       "ai": {
         "main": 3,
         "opponent": 2,
@@ -45486,8 +45677,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 6,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=6",
       "riders": [
@@ -45509,8 +45700,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 43.89,
           "ai_components": {
             "base_strength": 29.51,
@@ -45543,8 +45734,8 @@
           "kimari_sashi": 7,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 43.59,
           "ai_components": {
             "base_strength": 26.44,
@@ -45577,8 +45768,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 31.63,
           "ai_components": {
             "base_strength": 21.32,
@@ -45611,8 +45802,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 28.38,
           "ai_components": {
             "base_strength": 19.53,
@@ -45734,11 +45925,54 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=6",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "堀川君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "前でやる。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "4": {
+          "name": "福岡勢の後ろへ。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "5": {
+          "name": "峰重君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "近畿の３番手。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "谷口さんへ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_6.html",
+      "development": "予選回りなら格上の堀川だが、谷口が本来の姿を見せると苦戦も…。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009_6.html",
       "ai": {
         "main": 1,
         "opponent": 2,
@@ -46141,8 +46375,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 7,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=7",
       "riders": [
@@ -46164,8 +46398,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 29.57,
           "ai_components": {
             "base_strength": 23.27,
@@ -46198,8 +46432,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 42.48,
           "ai_components": {
             "base_strength": 20.85,
@@ -46232,8 +46466,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 25.11,
           "ai_components": {
             "base_strength": 18.98,
@@ -46266,8 +46500,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 23.09,
           "ai_components": {
             "base_strength": 16.84,
@@ -46389,11 +46623,42 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=7",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "高山君へ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "2": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "3": {
+          "name": "森崎君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "7": {
+          "name": "山本君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_7.html",
+      "development": "地元連れた森崎が積極駆けとなりそうだが各派力差拮抗で波乱も。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009_7.html",
       "ai": {
         "main": 2,
         "opponent": 1,
@@ -46796,8 +47061,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 8,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=8",
       "riders": [
@@ -46819,8 +47084,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 64.38,
           "ai_components": {
             "base_strength": 32,
@@ -46853,8 +47118,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 34.32,
           "ai_components": {
             "base_strength": 23.72,
@@ -46887,8 +47152,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 30.2,
           "ai_components": {
             "base_strength": 23.4,
@@ -46921,8 +47186,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 25.54,
           "ai_components": {
             "base_strength": 19.96,
@@ -47044,11 +47309,54 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=8",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "野崎君へ。",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "3": {
+          "name": "藤田君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "5": {
+          "name": "峯口君へ。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "自力、自在に。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "九州の３番手。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_8.html",
+      "development": "他派抵抗あれど藤田で文句無し。ダッシュ戦なれば國村の追走不安。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009_8.html",
       "ai": {
         "main": 1,
         "opponent": 2,
@@ -47451,8 +47759,8 @@
     },
     {
       "venue_code": "53",
-      "venue_name": "向日町",
-      "venue_slug": "mukomachi",
+      "venue_name": "奈良",
+      "venue_slug": "nara",
       "race_no": 9,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=53&kaisaiBi=20261009&raceNo=9",
       "riders": [
@@ -47474,8 +47782,8 @@
           "kimari_sashi": 8,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 57.15,
           "ai_components": {
             "base_strength": 32,
@@ -47508,8 +47816,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 67.86,
           "ai_components": {
             "base_strength": 32,
@@ -47542,8 +47850,8 @@
           "kimari_sashi": 6,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 43.96,
           "ai_components": {
             "base_strength": 32,
@@ -47644,8 +47952,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 37.86,
           "ai_components": {
             "base_strength": 30.22,
@@ -47699,11 +48007,48 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=9",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "村上君へ。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "自力、自在に。",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "3": {
+          "name": "池野君へ。",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "自分でやる。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "金ヶ江勇気",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "先頭で。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_9.html",
+      "development": "本調子ではなくとも池野が強引に制圧へ。中国勢は自在戦で抵抗。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/nara/2026/1009_9.html",
       "ai": {
         "main": 2,
         "opponent": 1,
@@ -48106,8 +48451,8 @@
     },
     {
       "venue_code": "74",
-      "venue_name": "熊本",
-      "venue_slug": "kumamoto",
+      "venue_name": "高知",
+      "venue_slug": "kochi",
       "race_no": 1,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=74&kaisaiBi=20261009&raceNo=1",
       "riders": [
@@ -48714,8 +49059,8 @@
     },
     {
       "venue_code": "74",
-      "venue_name": "熊本",
-      "venue_slug": "kumamoto",
+      "venue_name": "高知",
+      "venue_slug": "kochi",
       "race_no": 2,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=74&kaisaiBi=20261009&raceNo=2",
       "riders": [
@@ -49336,8 +49681,8 @@
     },
     {
       "venue_code": "74",
-      "venue_name": "熊本",
-      "venue_slug": "kumamoto",
+      "venue_name": "高知",
+      "venue_slug": "kochi",
       "race_no": 3,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=74&kaisaiBi=20261009&raceNo=3",
       "riders": [
@@ -49950,8 +50295,8 @@
     },
     {
       "venue_code": "74",
-      "venue_name": "熊本",
-      "venue_slug": "kumamoto",
+      "venue_name": "高知",
+      "venue_slug": "kochi",
       "race_no": 4,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=74&kaisaiBi=20261009&raceNo=4",
       "riders": [
@@ -50564,8 +50909,8 @@
     },
     {
       "venue_code": "74",
-      "venue_name": "熊本",
-      "venue_slug": "kumamoto",
+      "venue_name": "高知",
+      "venue_slug": "kochi",
       "race_no": 5,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=74&kaisaiBi=20261009&raceNo=5",
       "riders": [
@@ -51178,8 +51523,8 @@
     },
     {
       "venue_code": "74",
-      "venue_name": "熊本",
-      "venue_slug": "kumamoto",
+      "venue_name": "高知",
+      "venue_slug": "kochi",
       "race_no": 6,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=74&kaisaiBi=20261009&raceNo=6",
       "riders": [
@@ -51786,8 +52131,8 @@
     },
     {
       "venue_code": "74",
-      "venue_name": "熊本",
-      "venue_slug": "kumamoto",
+      "venue_name": "高知",
+      "venue_slug": "kochi",
       "race_no": 7,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=74&kaisaiBi=20261009&raceNo=7",
       "riders": [
@@ -52400,8 +52745,8 @@
     },
     {
       "venue_code": "84",
-      "venue_name": "佐賀",
-      "venue_slug": "saga",
+      "venue_name": "武雄",
+      "venue_slug": "takeo",
       "race_no": 1,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=84&kaisaiBi=20261009&raceNo=1",
       "riders": [
@@ -52423,8 +52768,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 10.32,
           "ai_components": {
             "base_strength": 0,
@@ -52457,8 +52802,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 9.56,
           "ai_components": {
             "base_strength": 0,
@@ -52525,8 +52870,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 34.68,
           "ai_components": {
             "base_strength": 0,
@@ -52559,8 +52904,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 5.63,
           "ai_components": {
             "base_strength": 0,
@@ -52627,8 +52972,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 16.41,
           "ai_components": {
             "base_strength": 0,
@@ -52648,11 +52993,54 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=1",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "流れに乗れるよう",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "3": {
+          "name": "取れた位置から。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "4": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "5": {
+          "name": "流れ見て。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "6": {
+          "name": "取れた位置から。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009.html",
+      "development": "予選で白星を並べる大浦のパワーが上位。強力なタテ攻撃で岩元が迫る。好ダッシュの西脇や野口、長澤も連下注",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/takeo/2026/1009.html",
       "ai": {
         "main": 4,
         "opponent": 7,
@@ -53055,8 +53443,8 @@
     },
     {
       "venue_code": "84",
-      "venue_name": "佐賀",
-      "venue_slug": "saga",
+      "venue_name": "武雄",
+      "venue_slug": "takeo",
       "race_no": 2,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=84&kaisaiBi=20261009&raceNo=2",
       "riders": [
@@ -53111,7 +53499,7 @@
           "kimari_makuri": 0,
           "kimari_sashi": 0,
           "kimari_mark": 0,
-          "comment": "",
+          "comment": "取れた位置から。",
           "prediction_mark": "",
           "prediction_score": 0,
           "ai_score": 0.36,
@@ -53146,8 +53534,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 4,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 11.49,
           "ai_components": {
             "base_strength": 0,
@@ -53180,8 +53568,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 10.7,
           "ai_components": {
             "base_strength": 0,
@@ -53214,8 +53602,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 5.41,
           "ai_components": {
             "base_strength": 0,
@@ -53247,9 +53635,9 @@
           "kimari_makuri": 2,
           "kimari_sashi": 10,
           "kimari_mark": 2,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "comment": "自在に。",
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 23.5,
           "ai_components": {
             "base_strength": 0,
@@ -53282,8 +53670,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 7.11,
           "ai_components": {
             "base_strength": 0,
@@ -53303,11 +53691,54 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=2",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "自在に。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "2": {
+          "name": "渡辺ゆかり",
+          "mark": "",
+          "comment": "取れた位置から。",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "5": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "6": {
+          "name": "藤田まりあ",
+          "mark": "◎",
+          "comment": "自在に。",
+          "prediction_score": 18
+        },
+        "7": {
+          "name": "自在に。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_2.html",
+      "development": "藤田に安定感。的確な運びからタテも用意し中心へ。又多のスピードが対抗第一。地元田中や神戸の一発も侮れぬ",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/takeo/2026/1009_2.html",
       "ai": {
         "main": 6,
         "opponent": 3,
@@ -53710,8 +54141,8 @@
     },
     {
       "venue_code": "84",
-      "venue_name": "佐賀",
-      "venue_slug": "saga",
+      "venue_name": "武雄",
+      "venue_slug": "takeo",
       "race_no": 3,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=84&kaisaiBi=20261009&raceNo=3",
       "riders": [
@@ -53733,8 +54164,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 5.79,
           "ai_components": {
             "base_strength": 0,
@@ -53767,8 +54198,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 7.22,
           "ai_components": {
             "base_strength": 3.21,
@@ -53835,8 +54266,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 25.87,
           "ai_components": {
             "base_strength": 5.13,
@@ -53869,8 +54300,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 30.94,
           "ai_components": {
             "base_strength": 4.66,
@@ -53937,8 +54368,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 10.69,
           "ai_components": {
             "base_strength": 2.25,
@@ -53958,11 +54389,48 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=3",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "2": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "5": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "6": {
+          "name": "決めず単騎で。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_3.html",
+      "development": "松本のパンチ力を買ってマーク仙石との九州ワンツーから入るが、小出の機動力や、乗る山中-塚本の浮上警戒。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/takeo/2026/1009_3.html",
       "ai": {
         "main": 5,
         "opponent": 4,
@@ -54365,8 +54833,8 @@
     },
     {
       "venue_code": "84",
-      "venue_name": "佐賀",
-      "venue_slug": "saga",
+      "venue_name": "武雄",
+      "venue_slug": "takeo",
       "race_no": 4,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=84&kaisaiBi=20261009&raceNo=4",
       "riders": [
@@ -54388,8 +54856,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 10.18,
           "ai_components": {
             "base_strength": 0.78,
@@ -54422,8 +54890,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 7.9,
           "ai_components": {
             "base_strength": 0,
@@ -54456,8 +54924,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 33.97,
           "ai_components": {
             "base_strength": 7.47,
@@ -54524,8 +54992,8 @@
           "kimari_sashi": 10,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 29.42,
           "ai_components": {
             "base_strength": 9.56,
@@ -54592,8 +55060,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 7.3,
           "ai_components": {
             "base_strength": 0,
@@ -54613,11 +55081,48 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=4",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "決めず。",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "2": {
+          "name": "",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "3": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "5": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "6": {
+          "name": "単騎で。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_4.html",
+      "development": "予選４連勝を狙う桜井のタテを推すが、出方ひとつで乗る藤野が鋭く逆転。良化する清家-住村の先制攻撃を警戒",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/takeo/2026/1009_4.html",
       "ai": {
         "main": 3,
         "opponent": 5,
@@ -55020,8 +55525,8 @@
     },
     {
       "venue_code": "84",
-      "venue_name": "佐賀",
-      "venue_slug": "saga",
+      "venue_name": "武雄",
+      "venue_slug": "takeo",
       "race_no": 5,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=84&kaisaiBi=20261009&raceNo=5",
       "riders": [
@@ -55043,8 +55548,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 12.24,
           "ai_components": {
             "base_strength": 2.96,
@@ -55077,8 +55582,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 5.39,
           "ai_components": {
             "base_strength": 2.6,
@@ -55145,8 +55650,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 5.88,
           "ai_components": {
             "base_strength": 0,
@@ -55179,8 +55684,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 24.96,
           "ai_components": {
             "base_strength": 7.71,
@@ -55247,8 +55752,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 6.13,
           "ai_components": {
             "base_strength": 1.72,
@@ -55268,11 +55773,48 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=5",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "5": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "6": {
+          "name": "切れ目から。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_5.html",
+      "development": "直前２勝し上向く新人鴨下のスピードが上位。元砂-樫村が続き中近本線。岡山３車の川本-井上-小野が猛抵抗",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/takeo/2026/1009_5.html",
       "ai": {
         "main": 5,
         "opponent": 1,
@@ -55675,8 +56217,8 @@
     },
     {
       "venue_code": "84",
-      "venue_name": "佐賀",
-      "venue_slug": "saga",
+      "venue_name": "武雄",
+      "venue_slug": "takeo",
       "race_no": 6,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=84&kaisaiBi=20261009&raceNo=6",
       "riders": [
@@ -55698,8 +56240,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 5.44,
           "ai_components": {
             "base_strength": 0,
@@ -55766,8 +56308,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 9.27,
           "ai_components": {
             "base_strength": 0,
@@ -55800,8 +56342,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 14.57,
           "ai_components": {
             "base_strength": 2.03,
@@ -55834,8 +56376,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 4,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 16.44,
           "ai_components": {
             "base_strength": 6.32,
@@ -55902,8 +56444,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 31.58,
           "ai_components": {
             "base_strength": 10.54,
@@ -55923,11 +56465,48 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=6",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "2": {
+          "name": "一人で。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        },
+        "4": {
+          "name": "阿部さん。",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "5": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "7": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_6.html",
+      "development": "久保田は長駆生還が可能な地脚タイプ。逃げ切り期待だが、照屋の逆転差しは五分だし、阿部次第で安本の浮上も",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/takeo/2026/1009_6.html",
       "ai": {
         "main": 7,
         "opponent": 5,
@@ -56330,8 +56909,8 @@
     },
     {
       "venue_code": "84",
-      "venue_name": "佐賀",
-      "venue_slug": "saga",
+      "venue_name": "武雄",
+      "venue_slug": "takeo",
       "race_no": 7,
       "url": "https://www.oddspark.com/keirin/RaceList.do?joCode=84&kaisaiBi=20261009&raceNo=7",
       "riders": [
@@ -56353,8 +56932,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 6.08,
           "ai_components": {
             "base_strength": 0,
@@ -56387,8 +56966,8 @@
           "kimari_sashi": 12,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 34.57,
           "ai_components": {
             "base_strength": 10.3,
@@ -56421,8 +57000,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 35.29,
           "ai_components": {
             "base_strength": 12.83,
@@ -56455,8 +57034,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 9.68,
           "ai_components": {
             "base_strength": 0,
@@ -56557,8 +57136,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 6,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "△",
+          "prediction_score": 5,
           "ai_score": 13.64,
           "ai_components": {
             "base_strength": 0.51,
@@ -56578,11 +57157,48 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=7",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "2": {
+          "name": "",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "4": {
+          "name": "",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "6": {
+          "name": "決めず。",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "",
+          "mark": "△",
+          "comment": "",
+          "prediction_score": 5
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
-      "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_7.html",
+      "development": "滿田が勢いとパワーでリードするが、前回差した松永から入る手も。３番手の原や、右近-齋藤の抵抗も注。",
+      "prediction_url": "https://sp.oddspark.com/keirin/yosou/takeo/2026/1009_7.html",
       "ai": {
         "main": 3,
         "opponent": 2,
