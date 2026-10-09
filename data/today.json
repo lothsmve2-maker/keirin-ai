@@ -4243,21 +4243,21 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-09T21:31:02.171060+09:00",
+  "updated_at": "2026-10-09T21:58:59.164809+09:00",
   "target_date": "2026-10-09",
   "data_complete": true,
   "result_complete": false,
   "payout_complete": false,
   "venue_count": 8,
   "race_count": 79,
-  "rider_count": 563,
-  "correct_name_count": 563,
+  "rider_count": 575,
+  "correct_name_count": 575,
   "prediction_race_count": 42,
   "comment_count": 520,
   "line_race_count": 0,
   "development_count": 70,
   "ai_race_count": 79,
-  "ai_rider_count": 563,
+  "ai_rider_count": 575,
   "frozen_prediction_count": 79,
   "result_count": 1,
   "result_pending_count": 78,
@@ -6346,6 +6346,28 @@
         },
         {
           "car_no": 5,
+          "name": "佐藤 友和",
+          "age": 43,
+          "period": 88,
+          "prefecture": "岩手",
+          "grade": "",
+          "style": "両",
+          "score": 109.466,
+          "finish_1": 2,
+          "finish_2": 3,
+          "finish_3": 2,
+          "finish_out": 9,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 4,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "朝倉 智仁",
           "age": 27,
           "period": 115,
@@ -6361,28 +6383,6 @@
           "kimari_makuri": 3,
           "kimari_sashi": 3,
           "kimari_mark": 0,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "神山 拓弥",
-          "age": 39,
-          "period": 91,
-          "prefecture": "栃木",
-          "grade": "",
-          "style": "追",
-          "score": 105.375,
-          "finish_1": 3,
-          "finish_2": 2,
-          "finish_3": 1,
-          "finish_out": 18,
-          "kimari_nige": 0,
-          "kimari_makuri": 1,
-          "kimari_sashi": 3,
-          "kimari_mark": 1,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -6405,6 +6405,28 @@
           "kimari_makuri": 2,
           "kimari_sashi": 0,
           "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "神山 拓弥",
+          "age": 39,
+          "period": 91,
+          "prefecture": "栃木",
+          "grade": "",
+          "style": "追",
+          "score": 105.375,
+          "finish_1": 3,
+          "finish_2": 2,
+          "finish_3": 1,
+          "finish_out": 18,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
+          "kimari_sashi": 3,
+          "kimari_mark": 1,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -6836,7 +6858,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=1"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=1"
       },
       "odds": {
         "available": true,
@@ -6982,6 +7004,28 @@
         },
         {
           "car_no": 5,
+          "name": "和田 圭",
+          "age": 40,
+          "period": 92,
+          "prefecture": "宮城",
+          "grade": "",
+          "style": "追",
+          "score": 110.541,
+          "finish_1": 5,
+          "finish_2": 5,
+          "finish_3": 3,
+          "finish_out": 11,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 7,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "村上 翔馬",
           "age": 27,
           "period": 123,
@@ -6996,28 +7040,6 @@
           "kimari_nige": 2,
           "kimari_makuri": 2,
           "kimari_sashi": 0,
-          "kimari_mark": 0,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "渡邉 一成",
-          "age": 43,
-          "period": 88,
-          "prefecture": "福島",
-          "grade": "",
-          "style": "両",
-          "score": 106.652,
-          "finish_1": 8,
-          "finish_2": 4,
-          "finish_3": 5,
-          "finish_out": 6,
-          "kimari_nige": 6,
-          "kimari_makuri": 5,
-          "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
@@ -7041,6 +7063,28 @@
           "kimari_makuri": 0,
           "kimari_sashi": 3,
           "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "渡邉 一成",
+          "age": 43,
+          "period": 88,
+          "prefecture": "福島",
+          "grade": "",
+          "style": "両",
+          "score": 106.652,
+          "finish_1": 8,
+          "finish_2": 4,
+          "finish_3": 5,
+          "finish_out": 6,
+          "kimari_nige": 6,
+          "kimari_makuri": 5,
+          "kimari_sashi": 1,
+          "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -7472,7 +7516,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -7618,6 +7662,28 @@
         },
         {
           "car_no": 5,
+          "name": "西田 優大",
+          "age": 29,
+          "period": 123,
+          "prefecture": "広島",
+          "grade": "",
+          "style": "逃",
+          "score": 109.464,
+          "finish_1": 4,
+          "finish_2": 6,
+          "finish_3": 5,
+          "finish_out": 14,
+          "kimari_nige": 4,
+          "kimari_makuri": 4,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "梁島 邦友",
           "age": 27,
           "period": 117,
@@ -7633,28 +7699,6 @@
           "kimari_makuri": 0,
           "kimari_sashi": 0,
           "kimari_mark": 1,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "桑名 僚也",
-          "age": 29,
-          "period": 119,
-          "prefecture": "埼玉",
-          "grade": "",
-          "style": "追",
-          "score": 104.636,
-          "finish_1": 3,
-          "finish_2": 3,
-          "finish_3": 1,
-          "finish_out": 5,
-          "kimari_nige": 0,
-          "kimari_makuri": 0,
-          "kimari_sashi": 4,
-          "kimari_mark": 2,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -7677,6 +7721,28 @@
           "kimari_makuri": 7,
           "kimari_sashi": 1,
           "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "桑名 僚也",
+          "age": 29,
+          "period": 119,
+          "prefecture": "埼玉",
+          "grade": "",
+          "style": "追",
+          "score": 104.636,
+          "finish_1": 3,
+          "finish_2": 3,
+          "finish_3": 1,
+          "finish_out": 5,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 4,
+          "kimari_mark": 2,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -8108,7 +8174,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -8254,6 +8320,28 @@
         },
         {
           "car_no": 5,
+          "name": "木村 皆斗",
+          "age": 25,
+          "period": 119,
+          "prefecture": "茨城",
+          "grade": "",
+          "style": "逃",
+          "score": 108.571,
+          "finish_1": 5,
+          "finish_2": 3,
+          "finish_3": 7,
+          "finish_out": 13,
+          "kimari_nige": 6,
+          "kimari_makuri": 2,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "黒瀬浩太郎",
           "age": 26,
           "period": 123,
@@ -8275,28 +8363,6 @@
           "ai_score": 0
         },
         {
-          "car_no": 6,
-          "name": "山形 一気",
-          "age": 37,
-          "period": 96,
-          "prefecture": "山形",
-          "grade": "",
-          "style": "追",
-          "score": 107.5,
-          "finish_1": 3,
-          "finish_2": 3,
-          "finish_3": 5,
-          "finish_out": 15,
-          "kimari_nige": 0,
-          "kimari_makuri": 1,
-          "kimari_sashi": 4,
-          "kimari_mark": 1,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
           "car_no": 7,
           "name": "東口 善朋",
           "age": 47,
@@ -8311,6 +8377,28 @@
           "finish_out": 8,
           "kimari_nige": 0,
           "kimari_makuri": 0,
+          "kimari_sashi": 4,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "山形 一気",
+          "age": 37,
+          "period": 96,
+          "prefecture": "徳島",
+          "grade": "",
+          "style": "追",
+          "score": 107.5,
+          "finish_1": 3,
+          "finish_2": 3,
+          "finish_3": 5,
+          "finish_out": 15,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
           "kimari_sashi": 4,
           "kimari_mark": 1,
           "comment": "",
@@ -8744,7 +8832,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -8890,6 +8978,28 @@
         },
         {
           "car_no": 5,
+          "name": "市田龍生都",
+          "age": 25,
+          "period": 127,
+          "prefecture": "福井",
+          "grade": "",
+          "style": "逃",
+          "score": 110.842,
+          "finish_1": 6,
+          "finish_2": 3,
+          "finish_3": 1,
+          "finish_out": 10,
+          "kimari_nige": 9,
+          "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "山口 多聞",
           "age": 24,
           "period": 121,
@@ -8903,28 +9013,6 @@
           "finish_out": 23,
           "kimari_nige": 3,
           "kimari_makuri": 2,
-          "kimari_sashi": 0,
-          "kimari_mark": 0,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "阿部 英斗",
-          "age": 22,
-          "period": 125,
-          "prefecture": "福岡",
-          "grade": "",
-          "style": "逃",
-          "score": 104.38,
-          "finish_1": 3,
-          "finish_2": 4,
-          "finish_3": 0,
-          "finish_out": 15,
-          "kimari_nige": 1,
-          "kimari_makuri": 6,
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
@@ -8949,6 +9037,28 @@
           "kimari_makuri": 1,
           "kimari_sashi": 5,
           "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "阿部 英斗",
+          "age": 22,
+          "period": 125,
+          "prefecture": "福岡",
+          "grade": "",
+          "style": "逃",
+          "score": 104.38,
+          "finish_1": 3,
+          "finish_2": 4,
+          "finish_3": 0,
+          "finish_out": 15,
+          "kimari_nige": 1,
+          "kimari_makuri": 6,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -9380,7 +9490,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=5"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -9526,6 +9636,28 @@
         },
         {
           "car_no": 5,
+          "name": "山田 英明",
+          "age": 43,
+          "period": 89,
+          "prefecture": "佐賀",
+          "grade": "",
+          "style": "両",
+          "score": 112.928,
+          "finish_1": 4,
+          "finish_2": 2,
+          "finish_3": 3,
+          "finish_out": 5,
+          "kimari_nige": 0,
+          "kimari_makuri": 2,
+          "kimari_sashi": 3,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "角 令央奈",
           "age": 39,
           "period": 98,
@@ -9541,28 +9673,6 @@
           "kimari_makuri": 1,
           "kimari_sashi": 5,
           "kimari_mark": 2,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "橋本 優己",
-          "age": 26,
-          "period": 117,
-          "prefecture": "岐阜",
-          "grade": "",
-          "style": "逃",
-          "score": 103.863,
-          "finish_1": 2,
-          "finish_2": 5,
-          "finish_3": 0,
-          "finish_out": 16,
-          "kimari_nige": 0,
-          "kimari_makuri": 4,
-          "kimari_sashi": 3,
-          "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -9585,6 +9695,28 @@
           "kimari_makuri": 1,
           "kimari_sashi": 3,
           "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "橋本 優己",
+          "age": 26,
+          "period": 117,
+          "prefecture": "岐阜",
+          "grade": "",
+          "style": "逃",
+          "score": 103.863,
+          "finish_1": 2,
+          "finish_2": 5,
+          "finish_3": 0,
+          "finish_out": 16,
+          "kimari_nige": 0,
+          "kimari_makuri": 4,
+          "kimari_sashi": 3,
+          "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -10016,7 +10148,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -10162,6 +10294,28 @@
         },
         {
           "car_no": 5,
+          "name": "佐々木雄一",
+          "age": 46,
+          "period": 83,
+          "prefecture": "福島",
+          "grade": "",
+          "style": "追",
+          "score": 106.947,
+          "finish_1": 4,
+          "finish_2": 2,
+          "finish_3": 2,
+          "finish_out": 11,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 5,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "渡辺 正光",
           "age": 38,
           "period": 95,
@@ -10177,28 +10331,6 @@
           "kimari_makuri": 1,
           "kimari_sashi": 0,
           "kimari_mark": 0,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "岡本 総",
-          "age": 39,
-          "period": 105,
-          "prefecture": "愛知",
-          "grade": "",
-          "style": "追",
-          "score": 106.478,
-          "finish_1": 5,
-          "finish_2": 2,
-          "finish_3": 2,
-          "finish_out": 14,
-          "kimari_nige": 0,
-          "kimari_makuri": 1,
-          "kimari_sashi": 5,
-          "kimari_mark": 1,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -10221,6 +10353,28 @@
           "kimari_makuri": 0,
           "kimari_sashi": 8,
           "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "岡本 総",
+          "age": 39,
+          "period": 105,
+          "prefecture": "愛知",
+          "grade": "",
+          "style": "追",
+          "score": 106.478,
+          "finish_1": 5,
+          "finish_2": 2,
+          "finish_3": 2,
+          "finish_out": 14,
+          "kimari_nige": 0,
+          "kimari_makuri": 1,
+          "kimari_sashi": 5,
+          "kimari_mark": 1,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -10652,7 +10806,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -10798,6 +10952,28 @@
         },
         {
           "car_no": 5,
+          "name": "武藤 龍生",
+          "age": 35,
+          "period": 98,
+          "prefecture": "埼玉",
+          "grade": "",
+          "style": "追",
+          "score": 113.259,
+          "finish_1": 6,
+          "finish_2": 6,
+          "finish_3": 2,
+          "finish_out": 13,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 9,
+          "kimari_mark": 3,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "山本 伸一",
           "age": 43,
           "period": 101,
@@ -10819,28 +10995,6 @@
           "ai_score": 0
         },
         {
-          "car_no": 6,
-          "name": "谷内 健太",
-          "age": 26,
-          "period": 125,
-          "prefecture": "京都",
-          "grade": "",
-          "style": "逃",
-          "score": 106.458,
-          "finish_1": 2,
-          "finish_2": 6,
-          "finish_3": 6,
-          "finish_out": 10,
-          "kimari_nige": 5,
-          "kimari_makuri": 3,
-          "kimari_sashi": 0,
-          "kimari_mark": 0,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
           "car_no": 7,
           "name": "後藤 大輝",
           "age": 25,
@@ -10855,6 +11009,28 @@
           "finish_out": 8,
           "kimari_nige": 12,
           "kimari_makuri": 0,
+          "kimari_sashi": 0,
+          "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "谷内 健太",
+          "age": 26,
+          "period": 125,
+          "prefecture": "京都",
+          "grade": "",
+          "style": "逃",
+          "score": 106.458,
+          "finish_1": 2,
+          "finish_2": 6,
+          "finish_3": 6,
+          "finish_out": 10,
+          "kimari_nige": 5,
+          "kimari_makuri": 3,
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
@@ -11288,7 +11464,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=8"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=8"
       },
       "odds": {
         "available": true,
@@ -11434,6 +11610,28 @@
         },
         {
           "car_no": 5,
+          "name": "村上 博幸",
+          "age": 47,
+          "period": 86,
+          "prefecture": "京都",
+          "grade": "",
+          "style": "追",
+          "score": 110.0,
+          "finish_1": 3,
+          "finish_2": 2,
+          "finish_3": 2,
+          "finish_out": 9,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 3,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "坂本 貴史",
           "age": 37,
           "period": 94,
@@ -11449,28 +11647,6 @@
           "kimari_makuri": 3,
           "kimari_sashi": 3,
           "kimari_mark": 1,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "椎木尾拓哉",
-          "age": 41,
-          "period": 93,
-          "prefecture": "",
-          "grade": "",
-          "style": "追",
-          "score": 105.391,
-          "finish_1": 4,
-          "finish_2": 3,
-          "finish_3": 8,
-          "finish_out": 9,
-          "kimari_nige": 0,
-          "kimari_makuri": 0,
-          "kimari_sashi": 7,
-          "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -11493,6 +11669,28 @@
           "kimari_makuri": 2,
           "kimari_sashi": 10,
           "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "椎木尾拓哉",
+          "age": 41,
+          "period": 93,
+          "prefecture": "",
+          "grade": "",
+          "style": "追",
+          "score": 105.391,
+          "finish_1": 4,
+          "finish_2": 3,
+          "finish_3": 8,
+          "finish_out": 9,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 7,
+          "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -11924,7 +12122,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=9"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=9"
       },
       "odds": {
         "available": true,
@@ -12070,6 +12268,28 @@
         },
         {
           "car_no": 5,
+          "name": "菊池 岳仁",
+          "age": 26,
+          "period": 117,
+          "prefecture": "長野",
+          "grade": "",
+          "style": "逃",
+          "score": 112.526,
+          "finish_1": 4,
+          "finish_2": 4,
+          "finish_3": 2,
+          "finish_out": 9,
+          "kimari_nige": 2,
+          "kimari_makuri": 5,
+          "kimari_sashi": 0,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "真鍋 智寛",
           "age": 27,
           "period": 121,
@@ -12091,28 +12311,6 @@
           "ai_score": 0
         },
         {
-          "car_no": 6,
-          "name": "室井蓮太朗",
-          "age": 25,
-          "period": 121,
-          "prefecture": "徳島",
-          "grade": "",
-          "style": "両",
-          "score": 109.062,
-          "finish_1": 3,
-          "finish_2": 3,
-          "finish_3": 0,
-          "finish_out": 11,
-          "kimari_nige": 0,
-          "kimari_makuri": 4,
-          "kimari_sashi": 1,
-          "kimari_mark": 1,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
           "car_no": 7,
           "name": "嘉永 泰斗",
           "age": 28,
@@ -12127,6 +12325,28 @@
           "finish_out": 11,
           "kimari_nige": 1,
           "kimari_makuri": 5,
+          "kimari_sashi": 1,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "室井蓮太朗",
+          "age": 25,
+          "period": 121,
+          "prefecture": "徳島",
+          "grade": "",
+          "style": "両",
+          "score": 109.062,
+          "finish_1": 3,
+          "finish_2": 3,
+          "finish_3": 0,
+          "finish_out": 11,
+          "kimari_nige": 0,
+          "kimari_makuri": 4,
           "kimari_sashi": 1,
           "kimari_mark": 1,
           "comment": "",
@@ -12560,7 +12780,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=10"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=10"
       },
       "odds": {
         "available": true,
@@ -12706,6 +12926,28 @@
         },
         {
           "car_no": 5,
+          "name": "岩津 裕介",
+          "age": 44,
+          "period": 87,
+          "prefecture": "岡山",
+          "grade": "",
+          "style": "追",
+          "score": 111.3,
+          "finish_1": 6,
+          "finish_2": 7,
+          "finish_3": 4,
+          "finish_out": 13,
+          "kimari_nige": 0,
+          "kimari_makuri": 0,
+          "kimari_sashi": 11,
+          "kimari_mark": 2,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "岸田 剛",
           "age": 27,
           "period": 121,
@@ -12720,28 +12962,6 @@
           "kimari_nige": 3,
           "kimari_makuri": 3,
           "kimari_sashi": 1,
-          "kimari_mark": 0,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "脇本 勇希",
-          "age": 27,
-          "period": 115,
-          "prefecture": "福井",
-          "grade": "",
-          "style": "逃",
-          "score": 106.333,
-          "finish_1": 4,
-          "finish_2": 2,
-          "finish_3": 3,
-          "finish_out": 16,
-          "kimari_nige": 1,
-          "kimari_makuri": 3,
-          "kimari_sashi": 2,
           "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
@@ -12765,6 +12985,28 @@
           "kimari_makuri": 2,
           "kimari_sashi": 4,
           "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "脇本 勇希",
+          "age": 27,
+          "period": 115,
+          "prefecture": "福井",
+          "grade": "",
+          "style": "逃",
+          "score": 106.333,
+          "finish_1": 4,
+          "finish_2": 2,
+          "finish_3": 3,
+          "finish_out": 16,
+          "kimari_nige": 1,
+          "kimari_makuri": 3,
+          "kimari_sashi": 2,
+          "kimari_mark": 0,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -13196,7 +13438,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=11"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -13342,6 +13584,28 @@
         },
         {
           "car_no": 5,
+          "name": "古性 優作",
+          "age": 35,
+          "period": 100,
+          "prefecture": "大阪",
+          "grade": "",
+          "style": "両",
+          "score": 119.5,
+          "finish_1": 3,
+          "finish_2": 5,
+          "finish_3": 6,
+          "finish_out": 6,
+          "kimari_nige": 0,
+          "kimari_makuri": 2,
+          "kimari_sashi": 5,
+          "kimari_mark": 1,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 6,
           "name": "小原 佑太",
           "age": 30,
           "period": 115,
@@ -13357,28 +13621,6 @@
           "kimari_makuri": 2,
           "kimari_sashi": 3,
           "kimari_mark": 0,
-          "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
-          "ai_score": 0
-        },
-        {
-          "car_no": 6,
-          "name": "新田 祐大",
-          "age": 40,
-          "period": 90,
-          "prefecture": "福島",
-          "grade": "",
-          "style": "両",
-          "score": 114.476,
-          "finish_1": 7,
-          "finish_2": 4,
-          "finish_3": 2,
-          "finish_out": 10,
-          "kimari_nige": 0,
-          "kimari_makuri": 6,
-          "kimari_sashi": 4,
-          "kimari_mark": 1,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -13401,6 +13643,28 @@
           "kimari_makuri": 3,
           "kimari_sashi": 3,
           "kimari_mark": 0,
+          "comment": "",
+          "prediction_mark": "",
+          "prediction_score": 0,
+          "ai_score": 0
+        },
+        {
+          "car_no": 8,
+          "name": "新田 祐大",
+          "age": 40,
+          "period": 90,
+          "prefecture": "福島",
+          "grade": "",
+          "style": "両",
+          "score": 114.476,
+          "finish_1": 7,
+          "finish_2": 4,
+          "finish_3": 2,
+          "finish_out": 10,
+          "kimari_nige": 0,
+          "kimari_makuri": 6,
+          "kimari_sashi": 4,
+          "kimari_mark": 1,
           "comment": "",
           "prediction_mark": "",
           "prediction_score": 0,
@@ -13832,7 +14096,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=21&kaisaiBi=20261009&raceNo=12"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=21&kaisaiBi=20261009&raceNo=12"
       },
       "odds": {
         "available": true,
@@ -14530,7 +14794,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=1"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=1"
       },
       "odds": {
         "available": true,
@@ -15228,7 +15492,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -15926,7 +16190,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -16624,7 +16888,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -17322,7 +17586,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=5"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -18020,7 +18284,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -18718,7 +18982,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -19416,7 +19680,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=8"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=8"
       },
       "odds": {
         "available": true,
@@ -20114,7 +20378,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261009&raceNo=9"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261009&raceNo=9"
       },
       "odds": {
         "available": true,
@@ -20682,7 +20946,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=1"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=1"
       },
       "odds": {
         "available": true,
@@ -21280,7 +21544,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -21882,7 +22146,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -22484,7 +22748,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -23092,7 +23356,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=5"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -23700,7 +23964,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -24302,7 +24566,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -24910,7 +25174,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=8"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=8"
       },
       "odds": {
         "available": true,
@@ -25512,7 +25776,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=9"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=9"
       },
       "odds": {
         "available": true,
@@ -26114,7 +26378,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=10"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=10"
       },
       "odds": {
         "available": true,
@@ -26722,7 +26986,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=11"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -27330,7 +27594,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=35&kaisaiBi=20261009&raceNo=12"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=35&kaisaiBi=20261009&raceNo=12"
       },
       "odds": {
         "available": true,
@@ -27944,7 +28208,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=1"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=1"
       },
       "odds": {
         "available": true,
@@ -28552,7 +28816,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -29166,7 +29430,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -29780,7 +30044,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -30394,7 +30658,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=5"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -31002,7 +31266,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -31630,7 +31894,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -32244,7 +32508,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=8"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=8"
       },
       "odds": {
         "available": true,
@@ -32858,7 +33122,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=9"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=9"
       },
       "odds": {
         "available": true,
@@ -33472,7 +33736,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=10"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=10"
       },
       "odds": {
         "available": true,
@@ -34086,7 +34350,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=38&kaisaiBi=20261009&raceNo=11"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261009&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -34700,7 +34964,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=1"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=1"
       },
       "odds": {
         "available": true,
@@ -35314,7 +35578,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -35928,7 +36192,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -36542,7 +36806,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -37116,7 +37380,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=5"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -37720,7 +37984,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -38334,7 +38598,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -38948,7 +39212,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=8"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=8"
       },
       "odds": {
         "available": true,
@@ -39562,7 +39826,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=9"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=9"
       },
       "odds": {
         "available": true,
@@ -40176,7 +40440,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=10"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=10"
       },
       "odds": {
         "available": true,
@@ -40790,7 +41054,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=11"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=11"
       },
       "odds": {
         "available": true,
@@ -41404,7 +41668,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=48&kaisaiBi=20261009&raceNo=12"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261009&raceNo=12"
       },
       "odds": {
         "available": true,
@@ -42102,7 +42366,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=1"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=1"
       },
       "odds": {
         "available": true,
@@ -42794,7 +43058,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -43492,7 +43756,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -44184,7 +44448,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -44882,7 +45146,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=5"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -45580,7 +45844,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -46266,7 +46530,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -46964,7 +47228,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=8"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=8"
       },
       "odds": {
         "available": true,
@@ -47656,7 +47920,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=53&kaisaiBi=20261009&raceNo=9"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261009&raceNo=9"
       },
       "odds": {
         "available": true,
@@ -48264,7 +48528,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261009&raceNo=1"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=74&kaisaiBi=20261009&raceNo=1"
       },
       "odds": {
         "available": true,
@@ -49500,7 +49764,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261009&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=74&kaisaiBi=20261009&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -50114,7 +50378,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261009&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=74&kaisaiBi=20261009&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -50728,7 +50992,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261009&raceNo=5"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=74&kaisaiBi=20261009&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -51336,7 +51600,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261009&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=74&kaisaiBi=20261009&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -51950,7 +52214,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=74&kaisaiBi=20261009&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=74&kaisaiBi=20261009&raceNo=7"
       },
       "odds": {
         "available": true,
@@ -52648,7 +52912,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=1"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=84&kaisaiBi=20261009&raceNo=1"
       },
       "odds": {
         "available": true,
@@ -53346,7 +53610,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=2"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=84&kaisaiBi=20261009&raceNo=2"
       },
       "odds": {
         "available": true,
@@ -54038,7 +54302,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=3"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=84&kaisaiBi=20261009&raceNo=3"
       },
       "odds": {
         "available": true,
@@ -54730,7 +54994,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=4"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=84&kaisaiBi=20261009&raceNo=4"
       },
       "odds": {
         "available": true,
@@ -55422,7 +55686,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=5"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=84&kaisaiBi=20261009&raceNo=5"
       },
       "odds": {
         "available": true,
@@ -56114,7 +56378,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=6"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=84&kaisaiBi=20261009&raceNo=6"
       },
       "odds": {
         "available": true,
@@ -56806,7 +57070,7 @@
         "payout_3tan_yen": 0,
         "payout_source": "",
         "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=84&kaisaiBi=20261009&raceNo=7"
+        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=84&kaisaiBi=20261009&raceNo=7"
       },
       "odds": {
         "available": true,
