@@ -109,35 +109,138 @@ def odds_url(c,n):return f'{SP}/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd={
 def result_url(c,n):return f'{SP}/keirin/SpRaceResultInfo.do?joCd={c}&joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
 
 def parse_rider_row(tr):
-    text=clean(tr.get_text(' ',strip=True)); mcar=re.search(r'\b([1-7])\b',text)
-    if not mcar:return None
-    car=int(mcar.group(1)); name=''
+    text = clean(tr.get_text(' ', strip=True))
+
+    cells = [
+        clean(c.get_text(' ', strip=True))
+        for c in tr.find_all(['th', 'td'])
+    ]
+
+    # 車番は、表のセルに単独で記載された数字を優先する
+    car = None
+    for cell in cells:
+        m = re.fullmatch(r'([1-9])', cell)
+        if m:
+            car = int(m.group(1))
+            break
+
+    # セルから取れない場合は、行頭の車番表示を確認
+    if car is None:
+        m = re.match(r'\s*([1-9])(?:\s|$)', text)
+        if m:
+            car = int(m.group(1))
+
+    if car is None:
+        return None
+
+    name = ''
     for a in tr.find_all('a'):
-        h=a.get('href',''); lab=clean(a.get_text(' ',strip=True))
-        if lab and ('PlayerDetail.do' in h or 'player' in h.lower()) and lab not in MARK_SCORE:name=lab;break
-    cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
+        h = a.get('href', '')
+        lab = clean(a.get_text(' ', strip=True))
+        if (
+            lab
+            and ('PlayerDetail.do' in h or 'player' in h.lower())
+            and lab not in MARK_SCORE
+        ):
+            name = lab
+            break
+
     if not name:
-        for i,v in enumerate(cells):
-            if v==str(car):
-                for x in cells[i+1:i+6]:
-                    if x and x not in MARK_SCORE and not re.fullmatch(r'[1-7]|\d+',x) and re.search(r'[一-龯ぁ-んァ-ヶ]',x) and not any(q in x for q in ('競走得点','着順','決まり手','今場所','前場所')):name=x;break
-            if name:break
-    if not name:return None
-    m=re.search(r'(\d{1,2})歳\s*[／/]\s*(\d{2,3})期',text); age=int(m.group(1)) if m else None; period=int(m.group(2)) if m else None
-    pref=next((p for p in sorted(PREFECTURES,key=len,reverse=True) if p in text),'')
-    mg=re.search(r'\b([SAL]\d)\b',text); grade=mg.group(1) if mg else ''
-    style=next((s for s in ('逃','捲','追','両') if re.search(rf'\s{s}\s*[|｜ ]',text)),'')
-    ms=re.search(r'競走得点\s*[:：]?\s*(\d+(?:\.\d+)?)',text); score=float(ms.group(1)) if ms else None
-    mf=re.search(r'着\s*順\s*[:：]?\s*([^|｜]+)',text); f=numbers4(mf.group(1) if mf else '')
-    mk=re.search(r'決まり手\s*[:：]?\s*([^|｜]+)',text); k=numbers4(mk.group(1) if mk else '')
-    return {'car_no':car,'name':name,'age':age,'period':period,'prefecture':pref,'grade':grade,'style':style,'score':score,'finish_1':f[0],'finish_2':f[1],'finish_3':f[2],'finish_out':f[3],'kimari_nige':k[0],'kimari_makuri':k[1],'kimari_sashi':k[2],'kimari_mark':k[3],'comment':'','prediction_mark':'','prediction_score':0,'ai_score':0}
+        for i, value in enumerate(cells):
+            if value == str(car):
+                for candidate in cells[i + 1:i + 6]:
+                    if (
+                        candidate
+                        and candidate not in MARK_SCORE
+                        and not re.fullmatch(r'[1-9]|\d+', candidate)
+                        and re.search(r'[一-龯ぁ-んァ-ヶ]', candidate)
+                        and not any(
+                            q in candidate
+                            for q in (
+                                '競走得点', '着順', '決まり手',
+                                '今場所', '前場所'
+                            )
+                        )
+                    ):
+                        name = candidate
+                        break
+            if name:
+                break
+
+    if not name:
+        return None
+
+    m = re.search(r'(\d{1,2})歳\s*[／/]\s*(\d{2,3})期', text)
+    age = int(m.group(1)) if m else None
+    period = int(m.group(2)) if m else None
+
+    pref = next(
+        (p for p in sorted(PREFECTURES, key=len, reverse=True) if p in text),
+        ''
+    )
+
+    mg = re.search(r'\b([SAL]\d)\b', text)
+    grade = mg.group(1) if mg else ''
+
+    style = next(
+        (
+            s for s in ('逃', '捲', '追', '両')
+            if re.search(rf'\s{s}\s*[|｜ ]', text)
+        ),
+        ''
+    )
+
+    ms = re.search(r'競走得点\s*[:：]?\s*(\d+(?:\.\d+)?)', text)
+    score = float(ms.group(1)) if ms else None
+
+    mf = re.search(r'着\s*順\s*[:：]?\s*([^|｜]+)', text)
+    f = numbers4(mf.group(1) if mf else '')
+
+    mk = re.search(r'決まり手\s*[:：]?\s*([^|｜]+)', text)
+    k = numbers4(mk.group(1) if mk else '')
+
+    return {
+        'car_no': car,
+        'name': name,
+        'age': age,
+        'period': period,
+        'prefecture': pref,
+        'grade': grade,
+        'style': style,
+        'score': score,
+        'finish_1': f[0],
+        'finish_2': f[1],
+        'finish_3': f[2],
+        'finish_out': f[3],
+        'kimari_nige': k[0],
+        'kimari_makuri': k[1],
+        'kimari_sashi': k[2],
+        'kimari_mark': k[3],
+        'comment': '',
+        'prediction_mark': '',
+        'prediction_score': 0,
+        'ai_score': 0
+    }
+
+
 def parse_riders(sp):
-    best={}
-    if not sp:return []
+    best = {}
+
+    if not sp:
+        return []
+
     for tr in sp.find_all('tr'):
-        r=parse_rider_row(tr)
-        if r:best[r['car_no']]=r
-    return [best[k] for k in sorted(best)] if 5<=len(best)<=7 else []
+        rider = parse_rider_row(tr)
+
+        if rider:
+            best[rider['car_no']] = rider
+
+    # 競輪の出走人数は5〜9人。
+    # 9人立てのレースも有効なデータとして返す。
+    if not 5 <= len(best) <= 9:
+        return []
+
+    return [best[k] for k in sorted(best)]
 def discover_related(sp):
     out={'odds_url':'','result_url':''}
     if not sp:return out
