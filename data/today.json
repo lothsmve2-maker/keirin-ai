@@ -4243,7 +4243,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-09T22:29:01.684783+09:00",
+  "updated_at": "2026-10-09T23:27:48.691261+09:00",
   "target_date": "2026-10-09",
   "data_complete": true,
   "result_complete": false,
@@ -6129,22 +6129,6 @@
       ]
     },
     {
-      "venue_code": "34",
-      "venue_name": "川崎",
-      "race_count": 9,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ]
-    },
-    {
       "venue_code": "21",
       "venue_name": "弥彦",
       "race_count": 12,
@@ -6199,6 +6183,22 @@
         10,
         11,
         12
+      ]
+    },
+    {
+      "venue_code": "34",
+      "venue_name": "川崎",
+      "race_count": 9,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
       ]
     },
     {
@@ -9003,7 +9003,7 @@
           "name": "山口 多聞",
           "age": 24,
           "period": 121,
-          "prefecture": "山口",
+          "prefecture": "埼玉",
           "grade": "",
           "style": "逃",
           "score": 99.0,
@@ -13565,7 +13565,7 @@
           "name": "山口 拳矢",
           "age": 30,
           "period": 117,
-          "prefecture": "山口",
+          "prefecture": "岐阜",
           "grade": "",
           "style": "両",
           "score": 115.269,
