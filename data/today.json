@@ -4243,7 +4243,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-09T11:21:07.611475+09:00",
+  "updated_at": "2026-10-09T12:24:56.937395+09:00",
   "target_date": "2026-10-09",
   "data_complete": true,
   "result_complete": false,
@@ -11722,7 +11722,7 @@
           "name": "山口 貴嗣",
           "age": 48,
           "period": 82,
-          "prefecture": "福岡",
+          "prefecture": "山口",
           "grade": "",
           "style": "追",
           "score": 100.321,
@@ -22752,7 +22752,7 @@
           "name": "山口 泰生",
           "age": 44,
           "period": 89,
-          "prefecture": "岐阜",
+          "prefecture": "山口",
           "grade": "",
           "style": "追",
           "score": 94.111,
