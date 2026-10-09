@@ -222,7 +222,8 @@ def discover_today_venues():
         )
     )
 
-    return list(found.values())def discover_real_races(v):
+        return list(found.values())
+def discover_real_races(v):
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         rs=[f.result() for f in as_completed([ex.submit(fetch_race,{'venue_code':v['code'],'venue_name':v['name'],'venue_slug':v['slug'],'race_no':n}) for n in range(1,13)])]
     return sorted([r for r in rs if r['success']],key=lambda x:x['race_no'])
