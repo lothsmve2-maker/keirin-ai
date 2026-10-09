@@ -578,14 +578,35 @@ def fetch_result(race):
     return {'result_finished':False,'finished':False,'finish':[],'result_status':'error','payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'','payout_status':'error'}
 
 def parse_odds_page(html):
-    sp=soup(html);odds={}
-    if not sp:return {'available':False,'odds':{}}
-    text=clean(sp.get_text(' ',strip=True))
-    for m in re.finditer(
-    r'([1-9])\s*[→＞>\-−]\s*([1-9])\s*[→＞>\-−]\s*([1-9])\s+(\d+(?:\.\d+)?)',
-    text
-):
-    return {'available':bool(odds),'odds':odds}
+    odds = {}
+    if not html:
+        return {'available': False, 'odds': odds}
+
+    sp = BeautifulSoup(html, 'html.parser')
+    text = clean(sp.get_text(' ', strip=True))
+
+    pattern = (
+        r'([1-9])\s*[→＞>\-−]\s*'
+        r'([1-9])\s*[→＞>\-−]\s*'
+        r'([1-9])\s+(\d+(?:\.\d+)?)'
+    )
+
+    for m in re.finditer(pattern, text):
+        first = int(m.group(1))
+        second = int(m.group(2))
+        third = int(m.group(3))
+        value = float(m.group(4))
+
+        # 同じ車番を重複した買い目として登録しない
+        if len({first, second, third}) != 3:
+            continue
+
+        odds[f'{first}-{second}-{third}'] = value
+
+    return {
+        'available': bool(odds),
+        'odds': odds
+    }
 def fetch_odds(race):
     for u in [race.get('odds_url',''),odds_url(race['venue_code'],race['race_no'])]:
         if u:
