@@ -967,7 +967,14 @@ def freeze_prediction(race,old):
     race['frozen_prediction']={'created_at':now_jst().isoformat(),'main':race['ai']['main'],'opponent':race['ai']['opponent'],'dark_horse':race['ai']['dark_horse'],'verdict':race['verdict'],'ranking':race['ai']['ranking'],'bets':race['bets']}
 
 def old_race_ready_for_reuse(r):
-    return bool(r.get('riders')) and 5<=len(r.get('riders',[]))<=7 and bool(r.get('venue_code')) and int(r.get('race_no',0))>0
+    riders = r.get('riders', [])
+
+    return (
+        isinstance(riders, list)
+        and 5 <= len(riders) <= 9
+        and bool(r.get('venue_code'))
+        and int(r.get('race_no', 0)) > 0
+    )
 
 def merge_existing_race(oldrace):
     # Reuse the already downloaded race/prediction data. This is the main v6.7 speed-up.
@@ -1109,7 +1116,18 @@ def main():
     print(f'検出レース数: {len(all_races)}')
     # In v6.8 this means races present in today's dataset, not HTTP requests.
     # Existing race pages are reused; only missing/incomplete records are fetched.
-    detail_targets=[r for r in all_races if not (5<=len(r.get('riders',[]))<=7 and r.get('url'))]
+    detail_targets = [
+    r for r in all_races
+    if (
+        not (5 <= len(r.get('riders', [])) <= 9)
+        or not r.get('url')
+        or sorted(
+            x.get('car_no')
+            for x in r.get('riders', [])
+            if isinstance(x.get('car_no'), int)
+        ) != list(range(1, len(r.get('riders', [])) + 1))
+    )
+]
     print(f'詳細取得対象レース: {len(detail_targets)}/{len(all_races)}レース')
     if detail_targets:
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
@@ -1118,7 +1136,11 @@ def main():
                 r=fs[f]
                 try:r.update(f.result())
                 except:pass
-    print(f'選手データ取得結果: {sum(5<=len(r.get("riders",[]))<=7 for r in all_races)}/{len(all_races)}')
+    print(
+    f'選手データ取得結果: '
+    f'{sum(5 <= len(r.get("riders", [])) <= 9 for r in all_races)}'
+    f'/{len(all_races)}'
+)
 
     # Only fetch prediction pages when frozen prediction data is missing/incomplete.
     prediction_targets=[]
