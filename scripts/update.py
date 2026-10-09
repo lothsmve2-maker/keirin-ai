@@ -15,7 +15,57 @@ TIMEOUT=15; RETRIES=1; MAX_WORKERS=8; BET_UNIT=100; MAX_BETS=10
 # 利益重視の暫定運用設定。実際の凍結予想は変更せず、推奨購入だけを別管理します。
 DAILY_MAX_RACES=3; DAILY_BET_COUNT=5; DAILY_BUDGET=DAILY_MAX_RACES*DAILY_BET_COUNT*BET_UNIT
 HEADERS={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36','Accept-Language':'ja-JP,ja;q=0.9,en;q=0.8'}
-VENUES={'22':('前橋','maebashi'),'25':('大宮','omiya'),'35':('平塚','hiratsuka'),'38':('静岡','shizuoka'),'44':('大垣','ogaki'),'48':('四日市','yokkaichi'),'74':('高知','kochi')}
+# 全国の競輪場。開催中の場は毎回オッズパークから自動検出する。
+VENUE_MASTER = {
+    '11': ('函館', 'hakodate'),
+    '12': ('青森', 'aomori'),
+    '13': ('いわき平', 'iwakitaira'),
+    '21': ('弥彦', 'yahiko'),
+    '22': ('前橋', 'maebashi'),
+    '23': ('取手', 'toride'),
+    '24': ('宇都宮', 'utsunomiya'),
+    '25': ('大宮', 'omiya'),
+    '26': ('西武園', 'seibuen'),
+    '27': ('京王閣', 'keiokaku'),
+    '28': ('立川', 'tachikawa'),
+    '31': ('松戸', 'matsudo'),
+    '32': ('千葉', 'chiba'),
+    '34': ('川崎', 'kawasaki'),
+    '35': ('平塚', 'hiratsuka'),
+    '36': ('小田原', 'odawara'),
+    '37': ('伊東', 'ito'),
+    '38': ('静岡', 'shizuoka'),
+    '41': ('名古屋', 'nagoya'),
+    '42': ('岐阜', 'gifu'),
+    '43': ('大垣', 'ogaki'),
+    '44': ('豊橋', 'toyohashi'),
+    '45': ('富山', 'toyama'),
+    '46': ('松阪', 'matsusaka'),
+    '47': ('四日市', 'yokkaichi'),
+    '48': ('福井', 'fukui'),
+    '51': ('奈良', 'nara'),
+    '53': ('向日町', 'mukomachi'),
+    '54': ('和歌山', 'wakayama'),
+    '55': ('岸和田', 'kishiwada'),
+    '56': ('玉野', 'tamano'),
+    '61': ('広島', 'hiroshima'),
+    '62': ('防府', 'hofu'),
+    '63': ('高松', 'takamatsu'),
+    '64': ('小松島', 'komatsushima'),
+    '65': ('高知', 'kochi'),
+    '66': ('松山', 'matsuyama'),
+    '71': ('小倉', 'kokura'),
+    '73': ('別府', 'beppu'),
+    '74': ('熊本', 'kumamoto'),
+    '75': ('武雄', 'takeo'),
+    '81': ('佐世保', 'sasebo'),
+    '83': ('久留米', 'kurume'),
+    '84': ('佐賀', 'saga'),
+}
+VENUES = {
+    c: (name, slug)
+    for c, (name, slug) in VENUE_MASTER.items()
+}
 MARK_SCORE={'◎':18,'○':12,'▲':8,'△':5,'×':1,'注':3}
 # v6.15: explainable rider/race components, odds break-even metrics, persistent multi-day settled-race history. Frozen picks remain immutable.
 VENUE_BIAS={
@@ -113,7 +163,66 @@ def parse_start_time(sp):
 def fetch_race(job):
     u=race_url(job['venue_code'],job['race_no']); sp=soup(get_html(u)); rel=discover_related(sp); riders=parse_riders(sp)
     return {**job,'url':u,'riders':riders,'start_time':parse_start_time(sp),**rel,'success':5<=len(riders)<=7}
-def discover_real_races(v):
+def discover_today_venues():
+    """
+    オッズパークの当日開催一覧を確認し、
+    実際に開催されている競輪場だけを抽出する。
+    """
+    urls = [
+        f'{SP}/keirin/SpSalePlaceList.do?kaisaiBi={TODAY}',
+        f'{BASE}/keirin/KeirinTop.do',
+    ]
+
+    found = {}
+
+    for url in urls:
+        html = get_html(url)
+        sp = soup(html)
+        if not sp:
+            continue
+
+        for a in sp.find_all('a', href=True):
+            href = a.get('href', '')
+            match = re.search(
+                r'(?:joCd|joCode)=(\d{2})',
+                href,
+                re.I
+            )
+            if not match:
+                continue
+
+            code = match.group(1)
+            if code not in VENUE_MASTER:
+                continue
+
+            name, slug = VENUE_MASTER[code]
+
+            # 当日開催ページにリンクがある場だけ候補にする。
+            if 'SpSalePlaceList.do' in url:
+                if f'kaisaiBi={TODAY}' not in url:
+                    continue
+
+            found[code] = {
+                'code': code,
+                'name': name,
+                'slug': slug,
+            }
+
+        if found:
+            break
+
+    print(
+        '開催場の自動検出: '
+        + (
+            ', '.join(
+                f'{v["name"]}({v["code"]})'
+                for v in found.values()
+            )
+            if found else '検出できませんでした'
+        )
+    )
+
+    return list(found.values())def discover_real_races(v):
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         rs=[f.result() for f in as_completed([ex.submit(fetch_race,{'venue_code':v['code'],'venue_name':v['name'],'venue_slug':v['slug'],'race_no':n}) for n in range(1,13)])]
     return sorted([r for r in rs if r['success']],key=lambda x:x['race_no'])
@@ -791,25 +900,113 @@ def main():
     started=time.time();print(f'==============================\n KEIRIN AI DATA UPDATE v{VERSION}\n==============================\n対象日: {TODAY_DISPLAY}\n==============================')
     history=load_performance_history()
     existing=load_existing();old={(str(r.get('venue_code')),int(r.get('race_no',0))):r for r in existing.get('races',[])}
-    if old:print(f'既存データ: {len(old)}レース\n凍結済みAI予想を保護します')
-    all_races=[];venues=[];print('開催場を確認中...')
-    # Existing same-day race data is stable, so reuse it instead of downloading every race page again.
-    # This avoids dozens of unnecessary requests on every hourly run.
-    if old and old.get('races'):
-        old_by_venue={}
-        for rr in old.get('races',[]):
-            if old_race_ready_for_reuse(rr):
-                old_by_venue.setdefault(str(rr['venue_code']),[]).append(rr)
-        for c,(n,s) in VENUES.items():
-            v={'code':c,'name':n,'slug':s}
-            reused=sorted(old_by_venue.get(c,[]),key=lambda x:int(x.get('race_no',0)))
-            v['race_numbers']=[int(x['race_no']) for x in reused]
-            venues.append(v);all_races += [merge_existing_race(x) for x in reused]
-            print(f'  {c} {n}: {len(reused)}レース（既存データ再利用）')
-    else:
-        for c,(n,s) in VENUES.items():
-            v={'code':c,'name':n,'slug':s};venues.append(v);rs=discover_real_races(v);v['race_numbers']=[x['race_no'] for x in rs];print(f'  {c} {n}: {len(rs)}レース');all_races+=rs
-    all_races.sort(key=lambda x:(int(x['venue_code']),x['race_no']))
+    if old:print(f'既存データ: {len(old)}レース\n凍結済みAI予想を保護します
+      all_races = []
+    venues = []
+
+    print('開催場を確認中...')
+
+    # 毎回、当日の開催場を再検出する。
+    discovered = discover_today_venues()
+
+    if not discovered:
+        # 自動検出に失敗した場合、既存データを消さずに従来設定へ戻す。
+        print('警告: 開催場を検出できないため、既存設定を使用します')
+        discovered = [
+            {'code': c, 'name': n, 'slug': s}
+            for c, (n, s) in VENUES.items()
+        ]
+
+    old_by_venue = {}
+    for rr in old.values():
+        if old_race_ready_for_reuse(rr):
+            old_by_venue.setdefault(
+                str(rr['venue_code']), []
+            ).append(rr)
+
+    for v in discovered:
+        code = str(v['code'])
+        name = v['name']
+        slug = v['slug']
+
+        # 既存レースを再利用しながら、開催中の全レースを再確認する。
+        detected = discover_real_races(v)
+        detected_numbers = {
+            int(r['race_no']) for r in detected
+        }
+
+        # 検出済みのレースは既存データを優先して再利用する。
+        existing_races = {
+            int(r['race_no']): r
+            for r in old_by_venue.get(code, [])
+        }
+
+        merged = []
+
+        for fresh in detected:
+            race_no = int(fresh['race_no'])
+
+            if race_no in existing_races:
+                previous = merge_existing_race(
+                    existing_races[race_no]
+                )
+
+                # 確定済みの予想・結果を保持しつつ、
+                # 開催情報と取得URLは最新のものにする。
+                previous.update({
+                    'venue_code': code,
+                    'venue_name': name,
+                    'venue_slug': slug,
+                    'race_no': race_no,
+                    'url': fresh.get('url') or previous.get('url', ''),
+                    'start_time': fresh.get('start_time')
+                                  or previous.get('start_time', ''),
+                })
+
+                merged.append(previous)
+            else:
+                merged.append(fresh)
+
+        # 既存データにしかないレースは、誤削除を避けて残す。
+        for race_no, previous in existing_races.items():
+            if race_no not in detected_numbers:
+                merged.append(
+                    merge_existing_race(previous)
+                )
+
+        merged.sort(key=lambda r: int(r.get('race_no', 0)))
+
+        v['race_numbers'] = [
+            int(r['race_no']) for r in merged
+        ]
+        venues.append(v)
+        all_races.extend(merged)
+
+        print(
+            f'  {code} {name}: '
+            f'{len(merged)}レース'
+        )
+
+    # 同じ開催場・レース番号の重複を除去する。
+    unique = {}
+    for race in all_races:
+        key = (
+            str(race.get('venue_code', '')),
+            int(race.get('race_no', 0))
+        )
+        if key[0] and key[1] > 0:
+            unique[key] = race
+
+    all_races = sorted(
+        unique.values(),
+        key=lambda r: (
+            int(r.get('venue_code', 0)),
+            int(r.get('race_no', 0))
+        )
+    )
+
+    print(f'開催場数: {len(venues)}')
+    print(f'検出レース数: {len(all_races)}')  all_races.sort(key=lambda x:(int(x['venue_code']),x['race_no']))
     # In v6.8 this means races present in today's dataset, not HTTP requests.
     # Existing race pages are reused; only missing/incomplete records are fetched.
     detail_targets=[r for r in all_races if not (5<=len(r.get('riders',[]))<=7 and r.get('url'))]
