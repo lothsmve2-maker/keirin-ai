@@ -103,7 +103,8 @@ def numbers4(t):
     m=re.search(r'(\d+)\s*[-−]\s*(\d+)\s*[-−]\s*(\d+)\s*[-−]\s*(\d+)',t or '')
     return [int(x) for x in m.groups()] if m else [None]*4
 
-def race_url(c,n):return f'{BASE}/keirin/RaceList.do?joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
+def result_url(c,n):
+    return f'{BASE}/keirin/RaceKekka.do?joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
 def prediction_url(slug,n):return f'{SP}/keirin/yosou/{slug}/{TODAY[:4]}/{TODAY[4:]}'+('.html' if n==1 else f'_{n}.html')
 def odds_url(c,n):return f'{SP}/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd={c}&joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
 def result_url(c, n):
@@ -762,12 +763,12 @@ def parse_result_page(html):
     }
 
     sp = soup(html)
-
     if not sp:
         result['result_status'] = 'error'
         result['payout_status'] = 'error'
         return result
 
+    # 着順表から「着順」と「車番」を列ごとに取得する。
     finish_map = {}
 
     for table in sp.find_all('table'):
@@ -776,17 +777,16 @@ def parse_result_page(html):
         pos_idx = None
         car_idx = None
 
-        for ri, tr in enumerate(rows[:10]):
+        for ri, tr in enumerate(rows[:12]):
             cells = [
-                clean(c.get_text(' ', strip=True)).replace(' ', '')
+                clean(result_cell_text(c)).replace(' ', '')
                 for c in tr.find_all(['th', 'td'])
             ]
 
             for ci, value in enumerate(cells):
-                if value in ('着', '着順') and pos_idx is None:
+                if value in ('着', '着順', '着位'):
                     pos_idx = ci
-
-                if '車番' in value and car_idx is None:
+                if '車番' in value:
                     car_idx = ci
 
             if pos_idx is not None and car_idx is not None:
@@ -798,14 +798,13 @@ def parse_result_page(html):
 
         for tr in rows[header_idx + 1:]:
             cells = [
-                clean(c.get_text(' ', strip=True))
+                clean(result_cell_text(c))
                 for c in tr.find_all(['th', 'td'])
             ]
 
             if max(pos_idx, car_idx) >= len(cells):
                 continue
 
-            # 着順と車番のセルだけを読む。
             pm = re.fullmatch(r'\s*([1-9])\s*', cells[pos_idx])
             cm = re.fullmatch(r'\s*([1-9])\s*', cells[car_idx])
 
@@ -815,15 +814,15 @@ def parse_result_page(html):
             pos = int(pm.group(1))
             car = int(cm.group(1))
 
-            if pos not in finish_map:
+            if 1 <= pos <= 9 and pos not in finish_map:
                 finish_map[pos] = car
 
     finish = [
-        finish_map[p]
-        for p in sorted(finish_map)
+        finish_map[pos]
+        for pos in sorted(finish_map)
     ]
 
-    # 3着までの着順が確認できた場合だけ、結果確定とする。
+    # 1～3着が重複せず取得できたときだけ結果確定とする。
     result_finished = (
         len(finish) >= 3
         and len(set(finish[:3])) == 3
@@ -832,15 +831,14 @@ def parse_result_page(html):
     if result_finished:
         result['result_status'] = 'finished'
 
-    ticket, yen, source = payout_scan(
-        sp,
-        clean(sp.get_text(' ', strip=True)),
-    )
+    # 3連単の組み合わせと払戻金を確認する。
+    page_text = clean(sp.get_text(' ', strip=True))
+    ticket, yen, source = payout_scan(sp, page_text)
 
     payout_available = bool(
-        ticket
+        result_finished
+        and ticket
         and yen > 0
-        and result_finished
     )
 
     if payout_available:
