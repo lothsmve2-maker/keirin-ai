@@ -900,7 +900,11 @@ def main():
     started=time.time();print(f'==============================\n KEIRIN AI DATA UPDATE v{VERSION}\n==============================\n対象日: {TODAY_DISPLAY}\n==============================')
     history=load_performance_history()
     existing=load_existing();old={(str(r.get('venue_code')),int(r.get('race_no',0))):r for r in existing.get('races',[])}
-    if old:print(f'既存データ: {len(old)}レース\n凍結済みAI予想を保護します
+        if old:
+        print(
+            f'既存データ: {len(old)}レース\n'
+            '凍結済みAI予想を保護します'
+        )
       all_races = []
     venues = []
 
