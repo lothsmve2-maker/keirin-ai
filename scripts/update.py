@@ -166,63 +166,49 @@ def fetch_race(job):
 def discover_today_venues():
     """
     オッズパークの当日開催一覧を確認し、
-    実際に開催されている競輪場だけを抽出する。
+    実際に開催されている競輪場を抽出する。
     """
     urls = [
         f'{SP}/keirin/SpSalePlaceList.do?kaisaiBi={TODAY}',
         f'{BASE}/keirin/KeirinTop.do',
     ]
-
     found = {}
-
     for url in urls:
         html = get_html(url)
         sp = soup(html)
         if not sp:
             continue
-
         for a in sp.find_all('a', href=True):
             href = a.get('href', '')
             match = re.search(
                 r'(?:joCd|joCode)=(\d{2})',
                 href,
-                re.I
+                re.I,
             )
             if not match:
                 continue
-
             code = match.group(1)
             if code not in VENUE_MASTER:
                 continue
-
             name, slug = VENUE_MASTER[code]
-
-            # 当日開催ページにリンクがある場だけ候補にする。
-            if 'SpSalePlaceList.do' in url:
-                if f'kaisaiBi={TODAY}' not in url:
-                    continue
-
             found[code] = {
                 'code': code,
                 'name': name,
                 'slug': slug,
             }
-
         if found:
             break
-
-    print(
-        '開催場の自動検出: '
-        + (
-            ', '.join(
+    if found:
+        print(
+            '開催場の自動検出: '
+            + ', '.join(
                 f'{v["name"]}({v["code"]})'
                 for v in found.values()
             )
-            if found else '検出できませんでした'
         )
-    )
-
-        return list(found.values())
+    else:
+        print('開催場の自動検出に失敗しました')
+    return list(found.values())
 def discover_real_races(v):
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         rs=[f.result() for f in as_completed([ex.submit(fetch_race,{'venue_code':v['code'],'venue_name':v['name'],'venue_slug':v['slug'],'race_no':n}) for n in range(1,13)])]
