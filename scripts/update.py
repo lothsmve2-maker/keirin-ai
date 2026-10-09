@@ -108,10 +108,11 @@ def result_url(c,n):
 def prediction_url(slug,n):return f'{SP}/keirin/yosou/{slug}/{TODAY[:4]}/{TODAY[4:]}'+('.html' if n==1 else f'_{n}.html')
 def odds_url(c,n):return f'{SP}/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd={c}&joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
 def result_url(c, n):
-    return (
-        f'{BASE}/keirin/RaceKekka.do'
-        f'?joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
-    )
+return (
+f’{BASE}/keirin/RaceKekka.do’
+f’?joCd={c}&joCode={c}’
+f’&kaisaiBi={TODAY}&raceNo={n}’
+)
 
 def parse_rider_row(tr, car_idx=None):
     cells = [
@@ -627,21 +628,59 @@ def parse_ticket_text(t):
 
     return '-'.join(map(str, cars))
 def parse_yen_text(t):return [int(x.replace(',','')) for x in re.findall(r'([\d,]+)\s*円',clean(t)) if int(x.replace(',',''))>0]
-def payout_scan(sp,text):
-    rows=sp.find_all('tr') if sp else []
-    for i,tr in enumerate(rows):
-        row=clean(tr.get_text(' ',strip=True))
-        if '3連単' not in row:continue
-        near=' '.join(clean(x.get_text(' ',strip=True)) for x in rows[max(0,i-2):min(len(rows),i+5)])
-        tk=parse_ticket_text(near); ys=parse_yen_text(near)
-        if tk and ys:return tk,ys[0],near
-    for key in ('3連単','払戻金','払戻'):
-        p=text.find(key)
-        while p>=0:
-            w=text[max(0,p-100):p+500]; tk=parse_ticket_text(w); ys=parse_yen_text(w)
-            if tk and ys:return tk,ys[0],w
-            p=text.find(key,p+len(key))
-    return None,0,''
+def payout_scan(sp, text):
+    """3連単の組み合わせと払戻金を取得する。"""
+    if not sp:
+        return None, 0, ''
+
+    for table in sp.find_all('table'):
+        rows = table.find_all('tr')
+
+        for i, tr in enumerate(rows):
+            cells = [
+                result_cell_text(c)
+                for c in tr.find_all(['th', 'td'])
+            ]
+            row_text = clean(' '.join(cells))
+
+            if not any(k in row_text for k in ('3連単', '3連勝')):
+                continue
+
+            for j in range(i, min(len(rows), i + 8)):
+                nearby_rows = rows[max(i, j - 1):min(len(rows), j + 3)]
+                parts = [
+                    result_cell_text(cell)
+                    for row in nearby_rows
+                    for cell in row.find_all(['th', 'td'])
+                ]
+                window = clean(' '.join(parts))
+
+                ticket = parse_ticket_text(window)
+                yen = parse_yen_text(window)
+
+                if ticket and yen:
+                    return ticket, yen[-1], window
+
+    page_text = clean(sp.get_text(' ', strip=True))
+
+    for key in ('3連単', '3連勝'):
+        start = 0
+
+        while True:
+            pos = page_text.find(key, start)
+            if pos < 0:
+                break
+
+            window = page_text[max(0, pos - 100):pos + 700]
+            ticket = parse_ticket_text(window)
+            yen = parse_yen_text(window)
+
+            if ticket and yen:
+                return ticket, yen[-1], window
+
+            start = pos + len(key)
+
+    return None, 0, ''
 
 def result_cell_text(cell):
     """セルの文字に画像のalt/titleも加える。"""
