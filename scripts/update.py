@@ -6,7 +6,7 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.16'
+VERSION='6.17'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 JST=ZoneInfo('Asia/Tokyo')
 def now_jst(): return datetime.now(JST)
@@ -327,25 +327,80 @@ def discover_real_races(v):
     return sorted([r for r in rs if r['success']],key=lambda x:x['race_no'])
 
 def parse_prediction_table(sp):
-    if not sp:return {}
-    result={}
+    if not sp:
+        return {}
+
+    result = {}
+
     for tr in sp.find_all('tr'):
-        cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]; cars=[int(v) for v in cells if re.fullmatch(r'[1-7]',v)]
-        if not cars:continue
-        car=cars[0]; mark=next((v for v in cells if v in MARK_SCORE),''); comments=[v for v in cells if v and v not in (str(car),mark) and v not in MARK_SCORE and re.search(r'[ぁ-んァ-ヶ]',v) and not any(q in v for q in ('選手名','コメント','予想','並び'))]
-        name=next((v for v in comments if re.search(r'[一-龯]',v) and len(v)<=12),''); comment=' '.join(v for v in comments if v!=name)
-        if name or comment or mark:result[car]={'name':name,'mark':mark,'comment':comment,'prediction_score':MARK_SCORE.get(mark,0)}
-    return result if 5<=len(result)<=7 else {}
-def valid_cars(c):return 5<=len(set(c))<=7 and set(c)<=set(range(1,8))
+        cells = [
+            clean(c.get_text(' ', strip=True))
+            for c in tr.find_all(['th', 'td'])
+        ]
+
+        cars = [
+            int(v) for v in cells
+            if re.fullmatch(r'[1-9]', v)
+        ]
+
+        if not cars:
+            continue
+
+        car = cars[0]
+        mark = next(
+            (v for v in cells if v in MARK_SCORE),
+            ''
+        )
+
+        comments = [
+            v for v in cells
+            if v
+            and v not in (str(car), mark)
+            and v not in MARK_SCORE
+            and re.search(r'[ぁ-んァ-ヶ]', v)
+            and not any(
+                q in v
+                for q in ('選手名', 'コメント', '予想', '並び')
+            )
+        ]
+
+        name = next(
+            (
+                v for v in comments
+                if re.search(r'[一-龯]', v)
+                and len(v) <= 12
+            ),
+            ''
+        )
+
+        comment = ' '.join(
+            v for v in comments if v != name
+        )
+
+        if name or comment or mark:
+            result[car] = {
+                'name': name,
+                'mark': mark,
+                'comment': comment,
+                'prediction_score': MARK_SCORE.get(mark, 0)
+            }
+
+    return result if 5 <= len(result) <= 9 else {}
+def valid_cars(c):
+    cars = set(c)
+    return (
+        5 <= len(cars) <= 9
+        and cars <= set(range(1, 10))
+    )
 def parse_line(sp):
     if not sp:return [],[]
     for table in sp.find_all('table'):
         for tr in table.find_all('tr'):
-            cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]; cars=list(dict.fromkeys(int(x) for x in cells if re.fullmatch(r'[1-7]',x)))
+            cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]; cars=list(dict.fromkeys(int(x) for x in cells if re.fullmatch(r'[1-9]',x)))
             if valid_cars(cars) and any(w in ' '.join(cells) for w in STYLE_WORDS):return cars,[cars]
     lines=[clean(x) for x in sp.get_text('\n',strip=True).splitlines() if clean(x)]
     for i,line in enumerate(lines):
-        nums=list(dict.fromkeys(int(x) for x in re.findall(r'(?<!\d)([1-7])(?!\d)',line))); nearby=' '.join(lines[max(0,i-2):i+3])
+        nums=list(dict.fromkeys(int(x) for x in re.findall(r'(?<!\d)([1-9])(?!\d)',line))); nearby=' '.join(lines[max(0,i-2):i+3])
         if valid_cars(nums) and any(w in nearby for w in STYLE_WORDS):return nums,[nums]
     return [],[]
 def is_dev(t):
@@ -505,7 +560,22 @@ def apply_ai(race):
     race['verdict']=calculate_verdict(race); race['bets']=generate_bets(race)
 
 def parse_ticket_text(t):
-    m=re.search(r'([1-7])\s*[→＞>\-−]\s*([1-7])\s*[→＞>\-−]\s*([1-7])',clean(t)); return f'{m.group(1)}-{m.group(2)}-{m.group(3)}' if m else None
+    m = re.search(
+        r'([1-9])\s*[→＞>\-−]\s*'
+        r'([1-9])\s*[→＞>\-−]\s*'
+        r'([1-9])',
+        clean(t)
+    )
+
+    if not m:
+        return None
+
+    cars = [int(x) for x in m.groups()]
+
+    if len(set(cars)) != 3:
+        return None
+
+    return '-'.join(map(str, cars))
 def parse_yen_text(t):return [int(x.replace(',','')) for x in re.findall(r'([\d,]+)\s*円',clean(t)) if int(x.replace(',',''))>0]
 def payout_scan(sp,text):
     rows=sp.find_all('tr') if sp else []
@@ -1169,9 +1239,70 @@ def main():
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
             fs={ex.submit(fetch_race,{'venue_code':r['venue_code'],'venue_name':r['venue_name'],'venue_slug':r['venue_slug'],'race_no':r['race_no']}):r for r in detail_targets}
             for f in as_completed(fs):
-                r=fs[f]
-                try:r.update(f.result())
-                except:pass
+    r = fs[f]
+
+    try:
+        fresh = f.result()
+    except Exception as e:
+        print(
+            f'選手データ取得エラー: '
+            f'{r.get("venue_name", "")} '
+            f'{r.get("race_no", "")}R: {e}'
+        )
+        continue
+
+    new_riders = fresh.get('riders', [])
+    old_riders = r.get('riders', [])
+
+    new_cars = sorted(
+        x.get('car_no')
+        for x in new_riders
+        if isinstance(x.get('car_no'), int)
+    )
+
+    old_cars = sorted(
+        x.get('car_no')
+        for x in old_riders
+        if isinstance(x.get('car_no'), int)
+    )
+
+    new_valid = (
+        5 <= len(new_riders) <= 9
+        and len(new_cars) == len(set(new_cars))
+        and new_cars == list(range(1, len(new_riders) + 1))
+        and all(x.get('name') for x in new_riders)
+    )
+
+    old_valid = (
+        5 <= len(old_riders) <= 9
+        and len(old_cars) == len(set(old_cars))
+        and old_cars == list(range(1, len(old_riders) + 1))
+        and all(x.get('name') for x in old_riders)
+    )
+
+    # 新しいデータが不完全なら既存データを維持する。
+    # 新旧ともに正常なら、車番の多いデータを優先する。
+    if new_valid and (
+        not old_valid or len(new_riders) >= len(old_riders)
+    ):
+        r.update(fresh)
+
+        print(
+            f'選手データ更新: '
+            f'{r.get("venue_name", "")} '
+            f'{r.get("race_no", "")}R '
+            f'{len(new_riders)}人 '
+            f'車番={new_cars}'
+        )
+
+    else:
+        print(
+            f'選手データ維持: '
+            f'{r.get("venue_name", "")} '
+            f'{r.get("race_no", "")}R '
+            f'既存{len(old_riders)}人 / '
+            f'新規取得{len(new_riders)}人'
+        )
     print(
     f'選手データ取得結果: '
     f'{sum(5 <= len(r.get("riders", [])) <= 9 for r in all_races)}'
