@@ -727,13 +727,11 @@ def parse_yen_text(t):
 
 
 def payout_scan(sp, text):
-    """
-    払戻表を調べ、3連単の組み合わせと払戻金を取得する。
-    読み取れない場合は誤った金額を推測せず、未取得として返す。
-    """
+    """3連単の組み合わせと払戻金を取得する。"""
     if not sp:
         return None, 0, ''
 
+    # 払戻表を確認する
     for table in sp.find_all('table'):
         rows = table.find_all('tr')
 
@@ -742,24 +740,22 @@ def payout_scan(sp, text):
                 result_cell_text(c)
                 for c in tr.find_all(['th', 'td'])
             ]
-
             row_text = clean(' '.join(cells))
 
-            if '3連勝' not in row_text:
+            if not any(
+                key in row_text
+                for key in ('3連単', '3連勝')
+            ):
                 continue
 
-            # 3連勝欄の近くにある「単」表記を優先する。
-            for j in range(i, min(len(rows), i + 12)):
-                window_rows = rows[max(i, j - 1):min(len(rows), j + 3)]
+            for j in range(i, min(len(rows), i + 8)):
+                nearby = rows[max(i, j - 1):min(len(rows), j + 3)]
 
-                window = ' '.join(
-                    result_cell_text(c)
-                    for row in window_rows
-                    for c in row.find_all(['th', 'td'])
-                )
-
-                if '単' not in window:
-                    continue
+                window = clean(' '.join(
+                    result_cell_text(cell)
+                    for row in nearby
+                    for cell in row.find_all(['th', 'td'])
+                ))
 
                 ticket = parse_ticket_text(window)
                 yen = parse_yen_text(window)
@@ -767,8 +763,7 @@ def payout_scan(sp, text):
                 if ticket and yen:
                     return ticket, yen[-1], window
 
-    # ページ全体のテキストでも補完する。
-    # 組み合わせと金額の両方を特定できた場合だけ採用する。
+    # 表から取れない場合はページ全体を調べる
     page_text = clean(sp.get_text(' ', strip=True))
 
     for key in ('3連単', '3連勝'):
@@ -780,7 +775,10 @@ def payout_scan(sp, text):
             if pos < 0:
                 break
 
-            window = page_text[max(0, pos - 100):pos + 700]
+            window = page_text[
+                max(0, pos - 100):pos + 700
+            ]
+
             ticket = parse_ticket_text(window)
             yen = parse_yen_text(window)
 
@@ -790,8 +788,6 @@ def payout_scan(sp, text):
             start = pos + len(key)
 
     return None, 0, ''
-
-
 def parse_result_page(html):
     result = {
         'finished': False,
