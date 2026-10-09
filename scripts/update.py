@@ -108,11 +108,11 @@ def result_url(c,n):
 def prediction_url(slug,n):return f'{SP}/keirin/yosou/{slug}/{TODAY[:4]}/{TODAY[4:]}'+('.html' if n==1 else f'_{n}.html')
 def odds_url(c,n):return f'{SP}/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd={c}&joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
 def result_url(c, n):
-return (
-f’{BASE}/keirin/RaceKekka.do’
-f’?joCd={c}&joCode={c}’
-f’&kaisaiBi={TODAY}&raceNo={n}’
-)
+    return (
+        f'{BASE}/keirin/RaceKekka.do'
+        f'?joCd={c}&joCode={c}'
+        f'&kaisaiBi={TODAY}&raceNo={n}'
+    )
 
 def parse_rider_row(tr, car_idx=None):
     cells = [
