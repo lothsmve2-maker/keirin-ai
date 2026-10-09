@@ -534,7 +534,8 @@ def parse_result_page(html):
             pm=re.search(r'(?<!\d)([1-9])(?!\d)',cells[pos_idx]);cm=re.search(r'(?<!\d)([1-9])(?!\d)',cells[car_idx])
             if pm and cm:
                 pos=int(pm.group(1));car=int(cm.group(1))
-                if 1<=pos<=9 and 1<=car<=7:finish_map[pos]=car
+                if 1 <= pos <= 9 and 1 <= car <= 9:
+                    finish_map[pos] = car
     finish=[finish_map[p] for p in sorted(finish_map) if 1<=p<=9]
     text=clean(sp.get_text(' ',strip=True));tk,y,src=payout_scan(sp,text)
     if not tk and y and len(finish)>=3:tk='-'.join(map(str,finish[:3]))
@@ -580,7 +581,10 @@ def parse_odds_page(html):
     sp=soup(html);odds={}
     if not sp:return {'available':False,'odds':{}}
     text=clean(sp.get_text(' ',strip=True))
-    for m in re.finditer(r'([1-7])\s*[→＞>\-−]\s*([1-7])\s*[→＞>\-−]\s*([1-7])\s+(\d+(?:\.\d+)?)',text):odds[f'{m.group(1)}-{m.group(2)}-{m.group(3)}']=float(m.group(4))
+    for m in re.finditer(
+    r'([1-9])\s*[→＞>\-−]\s*([1-9])\s*[→＞>\-−]\s*([1-9])\s+(\d+(?:\.\d+)?)',
+    text
+):
     return {'available':bool(odds),'odds':odds}
 def fetch_odds(race):
     for u in [race.get('odds_url',''),odds_url(race['venue_code'],race['race_no'])]:
