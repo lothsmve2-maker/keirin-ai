@@ -289,6 +289,8 @@ def parse_riders(sp):
         return []
 
     return [best[k] for k in sorted(best)]
+def race_url(c, n):
+    return f'{BASE}/keirin/RaceList.do?joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
 def discover_related(sp):
     out={'odds_url':'','result_url':''}
     if not sp:return out
