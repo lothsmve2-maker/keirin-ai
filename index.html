@@ -1240,29 +1240,37 @@ function normalizeBet(item) {
 }
 
 function getBets(r) {
-  let raw = first(r, [
-    "bets", "tickets", "buy", "buy_points",
-    "predictions", "recommendations", "買い目"
-  ], []);
-
-  if (!Array.isArray(raw)) {
-    if (typeof raw === "string") raw = raw.split(/[,、\n]/);
-    else return [];
+  if (!r || typeof r !== "object") {
+    return [];
   }
 
-  const out = raw.map(normalizeBet).filter(b =>
-    b.numbers.length === 3 &&
-    new Set(b.numbers).size === 3
-  );
+  const candidates = [
+    r.frozen_prediction?.bets,
+    r.bets,
+    r.ai?.bets,
+    r.predictions,
+    r.tickets,
+    r.buy,
+    r.buy_points,
+    r.recommendations,
+    r["買い目"]
+  ];
 
-  const seen = new Set();
+  for (const list of candidates) {
+    if (!Array.isArray(list) || list.length === 0) {
+      continue;
+    }
 
-  return out.filter(b => {
-    const k = b.numbers.join("-");
-    if (seen.has(k)) return false;
-    seen.add(k);
-    return true;
-  }).slice(0, 10);
+    const normalized = list
+      .map(item => normalizeBet(item))
+      .filter(Boolean);
+
+    if (normalized.length > 0) {
+      return normalized;
+    }
+  }
+
+  return [];
 }
 
 function getResult(r) {
@@ -1388,19 +1396,102 @@ function saveRecords() {
 }
 
 function normalizeData(d) {
-  if (Array.isArray(d)) {
-    return { date: new Date().toISOString().slice(0, 10), venues: d };
-  }
-
   if (!d || typeof d !== "object") {
-    throw new Error("JSONの形式が正しくありません");
+    return {
+      date: "",
+      venues: []
+    };
   }
 
-  const vs = first(d, [
-    "venues", "venues_list", "開催場", "開催一覧"
-  ], []);
+  const date = first(
+    d,
+    ["target_date", "date", "開催日"],
+    ""
+  );
 
-  return { ...d, venues: Array.isArray(vs) ? vs : [] };
+  // 開催場ごとに分かれたデータがある場合
+  const sourceVenues = first(
+    d,
+    ["venues", "venues_list", "開催場", "開催一覧"],
+    []
+  );
+
+  let venues = Array.isArray(sourceVenues)
+    ? sourceVenues
+    : [];
+
+  // レースが一覧形式で保存されている場合
+  const sourceRaces = first(
+    d,
+    ["races", "race_list", "レース一覧"],
+    []
+  );
+
+  const races = Array.isArray(sourceRaces)
+    ? sourceRaces
+    : [];
+
+  // 開催場ごとのレースが既に存在するか確認
+  const hasVenueRaces = venues.some(v => {
+    if (!v || typeof v !== "object") return false;
+
+    const list = first(
+      v,
+      ["races", "race_list", "raceList", "レース一覧"],
+      []
+    );
+
+    return Array.isArray(list) && list.length > 0;
+  });
+
+  // 開催場ごとのレースがなければ、一覧から開催場別にまとめる
+  if (!hasVenueRaces && races.length > 0) {
+    const venueMap = new Map();
+
+    races.forEach(r => {
+      if (!r || typeof r !== "object") return;
+
+      const code = String(
+        first(r, ["venue_code", "venueCode"], "")
+      );
+
+      const name = String(
+        first(
+          r,
+          ["venue_name", "venueName", "track_name"],
+          "開催場不明"
+        )
+      );
+
+      const key = code || name;
+
+      if (!venueMap.has(key)) {
+        venueMap.set(key, {
+          venue_code: code,
+          venue_name: name,
+          name: name,
+          races: []
+        });
+      }
+
+      venueMap.get(key).races.push(r);
+    });
+
+    venues = Array.from(venueMap.values());
+
+    // レース番号順に並べる
+    venues.forEach(v => {
+      v.races.sort((a, b) => {
+        return getRaceNo(a, 0) - getRaceNo(b, 0);
+      });
+    });
+  }
+
+  return {
+    ...d,
+    date: date,
+    venues: venues
+  };
 }
 
 function getVenues() {
