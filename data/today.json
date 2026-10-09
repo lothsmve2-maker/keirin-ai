@@ -4243,7 +4243,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-09T15:50:50.155951+09:00",
+  "updated_at": "2026-10-09T16:25:57.828086+09:00",
   "target_date": "2026-10-09",
   "data_complete": true,
   "result_complete": false,
@@ -6132,25 +6132,6 @@
       ]
     },
     {
-      "venue_code": "35",
-      "venue_name": "平塚",
-      "race_count": 12,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    {
       "venue_code": "48",
       "venue_name": "福井",
       "race_count": 12,
@@ -6170,9 +6151,9 @@
       ]
     },
     {
-      "venue_code": "38",
-      "venue_name": "静岡",
-      "race_count": 11,
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "race_count": 12,
       "race_numbers": [
         1,
         2,
@@ -6184,7 +6165,8 @@
         8,
         9,
         10,
-        11
+        11,
+        12
       ]
     },
     {
@@ -6217,6 +6199,24 @@
         7,
         8,
         9
+      ]
+    },
+    {
+      "venue_code": "38",
+      "venue_name": "静岡",
+      "race_count": 11,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
       ]
     },
     {
@@ -6560,7 +6560,6 @@
       "development": "展開が向けば戦える。自分でやる",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009.html",
       "ai": {
-        "model": "v6.15",
         "main": 2,
         "opponent": 5,
         "dark_horse": 1,
@@ -7259,7 +7258,6 @@
       "development": "初心者にもオススメ！AI予想",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_2.html",
       "ai": {
-        "model": "v6.15",
         "main": 3,
         "opponent": 6,
         "dark_horse": 1,
@@ -7958,7 +7956,6 @@
       "development": "初心者にもオススメ！AI予想",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_3.html",
       "ai": {
-        "model": "v6.15",
         "main": 2,
         "opponent": 7,
         "dark_horse": 3,
@@ -8657,7 +8654,6 @@
       "development": "１番車で道中の位置取りが有利な菅田が、木村が出ていきやすい流れを作って抜け出そう。もちろん怖いのは岩本—小原で、仕掛け次第。三谷は位置取りがカギ。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_4.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 3,
         "dark_horse": 2,
@@ -9356,7 +9352,6 @@
       "development": "山口は成績以上の力を持っているので簡単ではないが、やはり逃げるのは市田だ。このバンクなら稲川—山田が本命、対抗になる。簗田、阿部の動きには警戒する。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_5.html",
       "ai": {
-        "model": "v6.15",
         "main": 2,
         "opponent": 7,
         "dark_horse": 1,
@@ -10055,7 +10050,6 @@
       "development": "同型には荒川と橋本がいるが、スピードは山崎が一枚上。つける山田とのワンツーが軸になる。神奈川勢は混戦ならチャンスが生まれる。長島、村田は目標次第。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_6.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 4,
         "dark_horse": 5,
@@ -10754,7 +10748,6 @@
       "development": "初心者にもオススメ！AI予想",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_7.html",
       "ai": {
-        "model": "v6.15",
         "main": 3,
         "opponent": 4,
         "dark_horse": 1,
@@ -11453,7 +11446,6 @@
       "development": "谷内と後藤は徹底先行タイプで、前へ前へ踏んでいく。この動きを見て、佐々木が一気にまくってしまう。マークは武藤だが山田や三谷も前の頑張り次第で浮上。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_8.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 5,
@@ -12152,7 +12144,6 @@
       "development": "前回のＧIIは後半戦で失速した石原だが、ここではやはり本命。石原が押し切って、小倉が続く。このところ伸びている阿部は怖い存在だ。近畿勢は中釜次第。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_9.html",
       "ai": {
-        "model": "v6.15",
         "main": 3,
         "opponent": 7,
         "dark_horse": 4,
@@ -12851,7 +12842,6 @@
       "development": "初心者にもオススメ！AI予想",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_10.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 4,
@@ -13550,7 +13540,6 @@
       "development": "オールスターの覇者・犬伏が一気に出て、押し切りを狙うが、松本はその準決で犬伏を差したし、逆転もある。深谷は松井にかかっている。清水は位置取り次第。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_11.html",
       "ai": {
-        "model": "v6.15",
         "main": 2,
         "opponent": 7,
         "dark_horse": 3,
@@ -14249,7 +14238,6 @@
       "development": "近畿勢も強力だが、番手の脇本が攻められる不安があり、眞杉—吉田の機動力の方を評価した。当所の親王牌２連覇の古性や単騎だが力のある郡司、山口も怖い。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/yahiko/2026/1009_12.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 4,
         "dark_horse": 2,
@@ -14948,7 +14936,6 @@
       "development": "先行力が持ち味の大本が自分の勝ちパターンに。番手無風なら山本の差し目も魅力。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009.html",
       "ai": {
-        "model": "v6.15",
         "main": 2,
         "opponent": 1,
         "dark_horse": 3,
@@ -15647,7 +15634,6 @@
       "development": "勝沼が好機にスパートして押し切るか、差脚鋭い山本が差し切るかの一戦に。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009_2.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 3,
@@ -16346,7 +16332,6 @@
       "development": "ダッシュ力抜群の榊枝が好スタートを決めるだろう。スジ車券より力勝負を狙う。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009_3.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 5,
@@ -17045,7 +17030,6 @@
       "development": "ラインの長さを生かして福田が逃げ切るか。前回Vの中川も好調をキープして本線強力。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009_4.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 3,
@@ -17744,7 +17728,6 @@
       "development": "山本が主導権を取り切っている流れなら、番手回りの地元大西が恵まれそうだ。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009_5.html",
       "ai": {
-        "model": "v6.15",
         "main": 3,
         "opponent": 1,
         "dark_horse": 2,
@@ -18443,7 +18426,6 @@
       "development": "仕掛けの早い三浦が先行策か。点数上位の中村が援護しながら追い込む。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009_6.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 5,
@@ -19142,7 +19124,6 @@
       "development": "初心者にもオススメ！AI予想",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009_7.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 5,
         "dark_horse": 2,
@@ -19841,7 +19822,6 @@
       "development": "今開催V候補の椎名の先行１車。負ける要素が見当たらない。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009_8.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 4,
@@ -20540,7 +20520,6 @@
       "development": "勝負所から内山が一気に捲り決着か。ただし、土田マークから寺沼がキメ脚発揮も。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1009_9.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 7,
         "dark_horse": 4,
@@ -42486,7 +42465,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009.html",
       "ai": {
-        "model": "v6.15",
         "main": 2,
         "opponent": 1,
         "dark_horse": 3,
@@ -43142,7 +43120,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_2.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 5,
@@ -43798,7 +43775,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_3.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 3,
         "dark_horse": 2,
@@ -44454,7 +44430,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_4.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 3,
@@ -45110,7 +45085,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_5.html",
       "ai": {
-        "model": "v6.15",
         "main": 3,
         "opponent": 2,
         "dark_horse": 1,
@@ -45766,7 +45740,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_6.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 3,
@@ -46422,7 +46395,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_7.html",
       "ai": {
-        "model": "v6.15",
         "main": 2,
         "opponent": 1,
         "dark_horse": 3,
@@ -47078,7 +47050,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_8.html",
       "ai": {
-        "model": "v6.15",
         "main": 1,
         "opponent": 2,
         "dark_horse": 3,
@@ -47734,7 +47705,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/mukomachi/2026/1009_9.html",
       "ai": {
-        "model": "v6.15",
         "main": 2,
         "opponent": 1,
         "dark_horse": 5,
@@ -52684,7 +52654,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009.html",
       "ai": {
-        "model": "v6.15",
         "main": 4,
         "opponent": 7,
         "dark_horse": 1,
@@ -53340,7 +53309,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_2.html",
       "ai": {
-        "model": "v6.15",
         "main": 6,
         "opponent": 3,
         "dark_horse": 4,
@@ -53996,7 +53964,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_3.html",
       "ai": {
-        "model": "v6.15",
         "main": 5,
         "opponent": 4,
         "dark_horse": 7,
@@ -54652,7 +54619,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_4.html",
       "ai": {
-        "model": "v6.15",
         "main": 3,
         "opponent": 5,
         "dark_horse": 1,
@@ -55308,7 +55274,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_5.html",
       "ai": {
-        "model": "v6.15",
         "main": 5,
         "opponent": 1,
         "dark_horse": 7,
@@ -55964,7 +55929,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_6.html",
       "ai": {
-        "model": "v6.15",
         "main": 7,
         "opponent": 5,
         "dark_horse": 4,
@@ -56620,7 +56584,6 @@
       "development": "",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/saga/2026/1009_7.html",
       "ai": {
-        "model": "v6.15",
         "main": 3,
         "opponent": 2,
         "dark_horse": 7,
