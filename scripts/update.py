@@ -1235,12 +1235,24 @@ def main():
         )
     ]
     print(f'詳細取得対象レース: {len(detail_targets)}/{len(all_races)}レース')
-    if detail_targets:
+        if detail_targets:
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-            fs={ex.submit(fetch_race,{'venue_code':r['venue_code'],'venue_name':r['venue_name'],'venue_slug':r['venue_slug'],'race_no':r['race_no']}):r for r in detail_targets}
+            fs = {
+                ex.submit(
+                    fetch_race,
+                    {
+                        'venue_code': r['venue_code'],
+                        'venue_name': r['venue_name'],
+                        'venue_slug': r['venue_slug'],
+                        'race_no': r['race_no'],
+                    }
+                ): r
+                for r in detail_targets
+            }
+
             for f in as_completed(fs):
                 r = fs[f]
-                
+
                 try:
                     fresh = f.result()
                 except Exception as e:
@@ -1251,63 +1263,81 @@ def main():
                     )
                     continue
 
-    new_riders = fresh.get('riders', [])
-    old_riders = r.get('riders', [])
+                new_riders = fresh.get('riders', [])
+                old_riders = r.get('riders', [])
 
-    new_cars = sorted(
-        x.get('car_no')
-        for x in new_riders
-        if isinstance(x.get('car_no'), int)
-    )
+                new_cars = sorted(
+                    x.get('car_no')
+                    for x in new_riders
+                    if isinstance(x.get('car_no'), int)
+                )
 
-    old_cars = sorted(
-        x.get('car_no')
-        for x in old_riders
-        if isinstance(x.get('car_no'), int)
-    )
+                old_cars = sorted(
+                    x.get('car_no')
+                    for x in old_riders
+                    if isinstance(x.get('car_no'), int)
+                )
 
-    new_valid = (
-        5 <= len(new_riders) <= 9
-        and len(new_cars) == len(set(new_cars))
-        and new_cars == list(range(1, len(new_riders) + 1))
-        and all(x.get('name') for x in new_riders)
-    )
+                new_valid = (
+                    5 <= len(new_riders) <= 9
+                    and len(new_cars) == len(set(new_cars))
+                    and new_cars == list(range(1, len(new_riders) + 1))
+                    and all(x.get('name') for x in new_riders)
+                )
 
-    old_valid = (
-        5 <= len(old_riders) <= 9
-        and len(old_cars) == len(set(old_cars))
-        and old_cars == list(range(1, len(old_riders) + 1))
-        and all(x.get('name') for x in old_riders)
-    )
+                old_valid = (
+                    5 <= len(old_riders) <= 9
+                    and len(old_cars) == len(set(old_cars))
+                    and old_cars == list(range(1, len(old_riders) + 1))
+                    and all(x.get('name') for x in old_riders)
+                )
 
-    # 新しいデータが不完全なら既存データを維持する。
-    # 新旧ともに正常なら、車番の多いデータを優先する。
-    if new_valid and (
-        not old_valid or len(new_riders) >= len(old_riders)
-    ):
-        r.update(fresh)
+                if new_valid and (
+                    not old_valid
+                    or len(new_riders) >= len(old_riders)
+                ):
+                    # 取得した選手データだけ更新する。
+                    # 既存の凍結済み予想や確定済み結果は変更しない。
+                    r.update({
+                        'riders': new_riders,
+                        'url': fresh.get('url') or r.get('url', ''),
+                        'start_time': (
+                            fresh.get('start_time')
+                            or r.get('start_time', '')
+                        ),
+                        'odds_url': (
+                            fresh.get('odds_url')
+                            or r.get('odds_url', '')
+                        ),
+                        'result_url': (
+                            fresh.get('result_url')
+                            or r.get('result_url', '')
+                        ),
+                    })
 
-        print(
-            f'選手データ更新: '
-            f'{r.get("venue_name", "")} '
-            f'{r.get("race_no", "")}R '
-            f'{len(new_riders)}人 '
-            f'車番={new_cars}'
-        )
+                    print(
+                        f'選手データ更新: '
+                        f'{r.get("venue_name", "")} '
+                        f'{r.get("race_no", "")}R '
+                        f'{len(new_riders)}人 '
+                        f'車番={new_cars}'
+                    )
 
-    else:
-        print(
-            f'選手データ維持: '
-            f'{r.get("venue_name", "")} '
-            f'{r.get("race_no", "")}R '
-            f'既存{len(old_riders)}人 / '
-            f'新規取得{len(new_riders)}人'
-        )
+                else:
+                    print(
+                        f'選手データ維持: '
+                        f'{r.get("venue_name", "")} '
+                        f'{r.get("race_no", "")}R '
+                        f'既存{len(old_riders)}人 / '
+                        f'新規取得{len(new_riders)}人 '
+                        f'新規車番={new_cars}'
+                    )
+
     print(
-    f'選手データ取得結果: '
-    f'{sum(5 <= len(r.get("riders", [])) <= 9 for r in all_races)}'
-    f'/{len(all_races)}'
-)
+        f'選手データ取得結果: '
+        f'{sum(5 <= len(r.get("riders", [])) <= 9 for r in all_races)}'
+        f'/{len(all_races)}'
+    )
 
     # Only fetch prediction pages when frozen prediction data is missing/incomplete.
     prediction_targets=[]
