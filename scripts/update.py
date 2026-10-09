@@ -106,64 +106,80 @@ def numbers4(t):
 def race_url(c,n):return f'{BASE}/keirin/RaceList.do?joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
 def prediction_url(slug,n):return f'{SP}/keirin/yosou/{slug}/{TODAY[:4]}/{TODAY[4:]}'+('.html' if n==1 else f'_{n}.html')
 def odds_url(c,n):return f'{SP}/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd={c}&joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
-def result_url(c,n):return f'{SP}/keirin/SpRaceResultInfo.do?joCd={c}&joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
+def result_url(c, n):
+    return (
+        f'{BASE}/keirin/RaceKekka.do'
+        f'?joCode={c}&kaisaiBi={TODAY}&raceNo={n}'
+    )
 
-def parse_rider_row(tr):
-    text = clean(tr.get_text(' ', strip=True))
-
+def parse_rider_row(tr, car_idx=None):
     cells = [
         clean(c.get_text(' ', strip=True))
         for c in tr.find_all(['th', 'td'])
     ]
+    text = clean(tr.get_text(' ', strip=True))
 
-    # 車番は、表のセルに単独で記載された数字を優先する
+    # 表の見出しから特定できた車番列を最優先する。
     car = None
-    for cell in cells:
-        m = re.fullmatch(r'([1-9])', cell)
-        if m:
-            car = int(m.group(1))
-            break
 
-    # セルから取れない場合は、行頭の車番表示を確認
-    if car is None:
-        m = re.match(r'\s*([1-9])(?:\s|$)', text)
+    if car_idx is not None and car_idx < len(cells):
+        m = re.fullmatch(r'([1-9])', cells[car_idx])
         if m:
             car = int(m.group(1))
+
+    # 車番列が特定できない場合のみ、従来の方法で補完する。
+    if car is None:
+        for cell in cells:
+            if re.fullmatch(r'[1-9]', cell):
+                car = int(cell)
+                break
 
     if car is None:
         return None
 
+    # 選手名は選手詳細リンクを優先する。
     name = ''
+
     for a in tr.find_all('a'):
-        h = a.get('href', '')
-        lab = clean(a.get_text(' ', strip=True))
+        href = a.get('href', '')
+        label = clean(a.get_text(' ', strip=True))
+
         if (
-            lab
-            and ('PlayerDetail.do' in h or 'player' in h.lower())
-            and lab not in MARK_SCORE
+            label
+            and (
+                'PlayerDetail.do' in href
+                or 'player' in href.lower()
+            )
+            and label not in MARK_SCORE
         ):
-            name = lab
+            name = label
             break
 
     if not name:
         for i, value in enumerate(cells):
-            if value == str(car):
-                for candidate in cells[i + 1:i + 6]:
-                    if (
-                        candidate
-                        and candidate not in MARK_SCORE
-                        and not re.fullmatch(r'[1-9]|\d+', candidate)
-                        and re.search(r'[一-龯ぁ-んァ-ヶ]', candidate)
-                        and not any(
-                            q in candidate
-                            for q in (
-                                '競走得点', '着順', '決まり手',
-                                '今場所', '前場所'
-                            )
+            if value != str(car):
+                continue
+
+            for candidate in cells[i + 1:i + 7]:
+                if (
+                    candidate
+                    and candidate not in MARK_SCORE
+                    and not re.fullmatch(r'\d+', candidate)
+                    and re.search(r'[一-龯ぁ-んァ-ヶ]', candidate)
+                    and not any(
+                        q in candidate
+                        for q in (
+                            '競走得点',
+                            '着順',
+                            '決まり手',
+                            '今場所',
+                            '前場所',
                         )
-                    ):
-                        name = candidate
-                        break
+                    )
+                ):
+                    name = candidate
+                    break
+
             if name:
                 break
 
@@ -175,7 +191,10 @@ def parse_rider_row(tr):
     period = int(m.group(2)) if m else None
 
     pref = next(
-        (p for p in sorted(PREFECTURES, key=len, reverse=True) if p in text),
+        (
+            p for p in sorted(PREFECTURES, key=len, reverse=True)
+            if p in text
+        ),
         ''
     )
 
@@ -219,24 +238,52 @@ def parse_rider_row(tr):
         'comment': '',
         'prediction_mark': '',
         'prediction_score': 0,
-        'ai_score': 0
+        'ai_score': 0,
     }
 
 
 def parse_riders(sp):
-    best = {}
-
     if not sp:
         return []
 
-    for tr in sp.find_all('tr'):
-        rider = parse_rider_row(tr)
+    best = {}
 
-        if rider:
-            best[rider['car_no']] = rider
+    for table in sp.find_all('table'):
+        rows = table.find_all('tr')
+        car_idx = None
+        header_idx = None
 
-    # 競輪の出走人数は5〜9人。
-    # 9人立てのレースも有効なデータとして返す。
+        # 表の見出しから車番の列を特定する。
+        for ri, tr in enumerate(rows[:8]):
+            cells = [
+                clean(c.get_text(' ', strip=True)).replace(' ', '')
+                for c in tr.find_all(['th', 'td'])
+            ]
+
+            for ci, value in enumerate(cells):
+                if '車番' in value:
+                    car_idx = ci
+                    header_idx = ri
+                    break
+
+            if car_idx is not None:
+                break
+
+        if car_idx is not None:
+            for tr in rows[header_idx + 1:]:
+                rider = parse_rider_row(tr, car_idx)
+
+                if rider:
+                    best[rider['car_no']] = rider
+
+    # 見出しを持たないページ形式への互換処理。
+    if not best:
+        for tr in sp.find_all('tr'):
+            rider = parse_rider_row(tr)
+
+            if rider:
+                best[rider['car_no']] = rider
+
     if not 5 <= len(best) <= 9:
         return []
 
@@ -593,69 +640,279 @@ def payout_scan(sp,text):
             p=text.find(key,p+len(key))
     return None,0,''
 
-def parse_result_page(html):
-    empty={'finished':False,'result_finished':False,'finish':[],'result_status':'pending','payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'','payout_status':'pending'}
-    sp=soup(html)
+def result_cell_text(cell):
+    """セルの文字に画像のalt/titleも加える。"""
+    parts = [clean(cell.get_text(' ', strip=True))]
+
+    for img in cell.find_all(['img']):
+        parts.extend([
+            clean(img.get('alt', '')),
+            clean(img.get('title', '')),
+        ])
+
+    return clean(' '.join(x for x in parts if x))
+
+
+def parse_ticket_text(t):
+    t = clean(t)
+
+    m = re.search(
+        r'([1-9])\s*[→＞>\-−]\s*'
+        r'([1-9])\s*[→＞>\-−]\s*'
+        r'([1-9])',
+        t,
+    )
+
+    if not m:
+        return None
+
+    cars = [int(x) for x in m.groups()]
+
+    if len(set(cars)) != 3:
+        return None
+
+    return '-'.join(map(str, cars))
+
+
+def parse_yen_text(t):
+    return [
+        int(x.replace(',', ''))
+        for x in re.findall(r'([\d,]+)\s*円', clean(t))
+        if int(x.replace(',', '')) > 0
+    ]
+
+
+def payout_scan(sp, text):
+    """
+    払戻表を調べ、3連単の組み合わせと払戻金を取得する。
+    読み取れない場合は誤った金額を推測せず、未取得として返す。
+    """
     if not sp:
-        empty['result_status']='error';empty['payout_status']='error';return empty
-    finish_map={}
+        return None, 0, ''
+
     for table in sp.find_all('table'):
-        rows=table.find_all('tr'); header_idx=None;pos_idx=None;car_idx=None
-        for ri,tr in enumerate(rows[:8]):
-            cells=[clean(c.get_text(' ',strip=True)).replace(' ','') for c in tr.find_all(['th','td'])]
-            for i,v in enumerate(cells):
-                if '着順' in v and pos_idx is None:pos_idx=i
-                if '車番' in v and car_idx is None:car_idx=i
-            if pos_idx is not None and car_idx is not None:header_idx=ri;break
-        if header_idx is None:continue
-        for tr in rows[header_idx+1:]:
-            cells=[clean(c.get_text(' ',strip=True)) for c in tr.find_all(['th','td'])]
-            if not cells or max(pos_idx,car_idx)>=len(cells):continue
-            pm=re.search(r'(?<!\d)([1-9])(?!\d)',cells[pos_idx]);cm=re.search(r'(?<!\d)([1-9])(?!\d)',cells[car_idx])
-            if pm and cm:
-                pos=int(pm.group(1));car=int(cm.group(1))
-                if 1 <= pos <= 9 and 1 <= car <= 9:
-                    finish_map[pos] = car
-    finish=[finish_map[p] for p in sorted(finish_map) if 1<=p<=9]
-    text=clean(sp.get_text(' ',strip=True));tk,y,src=payout_scan(sp,text)
-    if not tk and y and len(finish)>=3:tk='-'.join(map(str,finish[:3]))
-    rf=len(finish)>=3;pa=bool(tk and y>0)
-    if rf:empty['result_status']='finished'
-    if pa:empty['payout_status']='available'
-    empty.update({'finished':rf and pa,'result_finished':rf,'finish':finish,'payout_available':pa,'payout_3tan':tk,'payout_3tan_yen':y,'payout_source':src})
-    return empty
+        rows = table.find_all('tr')
+
+        for i, tr in enumerate(rows):
+            cells = [
+                result_cell_text(c)
+                for c in tr.find_all(['th', 'td'])
+            ]
+
+            row_text = clean(' '.join(cells))
+
+            if '3連勝' not in row_text:
+                continue
+
+            # 3連勝欄の近くにある「単」表記を優先する。
+            for j in range(i, min(len(rows), i + 12)):
+                window_rows = rows[max(i, j - 1):min(len(rows), j + 3)]
+
+                window = ' '.join(
+                    result_cell_text(c)
+                    for row in window_rows
+                    for c in row.find_all(['th', 'td'])
+                )
+
+                if '単' not in window:
+                    continue
+
+                ticket = parse_ticket_text(window)
+                yen = parse_yen_text(window)
+
+                if ticket and yen:
+                    return ticket, yen[-1], window
+
+    # ページ全体のテキストでも補完する。
+    # 組み合わせと金額の両方を特定できた場合だけ採用する。
+    page_text = clean(sp.get_text(' ', strip=True))
+
+    for key in ('3連単', '3連勝'):
+        start = 0
+
+        while True:
+            pos = page_text.find(key, start)
+
+            if pos < 0:
+                break
+
+            window = page_text[max(0, pos - 100):pos + 700]
+            ticket = parse_ticket_text(window)
+            yen = parse_yen_text(window)
+
+            if ticket and yen:
+                return ticket, yen[-1], window
+
+            start = pos + len(key)
+
+    return None, 0, ''
+
+
+def parse_result_page(html):
+    result = {
+        'finished': False,
+        'result_finished': False,
+        'finish': [],
+        'result_status': 'pending',
+        'payout_available': False,
+        'payout_3tan': None,
+        'payout_3tan_yen': 0,
+        'payout_source': '',
+        'payout_status': 'pending',
+    }
+
+    sp = soup(html)
+
+    if not sp:
+        result['result_status'] = 'error'
+        result['payout_status'] = 'error'
+        return result
+
+    finish_map = {}
+
+    for table in sp.find_all('table'):
+        rows = table.find_all('tr')
+        header_idx = None
+        pos_idx = None
+        car_idx = None
+
+        for ri, tr in enumerate(rows[:10]):
+            cells = [
+                clean(c.get_text(' ', strip=True)).replace(' ', '')
+                for c in tr.find_all(['th', 'td'])
+            ]
+
+            for ci, value in enumerate(cells):
+                if value in ('着', '着順') and pos_idx is None:
+                    pos_idx = ci
+
+                if '車番' in value and car_idx is None:
+                    car_idx = ci
+
+            if pos_idx is not None and car_idx is not None:
+                header_idx = ri
+                break
+
+        if header_idx is None:
+            continue
+
+        for tr in rows[header_idx + 1:]:
+            cells = [
+                clean(c.get_text(' ', strip=True))
+                for c in tr.find_all(['th', 'td'])
+            ]
+
+            if max(pos_idx, car_idx) >= len(cells):
+                continue
+
+            # 着順と車番のセルだけを読む。
+            pm = re.fullmatch(r'\s*([1-9])\s*', cells[pos_idx])
+            cm = re.fullmatch(r'\s*([1-9])\s*', cells[car_idx])
+
+            if not pm or not cm:
+                continue
+
+            pos = int(pm.group(1))
+            car = int(cm.group(1))
+
+            if pos not in finish_map:
+                finish_map[pos] = car
+
+    finish = [
+        finish_map[p]
+        for p in sorted(finish_map)
+    ]
+
+    # 3着までの着順が確認できた場合だけ、結果確定とする。
+    result_finished = (
+        len(finish) >= 3
+        and len(set(finish[:3])) == 3
+    )
+
+    if result_finished:
+        result['result_status'] = 'finished'
+
+    ticket, yen, source = payout_scan(
+        sp,
+        clean(sp.get_text(' ', strip=True)),
+    )
+
+    payout_available = bool(
+        ticket
+        and yen > 0
+        and result_finished
+    )
+
+    if payout_available:
+        result['payout_status'] = 'available'
+
+    result.update({
+        'finished': result_finished and payout_available,
+        'result_finished': result_finished,
+        'finish': finish,
+        'payout_available': payout_available,
+        'payout_3tan': ticket if payout_available else None,
+        'payout_3tan_yen': yen if payout_available else 0,
+        'payout_source': source,
+    })
+
+    return result
+
 
 def fetch_result(race):
-    # v6.8: use one canonical result URL first.  The old implementation tried
-    # up to three URLs for every pending race, which was the main runtime cost.
-    # Fallback is used only when the primary URL cannot be downloaded at all.
-    primary=race.get('result_url','') or result_url(race['venue_code'],race['race_no'])
-    fallback=f"{BASE}/keirin/RaceResultInfo.do?joCode={race['venue_code']}&kaisaiBi={TODAY}&raceNo={race['race_no']}"
-    urls=[]
-    for u in (primary, result_url(race['venue_code'],race['race_no']), fallback):
-        if u and u not in urls: urls.append(u)
-    first_url=urls[0] if urls else result_url(race['venue_code'],race['race_no'])
-    html=get_html(first_url)
-    if html:
-        res=parse_result_page(html);res['url']=first_url
-        # A valid result page is authoritative even when the race/payout is not
-        # ready yet. Do not waste requests trying alternate URLs.
-        if res.get('result_finished') or res.get('payout_available') or res.get('result_status')=='finished' or res.get('payout_status')=='available':
+    """
+    現行の結果ページを優先する。
+    古いURLが保存されていても、新しいURLから確認する。
+    """
+    code = str(race['venue_code'])
+    race_no = int(race['race_no'])
+
+    urls = [
+        result_url(code, race_no),
+        race.get('result_url', ''),
+        (
+            f'{BASE}/keirin/RaceResultInfo.do'
+            f'?joCode={code}&kaisaiBi={TODAY}&raceNo={race_no}'
+        ),
+    ]
+
+    # URLの重複を除去する。
+    urls = list(dict.fromkeys(u for u in urls if u))
+
+    last = None
+
+    for url in urls:
+        html = get_html(url)
+
+        if not html:
+            continue
+
+        res = parse_result_page(html)
+        res['url'] = url
+        last = res
+
+        # 着順と払戻が揃ったら確定。
+        if res.get('result_finished') and res.get('payout_available'):
             return res
-        return res
-    # Only a download failure triggers one fallback request.
-    for u in urls[1:]:
-        html=get_html(u)
-        if not html: continue
-        res=parse_result_page(html);res['url']=u
-        if res.get('result_finished') or res.get('payout_available'):
-            return res
-        # Keep the first successfully loaded pending page; there is no need to
-        # try another URL when the site is reachable.
-        res['result_status']=res.get('result_status') or 'pending'
-        res['payout_status']=res.get('payout_status') or 'pending'
-        return res
-    return {'result_finished':False,'finished':False,'finish':[],'result_status':'error','payout_available':False,'payout_3tan':None,'payout_3tan_yen':0,'payout_source':'','payout_status':'error'}
+
+        # 結果だけ取得できた場合も、別URLで払戻を確認する。
+        if res.get('result_finished'):
+            continue
+
+    if last is not None:
+        return last
+
+    return {
+        'finished': False,
+        'result_finished': False,
+        'finish': [],
+        'result_status': 'error',
+        'payout_available': False,
+        'payout_3tan': None,
+        'payout_3tan_yen': 0,
+        'payout_source': '',
+        'payout_status': 'error',
+    }
 
 def parse_odds_page(html):
     odds = {}
