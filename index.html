@@ -5,317 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111827">
 <title>競輪AI予想</title>
-/* ===== 競輪AI デザイン改善 v1 ===== */
 
-/* 全体 */
-:root {
-  --bg: #f1f5f9;
-  --panel: #ffffff;
-  --line: #dce4ee;
-  --blue: #155eef;
-  --green: #039855;
-  --red: #d92d20;
-  --orange: #f07813;
-}
-
-body {
-  background: #f1f5f9;
-  color: #172033;
-  font-size: 15px;
-  line-height: 1.6;
-  -webkit-text-size-adjust: 100%;
-}
-
-/* ヘッダー */
-.topbar {
-  background: linear-gradient(120deg, #101828, #243b63);
-  border-bottom: 3px solid #f5ad24;
-  padding: 13px 14px;
-}
-
-.brand {
-  font-weight: 900;
-  letter-spacing: .02em;
-}
-
-.brand-icon {
-  filter: drop-shadow(0 2px 4px #0003);
-}
-
-/* 開催場・レース選択 */
-.venuebar {
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 7px;
-  margin-top: 8px;
-}
-
-.scrollrow,
-.racebar {
-  width: 100%;
-  padding: 4px 1px 9px;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-}
-
-.pill,
-.racebtn {
-  min-height: 44px;
-  border-radius: 12px;
-  border: 1px solid #d0d9e6;
-  box-shadow: 0 2px 4px #10182808;
-  scroll-snap-align: start;
-  transition: background .15s ease;
-}
-
-.pill.active {
-  background: #155eef;
-  border-color: #155eef;
-  box-shadow: 0 3px 8px #155eef30;
-}
-
-.racebtn.active {
-  background: #e8f1ff;
-  color: #1549a8;
-  border: 2px solid #155eef;
-}
-
-/* レース情報 */
-.hero {
-  border: 1px solid #b8d2ff;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #e4efff 0%, #ffffff 85%);
-  box-shadow: 0 4px 14px #174ea608;
-  padding: 17px;
-}
-
-.venue-tag {
-  background: linear-gradient(135deg, #155eef, #1849a9);
-  box-shadow: 0 3px 7px #155eef25;
-}
-
-.rankbadge {
-  background: #fff;
-  box-shadow: 0 3px 8px #1018280c;
-}
-
-/* カード */
-.card {
-  border: 1px solid #e0e7f0;
-  border-radius: 16px;
-  padding: 15px;
-  box-shadow: 0 3px 12px #10182808;
-}
-
-.card h2 {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #edf0f5;
-  font-size: 17px;
-  line-height: 1.4;
-}
-
-/* 選手一覧 */
-.rider-table th {
-  background: #eef3f9;
-  color: #475467;
-  padding: 11px 8px;
-}
-
-.rider-table td {
-  padding: 10px 8px;
-}
-
-.rider-table tbody tr:nth-child(even) {
-  background-color: #fafcff;
-}
-
-.rider-table tr.main-rider {
-  background: #eaf2ff;
-}
-
-.rider-name {
-  font-weight: 900;
-}
-
-/* 車番の色は維持 */
-.car-6 {
-  background: #0b9b62;
-  color: #fff;
-}
-
-.car-7 {
-  background: #f07813;
-  color: #fff;
-}
-
-/* AI買い目 */
-.bet {
-  min-height: 46px;
-  padding: 9px;
-  border-radius: 11px;
-  border-color: #e0e7f0;
-  background: #f8faff;
-}
-
-.bet.primary {
-  background: #fff5f3;
-  border-color: #fda29b;
-  box-shadow: inset 3px 0 #e5484d;
-}
-
-.betnum {
-  font-size: 13px;
-}
-
-.ticket .car {
-  border-radius: 6px;
-}
-
-.betodd {
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.bet-summary {
-  padding: 11px 3px 2px;
-  border-top: 1px solid #edf0f5;
-}
-
-.bet-summary strong {
-  font-size: 17px;
-}
-
-/* 結果表示 */
-.result-box {
-  border-radius: 14px;
-  background: linear-gradient(135deg, #f8fafc, #eef3f8);
-  border-color: #dce4ee;
-}
-
-.money {
-  font-size: 25px;
-  font-weight: 950;
-}
-
-.positive {
-  color: #039855 !important;
-}
-
-.negative {
-  color: #d92d20 !important;
-}
-
-/* 成績・収支 */
-.stat {
-  background: #f8faff;
-  border-radius: 13px;
-  border-color: #e0e7f0;
-  padding: 13px 10px;
-}
-
-.stat .label {
-  font-weight: 700;
-}
-
-.stat .value {
-  font-weight: 950;
-  letter-spacing: -.02em;
-}
-
-.profit-table th {
-  background: #f5f7fb;
-}
-
-.profit-table td {
-  font-weight: 700;
-}
-
-/* 下部ナビゲーション */
-.bottomnav {
-  padding: 8px 10px max(10px, env(safe-area-inset-bottom));
-  background: rgba(255,255,255,.98);
-  border-top: 1px solid #dce4ee;
-  box-shadow: 0 -4px 18px #1018280c;
-  backdrop-filter: blur(12px);
-}
-
-.navbtn {
-  min-height: 48px;
-  border-radius: 13px;
-  font-size: 15px;
-  transition: background .15s ease;
-}
-
-.navbtn.active {
-  background: #155eef;
-  border-color: #155eef;
-  box-shadow: 0 3px 8px #155eef25;
-}
-
-/* iPhone向け */
-@media (max-width: 760px) {
-  .wrap {
-    padding: 10px;
-  }
-
-  .card {
-    padding: 12px;
-  }
-
-  .layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-  }
-
-  .hero {
-    padding: 14px;
-  }
-
-  .rider-table {
-    min-width: 540px;
-  }
-
-  .rider-table th,
-  .rider-table td {
-    padding: 9px 7px;
-  }
-
-  .bet {
-    min-height: 44px;
-  }
-
-  button {
-    -webkit-tap-highlight-color: transparent;
-  }
-}
-
-@media (max-width: 390px) {
-  .brand {
-    font-size: 19px;
-  }
-
-  .tagline {
-    font-size: 10px;
-  }
-
-  .topmeta {
-    max-width: 90px;
-  }
-
-  .hero-top {
-    gap: 8px;
-  }
-
-  .venue-tag {
-    padding: 8px 10px;
-  }
-
-  .raceno {
-    font-size: 30px;
-  }
-}
-
-/* ===== デザイン改善ここまで ===== */
 <style>
 :root {
   --bg: #f3f5f8;
@@ -1153,6 +843,317 @@ button {
     font-size: 18px;
   }
 }
+/* ===== 競輪AI デザイン改善 v1 ===== */
+
+/* 全体 */
+:root {
+  --bg: #f1f5f9;
+  --panel: #ffffff;
+  --line: #dce4ee;
+  --blue: #155eef;
+  --green: #039855;
+  --red: #d92d20;
+  --orange: #f07813;
+}
+
+body {
+  background: #f1f5f9;
+  color: #172033;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ヘッダー */
+.topbar {
+  background: linear-gradient(120deg, #101828, #243b63);
+  border-bottom: 3px solid #f5ad24;
+  padding: 13px 14px;
+}
+
+.brand {
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+
+.brand-icon {
+  filter: drop-shadow(0 2px 4px #0003);
+}
+
+/* 開催場・レース選択 */
+.venuebar {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.scrollrow,
+.racebar {
+  width: 100%;
+  padding: 4px 1px 9px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pill,
+.racebtn {
+  min-height: 44px;
+  border-radius: 12px;
+  border: 1px solid #d0d9e6;
+  box-shadow: 0 2px 4px #10182808;
+  scroll-snap-align: start;
+  transition: background .15s ease;
+}
+
+.pill.active {
+  background: #155eef;
+  border-color: #155eef;
+  box-shadow: 0 3px 8px #155eef30;
+}
+
+.racebtn.active {
+  background: #e8f1ff;
+  color: #1549a8;
+  border: 2px solid #155eef;
+}
+
+/* レース情報 */
+.hero {
+  border: 1px solid #b8d2ff;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #e4efff 0%, #ffffff 85%);
+  box-shadow: 0 4px 14px #174ea608;
+  padding: 17px;
+}
+
+.venue-tag {
+  background: linear-gradient(135deg, #155eef, #1849a9);
+  box-shadow: 0 3px 7px #155eef25;
+}
+
+.rankbadge {
+  background: #fff;
+  box-shadow: 0 3px 8px #1018280c;
+}
+
+/* カード */
+.card {
+  border: 1px solid #e0e7f0;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 3px 12px #10182808;
+}
+
+.card h2 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #edf0f5;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+/* 選手一覧 */
+.rider-table th {
+  background: #eef3f9;
+  color: #475467;
+  padding: 11px 8px;
+}
+
+.rider-table td {
+  padding: 10px 8px;
+}
+
+.rider-table tbody tr:nth-child(even) {
+  background-color: #fafcff;
+}
+
+.rider-table tr.main-rider {
+  background: #eaf2ff;
+}
+
+.rider-name {
+  font-weight: 900;
+}
+
+/* 車番の色は維持 */
+.car-6 {
+  background: #0b9b62;
+  color: #fff;
+}
+
+.car-7 {
+  background: #f07813;
+  color: #fff;
+}
+
+/* AI買い目 */
+.bet {
+  min-height: 46px;
+  padding: 9px;
+  border-radius: 11px;
+  border-color: #e0e7f0;
+  background: #f8faff;
+}
+
+.bet.primary {
+  background: #fff5f3;
+  border-color: #fda29b;
+  box-shadow: inset 3px 0 #e5484d;
+}
+
+.betnum {
+  font-size: 13px;
+}
+
+.ticket .car {
+  border-radius: 6px;
+}
+
+.betodd {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.bet-summary {
+  padding: 11px 3px 2px;
+  border-top: 1px solid #edf0f5;
+}
+
+.bet-summary strong {
+  font-size: 17px;
+}
+
+/* 結果表示 */
+.result-box {
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f8fafc, #eef3f8);
+  border-color: #dce4ee;
+}
+
+.money {
+  font-size: 25px;
+  font-weight: 950;
+}
+
+.positive {
+  color: #039855 !important;
+}
+
+.negative {
+  color: #d92d20 !important;
+}
+
+/* 成績・収支 */
+.stat {
+  background: #f8faff;
+  border-radius: 13px;
+  border-color: #e0e7f0;
+  padding: 13px 10px;
+}
+
+.stat .label {
+  font-weight: 700;
+}
+
+.stat .value {
+  font-weight: 950;
+  letter-spacing: -.02em;
+}
+
+.profit-table th {
+  background: #f5f7fb;
+}
+
+.profit-table td {
+  font-weight: 700;
+}
+
+/* 下部ナビゲーション */
+.bottomnav {
+  padding: 8px 10px max(10px, env(safe-area-inset-bottom));
+  background: rgba(255,255,255,.98);
+  border-top: 1px solid #dce4ee;
+  box-shadow: 0 -4px 18px #1018280c;
+  backdrop-filter: blur(12px);
+}
+
+.navbtn {
+  min-height: 48px;
+  border-radius: 13px;
+  font-size: 15px;
+  transition: background .15s ease;
+}
+
+.navbtn.active {
+  background: #155eef;
+  border-color: #155eef;
+  box-shadow: 0 3px 8px #155eef25;
+}
+
+/* iPhone向け */
+@media (max-width: 760px) {
+  .wrap {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .hero {
+    padding: 14px;
+  }
+
+  .rider-table {
+    min-width: 540px;
+  }
+
+  .rider-table th,
+  .rider-table td {
+    padding: 9px 7px;
+  }
+
+  .bet {
+    min-height: 44px;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand {
+    font-size: 19px;
+  }
+
+  .tagline {
+    font-size: 10px;
+  }
+
+  .topmeta {
+    max-width: 90px;
+  }
+
+  .hero-top {
+    gap: 8px;
+  }
+
+  .venue-tag {
+    padding: 8px 10px;
+  }
+
+  .raceno {
+    font-size: 30px;
+  }
+}
+
+/* ===== デザイン改善ここまで ===== */
 </style></head>
 <body>
 <header class="topbar">
