@@ -1235,7 +1235,7 @@ def main():
         )
     ]
     print(f'詳細取得対象レース: {len(detail_targets)}/{len(all_races)}レース')
-        if detail_targets:
+    if detail_targets:
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
             fs = {
                 ex.submit(
