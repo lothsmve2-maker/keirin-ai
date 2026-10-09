@@ -882,27 +882,37 @@ def calculate_summary(races):
         v=r.get('venue_name','');x=by_venue.setdefault(v,{'races':0,'investment':0,'payout':0,'profit':0,'hits':0});x['races']+=1;x['investment']+=i;x['payout']+=p;x['profit']+=p-i;x['hits']+=h
     for x in list(by_rank.values())+list(by_venue.values()):x['hit_rate']=round(x['hits']/x['races']*100,1) if x['races'] else 0;x['roi']=round(x['payout']/x['investment']*100,1) if x['investment'] else 0
     return {'races':len(races),'settled_races':settled,'pending_races':pending,'investment':inv,'payout':pay,'profit':pay-inv,'hits':hits,'hit_rate':round(hits/settled*100,1) if settled else 0,'roi':round(pay/inv*100,1) if inv else 0,'by_rank':by_rank,'by_venue':by_venue}
-
 def main():
-    started=time.time();print(f'==============================\n KEIRIN AI DATA UPDATE v{VERSION}\n==============================\n対象日: {TODAY_DISPLAY}\n==============================')
-    history=load_performance_history()
-    existing=load_existing();old={(str(r.get('venue_code')),int(r.get('race_no',0))):r for r in existing.get('races',[])}
-        if old:
+    started = time.time()
+    print(
+        f'==============================\n'
+        f' KEIRIN AI DATA UPDATE v{VERSION}\n'
+        f'==============================\n'
+        f'対象日: {TODAY_DISPLAY}\n'
+        f'=============================='
+    )
+
+    history = load_performance_history()
+    existing = load_existing()
+    old = {
+        (str(r.get('venue_code')), int(r.get('race_no', 0))): r
+        for r in existing.get('races', [])
+    }
+
+    if old:
         print(
             f'既存データ: {len(old)}レース\n'
             '凍結済みAI予想を保護します'
         )
-      all_races = []
+
+    all_races = []
     venues = []
 
     print('開催場を確認中...')
-
-    # 毎回、当日の開催場を再検出する。
     discovered = discover_today_venues()
 
     if not discovered:
-        # 自動検出に失敗した場合、既存データを消さずに従来設定へ戻す。
-        print('警告: 開催場を検出できないため、既存設定を使用します')
+        print('警告: 開催場を検出できません。既存設定を使用します')
         discovered = [
             {'code': c, 'name': n, 'slug': s}
             for c, (n, s) in VENUES.items()
@@ -920,13 +930,11 @@ def main():
         name = v['name']
         slug = v['slug']
 
-        # 既存レースを再利用しながら、開催中の全レースを再確認する。
         detected = discover_real_races(v)
         detected_numbers = {
             int(r['race_no']) for r in detected
         }
 
-        # 検出済みのレースは既存データを優先して再利用する。
         existing_races = {
             int(r['race_no']): r
             for r in old_by_venue.get(code, [])
@@ -941,29 +949,24 @@ def main():
                 previous = merge_existing_race(
                     existing_races[race_no]
                 )
-
-                # 確定済みの予想・結果を保持しつつ、
-                # 開催情報と取得URLは最新のものにする。
                 previous.update({
                     'venue_code': code,
                     'venue_name': name,
                     'venue_slug': slug,
                     'race_no': race_no,
                     'url': fresh.get('url') or previous.get('url', ''),
-                    'start_time': fresh.get('start_time')
-                                  or previous.get('start_time', ''),
+                    'start_time': (
+                        fresh.get('start_time')
+                        or previous.get('start_time', '')
+                    ),
                 })
-
                 merged.append(previous)
             else:
                 merged.append(fresh)
 
-        # 既存データにしかないレースは、誤削除を避けて残す。
         for race_no, previous in existing_races.items():
             if race_no not in detected_numbers:
-                merged.append(
-                    merge_existing_race(previous)
-                )
+                merged.append(merge_existing_race(previous))
 
         merged.sort(key=lambda r: int(r.get('race_no', 0)))
 
@@ -973,12 +976,8 @@ def main():
         venues.append(v)
         all_races.extend(merged)
 
-        print(
-            f'  {code} {name}: '
-            f'{len(merged)}レース'
-        )
+        print(f'  {code} {name}: {len(merged)}レース')
 
-    # 同じ開催場・レース番号の重複を除去する。
     unique = {}
     for race in all_races:
         key = (
@@ -997,7 +996,7 @@ def main():
     )
 
     print(f'開催場数: {len(venues)}')
-    print(f'検出レース数: {len(all_races)}')  all_races.sort(key=lambda x:(int(x['venue_code']),x['race_no']))
+    print(f'検出レース数: {len(all_races)}')
     # In v6.8 this means races present in today's dataset, not HTTP requests.
     # Existing race pages are reused; only missing/incomplete records are fetched.
     detail_targets=[r for r in all_races if not (5<=len(r.get('riders',[]))<=7 and r.get('url'))]
