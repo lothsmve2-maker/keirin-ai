@@ -29,42 +29,41 @@ VENUE_MASTER = {
     '27': ('京王閣', 'keiokaku'),
     '28': ('立川', 'tachikawa'),
     '31': ('松戸', 'matsudo'),
-    '32': ('千葉', 'chiba'),
     '34': ('川崎', 'kawasaki'),
     '35': ('平塚', 'hiratsuka'),
     '36': ('小田原', 'odawara'),
     '37': ('伊東', 'ito'),
     '38': ('静岡', 'shizuoka'),
-    '41': ('名古屋', 'nagoya'),
-    '42': ('岐阜', 'gifu'),
-    '43': ('大垣', 'ogaki'),
-    '44': ('豊橋', 'toyohashi'),
-    '45': ('富山', 'toyama'),
-    '46': ('松阪', 'matsusaka'),
-    '47': ('四日市', 'yokkaichi'),
-    '48': ('福井', 'fukui'),
-    '51': ('奈良', 'nara'),
-    '53': ('向日町', 'mukomachi'),
-    '54': ('和歌山', 'wakayama'),
-    '55': ('岸和田', 'kishiwada'),
-    '56': ('玉野', 'tamano'),
-    '61': ('広島', 'hiroshima'),
-    '62': ('防府', 'hofu'),
-    '63': ('高松', 'takamatsu'),
-    '64': ('小松島', 'komatsushima'),
-    '65': ('高知', 'kochi'),
-    '66': ('松山', 'matsuyama'),
-    '71': ('小倉', 'kokura'),
-    '73': ('別府', 'beppu'),
-    '74': ('熊本', 'kumamoto'),
-    '75': ('武雄', 'takeo'),
-    '81': ('佐世保', 'sasebo'),
+    '42': ('名古屋', 'nagoya'),
+    '43': ('岐阜', 'gifu'),
+    '44': ('大垣', 'ogaki'),
+    '45': ('豊橋', 'toyohashi'),
+    '46': ('富山', 'toyama'),
+    '47': ('松阪', 'matsusaka'),
+    '48': ('四日市', 'yokkaichi'),
+    '51': ('福井', 'fukui'),
+    '53': ('奈良', 'nara'),
+    '54': ('向日町', 'mukomachi'),
+    '55': ('和歌山', 'wakayama'),
+    '56': ('岸和田', 'kishiwada'),
+    '61': ('玉野', 'tamano'),
+    '62': ('広島', 'hiroshima'),
+    '63': ('防府', 'hofu'),
+    '71': ('高松', 'takamatsu'),
+    '73': ('小松島', 'komatsushima'),
+    '74': ('高知', 'kochi'),
+    '75': ('松山', 'matsuyama'),
+    '81': ('小倉', 'kokura'),
     '83': ('久留米', 'kurume'),
-    '84': ('佐賀', 'saga'),
+    '84': ('武雄', 'takeo'),
+    '85': ('佐世保', 'sasebo'),
+    '86': ('別府', 'beppu'),
+    '87': ('熊本', 'kumamoto'),
 }
+
 VENUES = {
-    c: (name, slug)
-    for c, (name, slug) in VENUE_MASTER.items()
+    code: (name, slug)
+    for code, (name, slug) in VENUE_MASTER.items()
 }
 MARK_SCORE={'◎':18,'○':12,'▲':8,'△':5,'×':1,'注':3}
 # v6.15: explainable rider/race components, odds break-even metrics, persistent multi-day settled-race history. Frozen picks remain immutable.
@@ -931,6 +930,7 @@ def main():
         slug = v['slug']
 
         detected = discover_real_races(v)
+
         detected_numbers = {
             int(r['race_no']) for r in detected
         }
@@ -939,6 +939,13 @@ def main():
             int(r['race_no']): r
             for r in old_by_venue.get(code, [])
         }
+
+        # 新規開催なのにレースが1つも検出されなければ除外。
+        # 既存データがある場合は、誤って消さないように保持する。
+        if not detected and not existing_races:
+            print(f'  {code} {name}: レース未検出のため除外')
+            continue
+
 
         merged = []
 
