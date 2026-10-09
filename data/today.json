@@ -4269,7 +4269,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-10T01:48:15.163405+09:00",
+  "updated_at": "2026-10-10T02:34:38.223220+09:00",
   "target_date": "2026-10-10",
   "data_complete": true,
   "result_complete": false,
@@ -5671,25 +5671,6 @@
       ]
     },
     {
-      "venue_code": "35",
-      "venue_name": "平塚",
-      "race_count": 12,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    {
       "venue_code": "46",
       "venue_name": "富山",
       "race_count": 12,
@@ -5709,9 +5690,9 @@
       ]
     },
     {
-      "venue_code": "34",
-      "venue_name": "川崎",
-      "race_count": 9,
+      "venue_code": "35",
+      "venue_name": "平塚",
+      "race_count": 12,
       "race_numbers": [
         1,
         2,
@@ -5721,7 +5702,24 @@
         6,
         7,
         8,
-        9
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "venue_code": "84",
+      "venue_name": "武雄",
+      "race_count": 7,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
       ]
     },
     {
@@ -5743,8 +5741,8 @@
       ]
     },
     {
-      "venue_code": "53",
-      "venue_name": "奈良",
+      "venue_code": "34",
+      "venue_name": "川崎",
       "race_count": 9,
       "race_numbers": [
         1,
@@ -5759,9 +5757,9 @@
       ]
     },
     {
-      "venue_code": "84",
-      "venue_name": "武雄",
-      "race_count": 7,
+      "venue_code": "53",
+      "venue_name": "奈良",
+      "race_count": 9,
       "race_numbers": [
         1,
         2,
@@ -5769,7 +5767,9 @@
         4,
         5,
         6,
-        7
+        7,
+        8,
+        9
       ]
     }
   ],
@@ -9830,7 +9830,7 @@
           "name": "山形 一気",
           "age": 37,
           "period": 96,
-          "prefecture": "山形",
+          "prefecture": "徳島",
           "grade": "",
           "style": "追",
           "score": 107.5,
