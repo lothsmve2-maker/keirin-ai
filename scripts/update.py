@@ -263,8 +263,18 @@ def parse_start_time(sp):
     return ''
 
 def fetch_race(job):
-    u=race_url(job['venue_code'],job['race_no']); sp=soup(get_html(u)); rel=discover_related(sp); riders=parse_riders(sp)
-    return {**job,'url':u,'riders':riders,'start_time':parse_start_time(sp),**rel,'success':5<=len(riders)<=7}
+    u = race_url(job['venue_code'], job['race_no'])
+    sp = soup(get_html(u))
+    rel = discover_related(sp)
+    riders = parse_riders(sp)
+    return {
+        **job,
+        'url': u,
+        'riders': riders,
+        'start_time': parse_start_time(sp),
+        **rel,
+        'success': 5 <= len(riders) <= 9
+    }
 def discover_today_venues():
     """
     オッズパークの当日開催一覧を確認し、
@@ -1140,19 +1150,20 @@ def main():
     print(f'開催場数: {len(venues)}')
     print(f'検出レース数: {len(all_races)}')
     # In v6.8 this means races present in today's dataset, not HTTP requests.
-    # Existing race pages are reused; only missing/incomplete records are fetched.
+    # Existing race pages are reused; only missing/incomplete records are     
     detail_targets = [
-    r for r in all_races
-    if (
-        not (5 <= len(r.get('riders', [])) <= 9)
-        or not r.get('url')
-        or sorted(
-            x.get('car_no')
-            for x in r.get('riders', [])
-            if isinstance(x.get('car_no'), int)
-        ) != list(range(1, len(r.get('riders', [])) + 1))
-    )
-]
+        r for r in all_races
+        if (
+            not (5 <= len(r.get('riders', [])) <= 9)
+            or not r.get('url')
+            or str(r.get('venue_code')) == '21'
+            or sorted(
+                x.get('car_no')
+                for x in r.get('riders', [])
+                if isinstance(x.get('car_no'), int)
+            ) != list(range(1, len(r.get('riders', [])) + 1))
+        )
+    ]
     print(f'詳細取得対象レース: {len(detail_targets)}/{len(all_races)}レース')
     if detail_targets:
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
