@@ -1490,9 +1490,20 @@ function getRiderName(r) {
   ], "選手情報なし"));
 }
 
-function getRiderScore(r) {
+function getCompetitionScore(r) {
   return num(first(r, [
-    "ai_score", "aiScore", "score", "rating", "競走得点"
+    "score",
+    "competition_score",
+    "competitionScore",
+    "競走得点"
+  ], 0));
+}
+
+function getAIRating(r) {
+  return num(first(r, [
+    "ai_score",
+    "aiScore",
+    "rating"
   ], 0));
 }
 
