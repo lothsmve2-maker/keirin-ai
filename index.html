@@ -1607,7 +1607,7 @@ function getResult(r) {
       typeof x === "object"
         ? num(first(x, ["car_no", "carNo", "number", "車番"], 0))
         : num(x)
-    ).filter(n => n >= 1 && n <= 7).slice(0, 3);
+    ).filter(n => n >= 1 && n <= 9).slice(0, 3);
   }
 
   if (raw && typeof raw === "object") {
@@ -1620,7 +1620,7 @@ function getResult(r) {
         typeof x === "object"
           ? num(first(x, ["car_no", "carNo", "number"], 0))
           : num(x)
-      ).filter(n => n >= 1 && n <= 7).slice(0, 3);
+      ).filter(n => n >= 1 && n <= 9).slice(0, 3);
     }
 
     if (a !== null) raw = a;
@@ -1637,7 +1637,7 @@ function getResult(r) {
     first(r, ["third", "third_place", "3着"], 0)
   ].map(num);
 
-  return direct.every(n => n >= 1 && n <= 7) ? direct : [];
+  return direct.every(n => n >= 1 && n <= 9) ? direct : [];
 }
 
 function isResultConfirmed(r) {
@@ -1657,7 +1657,7 @@ function isResultConfirmed(r) {
 
   return a.length === 3 &&
     new Set(a).size === 3 &&
-    a.every(n => n >= 1 && n <= 7);
+    a.every(n => n >= 1 && n <= 9);
 }
 
 function getPayout(r) {
