@@ -4269,7 +4269,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-10T10:31:13.091281+09:00",
+  "updated_at": "2026-10-10T11:27:58.586876+09:00",
   "target_date": "2026-10-10",
   "data_complete": true,
   "result_complete": false,
@@ -6186,20 +6186,6 @@
       ]
     },
     {
-      "venue_code": "84",
-      "venue_name": "武雄",
-      "race_count": 7,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ]
-    },
-    {
       "venue_code": "43",
       "venue_name": "岐阜",
       "race_count": 11,
@@ -6247,6 +6233,20 @@
         7,
         8,
         9
+      ]
+    },
+    {
+      "venue_code": "84",
+      "venue_name": "武雄",
+      "race_count": 7,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
       ]
     }
   ],
