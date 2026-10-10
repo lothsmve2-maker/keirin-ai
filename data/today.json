@@ -4295,7 +4295,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-11T01:33:19.114364+09:00",
+  "updated_at": "2026-10-11T02:33:00.338590+09:00",
   "target_date": "2026-10-11",
   "data_complete": true,
   "result_complete": false,
@@ -5735,9 +5735,9 @@
       ]
     },
     {
-      "venue_code": "34",
-      "venue_name": "川崎",
-      "race_count": 9,
+      "venue_code": "84",
+      "venue_name": "武雄",
+      "race_count": 7,
       "race_numbers": [
         1,
         2,
@@ -5745,9 +5745,7 @@
         4,
         5,
         6,
-        7,
-        8,
-        9
+        7
       ]
     },
     {
@@ -5769,8 +5767,8 @@
       ]
     },
     {
-      "venue_code": "53",
-      "venue_name": "奈良",
+      "venue_code": "34",
+      "venue_name": "川崎",
       "race_count": 9,
       "race_numbers": [
         1,
@@ -5785,9 +5783,9 @@
       ]
     },
     {
-      "venue_code": "84",
-      "venue_name": "武雄",
-      "race_count": 7,
+      "venue_code": "53",
+      "venue_name": "奈良",
+      "race_count": 9,
       "race_numbers": [
         1,
         2,
@@ -5795,7 +5793,9 @@
         4,
         5,
         6,
-        7
+        7,
+        8,
+        9
       ]
     }
   ],
