@@ -1516,12 +1516,12 @@ function getGrade(r) {
 
 function parseTicket(v) {
   if (Array.isArray(v)) {
-    return v.map(num).filter(n => n >= 1 && n <= 7).slice(0, 3);
+    return v.map(num).filter(n => n >= 1 && n <= 9).slice(0, 3);
   }
 
   if (typeof v === "number") return [];
 
-  return (String(v ?? "").match(/[1-7]/g) || [])
+  return (String(v ?? "").match(/[1-9]/g) || [])
     .map(Number).slice(0, 3);
 }
 
