@@ -4269,7 +4269,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-10T20:25:25.632873+09:00",
+  "updated_at": "2026-10-10T21:27:59.799650+09:00",
   "target_date": "2026-10-10",
   "data_complete": true,
   "result_complete": false,
@@ -4703,32 +4703,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -4766,32 +4766,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -4808,33 +4808,33 @@
             "favorite_odds": 20.9,
             "bets": [
               {
+                "ticket": "5-7-1",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
                 "ticket": "5-7-3",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-1-7",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "5-3-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "7-5-3",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-5-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-3-5",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 126.27,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -4872,32 +4872,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -4914,33 +4914,33 @@
             "favorite_odds": 20.9,
             "bets": [
               {
+                "ticket": "5-7-1",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
                 "ticket": "5-7-3",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-1-7",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "5-3-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "7-5-3",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-5-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-3-5",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 126.27,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -4958,32 +4958,32 @@
             "bets": [
               {
                 "ticket": "6-1-5",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 41.26,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-3",
+                "score": 40.76,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-4",
+                "score": 40.13,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-2",
+                "score": 38.43,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "6-5-1",
-                "score": 98.0,
-                "type": "🔥 本線入替",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "1-6-5",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "5-6-1",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "1-5-6",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 38.28,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5021,32 +5021,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5063,33 +5063,33 @@
             "favorite_odds": 20.9,
             "bets": [
               {
+                "ticket": "5-7-1",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
                 "ticket": "5-7-3",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-1-7",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "5-3-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "7-5-3",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-5-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-3-5",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 126.27,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5107,32 +5107,32 @@
             "bets": [
               {
                 "ticket": "6-1-5",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 41.26,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-3",
+                "score": 40.76,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-4",
+                "score": 40.13,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-2",
+                "score": 38.43,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "6-5-1",
-                "score": 98.0,
-                "type": "🔥 本線入替",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "1-6-5",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "5-6-1",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "1-5-6",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 38.28,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5150,32 +5150,32 @@
             "bets": [
               {
                 "ticket": "3-5-1",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 64.21,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "3-1-5",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 62.9,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-3-1",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
+                "ticket": "3-5-2",
+                "score": 62.74,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "1-3-5",
-                "score": 83.0,
-                "type": "💥 逆転",
+                "ticket": "3-5-4",
+                "score": 62.44,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-1-3",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "3-2-5",
+                "score": 60.69,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5213,32 +5213,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5255,33 +5255,33 @@
             "favorite_odds": 20.9,
             "bets": [
               {
+                "ticket": "5-7-1",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
                 "ticket": "5-7-3",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-1-7",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "5-3-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "7-5-3",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-5-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-3-5",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 126.27,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5299,32 +5299,32 @@
             "bets": [
               {
                 "ticket": "6-1-5",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 41.26,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-3",
+                "score": 40.76,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-4",
+                "score": 40.13,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "6-1-2",
+                "score": 38.43,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "6-5-1",
-                "score": 98.0,
-                "type": "🔥 本線入替",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "1-6-5",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "5-6-1",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "1-5-6",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 38.28,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5342,32 +5342,32 @@
             "bets": [
               {
                 "ticket": "3-5-1",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 64.21,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "3-1-5",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 62.9,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-3-1",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
+                "ticket": "3-5-2",
+                "score": 62.74,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "1-3-5",
-                "score": 83.0,
-                "type": "💥 逆転",
+                "ticket": "3-5-4",
+                "score": 62.44,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-1-3",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "3-2-5",
+                "score": 60.69,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5385,32 +5385,32 @@
             "bets": [
               {
                 "ticket": "3-2-4",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 90.09,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-5",
+                "score": 89.08,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-7",
+                "score": 87.47,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "3-4-2",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 87.46,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "2-3-4",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "4-3-2",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-4-3",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 86.53,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5448,32 +5448,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5511,32 +5511,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5553,33 +5553,33 @@
             "favorite_odds": 20.9,
             "bets": [
               {
+                "ticket": "5-7-1",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
                 "ticket": "5-7-3",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-1-7",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "5-3-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "7-5-3",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-5-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-3-5",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 126.27,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5617,32 +5617,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5659,33 +5659,33 @@
             "favorite_odds": 20.9,
             "bets": [
               {
+                "ticket": "5-7-1",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
                 "ticket": "5-7-3",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-1-7",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "5-3-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "7-5-3",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-5-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-3-5",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 126.27,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5703,32 +5703,32 @@
             "bets": [
               {
                 "ticket": "3-5-1",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 64.21,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "3-1-5",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 62.9,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-3-1",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
+                "ticket": "3-5-2",
+                "score": 62.74,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "1-3-5",
-                "score": 83.0,
-                "type": "💥 逆転",
+                "ticket": "3-5-4",
+                "score": 62.44,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-1-3",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "3-2-5",
+                "score": 60.69,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5766,32 +5766,32 @@
             "bets": [
               {
                 "ticket": "1-7-2",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 89.96,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-5",
+                "score": 88.82,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-3",
+                "score": 88.58,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "1-2-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 88.16,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "7-1-2",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-1-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-2-1",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "1-5-7",
+                "score": 86.45,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5808,33 +5808,33 @@
             "favorite_odds": 20.9,
             "bets": [
               {
+                "ticket": "5-7-1",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
                 "ticket": "5-7-3",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 131.29,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-1-7",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "5-3-7",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 126.79,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "7-5-3",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "3-5-7",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "7-3-5",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 126.27,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5852,32 +5852,32 @@
             "bets": [
               {
                 "ticket": "3-5-1",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 64.21,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "3-1-5",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 62.9,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-3-1",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
+                "ticket": "3-5-2",
+                "score": 62.74,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "1-3-5",
-                "score": 83.0,
-                "type": "💥 逆転",
+                "ticket": "3-5-4",
+                "score": 62.44,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-1-3",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "ticket": "3-2-5",
+                "score": 60.69,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5895,32 +5895,32 @@
             "bets": [
               {
                 "ticket": "3-2-4",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "score": 90.09,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-5",
+                "score": 89.08,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-2-7",
+                "score": 87.47,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "3-4-2",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "score": 87.46,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
                 "ticket": "2-3-4",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "4-3-2",
-                "score": 83.0,
-                "type": "💥 逆転",
-                "bet_yen": 100
-              },
-              {
-                "ticket": "2-4-3",
-                "score": 81.0,
-                "type": "💥 対抗展開",
+                "score": 86.53,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -5937,33 +5937,33 @@
             "favorite_odds": 182.3,
             "bets": [
               {
-                "ticket": "9-5-1",
-                "score": 101.0,
-                "type": "🔥 AI本線",
+                "ticket": "1-2-5",
+                "score": 11.0,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "9-1-5",
-                "score": 98.0,
-                "type": "🔥 本線入替",
+                "ticket": "1-2-9",
+                "score": 11.0,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "5-9-1",
-                "score": 95.0,
-                "type": "⭐ 対抗頭",
+                "ticket": "1-5-2",
+                "score": 11.0,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "9-5-2",
-                "score": 93.0,
-                "type": "🎯 穴絡み",
+                "ticket": "1-5-9",
+                "score": 11.0,
+                "type": "AI総合評価",
                 "bet_yen": 100
               },
               {
-                "ticket": "9-2-5",
-                "score": 91.0,
-                "type": "🎯 穴入替",
+                "ticket": "1-9-2",
+                "score": 11.0,
+                "type": "AI総合評価",
                 "bet_yen": 100
               }
             ],
@@ -6004,32 +6004,32 @@
           "bets": [
             {
               "ticket": "1-7-2",
-              "score": 101.0,
-              "type": "🔥 AI本線",
+              "score": 89.96,
+              "type": "AI総合評価",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "1-7-5",
+              "score": 88.82,
+              "type": "AI総合評価",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "1-7-3",
+              "score": 88.58,
+              "type": "AI総合評価",
               "bet_yen": 100
             },
             {
               "ticket": "1-2-7",
-              "score": 98.0,
-              "type": "🔥 本線入替",
+              "score": 88.16,
+              "type": "AI総合評価",
               "bet_yen": 100
             },
             {
-              "ticket": "7-1-2",
-              "score": 95.0,
-              "type": "⭐ 対抗頭",
-              "bet_yen": 100
-            },
-            {
-              "ticket": "2-1-7",
-              "score": 83.0,
-              "type": "💥 逆転",
-              "bet_yen": 100
-            },
-            {
-              "ticket": "7-2-1",
-              "score": 81.0,
-              "type": "💥 対抗展開",
+              "ticket": "1-5-7",
+              "score": 86.45,
+              "type": "AI総合評価",
               "bet_yen": 100
             }
           ],
@@ -6046,33 +6046,33 @@
           "favorite_odds": 20.9,
           "bets": [
             {
+              "ticket": "5-7-1",
+              "score": 131.29,
+              "type": "AI総合評価",
+              "bet_yen": 100
+            },
+            {
               "ticket": "5-7-3",
-              "score": 101.0,
-              "type": "🔥 AI本線",
+              "score": 131.29,
+              "type": "AI総合評価",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "5-1-7",
+              "score": 126.79,
+              "type": "AI総合評価",
               "bet_yen": 100
             },
             {
               "ticket": "5-3-7",
-              "score": 98.0,
-              "type": "🔥 本線入替",
+              "score": 126.79,
+              "type": "AI総合評価",
               "bet_yen": 100
             },
             {
               "ticket": "7-5-3",
-              "score": 95.0,
-              "type": "⭐ 対抗頭",
-              "bet_yen": 100
-            },
-            {
-              "ticket": "3-5-7",
-              "score": 83.0,
-              "type": "💥 逆転",
-              "bet_yen": 100
-            },
-            {
-              "ticket": "7-3-5",
-              "score": 81.0,
-              "type": "💥 対抗展開",
+              "score": 126.27,
+              "type": "AI総合評価",
               "bet_yen": 100
             }
           ],
@@ -6090,32 +6090,32 @@
           "bets": [
             {
               "ticket": "6-1-5",
-              "score": 101.0,
-              "type": "🔥 AI本線",
+              "score": 41.26,
+              "type": "AI総合評価",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "6-1-3",
+              "score": 40.76,
+              "type": "AI総合評価",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "6-1-4",
+              "score": 40.13,
+              "type": "AI総合評価",
+              "bet_yen": 100
+            },
+            {
+              "ticket": "6-1-2",
+              "score": 38.43,
+              "type": "AI総合評価",
               "bet_yen": 100
             },
             {
               "ticket": "6-5-1",
-              "score": 98.0,
-              "type": "🔥 本線入替",
-              "bet_yen": 100
-            },
-            {
-              "ticket": "1-6-5",
-              "score": 95.0,
-              "type": "⭐ 対抗頭",
-              "bet_yen": 100
-            },
-            {
-              "ticket": "5-6-1",
-              "score": 83.0,
-              "type": "💥 逆転",
-              "bet_yen": 100
-            },
-            {
-              "ticket": "1-5-6",
-              "score": 81.0,
-              "type": "💥 対抗展開",
+              "score": 38.28,
+              "type": "AI総合評価",
               "bet_yen": 100
             }
           ],
@@ -6129,9 +6129,9 @@
   },
   "venues": [
     {
-      "venue_code": "35",
-      "venue_name": "平塚",
-      "race_count": 12,
+      "venue_code": "53",
+      "venue_name": "奈良",
+      "race_count": 9,
       "race_numbers": [
         1,
         2,
@@ -6141,10 +6141,7 @@
         6,
         7,
         8,
-        9,
-        10,
-        11,
-        12
+        9
       ]
     },
     {
@@ -6164,9 +6161,9 @@
       ]
     },
     {
-      "venue_code": "53",
-      "venue_name": "奈良",
-      "race_count": 9,
+      "venue_code": "21",
+      "venue_name": "弥彦",
+      "race_count": 12,
       "race_numbers": [
         1,
         2,
@@ -6176,12 +6173,15 @@
         6,
         7,
         8,
-        9
+        9,
+        10,
+        11,
+        12
       ]
     },
     {
-      "venue_code": "21",
-      "venue_name": "弥彦",
+      "venue_code": "35",
+      "venue_name": "平塚",
       "race_count": 12,
       "race_numbers": [
         1,
@@ -12743,7 +12743,7 @@
           "name": "山口 拳矢",
           "age": 30,
           "period": 117,
-          "prefecture": "山口",
+          "prefecture": "岐阜",
           "grade": "",
           "style": "両",
           "score": 115.269,
