@@ -4269,7 +4269,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-10T14:27:26.705206+09:00",
+  "updated_at": "2026-10-10T15:30:03.585774+09:00",
   "target_date": "2026-10-10",
   "data_complete": true,
   "result_complete": false,
@@ -7813,7 +7813,7 @@
           "name": "山口 多聞",
           "age": 24,
           "period": 121,
-          "prefecture": "山口",
+          "prefecture": "埼玉",
           "grade": "",
           "style": "逃",
           "score": 99.0,
@@ -12743,7 +12743,7 @@
           "name": "山口 拳矢",
           "age": 30,
           "period": 117,
-          "prefecture": "山口",
+          "prefecture": "岐阜",
           "grade": "",
           "style": "両",
           "score": 115.269,
