@@ -4269,7 +4269,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-10T16:27:38.881125+09:00",
+  "updated_at": "2026-10-10T17:27:01.281302+09:00",
   "target_date": "2026-10-10",
   "data_complete": true,
   "result_complete": false,
@@ -6129,25 +6129,6 @@
   },
   "venues": [
     {
-      "venue_code": "21",
-      "venue_name": "弥彦",
-      "race_count": 12,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    {
       "venue_code": "35",
       "venue_name": "平塚",
       "race_count": 12,
@@ -6214,6 +6195,25 @@
         7,
         8,
         9
+      ]
+    },
+    {
+      "venue_code": "21",
+      "venue_name": "弥彦",
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
       ]
     },
     {
