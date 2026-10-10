@@ -4269,7 +4269,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-10T19:26:00.986761+09:00",
+  "updated_at": "2026-10-10T20:25:25.632873+09:00",
   "target_date": "2026-10-10",
   "data_complete": true,
   "result_complete": false,
@@ -6148,24 +6148,6 @@
       ]
     },
     {
-      "venue_code": "43",
-      "venue_name": "岐阜",
-      "race_count": 11,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11
-      ]
-    },
-    {
       "venue_code": "34",
       "venue_name": "川崎",
       "race_count": 9,
@@ -6233,6 +6215,24 @@
         10,
         11,
         12
+      ]
+    },
+    {
+      "venue_code": "43",
+      "venue_name": "岐阜",
+      "race_count": 11,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
       ]
     },
     {
@@ -7813,7 +7813,7 @@
           "name": "山口 多聞",
           "age": 24,
           "period": 121,
-          "prefecture": "山口",
+          "prefecture": "埼玉",
           "grade": "",
           "style": "逃",
           "score": 99.0,
