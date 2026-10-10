@@ -587,25 +587,138 @@ def calculate_verdict(race):
     return {'rank':rank,'label':label,'score':v,'reason':'基礎能力＋直近成績＋決まり手＋ライン＋コメント＋展開＋バンク適性を総合評価','model':'v6.15'}
 def ticket(a,b,c):return f'{a}-{b}-{c}' if None not in (a,b,c) and len({a,b,c})==3 else ''
 def generate_bets(race, limit=MAX_BETS):
-    rs=sorted(race.get('riders',[]),key=lambda x:(x.get('ai_score',0),x.get('score') or 0),reverse=True)
-    if len(rs)<3:return []
-    m,s,t=[x['car_no'] for x in rs[:3]]; q=rs[3]['car_no'] if len(rs)>3 else None; f=rs[4]['car_no'] if len(rs)>4 else None; d=race.get('ai',{}).get('dark_horse') or t
-    cs=[(m,s,t,100,'🔥 AI本線'),(m,t,s,97,'🔥 本線入替'),(s,m,t,94,'⭐ 対抗頭'),(m,s,d,92,'🎯 穴絡み'),(m,d,s,90,'🎯 穴入替'),(t,m,s,82,'💥 逆転'),(s,t,m,80,'💥 対抗展開'),(m,q,s,76,'🎯 中穴'),(q,m,t,72,'💥 高配当'),(m,d,f,68,'💣 大穴警戒'),(d,m,s,65,'💣 穴頭')]
-    for g in race.get('line_groups',[]):
-        if len(g)>=2:cs += [(g[0],g[1],m,88,'🚴 ライン本線'),(g[1],g[0],m,85,'🔄 番手差し'),(g[0],m,g[1],82,'⚡ 先頭残り')]
-    line=set(race.get('line',[])); out={}
-    for a,b,c,sc,lab in cs:
-        tk=ticket(a,b,c)
-        if tk:
-            tactical=0
-            for pos,x in enumerate((a,b,c)):
-                if x in line:tactical+=2
-                rider=next((rr for rr in race.get('riders',[]) if rr.get('car_no')==x),None)
-                if rider and pos==0:tactical+=max(0,_comment_score(rider))*0.7
-                if rider and pos==1:tactical+=1.0
-            val={'ticket':tk,'score':round(sc+tactical,2),'type':lab,'bet_yen':BET_UNIT}
-            out[tk]=max(out.get(tk,{'score':-1}),val,key=lambda x:x['score'])
-    return sorted(out.values(),key=lambda x:x['score'],reverse=True)[:limit]
+    """全出走車から3連単候補を評価し、上位の買い目を選ぶ。"""
+
+    riders = race.get('riders', []) or []
+
+    # 車番が正しく、重複していない選手だけを対象にする
+    valid = {}
+    for r in riders:
+        try:
+            car = int(r.get('car_no', 0))
+        except (TypeError, ValueError):
+            continue
+
+        if 1 <= car <= 9 and car not in valid:
+            valid[car] = r
+
+    cars = sorted(valid)
+
+    if len(cars) < 3:
+        return []
+
+    line = race.get('line', []) or []
+    line_groups = race.get('line_groups', []) or []
+
+    # 既存のAI評価を優先し、競走得点は補助指標にする
+    def rider_strength(r):
+        ai = r.get('ai_score')
+        score = r.get('score')
+
+        try:
+            ai = float(ai or 0)
+        except (TypeError, ValueError):
+            ai = 0.0
+
+        try:
+            score = float(score or 0)
+        except (TypeError, ValueError):
+            score = 0.0
+
+        # 競走得点の差を小さく反映し、AI評価を主軸にする
+        return ai + max(-5.0, min(5.0, (score - 90.0) * 0.25))
+
+    strengths = {
+        car: rider_strength(valid[car])
+        for car in cars
+    }
+
+    # ライン内の位置を取得
+    line_position = {}
+    for group in line_groups:
+        for i, car in enumerate(group):
+            if car in valid and car not in line_position:
+                line_position[car] = i
+
+    for i, car in enumerate(line):
+        if car in valid and car not in line_position:
+            line_position[car] = i
+
+    candidates = []
+
+    # 全車の3連単を評価する
+    for first in cars:
+        for second in cars:
+            if second == first:
+                continue
+
+            for third in cars:
+                if third == first or third == second:
+                    continue
+
+                a = valid[first]
+                b = valid[second]
+                c = valid[third]
+
+                # 1着・2着・3着の位置ごとに評価
+                score = (
+                    strengths[first] * 1.00
+                    + strengths[second] * 0.72
+                    + strengths[third] * 0.48
+                )
+
+                # 番手・ライン内の位置を補助評価
+                if first in line_position:
+                    score += 0.8
+
+                if second in line_position:
+                    score += 1.2
+
+                if third in line_position:
+                    score += 0.4
+
+                # 同一ライン内の組み合わせを弱く評価
+                same_line = False
+                for group in line_groups:
+                    if first in group and second in group:
+                        same_line = True
+                        break
+
+                if same_line:
+                    score += 1.5
+
+                # コメント評価は既存関数を使用
+                score += max(-2.0, min(3.0, _comment_score(a))) * 0.35
+                score += max(-2.0, min(3.0, _comment_score(b))) * 0.20
+
+                # AI評価上位だけに固定せず、全候補を同じ基準で比較
+                candidates.append({
+                    'ticket': ticket(first, second, third),
+                    'score': round(score, 2),
+                    'type': 'AI総合評価',
+                    'bet_yen': BET_UNIT,
+                })
+
+    # 無効な買い目を除外し、重複を防止
+    unique = {}
+    for bet in candidates:
+        tk = bet.get('ticket', '')
+        if not tk:
+            continue
+
+        if tk not in unique or bet['score'] > unique[tk]['score']:
+            unique[tk] = bet
+
+    try:
+        limit = max(1, min(int(limit), MAX_BETS))
+    except (TypeError, ValueError):
+        limit = MAX_BETS
+
+    return sorted(
+        unique.values(),
+        key=lambda x: x['score'],
+        reverse=True
+    )[:limit]
 def apply_ai(race):
     for r in race['riders']:r['ai_score']=calculate_ai_score(r,race)
     rank=sorted(race['riders'],key=lambda x:(x.get('ai_score',0),x.get('score') or 0),reverse=True)
