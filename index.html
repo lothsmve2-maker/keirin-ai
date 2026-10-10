@@ -1506,6 +1506,10 @@ function getAIRating(r) {
     "rating"
   ], 0));
 }
+  
+function getRiderScore(r) {
+return getAIRating(r);
+}
 
 function getRiderRank(r) {
   return num(first(r, ["ai_rank", "aiRank", "rank", "順位"], 0));
