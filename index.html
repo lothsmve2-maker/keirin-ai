@@ -1716,34 +1716,69 @@ function isResultConfirmed(r) {
 }
 
 function getPayout(r) {
-  const raw = first(r, [
+  if (!r || typeof r !== "object") return 0;
+  // result の入れ子構造にも対応
+  const result = first(r, [
+    "result", "results"
+  ], null);
+  let raw = first(r, [
     "payout", "payout_amount", "payoutAmount",
     "return", "return_amount", "refund",
-    "払戻金", "payout_yen", "return_yen"
+    "払戻金", "payout_yen", "return_yen",
+    "payout_3tan_yen"
   ], 0);
-
+  // result.payout_3tan_yen を優先して確認
+  if (result && typeof result === "object") {
+    raw = first(result, [
+      "payout_3tan_yen",
+      "payout_3tan",
+      "payout_yen",
+      "return_yen",
+      "payout_amount",
+      "payoutAmount",
+      "payout",
+      "払戻金"
+    ], raw);
+  }
+  // 数値・文字列を処理
+  function parseAmount(value) {
+    if (value == null || value === "") return 0;
+    if (typeof value === "number") {
+      return Number.isFinite(value) && value > 0 ? value : 0;
+    }
+    if (typeof value === "string") {
+      const cleaned = value.replace(/[,\s円￥]/g, "");
+      const amount = Number(cleaned);
+      return Number.isFinite(amount) && amount > 0
+        ? amount
+        : 0;
+    }
+    if (typeof value === "object" && !Array.isArray(value)) {
+      return parseAmount(first(value, [
+        "amount",
+        "payout",
+        "value",
+        "yen",
+        "payout_yen",
+        "return_yen",
+        "payout_3tan_yen",
+        "払戻金"
+      ], 0));
+    }
+    return 0;
+  }
+  // 払戻データが配列の場合
   if (Array.isArray(raw)) {
     const x = raw.find(v =>
-      String(first(v, ["type", "bet_type", "name"], ""))
-        .match(/3連単|三連単|trifecta/i)
+      /3連単|三連単|trifecta/i.test(
+        String(first(v, [
+          "type", "bet_type", "name", "ticket_type"
+        ], ""))
+      )
     ) || raw[0];
-
-    return typeof x === "object"
-      ? num(first(x, [
-          "amount", "payout", "value",
-          "payout_yen", "return_yen", "払戻金"
-        ], 0))
-      : num(x);
+    return parseAmount(x);
   }
-
-  if (raw && typeof raw === "object") {
-    return num(first(raw, [
-      "amount", "payout", "value",
-      "payout_yen", "return_yen", "払戻金"
-    ], 0));
-  }
-
-  return num(raw);
+  return parseAmount(raw);
 }
 
 function getRaceKey(v, r, i) {
