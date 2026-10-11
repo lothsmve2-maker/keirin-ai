@@ -4295,7 +4295,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-11T09:33:42.367931+09:00",
+  "updated_at": "2026-10-11T10:31:05.497941+09:00",
   "target_date": "2026-10-11",
   "data_complete": true,
   "result_complete": false,
@@ -4304,10 +4304,10 @@
   "race_count": 72,
   "rider_count": 521,
   "correct_name_count": 521,
-  "prediction_race_count": 27,
-  "comment_count": 340,
+  "prediction_race_count": 35,
+  "comment_count": 401,
   "line_race_count": 0,
-  "development_count": 52,
+  "development_count": 61,
   "ai_race_count": 72,
   "ai_rider_count": 521,
   "frozen_prediction_count": 72,
@@ -6443,7 +6443,7 @@
           "name": "山口 多聞",
           "age": 24,
           "period": 121,
-          "prefecture": "埼玉",
+          "prefecture": "山口",
           "grade": "",
           "style": "逃",
           "score": 99.0,
@@ -11829,7 +11829,7 @@
           "name": "山口 拳矢",
           "age": 30,
           "period": 117,
-          "prefecture": "岐阜",
+          "prefecture": "山口",
           "grade": "",
           "style": "両",
           "score": 115.269,
@@ -15590,8 +15590,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 5.9,
           "ai_components": {
             "base_strength": 2.31,
@@ -15658,8 +15658,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 4.54,
           "ai_components": {
             "base_strength": 0,
@@ -15692,8 +15692,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 8.82,
           "ai_components": {
             "base_strength": 0,
@@ -15726,8 +15726,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 6.82,
           "ai_components": {
             "base_strength": 0,
@@ -15760,8 +15760,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 1.3,
           "ai_components": {
             "base_strength": 0,
@@ -15781,10 +15781,47 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=1",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "回れるなら相川君",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "2": {
+          "name": "新潟コンビの後ろ",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "河合さんの後ろへ",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "4": {
+          "name": "自力で頑張りたい",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "5": {
+          "name": "いつも通り自力で",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "6": {
+          "name": "同県の松本さんへ",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "相川の先行力に期待して続く河合の争い推したが松本の好勝負に。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011.html",
       "ai": {
         "main": 4,
@@ -16245,8 +16282,8 @@
           "kimari_sashi": 6,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 13.77,
           "ai_components": {
             "base_strength": 1.15,
@@ -16279,8 +16316,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 6.97,
           "ai_components": {
             "base_strength": 0.68,
@@ -16313,8 +16350,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 8.14,
           "ai_components": {
             "base_strength": 0,
@@ -16381,8 +16418,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 3.39,
           "ai_components": {
             "base_strength": 0,
@@ -16449,8 +16486,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 4.26,
           "ai_components": {
             "base_strength": 0,
@@ -16470,10 +16507,53 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=2",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "流れ見て何でも",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "佐藤君に任せます",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "自力含めて自在に",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "4": {
+          "name": "北日本の３番手で",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "前島君にマークする",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "6": {
+          "name": "再度旭さんにマーク",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "自分が前で自力",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "初心者にもオススメ！AI予想",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011_2.html",
       "ai": {
         "main": 1,
@@ -16956,8 +17036,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 32.46,
           "ai_components": {
             "base_strength": 11.55,
@@ -16990,8 +17070,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 20.72,
           "ai_components": {
             "base_strength": 7.2,
@@ -17024,8 +17104,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 13.9,
           "ai_components": {
             "base_strength": 3.34,
@@ -17058,8 +17138,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 16.34,
           "ai_components": {
             "base_strength": 3.31,
@@ -17092,8 +17172,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 18.78,
           "ai_components": {
             "base_strength": 2.23,
@@ -17181,10 +17261,53 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=3",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "自力で勝負します",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "行ける所から自力",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "3": {
+          "name": "南関ラインの後ろへ",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "4": {
+          "name": "榊枝君にマークする",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "5": {
+          "name": "地元の大本君目標",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "6": {
+          "name": "北日本の３番手で",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "北の４番手ですね",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "準決は大敗した榊枝だが、気持ちを切り換えて勝ちに徹する。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011_3.html",
       "ai": {
         "main": 1,
@@ -17667,8 +17790,8 @@
           "kimari_sashi": 6,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 41.15,
           "ai_components": {
             "base_strength": 25.26,
@@ -17701,8 +17824,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 24.86,
           "ai_components": {
             "base_strength": 20.12,
@@ -17769,8 +17892,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 24.24,
           "ai_components": {
             "base_strength": 15.25,
@@ -17837,8 +17960,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 18.66,
           "ai_components": {
             "base_strength": 14.77,
@@ -17871,8 +17994,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 17.63,
           "ai_components": {
             "base_strength": 13.9,
@@ -17892,10 +18015,47 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=4",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "単騎で流れを見て",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "再度森君に任せます",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "4": {
+          "name": "自力含めて自在に",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "5": {
+          "name": "単騎で位置決めず",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "静岡の３番手です",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "7": {
+          "name": "自力で頑張りたい",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "森が積極的に仕掛ければタテある大竹の出番だが波乱含みの一戦に。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011_4.html",
       "ai": {
         "main": 1,
@@ -18378,8 +18538,8 @@
           "kimari_sashi": 7,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 35.58,
           "ai_components": {
             "base_strength": 21.99,
@@ -18412,8 +18572,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 36.46,
           "ai_components": {
             "base_strength": 20.7,
@@ -18446,8 +18606,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 27.31,
           "ai_components": {
             "base_strength": 19.25,
@@ -18480,8 +18640,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 23.65,
           "ai_components": {
             "base_strength": 17.32,
@@ -18514,8 +18674,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 26.52,
           "ai_components": {
             "base_strength": 15.64,
@@ -18603,10 +18763,53 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=5",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "佐々木君を目標に",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "2": {
+          "name": "いつも通り自力で",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "3": {
+          "name": "",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "4": {
+          "name": "千葉で巧く連係して",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "5": {
+          "name": "",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "6": {
+          "name": "千葉勢の後ろです",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "自分で何かします",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "今開催動き良い佐々木に期待。千葉トリオの並びには注意が必要。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011_5.html",
       "ai": {
         "main": 2,
@@ -19089,8 +19292,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 39.83,
           "ai_components": {
             "base_strength": 28.64,
@@ -19157,8 +19360,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 30.09,
           "ai_components": {
             "base_strength": 21.94,
@@ -19191,8 +19394,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 31.15,
           "ai_components": {
             "base_strength": 20.59,
@@ -19225,8 +19428,8 @@
           "kimari_sashi": 3,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 27.43,
           "ai_components": {
             "base_strength": 20.14,
@@ -19293,8 +19496,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 24.72,
           "ai_components": {
             "base_strength": 15.56,
@@ -19314,10 +19517,53 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=6",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "山本君に任せます",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "関東ラインの３番手",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "自力で勝負します",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "ラインの北野君へ",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "5": {
+          "name": "千葉コンビの後ろへ",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "6": {
+          "name": "単騎で流れを見て",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "自力で頑張ります",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "山本が主導権を取り切る流れなら番手回りの小埜が有利に。もつれれば大橋の強襲有。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011_6.html",
       "ai": {
         "main": 1,
@@ -19800,8 +20046,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 3,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 38.48,
           "ai_components": {
             "base_strength": 29.12,
@@ -19834,8 +20080,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 32.98,
           "ai_components": {
             "base_strength": 27.56,
@@ -19902,8 +20148,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 31.2,
           "ai_components": {
             "base_strength": 20.89,
@@ -19970,8 +20216,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 23.23,
           "ai_components": {
             "base_strength": 18.72,
@@ -20004,8 +20250,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 22.78,
           "ai_components": {
             "base_strength": 14.1,
@@ -20025,10 +20271,53 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=7",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "小林君に任せます",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "先行捲りの自力で",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "3": {
+          "name": "関東ラインの４番手",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "4": {
+          "name": "ここは三浦君目標",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "5": {
+          "name": "藤田君の後ろです",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "6": {
+          "name": "川口さんを追走する",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "7": {
+          "name": "ライン出来るし自力",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "ライン４車の関東勢が強力。好目標を得たベテラン川口がキメ脚を発揮する。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011_7.html",
       "ai": {
         "main": 1,
@@ -20511,8 +20800,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 35.42,
           "ai_components": {
             "base_strength": 14.4,
@@ -20545,8 +20834,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 30.35,
           "ai_components": {
             "base_strength": 10.95,
@@ -20579,8 +20868,8 @@
           "kimari_sashi": 7,
           "kimari_mark": 9,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 28.19,
           "ai_components": {
             "base_strength": 9.2,
@@ -20613,8 +20902,8 @@
           "kimari_sashi": 4,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 24.85,
           "ai_components": {
             "base_strength": 9.0,
@@ -20647,8 +20936,8 @@
           "kimari_sashi": 6,
           "kimari_mark": 2,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 22.24,
           "ai_components": {
             "base_strength": 7.87,
@@ -20736,10 +21025,53 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=8",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "自力で頑張ります",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "2": {
+          "name": "割り切って自力で",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "3": {
+          "name": "福田君にマークする",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "単騎で流れを見て",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "5": {
+          "name": "準決同様に勝沼君",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        },
+        "6": {
+          "name": "福田君—山本さん",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "7": {
+          "name": "中川君の後ろです",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "東京の新人は別線勝負を選択。レース内容バツグンの福田が完全V達成か。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011_8.html",
       "ai": {
         "main": 1,
@@ -21222,8 +21554,8 @@
           "kimari_sashi": 5,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "▲",
+          "prediction_score": 8,
           "ai_score": 72.49,
           "ai_components": {
             "base_strength": 32,
@@ -21290,8 +21622,8 @@
           "kimari_sashi": 0,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "○",
+          "prediction_score": 12,
           "ai_score": 53.33,
           "ai_components": {
             "base_strength": 32,
@@ -21358,8 +21690,8 @@
           "kimari_sashi": 1,
           "kimari_mark": 0,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "◎",
+          "prediction_score": 18,
           "ai_score": 42.54,
           "ai_components": {
             "base_strength": 29.25,
@@ -21392,8 +21724,8 @@
           "kimari_sashi": 10,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "注",
+          "prediction_score": 3,
           "ai_score": 47.54,
           "ai_components": {
             "base_strength": 28.35,
@@ -21426,8 +21758,8 @@
           "kimari_sashi": 2,
           "kimari_mark": 1,
           "comment": "",
-          "prediction_mark": "",
-          "prediction_score": 0,
+          "prediction_mark": "×",
+          "prediction_score": 1,
           "ai_score": 36.78,
           "ai_components": {
             "base_strength": 27.99,
@@ -21447,10 +21779,53 @@
       "odds_url": "https://www.oddspark.com/keirin/",
       "result_url": "https://www.oddspark.com/keirin/RaceKekka.do?joCode=34&kaisaiBi=20261011&raceNo=9",
       "success": true,
-      "comments": {},
+      "comments": {
+        "1": {
+          "name": "自力含めて自在に",
+          "mark": "▲",
+          "comment": "",
+          "prediction_score": 8
+        },
+        "2": {
+          "name": "再度中村君マーク",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "3": {
+          "name": "先頭で自力勝負を",
+          "mark": "○",
+          "comment": "",
+          "prediction_score": 12
+        },
+        "4": {
+          "name": "内山君に任せます",
+          "mark": "",
+          "comment": "",
+          "prediction_score": 0
+        },
+        "5": {
+          "name": "椎名君にしっかりと",
+          "mark": "◎",
+          "comment": "",
+          "prediction_score": 18
+        },
+        "6": {
+          "name": "茨城コンビの後ろへ",
+          "mark": "注",
+          "comment": "",
+          "prediction_score": 3
+        },
+        "7": {
+          "name": "自力自在にやって",
+          "mark": "×",
+          "comment": "",
+          "prediction_score": 1
+        }
+      },
       "line": [],
       "line_groups": [],
-      "development": "",
+      "development": "後輩の椎名に託して土田がVチャンスを物にするか。捲り強烈な内山の逆転十分。",
       "prediction_url": "https://sp.oddspark.com/keirin/yosou/kawasaki/2026/1011_9.html",
       "ai": {
         "main": 1,
