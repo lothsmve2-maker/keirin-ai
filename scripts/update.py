@@ -1067,33 +1067,49 @@ def fetch_result(race):
 def parse_odds_page(html):
     odds = {}
     if not html:
-        return {'available': False, 'odds': odds}
+    return {'available': False, 'odds': odds}
 
-    sp = BeautifulSoup(html, 'html.parser')
-    text = clean(sp.get_text(' ', strip=True))
+sp = soup(html)
+if not sp:
+    return {'available': False, 'odds': odds}
 
-    pattern = (
-        r'([1-9])\s*[→＞>\-−]\s*'
-        r'([1-9])\s*[→＞>\-−]\s*'
-        r'([1-9])\s+(\d+(?:\.\d+)?)'
-    )
+# ページ全体の文字列と、表の各行を解析する
+texts = [clean(sp.get_text(' ', strip=True))]
 
-    for m in re.finditer(pattern, text):
-        first = int(m.group(1))
-        second = int(m.group(2))
-        third = int(m.group(3))
-        value = float(m.group(4))
+for tr in sp.find_all('tr'):
+    row_text = clean(tr.get_text(' ', strip=True))
+    if row_text:
+        texts.append(row_text)
 
-        # 同じ車番を重複した買い目として登録しない
-        if len({first, second, third}) != 3:
-            continue
+patterns = [
+    # 1-2-3 12.3 / 1→2→3 12.3
+    r'(?<!\d)([1-9])\s*[-−→＞>]\s*'
+    r'([1-9])\s*[-−→＞>]\s*'
+    r'([1-9])\s+(\d+(?:,\d{3})*(?:\.\d+)?)',
 
-        odds[f'{first}-{second}-{third}'] = value
+    # 1 2 3 12.3
+    r'(?<!\d)([1-9])\s+([1-9])\s+([1-9])'
+    r'\s+(\d+(?:,\d{3})*(?:\.\d+)?)(?!\d)',
+]
 
-    return {
-        'available': bool(odds),
-        'odds': odds
-    }
+for text in texts:
+    for pattern in patterns:
+        for m in re.finditer(pattern, text):
+            first, second, third = map(int, m.groups()[:3])
+            value = float(m.group(4).replace(',', ''))
+
+            if len({first, second, third}) != 3:
+                continue
+
+            if value <= 0:
+                continue
+
+            odds[f'{first}-{second}-{third}'] = value
+
+return {
+    'available': bool(odds),
+    'odds': odds
+}
 def fetch_odds(race):
     for u in [race.get('odds_url',''),odds_url(race['venue_code'],race['race_no'])]:
         if u:
