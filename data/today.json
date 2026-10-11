@@ -4295,7 +4295,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-11T18:42:39.850127+09:00",
+  "updated_at": "2026-10-11T19:27:37.323060+09:00",
   "target_date": "2026-10-11",
   "data_complete": true,
   "result_complete": false,
@@ -11829,7 +11829,7 @@
           "name": "山口 拳矢",
           "age": 30,
           "period": 117,
-          "prefecture": "岐阜",
+          "prefecture": "山口",
           "grade": "",
           "style": "両",
           "score": 115.269,
@@ -11851,7 +11851,7 @@
           "name": "山形 一気",
           "age": 37,
           "period": 96,
-          "prefecture": "徳島",
+          "prefecture": "山形",
           "grade": "",
           "style": "追",
           "score": 107.5,
