@@ -1612,47 +1612,87 @@ function getBets(r) {
 }
 
 function getResult(r) {
-  let raw = first(r, [
-    "result", "results", "finish", "finish_order",
-    "result_order", "着順", "result_ticket"
+  if (!r || typeof r !== "object") return [];
+  // result の入れ子構造にも対応
+  const result = first(r, [
+    "result", "results"
   ], null);
-
-  if (Array.isArray(raw)) {
-    return raw.map(x =>
-      typeof x === "object"
-        ? num(first(x, ["car_no", "carNo", "number", "車番"], 0))
-        : num(x)
-    ).filter(n => n >= 1 && n <= 9).slice(0, 3);
+  let raw = first(r, [
+    "finish", "finish_order", "result_order",
+    "着順", "result_ticket"
+  ], null);
+  if (result && typeof result === "object") {
+    raw = first(result, [
+      "finish", "finish_order", "result_order",
+      "order", "numbers", "cars", "着順",
+      "result_ticket"
+    ], raw);
   }
-
+  // 配列形式
+  if (Array.isArray(raw)) {
+    const numbers = raw.map(x =>
+      typeof x === "object" && x !== null
+        ? num(first(x, [
+            "car_no", "carNo", "number",
+            "rider_no", "車番"
+          ], 0))
+        : num(x)
+    ).filter(n => n >= 1 && n <= 9);
+    if (numbers.length >= 3) {
+      return numbers.slice(0, 3);
+    }
+  }
+  // オブジェクト形式
   if (raw && typeof raw === "object") {
     const a = first(raw, [
-      "order", "numbers", "cars", "finish_order", "着順", "ticket"
+      "finish", "order", "numbers", "cars",
+      "finish_order", "着順", "ticket"
     ], null);
-
     if (Array.isArray(a)) {
-      return a.map(x =>
-        typeof x === "object"
-          ? num(first(x, ["car_no", "carNo", "number"], 0))
+      const numbers = a.map(x =>
+        typeof x === "object" && x !== null
+          ? num(first(x, [
+              "car_no", "carNo", "number",
+              "rider_no", "車番"
+            ], 0))
           : num(x)
-      ).filter(n => n >= 1 && n <= 9).slice(0, 3);
+      ).filter(n => n >= 1 && n <= 9);
+      if (numbers.length >= 3) {
+        return numbers.slice(0, 3);
+      }
     }
-
-    if (a !== null) raw = a;
+    // finish が { first: 1, second: 2, third: 3 } の形式の場合
+    const direct = [
+      first(raw, ["first", "first_place", "1着"], 0),
+      first(raw, ["second", "second_place", "2着"], 0),
+      first(raw, ["third", "third_place", "3着"], 0)
+    ].map(num);
+    if (direct.every(n => n >= 1 && n <= 9)) {
+      return direct;
+    }
+    if (a !== null && typeof a !== "object") {
+      raw = a;
+    }
   }
-
+  // 文字列形式
   if (typeof raw === "string") {
     const a = parseTicket(raw);
     if (a.length === 3) return a;
   }
-
+  // result 自体に着順が直接格納されている場合
   const direct = [
     first(r, ["first", "first_place", "1着"], 0),
     first(r, ["second", "second_place", "2着"], 0),
     first(r, ["third", "third_place", "3着"], 0)
   ].map(num);
-
-  return direct.every(n => n >= 1 && n <= 9) ? direct : [];
+  if (
+    direct.every(n => n >= 1 && n <= 9) &&
+    new Set(direct).size === 3
+  ) {
+    return direct;
+  }
+  // 不明なデータを誤って確定扱いにしない
+  return [];
 }
 
 function isResultConfirmed(r) {
