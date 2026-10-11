@@ -4295,7 +4295,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-11T11:27:53.219304+09:00",
+  "updated_at": "2026-10-11T12:30:04.667655+09:00",
   "target_date": "2026-10-11",
   "data_complete": true,
   "result_complete": false,
@@ -6174,9 +6174,9 @@
       ]
     },
     {
-      "venue_code": "46",
-      "venue_name": "富山",
-      "race_count": 12,
+      "venue_code": "34",
+      "venue_name": "川崎",
+      "race_count": 9,
       "race_numbers": [
         1,
         2,
@@ -6186,29 +6186,7 @@
         6,
         7,
         8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    {
-      "venue_code": "81",
-      "venue_name": "小倉",
-      "race_count": 12,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
+        9
       ]
     },
     {
@@ -6230,9 +6208,9 @@
       ]
     },
     {
-      "venue_code": "34",
-      "venue_name": "川崎",
-      "race_count": 9,
+      "venue_code": "46",
+      "venue_name": "富山",
+      "race_count": 12,
       "race_numbers": [
         1,
         2,
@@ -6242,7 +6220,10 @@
         6,
         7,
         8,
-        9
+        9,
+        10,
+        11,
+        12
       ]
     },
     {
@@ -6259,6 +6240,25 @@
         7,
         8,
         9
+      ]
+    },
+    {
+      "venue_code": "81",
+      "venue_name": "小倉",
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
       ]
     },
     {
@@ -11851,7 +11851,7 @@
           "name": "山形 一気",
           "age": 37,
           "period": 96,
-          "prefecture": "山形",
+          "prefecture": "徳島",
           "grade": "",
           "style": "追",
           "score": 107.5,
