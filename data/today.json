@@ -4295,7 +4295,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-11T14:01:09.356679+09:00",
+  "updated_at": "2026-10-11T14:29:11.044041+09:00",
   "target_date": "2026-10-11",
   "data_complete": true,
   "result_complete": false,
@@ -11851,7 +11851,7 @@
           "name": "山形 一気",
           "age": 37,
           "period": 96,
-          "prefecture": "山形",
+          "prefecture": "徳島",
           "grade": "",
           "style": "追",
           "score": 107.5,
