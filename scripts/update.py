@@ -1878,33 +1878,36 @@ print(
         for f in as_completed(fs):
             r=fs[f]
             try:
-fresh = f.result()
-except Exception as e:
-print(
-f’オッズ取得エラー: ’
-f’{r.get(“venue_name”, “”)} ’
-f’{r.get(“race_no”, “”)}R: {e}’
-)
-fresh = {‘available’: False, ‘odds’: {}}
+                fresh = f.result()
+            except Exception as e:
+                print(
+                    f'オッズ取得エラー: '
+                    f'{r.get("venue_name", "")} '
+                    f'{r.get("race_no", "")}R: {e}'
+                )
+                fresh = {'available': False, 'odds': {}}
 
-        previous = r.get('odds', {})
-        previous_map = (
-            previous.get('odds', {})
-            if isinstance(previous, dict)
-            else {}
-        )
-        fresh_map = (
-            fresh.get('odds', {})
-            if isinstance(fresh, dict)
-            else {}
-        )
-        merged_map = dict(previous_map)
-        merged_map.update(fresh_map)
-        r['odds'] = {
-            'available': bool(merged_map),
-            'odds': merged_map,
-            'url': fresh.get('url') or previous.get('url', '')
-        }
+            previous = r.get('odds', {})
+            previous_map = (
+                previous.get('odds', {})
+                if isinstance(previous, dict)
+                else {}
+            )
+
+            fresh_map = (
+                fresh.get('odds', {})
+                if isinstance(fresh, dict)
+                else {}
+            )
+
+            merged_map = dict(previous_map)
+            merged_map.update(fresh_map)
+
+            r['odds'] = {
+                'available': bool(merged_map),
+                'odds': merged_map,
+                'url': fresh.get('url') or previous.get('url', '')
+            }
     for r in all_races:
         if r.get('odds',{}).get('available'):odds_count+=1
         else:odds_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
