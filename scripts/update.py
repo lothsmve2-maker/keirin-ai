@@ -1074,7 +1074,17 @@ def parse_odds_page(html):
     if not sp:
         return {'available': False, 'odds': odds}
 
-    # HTMLの表を行ごとに解析する
+    # 3連単の組み合わせとオッズを同じ行から取得する
+    ticket_pattern = re.compile(
+        r'(?<!\d)([1-9])\s*[-−‐‒–—→＞>]\s*'
+        r'([1-9])\s*[-−‐‒–—→＞>]\s*'
+        r'([1-9])(?!\d)'
+    )
+
+    odds_pattern = re.compile(
+        r'^\s*(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:倍)?\s*$'
+    )
+
     for tr in sp.find_all('tr'):
         cells = [
             clean(cell.get_text(' ', strip=True))
@@ -1086,29 +1096,52 @@ def parse_odds_page(html):
 
         row_text = ' '.join(cells)
 
-        # 3連単の車番組み合わせとオッズを探す
-        patterns = [
-            r'(?<!\d)([1-9])\s*[-−‐‒–—→＞>]\s*'
-            r'([1-9])\s*[-−‐‒–—→＞>]\s*'
-            r'([1-9])\s+(\d+(?:,\d{3})*(?:\.\d+)?)'
-        ]
+        # 形式1：組み合わせとオッズが同じ行にある場合
+        for match in ticket_pattern.finditer(row_text):
+            first, second, third = map(int, match.groups())
 
-        for pattern in patterns:
-            for m in re.finditer(pattern, row_text):
-                first, second, third = map(int, m.groups()[:3])
+            if len({first, second, third}) != 3:
+                continue
 
-                try:
-                    value = float(m.group(4).replace(',', ''))
-                except (TypeError, ValueError):
+            remaining = row_text[match.end():]
+            om = re.match(
+                r'\s*[:：]?\s*(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:倍)?',
+                remaining
+            )
+
+            if not om:
+                continue
+
+            value = float(om.group(1).replace(',', ''))
+
+            if value > 0:
+                ticket = f'{first}-{second}-{third}'
+                odds[ticket] = value
+
+        # 形式2：組み合わせとオッズが別セルの場合
+        for i, cell in enumerate(cells):
+            match = ticket_pattern.fullmatch(cell.strip())
+
+            if not match:
+                continue
+
+            first, second, third = map(int, match.groups())
+
+            if len({first, second, third}) != 3:
+                continue
+
+            for candidate in cells[i + 1:i + 4]:
+                om = odds_pattern.fullmatch(candidate)
+
+                if not om:
                     continue
 
-                if len({first, second, third}) != 3:
-                    continue
+                value = float(om.group(1).replace(',', ''))
 
-                if value <= 0:
-                    continue
-
-                odds[f'{first}-{second}-{third}'] = value
+                if value > 0:
+                    ticket = f'{first}-{second}-{third}'
+                    odds[ticket] = value
+                    break
 
     return {
         'available': bool(odds),
