@@ -1073,23 +1073,26 @@ sp = soup(html)
 if not sp:
     return {'available': False, 'odds': odds}
 
-# ページ全体の文字列と、表の各行を解析する
+# ページ全体と各表の行から、3連単オッズを読み取る
 texts = [clean(sp.get_text(' ', strip=True))]
 
 for tr in sp.find_all('tr'):
-    row_text = clean(tr.get_text(' ', strip=True))
-    if row_text:
-        texts.append(row_text)
+    text = clean(tr.get_text(' ', strip=True))
+    if text:
+        texts.append(text)
 
 patterns = [
-    # 1-2-3 12.3 / 1→2→3 12.3
-    r'(?<!\d)([1-9])\s*[-−→＞>]\s*'
-    r'([1-9])\s*[-−→＞>]\s*'
-    r'([1-9])\s+(\d+(?:,\d{3})*(?:\.\d+)?)',
-
-    # 1 2 3 12.3
-    r'(?<!\d)([1-9])\s+([1-9])\s+([1-9])'
-    r'\s+(\d+(?:,\d{3})*(?:\.\d+)?)(?!\d)',
+    # 1-2-3 12.3、1→2→3 12.3 など
+    (
+        r'(?<!\d)([1-9])\s*[-−‐-‒–—→＞>]\s*'
+        r'([1-9])\s*[-−‐-‒–—→＞>]\s*'
+        r'([1-9])\s+(\d+(?:,\d{3})*(?:\.\d+)?)'
+    ),
+    # 1 2 3 12.3 の形式
+    (
+        r'(?<!\d)([1-9])\s+([1-9])\s+([1-9])'
+        r'\s+(\d+(?:,\d{3})*(?:\.\d+)?)(?!\d)'
+    ),
 ]
 
 for text in texts:
@@ -1839,19 +1842,69 @@ def main():
     print('オッズ情報を確認中...');odds_count=0;odds_failed=[]
     odds_targets=[]
     for r in all_races:
-        oldod=old.get((str(r['venue_code']),int(r['race_no'])),{}).get('odds',{})
-        if oldod.get('available') and oldod.get('odds'):
-            r['odds']=oldod
-        else:
-            odds_targets.append(r)
-    print(f'オッズ更新対象: {len(odds_targets)}/{len(all_races)}レース（取得済みは再取得しません）')
+    key = (
+        str(r['venue_code']),
+        int(r['race_no'])
+    )
+
+    oldrace = old.get(key, {})
+    oldod = oldrace.get('odds', {})
+    oldmap = oldod.get('odds', {}) if isinstance(oldod, dict) else {}
+
+    bets = (
+        r.get('frozen_prediction', {}).get('bets', [])
+    )
+
+    # AIの買い目にオッズが欠けていないか確認
+    missing_bet_odds = any(
+        b.get('ticket') not in oldmap
+        or oldmap.get(b.get('ticket')) is None
+        for b in bets
+    )
+
+    if oldod.get('available') and oldmap and not missing_bet_odds:
+        r['odds'] = oldod
+    else:
+        # 既存のオッズは保持し、再取得対象にする
+        r['odds'] = oldod if isinstance(oldod, dict) else {}
+        odds_targets.append(r)
+
+print(
+    f'オッズ更新対象: {len(odds_targets)}/{len(all_races)}レース'
+    '（買い目のオッズ不足も再取得）'
+)
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         fs={ex.submit(fetch_odds,r):r for r in odds_targets}
         for f in as_completed(fs):
             r=fs[f]
-            try:o=f.result()
-            except:o={'available':False,'odds':{}}
-            r['odds']=o
+            try:
+fresh = f.result()
+except Exception as e:
+print(
+f’オッズ取得エラー: ’
+f’{r.get(“venue_name”, “”)} ’
+f’{r.get(“race_no”, “”)}R: {e}’
+)
+fresh = {‘available’: False, ‘odds’: {}}
+
+        previous = r.get('odds', {})
+        previous_map = (
+            previous.get('odds', {})
+            if isinstance(previous, dict)
+            else {}
+        )
+        fresh_map = (
+            fresh.get('odds', {})
+            if isinstance(fresh, dict)
+            else {}
+        )
+        merged_map = dict(previous_map)
+        merged_map.update(fresh_map)
+        r['odds'] = {
+            'available': bool(merged_map),
+            'odds': merged_map,
+            'url': fresh.get('url') or previous.get('url', '')
+        }
     for r in all_races:
         if r.get('odds',{}).get('available'):odds_count+=1
         else:odds_failed.append(f'{r["venue_name"]} {r["race_no"]}R')
