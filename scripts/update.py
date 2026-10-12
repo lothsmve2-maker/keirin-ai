@@ -1066,53 +1066,52 @@ def fetch_result(race):
 
 def parse_odds_page(html):
     odds = {}
+
     if not html:
-    return {'available': False, 'odds': odds}
+        return {'available': False, 'odds': odds}
 
-sp = soup(html)
-if not sp:
-    return {'available': False, 'odds': odds}
+    sp = soup(html)
+    if not sp:
+        return {'available': False, 'odds': odds}
 
-# ページ全体と各表の行から、3連単オッズを読み取る
-texts = [clean(sp.get_text(' ', strip=True))]
+    # ページ全体と表の各行を解析する
+    texts = [clean(sp.get_text(' ', strip=True))]
 
-for tr in sp.find_all('tr'):
-    text = clean(tr.get_text(' ', strip=True))
-    if text:
-        texts.append(text)
+    for tr in sp.find_all('tr'):
+        row_text = clean(tr.get_text(' ', strip=True))
+        if row_text:
+            texts.append(row_text)
 
-patterns = [
-    # 1-2-3 12.3、1→2→3 12.3 など
-    (
-        r'(?<!\d)([1-9])\s*[-−‐-‒–—→＞>]\s*'
-        r'([1-9])\s*[-−‐-‒–—→＞>]\s*'
-        r'([1-9])\s+(\d+(?:,\d{3})*(?:\.\d+)?)'
-    ),
-    # 1 2 3 12.3 の形式
-    (
-        r'(?<!\d)([1-9])\s+([1-9])\s+([1-9])'
-        r'\s+(\d+(?:,\d{3})*(?:\.\d+)?)(?!\d)'
-    ),
-]
+    patterns = [
+        (
+            r'(?<!\d)([1-9])\s*[-−‐-‒–—→＞>]\s*'
+            r'([1-9])\s*[-−‐-‒–—→＞>]\s*'
+            r'([1-9])\s+(\d+(?:,\d{3})*(?:\.\d+)?)'
+        ),
+        (
+            r'(?<!\d)([1-9])\s+([1-9])\s+([1-9])'
+            r'\s+(\d+(?:,\d{3})*(?:\.\d+)?)(?!\d)'
+        ),
+    ]
 
-for text in texts:
-    for pattern in patterns:
-        for m in re.finditer(pattern, text):
-            first, second, third = map(int, m.groups()[:3])
-            value = float(m.group(4).replace(',', ''))
+    for text in texts:
+        for pattern in patterns:
+            for m in re.finditer(pattern, text):
+                first, second, third = map(int, m.groups()[:3])
+                value = float(m.group(4).replace(',', ''))
 
-            if len({first, second, third}) != 3:
-                continue
+                if len({first, second, third}) != 3:
+                    continue
 
-            if value <= 0:
-                continue
+                if value <= 0:
+                    continue
 
-            odds[f'{first}-{second}-{third}'] = value
+                odds[f'{first}-{second}-{third}'] = value
 
-return {
-    'available': bool(odds),
-    'odds': odds
-}
+    return {
+        'available': bool(odds),
+        'odds': odds
+    }
 def fetch_odds(race):
     for u in [race.get('odds_url',''),odds_url(race['venue_code'],race['race_no'])]:
         if u:
