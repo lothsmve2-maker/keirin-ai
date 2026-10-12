@@ -920,25 +920,26 @@ def parse_result_page(html):
         result['payout_status'] = 'error'
         return result
 
-    # 着順表から「着順」と「車番」を列ごとに取得する。
     finish_map = {}
 
+    # 着順表のヘッダー表記の違いに対応
     for table in sp.find_all('table'):
         rows = table.find_all('tr')
         header_idx = None
         pos_idx = None
         car_idx = None
 
-        for ri, tr in enumerate(rows[:12]):
+        for ri, tr in enumerate(rows[:15]):
             cells = [
                 clean(result_cell_text(c)).replace(' ', '')
                 for c in tr.find_all(['th', 'td'])
             ]
 
             for ci, value in enumerate(cells):
-                if value in ('着', '着順', '着位'):
+                if value in ('着', '着順', '着位', '順位', '順位着'):
                     pos_idx = ci
-                if '車番' in value:
+
+                if value in ('車番', '車', '番号'):
                     car_idx = ci
 
             if pos_idx is not None and car_idx is not None:
@@ -950,15 +951,15 @@ def parse_result_page(html):
 
         for tr in rows[header_idx + 1:]:
             cells = [
-                clean(result_cell_text(c))
+                clean(result_cell_text(c)).replace(' ', '')
                 for c in tr.find_all(['th', 'td'])
             ]
 
             if max(pos_idx, car_idx) >= len(cells):
                 continue
 
-            pm = re.fullmatch(r'\s*([1-9])\s*', cells[pos_idx])
-            cm = re.fullmatch(r'\s*([1-9])\s*', cells[car_idx])
+            pm = re.fullmatch(r'([1-9])(?:着)?', cells[pos_idx])
+            cm = re.fullmatch(r'([1-9])', cells[car_idx])
 
             if not pm or not cm:
                 continue
@@ -969,27 +970,34 @@ def parse_result_page(html):
             if 1 <= pos <= 9 and pos not in finish_map:
                 finish_map[pos] = car
 
+    # 着順順に並べる。途中の着順が欠けていれば確定しない
     finish = [
         finish_map[pos]
         for pos in sorted(finish_map)
     ]
 
-    # 1～3着が重複せず取得できたときだけ結果確定とする。
     result_finished = (
-        len(finish) >= 3
-        and len(set(finish[:3])) == 3
+        all(pos in finish_map for pos in (1, 2, 3))
+        and len({finish_map[1], finish_map[2], finish_map[3]}) == 3
     )
 
     if result_finished:
         result['result_status'] = 'finished'
+        finish = [
+            finish_map[pos]
+            for pos in sorted(finish_map)
+        ]
 
-    # 3連単の組み合わせと払戻金を確認する。
+    # 払戻金は着順とは独立して解析する
     page_text = clean(sp.get_text(' ', strip=True))
-    ticket, yen, source = payout_scan(sp, page_text)
+
+    try:
+        ticket, yen, source = payout_scan(sp, page_text)
+    except Exception:
+        ticket, yen, source = None, 0, ''
 
     payout_available = bool(
-        result_finished
-        and ticket
+        ticket
         and yen > 0
     )
 
