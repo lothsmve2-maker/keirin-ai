@@ -1119,17 +1119,80 @@ def fetch_odds(race):
             if p['available']:p['url']=u;return p
     return {'available':False,'odds':{},'url':odds_url(race['venue_code'],race['race_no'])}
 def attach_bet_odds(race):
-    om=race.get('odds',{}).get('odds',{});bets=race.get('frozen_prediction',{}).get('bets',[]);rank={k:i for i,(k,v) in enumerate(sorted(om.items(),key=lambda x:x[1]),1)}
+    odds_data = race.get('odds', {})
+    om = odds_data.get('odds', {}) if isinstance(odds_data, dict) else {}
+
+    bets = race.get('frozen_prediction', {}).get('bets', [])
+
+    # 0倍・負数・数値以外は無効なオッズとして扱う
+    valid_odds = {}
+
+    if isinstance(om, dict):
+        for ticket, value in om.items():
+            try:
+                value = float(value)
+            except (TypeError, ValueError):
+                continue
+
+            if value > 0:
+                valid_odds[ticket] = value
+
+    # 有効なオッズだけで人気順位を計算
+    rank = {
+        ticket: i
+        for i, (ticket, value) in enumerate(
+            sorted(valid_odds.items(), key=lambda x: x[1]),
+            1
+        )
+    }
+
     for b in bets:
-        v=om.get(b.get('ticket'));stake=int(b.get('bet_yen',BET_UNIT) or BET_UNIT)
-        b['odds']=v;b['market_rank']=rank.get(b.get('ticket'))
-        b['break_even_hit_rate_pct']=round(100.0/v,2) if isinstance(v,(int,float)) and v>0 else None
-        b['gross_return_if_hit_yen']=round(stake*v) if isinstance(v,(int,float)) and v>0 else None
-        b['net_profit_if_hit_yen']=round(stake*v-stake) if isinstance(v,(int,float)) and v>0 else None
-        # オッズだけでは独立した的中確率がないため、期待値を捏造しない。
-        b['expected_value_yen']=None
-        b['expected_value_status']='的中確率モデル未校正' if v is not None else 'オッズ未取得'
-        b['value_flag']='オッズ未取得' if v is None else ('💎 高配当候補（期待値未確定）' if v>=30 else '🎯 中穴' if v>=15 else '⭐ 適正' if v>=8 else '⚠️ 人気')
+        ticket = b.get('ticket')
+        v = valid_odds.get(ticket)
+
+        stake = int(b.get('bet_yen', BET_UNIT) or BET_UNIT)
+
+        # 無効なオッズを0倍として扱わず、未取得にする
+        b['odds'] = v
+        b['market_rank'] = rank.get(ticket)
+
+        b['break_even_hit_rate_pct'] = (
+            round(100.0 / v, 2)
+            if v is not None else None
+        )
+
+        b['gross_return_if_hit_yen'] = (
+            round(stake * v)
+            if v is not None else None
+        )
+
+        b['net_profit_if_hit_yen'] = (
+            round(stake * v - stake)
+            if v is not None else None
+        )
+
+        # 的中確率モデルが未校正のため、期待値は算出しない
+        b['expected_value_yen'] = None
+
+        b['expected_value_status'] = (
+            'オッズ未取得'
+            if v is None
+            else '的中確率モデル未校正'
+        )
+
+        if v is None:
+            b['value_flag'] = 'オッズ未取得'
+        elif v >= 30:
+            b['value_flag'] = '💎 高配当候補（期待値未確定）'
+        elif v >= 15:
+            b['value_flag'] = '🎯 中穴'
+        elif v >= 8:
+            b['value_flag'] = '⭐ 適正'
+        else:
+            b['value_flag'] = '⚠️ 人気'
+
+
+def settle_bets(race):
 def settle_bets(race):
     bets=race.get('frozen_prediction',{}).get('bets',[]);res=race.get('result',{});inv=sum(int(b.get('bet_yen',BET_UNIT)) for b in bets);tk=res.get('payout_3tan');y=int(res.get('payout_3tan_yen',0) or 0);ready=bool(res.get('result_finished') and res.get('payout_available') and tk and y>0)
     if not ready:return {'status':'pending','bet_count':len(bets),'investment':0,'hit':False,'hit_ticket':'','payout':0,'profit':0,'roi':0}
