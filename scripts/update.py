@@ -1074,31 +1074,33 @@ def parse_odds_page(html):
     if not sp:
         return {'available': False, 'odds': odds}
 
-    # ページ全体と表の各行を解析する
-    texts = [clean(sp.get_text(' ', strip=True))]
-
+    # HTMLの表を行ごとに解析する
     for tr in sp.find_all('tr'):
-        row_text = clean(tr.get_text(' ', strip=True))
-        if row_text:
-            texts.append(row_text)
+        cells = [
+            clean(cell.get_text(' ', strip=True))
+            for cell in tr.find_all(['th', 'td'])
+        ]
 
-    patterns = [
-        (
-            r'(?<!\d)([1-9])\s*[-−‐-‒–—→＞>]\s*'
-            r'([1-9])\s*[-−‐-‒–—→＞>]\s*'
+        if not cells:
+            continue
+
+        row_text = ' '.join(cells)
+
+        # 3連単の車番組み合わせとオッズを探す
+        patterns = [
+            r'(?<!\d)([1-9])\s*[-−‐‒–—→＞>]\s*'
+            r'([1-9])\s*[-−‐‒–—→＞>]\s*'
             r'([1-9])\s+(\d+(?:,\d{3})*(?:\.\d+)?)'
-        ),
-        (
-            r'(?<!\d)([1-9])\s+([1-9])\s+([1-9])'
-            r'\s+(\d+(?:,\d{3})*(?:\.\d+)?)(?!\d)'
-        ),
-    ]
+        ]
 
-    for text in texts:
         for pattern in patterns:
-            for m in re.finditer(pattern, text):
+            for m in re.finditer(pattern, row_text):
                 first, second, third = map(int, m.groups()[:3])
-                value = float(m.group(4).replace(',', ''))
+
+                try:
+                    value = float(m.group(4).replace(',', ''))
+                except (TypeError, ValueError):
+                    continue
 
                 if len({first, second, third}) != 3:
                     continue
@@ -1112,6 +1114,7 @@ def parse_odds_page(html):
         'available': bool(odds),
         'odds': odds
     }
+
 def fetch_odds(race):
     for u in [race.get('odds_url',''),odds_url(race['venue_code'],race['race_no'])]:
         if u:
