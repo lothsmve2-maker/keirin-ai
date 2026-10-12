@@ -1193,7 +1193,6 @@ def attach_bet_odds(race):
 
 
 def settle_bets(race):
-def settle_bets(race):
     bets=race.get('frozen_prediction',{}).get('bets',[]);res=race.get('result',{});inv=sum(int(b.get('bet_yen',BET_UNIT)) for b in bets);tk=res.get('payout_3tan');y=int(res.get('payout_3tan_yen',0) or 0);ready=bool(res.get('result_finished') and res.get('payout_available') and tk and y>0)
     if not ready:return {'status':'pending','bet_count':len(bets),'investment':0,'hit':False,'hit_ticket':'','payout':0,'profit':0,'roi':0}
     hit=any(b.get('ticket')==tk for b in bets);pay=y if hit else 0
