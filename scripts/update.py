@@ -1839,39 +1839,49 @@ def main():
     print(f'結果確定: {result_count}/{len(all_races)}');print(f'  結果待ち: {len(result_pending)}');print(f'  結果取得エラー: {len(result_failed)}');print(f'払戻確定: {payout_count}/{len(all_races)}');print(f'  払戻待ち: {len(payout_pending)}');print(f'  払戻取得エラー: {len(payout_failed)}')
 
     print('オッズ情報を確認中...');odds_count=0;odds_failed=[]
-    odds_targets=[]
+    odds_targets = []
+
     for r in all_races:
-    key = (
-        str(r['venue_code']),
-        int(r['race_no'])
+        key = (
+            str(r['venue_code']),
+            int(r['race_no'])
+        )
+
+        oldrace = old.get(key, {})
+        oldod = oldrace.get('odds', {})
+        oldmap = (
+            oldod.get('odds', {})
+            if isinstance(oldod, dict)
+            else {}
+        )
+
+        bets = (
+            r.get('frozen_prediction', {}).get('bets', [])
+        )
+
+        missing_bet_odds = any(
+            b.get('ticket') not in oldmap
+            or oldmap.get(b.get('ticket')) is None
+            for b in bets
+        )
+
+        if (
+            oldod.get('available')
+            and oldmap
+            and not missing_bet_odds
+        ):
+            r['odds'] = oldod
+        else:
+            r['odds'] = (
+                oldod if isinstance(oldod, dict) else {}
+            )
+            odds_targets.append(r)
+
+    print(
+        f'オッズ更新対象: '
+        f'{len(odds_targets)}/{len(all_races)}レース'
+        '（買い目のオッズ不足も再取得）'
     )
-
-    oldrace = old.get(key, {})
-    oldod = oldrace.get('odds', {})
-    oldmap = oldod.get('odds', {}) if isinstance(oldod, dict) else {}
-
-    bets = (
-        r.get('frozen_prediction', {}).get('bets', [])
-    )
-
-    # AIの買い目にオッズが欠けていないか確認
-    missing_bet_odds = any(
-        b.get('ticket') not in oldmap
-        or oldmap.get(b.get('ticket')) is None
-        for b in bets
-    )
-
-    if oldod.get('available') and oldmap and not missing_bet_odds:
-        r['odds'] = oldod
-    else:
-        # 既存のオッズは保持し、再取得対象にする
-        r['odds'] = oldod if isinstance(oldod, dict) else {}
-        odds_targets.append(r)
-
-print(
-    f'オッズ更新対象: {len(odds_targets)}/{len(all_races)}レース'
-    '（買い目のオッズ不足も再取得）'
-)
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
         fs={ex.submit(fetch_odds,r):r for r in odds_targets}
         for f in as_completed(fs):
