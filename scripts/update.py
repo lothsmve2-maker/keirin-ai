@@ -2083,13 +2083,7 @@ def main():
 
     print(f'予想更新: {updated_count}レース')
     print(f'固定済み予想の保護: {locked_count}レース')
-    prediction_targets=[]
-    for r in all_races:
-        oldrace=old.get((str(r['venue_code']),int(r['race_no'])),{})
-        fp=oldrace.get('frozen_prediction')
-        has_prediction=bool(r.get('prediction_url') and (r.get('comments') or r.get('line') or r.get('development')))
-        if not fp or not has_prediction:
-            prediction_targets.append(r)
+  
     print(f'コメント・並び・展開情報: {len(prediction_targets)}/{len(all_races)}レースを取得（既存データ再利用あり）')
     if prediction_targets:
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
