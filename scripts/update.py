@@ -2083,25 +2083,6 @@ def main():
 
     print(f'予想更新: {updated_count}レース')
     print(f'固定済み予想の保護: {locked_count}レース')
-  
-    print(f'コメント・並び・展開情報: {len(prediction_targets)}/{len(all_races)}レースを取得（既存データ再利用あり）')
-    if prediction_targets:
-        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-            fs={ex.submit(fetch_prediction,r):r for r in prediction_targets}
-            for f in as_completed(fs):
-                r=fs[f]
-                try:p=f.result()
-                except:p={'comments':{},'line':[],'line_groups':[],'development':'','url':''}
-                r.update({'comments':p['comments'],'line':p['line'],'line_groups':p['line_groups'],'development':p['development'],'prediction_url':p['url']})
-    for r in all_races:
-        oldrace=old.get((str(r['venue_code']),int(r['race_no'])),{})
-        # If a legacy record lacks comments, preserve whatever we already have rather than wiping it.
-        for x in r.get('riders',[]):
-            i=r.get('comments',{}).get(x['car_no'],{})
-            if i:
-                x['prediction_mark']=i.get('mark','');x['prediction_score']=i.get('prediction_score',0);x['comment']=i.get('comment','')
-        
-
     # v6.16: lock the daily strategy before fetching today's results. Never create it
     # retroactively for a same-day dataset that already existed without a lock.
     daily_strategy_lock=existing.get('daily_strategy_lock') if isinstance(existing,dict) else None
