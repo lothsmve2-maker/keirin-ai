@@ -1018,10 +1018,6 @@ def parse_result_page(html):
 
 
 def fetch_result(race):
-    """
-    現行の結果ページを優先する。
-    古いURLが保存されていても、新しいURLから確認する。
-    """
     code = str(race['venue_code'])
     race_no = int(race['race_no'])
 
@@ -1034,26 +1030,43 @@ def fetch_result(race):
         ),
     ]
 
-    # URLの重複を除去する。
     urls = list(dict.fromkeys(u for u in urls if u))
-
     last = None
 
     for url in urls:
         html = get_html(url)
 
         if not html:
+            print(
+                f'[結果ページ取得失敗] '
+                f'{race.get("venue_name", "")} {race_no}R '
+                f'URL={url}'
+            )
             continue
 
         res = parse_result_page(html)
         res['url'] = url
         last = res
 
-        # 着順と払戻が揃ったら確定。
         if res.get('result_finished') and res.get('payout_available'):
             return res
 
-        # 結果だけ取得できた場合も、別URLで払戻を確認する。
+        # 解析できなかったページの情報をログに残す
+        if not res.get('result_finished') or not res.get('payout_available'):
+            sp = soup(html)
+            page_text = clean(sp.get_text(' ', strip=True)) if sp else ''
+            title = clean(sp.title.get_text(' ', strip=True)) if sp and sp.title else ''
+
+            print(
+                f'[結果解析確認] '
+                f'{race.get("venue_name", "")} {race_no}R '
+                f'着順={res.get("result_finished")} '
+                f'払戻={res.get("payout_available")} '
+                f'タイトル={title[:80]} '
+                f'本文={page_text[:180]} '
+                f'URL={url}'
+            )
+
         if res.get('result_finished'):
             continue
 
