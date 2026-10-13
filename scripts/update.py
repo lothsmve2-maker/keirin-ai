@@ -1167,74 +1167,65 @@ def attach_bet_odds(race):
     om = odds_data.get('odds', {}) if isinstance(odds_data, dict) else {}
 
     bets = race.get('frozen_prediction', {}).get('bets', [])
-
-    # 0倍・負数・数値以外は無効なオッズとして扱う
     valid_odds = {}
 
     if isinstance(om, dict):
         for ticket, value in om.items():
             try:
                 value = float(value)
+                if value > 0:
+                    valid_odds[ticket] = value
             except (TypeError, ValueError):
                 continue
 
-            if value > 0:
-                valid_odds[ticket] = value
-
-    # 有効なオッズだけで人気順位を計算
     rank = {
         ticket: i
         for i, (ticket, value) in enumerate(
-            sorted(valid_odds.items(), key=lambda x: x[1]),
-            1
+            sorted(valid_odds.items(), key=lambda x: x[1]), 1
         )
     }
 
     for b in bets:
         ticket = b.get('ticket')
-        v = valid_odds.get(ticket)
+        value = valid_odds.get(ticket)
 
-        stake = int(b.get('bet_yen', BET_UNIT) or BET_UNIT)
+        # 今回取得できなかった場合は、以前の有効なオッズを保持
+        if value is None:
+            try:
+                previous = float(b.get('odds'))
+                if previous > 0:
+                    value = previous
+            except (TypeError, ValueError):
+                pass
 
-        # 無効なオッズを0倍として扱わず、未取得にする
-        b['odds'] = v
+        b['odds'] = value
         b['market_rank'] = rank.get(ticket)
 
+        stake = int(b.get('bet_yen', BET_UNIT) or BET_UNIT)
         b['break_even_hit_rate_pct'] = (
-            round(100.0 / v, 2)
-            if v is not None else None
+            round(100.0 / value, 2) if value is not None else None
         )
-
         b['gross_return_if_hit_yen'] = (
-            round(stake * v)
-            if v is not None else None
+            round(stake * value) if value is not None else None
         )
-
         b['net_profit_if_hit_yen'] = (
-            round(stake * v - stake)
-            if v is not None else None
+            round(stake * value - stake) if value is not None else None
         )
-
-        # 的中確率モデルが未校正のため、期待値は算出しない
         b['expected_value_yen'] = None
-
         b['expected_value_status'] = (
-            'オッズ未取得'
-            if v is None
-            else '的中確率モデル未校正'
+            '的中確率モデル未校正' if value is not None else 'オッズ未取得'
         )
 
-        if v is None:
+        if value is None:
             b['value_flag'] = 'オッズ未取得'
-        elif v >= 30:
+        elif value >= 30:
             b['value_flag'] = '💎 高配当候補（期待値未確定）'
-        elif v >= 15:
+        elif value >= 15:
             b['value_flag'] = '🎯 中穴'
-        elif v >= 8:
+        elif value >= 8:
             b['value_flag'] = '⭐ 適正'
         else:
             b['value_flag'] = '⚠️ 人気'
-
 
 def settle_bets(race):
     bets=race.get('frozen_prediction',{}).get('bets',[]);res=race.get('result',{});inv=sum(int(b.get('bet_yen',BET_UNIT)) for b in bets);tk=res.get('payout_3tan');y=int(res.get('payout_3tan_yen',0) or 0);ready=bool(res.get('result_finished') and res.get('payout_available') and tk and y>0)
