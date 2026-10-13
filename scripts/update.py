@@ -2100,10 +2100,7 @@ def main():
             i=r.get('comments',{}).get(x['car_no'],{})
             if i:
                 x['prediction_mark']=i.get('mark','');x['prediction_score']=i.get('prediction_score',0);x['comment']=i.get('comment','')
-        if oldrace.get('frozen_prediction'):
-            freeze_prediction(r,oldrace)
-        else:
-            apply_ai(r);freeze_prediction(r,oldrace)
+        
 
     # v6.16: lock the daily strategy before fetching today's results. Never create it
     # retroactively for a same-day dataset that already existed without a lock.
