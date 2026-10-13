@@ -6,7 +6,7 @@ import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 warnings.filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
-VERSION='6.17'
+VERSION='6.18'
 BASE='https://www.oddspark.com'; SP='https://sp.oddspark.com'
 JST=ZoneInfo('Asia/Tokyo')
 def now_jst(): return datetime.now(JST)
@@ -1595,16 +1595,88 @@ def load_existing():
         with open('data/today.json',encoding='utf-8') as f:d=json.load(f)
         return d if d.get('target_date')==TODAY_DISPLAY else {}
     except:return {}
-def freeze_prediction(race,old):
-    if old and old.get('frozen_prediction'):
-        fp=old['frozen_prediction']
-        race['frozen_prediction']=fp
-        # UI/summary compatibility: keep the frozen AI visible in the normal fields too.
-        race['ai']={'main':fp.get('main'),'opponent':fp.get('opponent'),'dark_horse':fp.get('dark_horse'),'ranking':fp.get('ranking',[])}
-        race['verdict']=fp.get('verdict',{})
-        race['bets']=fp.get('bets',[])
+def prediction_is_locked(race, oldrace, now=None):
+    """
+    発走前の予想は更新可能。
+    発走時刻を過ぎた予想、結果確定済みの予想は固定する。
+    時刻不明で既存予想がある場合は、後から変更しない。
+    """
+    if now is None:
+        now = now_jst()
+
+    if oldrace.get('prediction_locked'):
+        return True
+
+    result = oldrace.get('result', {}) or race.get('result', {})
+
+    if result.get('result_finished') or result.get('payout_available'):
+        return True
+
+    start_time = clean(race.get('start_time', ''))
+    match = re.fullmatch(r'(\d{1,2}):(\d{2})', start_time)
+
+    if match:
+        hour, minute = map(int, match.groups())
+
+        if 0 <= hour <= 23 and 0 <= minute <= 59:
+            start_dt = now.replace(
+                hour=hour,
+                minute=minute,
+                second=0,
+                microsecond=0
+            )
+            return now >= start_dt
+
+    # 発走時刻が分からず、以前の予想がある場合は保護する。
+    return bool(oldrace.get('frozen_prediction'))
+
+
+def save_prediction_snapshot(race, locked=False):
+    """
+    現在の予想を保存する。
+    発走前は最新予想で更新し、発走後は固定する。
+    """
+    race['frozen_prediction'] = {
+        'created_at': now_jst().isoformat(),
+        'main': race['ai']['main'],
+        'opponent': race['ai']['opponent'],
+        'dark_horse': race['ai']['dark_horse'],
+        'verdict': race['verdict'],
+        'ranking': race['ai']['ranking'],
+        'bets': json.loads(
+            json.dumps(race['bets'], ensure_ascii=False)
+        ),
+    }
+
+    race['prediction_locked'] = bool(locked)
+
+
+def freeze_prediction(race, old, locked=False):
+    """
+    固定済みの買い目は保持。
+    未固定なら、現在のAI予想を保存する。
+    """
+    old_prediction = (
+        old.get('frozen_prediction')
+        if isinstance(old, dict)
+        else None
+    )
+
+    if locked and old_prediction:
+        race['frozen_prediction'] = old_prediction
+        race['prediction_locked'] = True
+
+        race['ai'] = {
+            'main': old_prediction.get('main'),
+            'opponent': old_prediction.get('opponent'),
+            'dark_horse': old_prediction.get('dark_horse'),
+            'ranking': old_prediction.get('ranking', []),
+        }
+        race['verdict'] = old_prediction.get('verdict', {})
+        race['bets'] = old_prediction.get('bets', [])
         return
-    race['frozen_prediction']={'created_at':now_jst().isoformat(),'main':race['ai']['main'],'opponent':race['ai']['opponent'],'dark_horse':race['ai']['dark_horse'],'verdict':race['verdict'],'ranking':race['ai']['ranking'],'bets':race['bets']}
+
+    save_prediction_snapshot(race, locked=locked)
 
 def old_race_ready_for_reuse(r):
     riders = r.get('riders', [])
@@ -1874,7 +1946,143 @@ def main():
         f'/{len(all_races)}'
     )
 
-    # Only fetch prediction pages when frozen prediction data is missing/incomplete.
+    # v6.18: 発走前は最新情報を取得して予想を更新する。
+    # 発走後は固定済み予想と過去の成績を保護する。
+    prediction_now = now_jst()
+    prediction_targets = []
+
+    for r in all_races:
+        key = (
+            str(r['venue_code']),
+            int(r['race_no'])
+        )
+        oldrace = old.get(key, {})
+        old_prediction = oldrace.get('frozen_prediction')
+
+        locked = prediction_is_locked(
+            r,
+            oldrace,
+            prediction_now
+        )
+
+        r['prediction_locked'] = locked
+
+        if not locked:
+            # 未固定のレースは毎回、コメント・並び・展開を再確認。
+            prediction_targets.append(r)
+
+    print(
+        f'コメント・並び・展開情報: '
+        f'{len(prediction_targets)}/{len(all_races)}レースを更新対象に設定'
+    )
+
+    if prediction_targets:
+        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+            futures = {
+                ex.submit(fetch_prediction, r): r
+                for r in prediction_targets
+            }
+
+            for future in as_completed(futures):
+                r = futures[future]
+
+                try:
+                    p = future.result()
+                except Exception as e:
+                    print(
+                        f'予想情報取得エラー: '
+                        f'{r.get("venue_name", "")} '
+                        f'{r.get("race_no", "")}R: {e}'
+                    )
+                    continue
+
+                # 空データで以前の有効な情報を消さない。
+                if p.get('comments'):
+                    r['comments'] = p['comments']
+
+                if p.get('line'):
+                    r['line'] = p['line']
+
+                if p.get('line_groups'):
+                    r['line_groups'] = p['line_groups']
+
+                if p.get('development'):
+                    r['development'] = p['development']
+
+                if p.get('url'):
+                    r['prediction_url'] = p['url']
+
+    updated_count = 0
+    locked_count = 0
+
+    for r in all_races:
+        key = (
+            str(r['venue_code']),
+            int(r['race_no'])
+        )
+        oldrace = old.get(key, {})
+        old_prediction = oldrace.get('frozen_prediction')
+
+        locked = prediction_is_locked(
+            r,
+            oldrace,
+            prediction_now
+        )
+
+        if locked and old_prediction:
+            # 発走後は予想も買い目も変更しない。
+            freeze_prediction(r, oldrace, locked=True)
+            locked_count += 1
+            continue
+
+        # 最新のコメント・印を選手データに反映。
+        for rider in r.get('riders', []):
+            info = (
+                r.get('comments', {}) or {}
+            ).get(rider.get('car_no'), {})
+
+            if info:
+                rider['prediction_mark'] = info.get('mark', '')
+                rider['prediction_score'] = info.get(
+                    'prediction_score', 0
+                )
+                rider['comment'] = info.get('comment', '')
+
+        # 発走前は最新の選手・ライン・展開情報から再計算。
+        if len(r.get('riders', [])) >= 5:
+            apply_ai(r)
+
+            # 発走時刻が分かるレースで、既に発走時刻を過ぎていた場合、
+            # 今回の予想を新規保存して固定する。
+            has_start_time = bool(
+                re.fullmatch(
+                    r'\d{1,2}:\d{2}',
+                    clean(r.get('start_time', ''))
+                )
+            )
+
+            started_now = (
+                has_start_time
+                and prediction_is_locked(r, {}, prediction_now)
+            )
+
+            save_prediction_snapshot(
+                r,
+                locked=started_now
+            )
+            updated_count += 1
+
+        elif old_prediction:
+            # 選手情報が不足している場合は既存予想を保護。
+            freeze_prediction(
+                r,
+                oldrace,
+                locked=True
+            )
+            locked_count += 1
+
+    print(f'予想更新: {updated_count}レース')
+    print(f'固定済み予想の保護: {locked_count}レース')
     prediction_targets=[]
     for r in all_races:
         oldrace=old.get((str(r['venue_code']),int(r['race_no'])),{})
