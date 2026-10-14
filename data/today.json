@@ -4399,7 +4399,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-15T05:42:52.945380+09:00",
+  "updated_at": "2026-10-15T06:42:59.165711+09:00",
   "target_date": "2026-10-15",
   "data_complete": true,
   "result_complete": false,
@@ -4421,7 +4421,7 @@
   "payout_count": 0,
   "payout_pending_count": 72,
   "payout_error_count": 0,
-  "odds_count": 0,
+  "odds_count": 40,
   "summary": {
     "races": 72,
     "settled_races": 0,
@@ -4829,7 +4829,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 21.06,
             "selection_score": 851.06,
-            "favorite_odds": null,
+            "favorite_odds": 6.2,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -4892,7 +4892,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 21.06,
             "selection_score": 851.06,
-            "favorite_odds": null,
+            "favorite_odds": 6.2,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -4935,7 +4935,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 17.47,
             "selection_score": 847.47,
-            "favorite_odds": null,
+            "favorite_odds": 13.5,
             "bets": [
               {
                 "ticket": "1-3-4",
@@ -4998,7 +4998,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 21.06,
             "selection_score": 851.06,
-            "favorite_odds": null,
+            "favorite_odds": 6.2,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -5041,7 +5041,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 17.47,
             "selection_score": 847.47,
-            "favorite_odds": null,
+            "favorite_odds": 13.5,
             "bets": [
               {
                 "ticket": "1-3-4",
@@ -5084,7 +5084,7 @@
             "verdict_score": 82.0,
             "confidence_gap": 10.269999999999996,
             "selection_score": 830.27,
-            "favorite_odds": null,
+            "favorite_odds": 16.7,
             "bets": [
               {
                 "ticket": "7-1-2",
@@ -5147,7 +5147,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 21.06,
             "selection_score": 851.06,
-            "favorite_odds": null,
+            "favorite_odds": 6.2,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -5190,7 +5190,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 17.47,
             "selection_score": 847.47,
-            "favorite_odds": null,
+            "favorite_odds": 13.5,
             "bets": [
               {
                 "ticket": "1-3-4",
@@ -5233,7 +5233,7 @@
             "verdict_score": 82.0,
             "confidence_gap": 10.269999999999996,
             "selection_score": 830.27,
-            "favorite_odds": null,
+            "favorite_odds": 16.7,
             "bets": [
               {
                 "ticket": "7-1-2",
@@ -5339,7 +5339,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 21.06,
             "selection_score": 851.06,
-            "favorite_odds": null,
+            "favorite_odds": 6.2,
             "bets": [
               {
                 "ticket": "1-7-2",
@@ -5382,7 +5382,7 @@
             "verdict_score": 83.0,
             "confidence_gap": 17.47,
             "selection_score": 847.47,
-            "favorite_odds": null,
+            "favorite_odds": 13.5,
             "bets": [
               {
                 "ticket": "1-3-4",
@@ -5425,7 +5425,7 @@
             "verdict_score": 82.0,
             "confidence_gap": 10.269999999999996,
             "selection_score": 830.27,
-            "favorite_odds": null,
+            "favorite_odds": 16.7,
             "bets": [
               {
                 "ticket": "7-1-2",
@@ -5511,7 +5511,7 @@
             "verdict_score": 82.0,
             "confidence_gap": 6.790000000000006,
             "selection_score": 826.79,
-            "favorite_odds": null,
+            "favorite_odds": 13.5,
             "bets": [
               {
                 "ticket": "2-1-3",
@@ -5553,8 +5553,8 @@
         "strategy": "Aのみ・上位1R・AI5",
         "max_races": 1,
         "bet_count": 5,
-        "candidate_count": 0,
-        "selected_count": 0,
+        "candidate_count": 14,
+        "selected_count": 1,
         "settled_count": 0,
         "hits": 0,
         "hit_rate": 0,
@@ -5565,15 +5565,59 @@
         "positive_days": 0,
         "negative_days": 0,
         "zero_days": 0,
-        "selected": [],
+        "selected": [
+          {
+            "venue_code": "38",
+            "venue_name": "静岡",
+            "race_no": 3,
+            "rank": "A",
+            "verdict_score": 83.0,
+            "confidence_gap": 17.47,
+            "selection_score": 847.47,
+            "favorite_odds": 13.5,
+            "bets": [
+              {
+                "ticket": "1-3-4",
+                "score": 113.7,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-2",
+                "score": 112.49,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-4-3",
+                "score": 111.95,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-3",
+                "score": 110.13,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 108.74,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
         "settled": []
       },
       "Aのみ・人気10倍以上・上位2R・AI5": {
         "strategy": "Aのみ・上位2R・AI5",
         "max_races": 2,
         "bet_count": 5,
-        "candidate_count": 0,
-        "selected_count": 0,
+        "candidate_count": 14,
+        "selected_count": 2,
         "settled_count": 0,
         "hits": 0,
         "hit_rate": 0,
@@ -5584,15 +5628,102 @@
         "positive_days": 0,
         "negative_days": 0,
         "zero_days": 0,
-        "selected": [],
+        "selected": [
+          {
+            "venue_code": "38",
+            "venue_name": "静岡",
+            "race_no": 3,
+            "rank": "A",
+            "verdict_score": 83.0,
+            "confidence_gap": 17.47,
+            "selection_score": 847.47,
+            "favorite_odds": 13.5,
+            "bets": [
+              {
+                "ticket": "1-3-4",
+                "score": 113.7,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-2",
+                "score": 112.49,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-4-3",
+                "score": 111.95,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-3",
+                "score": 110.13,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 108.74,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "53",
+            "venue_name": "奈良",
+            "race_no": 10,
+            "rank": "A",
+            "verdict_score": 82.0,
+            "confidence_gap": 10.269999999999996,
+            "selection_score": 830.27,
+            "favorite_odds": 16.7,
+            "bets": [
+              {
+                "ticket": "7-1-2",
+                "score": 142.24,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-1",
+                "score": 141.12,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-2",
+                "score": 139.77,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-1-3",
+                "score": 138.93,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-1",
+                "score": 137.35,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
         "settled": []
       },
       "Aのみ・人気10倍以上・上位3R・AI5": {
         "strategy": "Aのみ・上位3R・AI5",
         "max_races": 3,
         "bet_count": 5,
-        "candidate_count": 0,
-        "selected_count": 0,
+        "candidate_count": 14,
+        "selected_count": 3,
         "settled_count": 0,
         "hits": 0,
         "hit_rate": 0,
@@ -5603,15 +5734,145 @@
         "positive_days": 0,
         "negative_days": 0,
         "zero_days": 0,
-        "selected": [],
+        "selected": [
+          {
+            "venue_code": "38",
+            "venue_name": "静岡",
+            "race_no": 3,
+            "rank": "A",
+            "verdict_score": 83.0,
+            "confidence_gap": 17.47,
+            "selection_score": 847.47,
+            "favorite_odds": 13.5,
+            "bets": [
+              {
+                "ticket": "1-3-4",
+                "score": 113.7,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-2",
+                "score": 112.49,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-4-3",
+                "score": 111.95,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-3",
+                "score": 110.13,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 108.74,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "53",
+            "venue_name": "奈良",
+            "race_no": 10,
+            "rank": "A",
+            "verdict_score": 82.0,
+            "confidence_gap": 10.269999999999996,
+            "selection_score": 830.27,
+            "favorite_odds": 16.7,
+            "bets": [
+              {
+                "ticket": "7-1-2",
+                "score": 142.24,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-1",
+                "score": 141.12,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-2",
+                "score": 139.77,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-1-3",
+                "score": 138.93,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-1",
+                "score": 137.35,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "38",
+            "venue_name": "静岡",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 82.0,
+            "confidence_gap": 6.790000000000006,
+            "selection_score": 826.79,
+            "favorite_odds": 13.5,
+            "bets": [
+              {
+                "ticket": "2-1-3",
+                "score": 115.48,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-3",
+                "score": 113.17,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-1",
+                "score": 112.9,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-2",
+                "score": 108.38,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-1-6",
+                "score": 108.14,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
         "settled": []
       },
       "Aのみ・人気10倍以上・上位5R・AI5": {
         "strategy": "Aのみ・上位5R・AI5",
         "max_races": 5,
         "bet_count": 5,
-        "candidate_count": 0,
-        "selected_count": 0,
+        "candidate_count": 14,
+        "selected_count": 5,
         "settled_count": 0,
         "hits": 0,
         "hit_rate": 0,
@@ -5622,7 +5883,223 @@
         "positive_days": 0,
         "negative_days": 0,
         "zero_days": 0,
-        "selected": [],
+        "selected": [
+          {
+            "venue_code": "38",
+            "venue_name": "静岡",
+            "race_no": 3,
+            "rank": "A",
+            "verdict_score": 83.0,
+            "confidence_gap": 17.47,
+            "selection_score": 847.47,
+            "favorite_odds": 13.5,
+            "bets": [
+              {
+                "ticket": "1-3-4",
+                "score": 113.7,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-2",
+                "score": 112.49,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-4-3",
+                "score": 111.95,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-3",
+                "score": 110.13,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "3-1-4",
+                "score": 108.74,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "53",
+            "venue_name": "奈良",
+            "race_no": 10,
+            "rank": "A",
+            "verdict_score": 82.0,
+            "confidence_gap": 10.269999999999996,
+            "selection_score": 830.27,
+            "favorite_odds": 16.7,
+            "bets": [
+              {
+                "ticket": "7-1-2",
+                "score": 142.24,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-2-1",
+                "score": 141.12,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-7-2",
+                "score": 139.77,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "7-1-3",
+                "score": 138.93,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-7-1",
+                "score": 137.35,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "38",
+            "venue_name": "静岡",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 82.0,
+            "confidence_gap": 6.790000000000006,
+            "selection_score": 826.79,
+            "favorite_odds": 13.5,
+            "bets": [
+              {
+                "ticket": "2-1-3",
+                "score": 115.48,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-2-3",
+                "score": 113.17,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-3-1",
+                "score": 112.9,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "1-3-2",
+                "score": 108.38,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "2-1-6",
+                "score": 108.14,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "53",
+            "venue_name": "奈良",
+            "race_no": 7,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 29.53,
+            "selection_score": 819.53,
+            "favorite_odds": 49.8,
+            "bets": [
+              {
+                "ticket": "4-3-7",
+                "score": 66.85,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "4-7-3",
+                "score": 65.68,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "4-3-1",
+                "score": 63.87,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "4-3-2",
+                "score": 62.25,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "4-1-3",
+                "score": 61.2,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          },
+          {
+            "venue_code": "12",
+            "venue_name": "青森",
+            "race_no": 4,
+            "rank": "A",
+            "verdict_score": 79.0,
+            "confidence_gap": 18.669999999999998,
+            "selection_score": 808.67,
+            "favorite_odds": 49.1,
+            "bets": [
+              {
+                "ticket": "5-7-2",
+                "score": 69.71,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-7-3",
+                "score": 69.52,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-2-7",
+                "score": 69.33,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-3-7",
+                "score": 69.04,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              },
+              {
+                "ticket": "5-2-3",
+                "score": 68.37,
+                "type": "AI総合評価",
+                "bet_yen": 100
+              }
+            ],
+            "investment": 500
+          }
+        ],
         "settled": []
       }
     },
@@ -5653,7 +6130,7 @@
           "verdict_score": 83.0,
           "confidence_gap": 21.06,
           "selection_score": 851.06,
-          "favorite_odds": null,
+          "favorite_odds": 6.2,
           "bets": [
             {
               "ticket": "1-7-2",
@@ -5696,7 +6173,7 @@
           "verdict_score": 83.0,
           "confidence_gap": 17.47,
           "selection_score": 847.47,
-          "favorite_odds": null,
+          "favorite_odds": 13.5,
           "bets": [
             {
               "ticket": "1-3-4",
@@ -5739,7 +6216,7 @@
           "verdict_score": 82.0,
           "confidence_gap": 10.269999999999996,
           "selection_score": 830.27,
-          "favorite_odds": null,
+          "favorite_odds": 16.7,
           "bets": [
             {
               "ticket": "7-1-2",
@@ -6305,28 +6782,28 @@
           "score": 27.93,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 23.0,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 4.35,
+          "gross_return_if_hit_yen": 2300,
+          "net_profit_if_hit_yen": 2200,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "1-7-3",
           "score": 27.47,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 56.5,
+          "market_rank": 8,
+          "break_even_hit_rate_pct": 1.77,
+          "gross_return_if_hit_yen": 5650,
+          "net_profit_if_hit_yen": 5550,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "7-3-1",
@@ -6347,14 +6824,14 @@
           "score": 27.03,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 17.2,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 5.81,
+          "gross_return_if_hit_yen": 1720,
+          "net_profit_if_hit_yen": 1620,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "5-7-1",
@@ -6503,28 +6980,28 @@
             "score": 27.93,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 23.0,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 4.35,
+            "gross_return_if_hit_yen": 2300,
+            "net_profit_if_hit_yen": 2200,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "1-7-3",
             "score": 27.47,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 56.5,
+            "market_rank": 8,
+            "break_even_hit_rate_pct": 1.77,
+            "gross_return_if_hit_yen": 5650,
+            "net_profit_if_hit_yen": 5550,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "7-3-1",
@@ -6545,14 +7022,14 @@
             "score": 27.03,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 17.2,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 5.81,
+            "gross_return_if_hit_yen": 1720,
+            "net_profit_if_hit_yen": 1620,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "5-7-1",
@@ -6611,8 +7088,39 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=12&kaisaiBi=20261015&raceNo=1"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 91.0,
+          "1-2-3": 265.3,
+          "1-2-4": 305.1,
+          "1-3-4": 53.5,
+          "1-2-5": 381.4,
+          "1-3-5": 38.1,
+          "1-2-6": 1017.1,
+          "1-3-6": 290.6,
+          "1-2-7": 358.9,
+          "1-3-7": 37.6,
+          "1-4-2": 277.3,
+          "1-5-2": 91.0,
+          "1-4-3": 132.6,
+          "1-5-3": 28.3,
+          "1-5-4": 45.8,
+          "1-4-5": 226.0,
+          "1-4-6": 305.1,
+          "1-5-6": 132.6,
+          "1-4-7": 190.7,
+          "1-5-7": 17.2,
+          "1-6-2": 1220.5,
+          "1-7-2": 156.4,
+          "1-6-3": 508.5,
+          "1-7-3": 56.5,
+          "1-6-4": 358.9,
+          "1-7-4": 82.4,
+          "1-6-5": 678.0,
+          "1-7-5": 23.0,
+          "1-7-6": 358.9,
+          "1-6-7": 1220.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=12&joCode=12&kaisaiBi=20261015&raceNo=1"
       },
       "settlement": {
@@ -7333,8 +7841,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=12&kaisaiBi=20261015&raceNo=2"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-6": 25.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=12&joCode=12&kaisaiBi=20261015&raceNo=2"
       },
       "settlement": {
@@ -7707,70 +8217,70 @@
           "score": 85.19,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 40.8,
+          "market_rank": 8,
+          "break_even_hit_rate_pct": 2.45,
+          "gross_return_if_hit_yen": 4080,
+          "net_profit_if_hit_yen": 3980,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-7-2",
           "score": 84.45,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 91.8,
+          "market_rank": 12,
+          "break_even_hit_rate_pct": 1.09,
+          "gross_return_if_hit_yen": 9180,
+          "net_profit_if_hit_yen": 9080,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-2-3",
           "score": 82.22,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 7.7,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 12.99,
+          "gross_return_if_hit_yen": 770,
+          "net_profit_if_hit_yen": 670,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-3-2",
           "score": 79.99,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 6.8,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 14.71,
+          "gross_return_if_hit_yen": 680,
+          "net_profit_if_hit_yen": 580,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-7-3",
           "score": 79.99,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 52.4,
+          "market_rank": 9,
+          "break_even_hit_rate_pct": 1.91,
+          "gross_return_if_hit_yen": 5240,
+          "net_profit_if_hit_yen": 5140,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "2-1-7",
@@ -7791,14 +8301,14 @@
           "score": 78.5,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 39.7,
+          "market_rank": 7,
+          "break_even_hit_rate_pct": 2.52,
+          "gross_return_if_hit_yen": 3970,
+          "net_profit_if_hit_yen": 3870,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "7-1-2",
@@ -7833,14 +8343,14 @@
           "score": 76.28,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 23.3,
+          "market_rank": 4,
+          "break_even_hit_rate_pct": 4.29,
+          "gross_return_if_hit_yen": 2330,
+          "net_profit_if_hit_yen": 2230,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         }
       ],
       "frozen_prediction": {
@@ -7905,70 +8415,70 @@
             "score": 85.19,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 40.8,
+            "market_rank": 8,
+            "break_even_hit_rate_pct": 2.45,
+            "gross_return_if_hit_yen": 4080,
+            "net_profit_if_hit_yen": 3980,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-7-2",
             "score": 84.45,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 91.8,
+            "market_rank": 12,
+            "break_even_hit_rate_pct": 1.09,
+            "gross_return_if_hit_yen": 9180,
+            "net_profit_if_hit_yen": 9080,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-2-3",
             "score": 82.22,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 7.7,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 12.99,
+            "gross_return_if_hit_yen": 770,
+            "net_profit_if_hit_yen": 670,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-3-2",
             "score": 79.99,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 6.8,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 14.71,
+            "gross_return_if_hit_yen": 680,
+            "net_profit_if_hit_yen": 580,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-7-3",
             "score": 79.99,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 52.4,
+            "market_rank": 9,
+            "break_even_hit_rate_pct": 1.91,
+            "gross_return_if_hit_yen": 5240,
+            "net_profit_if_hit_yen": 5140,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "2-1-7",
@@ -7989,14 +8499,14 @@
             "score": 78.5,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 39.7,
+            "market_rank": 7,
+            "break_even_hit_rate_pct": 2.52,
+            "gross_return_if_hit_yen": 3970,
+            "net_profit_if_hit_yen": 3870,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "7-1-2",
@@ -8031,14 +8541,14 @@
             "score": 76.28,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 23.3,
+            "market_rank": 4,
+            "break_even_hit_rate_pct": 4.29,
+            "gross_return_if_hit_yen": 2330,
+            "net_profit_if_hit_yen": 2230,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           }
         ]
       },
@@ -8055,8 +8565,39 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=12&kaisaiBi=20261015&raceNo=3"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 6.8,
+          "1-2-3": 7.7,
+          "1-2-4": 23.3,
+          "1-3-4": 23.6,
+          "1-2-5": 29.9,
+          "1-3-5": 12.3,
+          "1-2-6": 104.9,
+          "1-3-6": 97.9,
+          "1-2-7": 40.8,
+          "1-3-7": 39.7,
+          "1-4-2": 77.3,
+          "1-5-2": 81.6,
+          "1-4-3": 113.0,
+          "1-5-3": 122.4,
+          "1-5-4": 133.5,
+          "1-4-5": 146.9,
+          "1-4-6": 489.7,
+          "1-5-6": 183.6,
+          "1-4-7": 113.0,
+          "1-5-7": 183.6,
+          "1-6-2": 293.8,
+          "1-7-2": 91.8,
+          "1-6-3": 293.8,
+          "1-7-3": 52.4,
+          "1-6-4": 209.8,
+          "1-7-4": 133.5,
+          "1-6-5": 244.8,
+          "1-7-5": 122.4,
+          "1-7-6": 104.9,
+          "1-6-7": 244.8
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=12&joCode=12&kaisaiBi=20261015&raceNo=3"
       },
       "settlement": {
@@ -8777,8 +9318,36 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=12&kaisaiBi=20261015&raceNo=4"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 210.6,
+          "1-2-3": 134.0,
+          "1-2-4": 737.2,
+          "1-3-4": 67.0,
+          "1-2-5": 245.7,
+          "1-3-5": 50.8,
+          "1-2-6": 737.2,
+          "1-3-6": 1474.5,
+          "1-2-7": 368.6,
+          "1-3-7": 163.8,
+          "1-4-2": 737.2,
+          "1-5-2": 147.4,
+          "1-4-3": 67.0,
+          "1-5-3": 49.1,
+          "1-5-4": 49.1,
+          "1-4-5": 58.9,
+          "1-4-6": 1474.5,
+          "1-5-6": 491.5,
+          "1-4-7": 491.5,
+          "1-5-7": 491.5,
+          "1-7-2": 163.8,
+          "1-7-3": 134.0,
+          "1-6-4": 368.6,
+          "1-7-4": 491.5,
+          "1-6-5": 737.2,
+          "1-7-5": 98.3,
+          "1-7-6": 737.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=12&joCode=12&kaisaiBi=20261015&raceNo=4"
       },
       "settlement": {
@@ -9151,56 +9720,56 @@
           "score": 74.41,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 19.7,
+          "market_rank": 5,
+          "break_even_hit_rate_pct": 5.08,
+          "gross_return_if_hit_yen": 1970,
+          "net_profit_if_hit_yen": 1870,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "1-2-7",
           "score": 72.66,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 51.4,
+          "market_rank": 11,
+          "break_even_hit_rate_pct": 1.95,
+          "gross_return_if_hit_yen": 5140,
+          "net_profit_if_hit_yen": 5040,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-7-4",
           "score": 72.0,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 6.2,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 16.13,
+          "gross_return_if_hit_yen": 620,
+          "net_profit_if_hit_yen": 520,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-4-7",
           "score": 69.05,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 7.1,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 14.08,
+          "gross_return_if_hit_yen": 710,
+          "net_profit_if_hit_yen": 610,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "7-1-2",
@@ -9221,42 +9790,42 @@
           "score": 67.79,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 46.4,
+          "market_rank": 9,
+          "break_even_hit_rate_pct": 2.16,
+          "gross_return_if_hit_yen": 4640,
+          "net_profit_if_hit_yen": 4540,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-2-4",
           "score": 66.74,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 43.6,
+          "market_rank": 8,
+          "break_even_hit_rate_pct": 2.29,
+          "gross_return_if_hit_yen": 4360,
+          "net_profit_if_hit_yen": 4260,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-7-3",
           "score": 66.24,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 65.4,
+          "market_rank": 14,
+          "break_even_hit_rate_pct": 1.53,
+          "gross_return_if_hit_yen": 6540,
+          "net_profit_if_hit_yen": 6440,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "7-1-4",
@@ -9277,14 +9846,14 @@
           "score": 65.54,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 9.0,
+          "market_rank": 4,
+          "break_even_hit_rate_pct": 11.11,
+          "gross_return_if_hit_yen": 900,
+          "net_profit_if_hit_yen": 800,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         }
       ],
       "frozen_prediction": {
@@ -9349,56 +9918,56 @@
             "score": 74.41,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 19.7,
+            "market_rank": 5,
+            "break_even_hit_rate_pct": 5.08,
+            "gross_return_if_hit_yen": 1970,
+            "net_profit_if_hit_yen": 1870,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "1-2-7",
             "score": 72.66,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 51.4,
+            "market_rank": 11,
+            "break_even_hit_rate_pct": 1.95,
+            "gross_return_if_hit_yen": 5140,
+            "net_profit_if_hit_yen": 5040,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-7-4",
             "score": 72.0,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 6.2,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 16.13,
+            "gross_return_if_hit_yen": 620,
+            "net_profit_if_hit_yen": 520,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-4-7",
             "score": 69.05,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 7.1,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 14.08,
+            "gross_return_if_hit_yen": 710,
+            "net_profit_if_hit_yen": 610,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "7-1-2",
@@ -9419,42 +9988,42 @@
             "score": 67.79,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 46.4,
+            "market_rank": 9,
+            "break_even_hit_rate_pct": 2.16,
+            "gross_return_if_hit_yen": 4640,
+            "net_profit_if_hit_yen": 4540,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-2-4",
             "score": 66.74,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 43.6,
+            "market_rank": 8,
+            "break_even_hit_rate_pct": 2.29,
+            "gross_return_if_hit_yen": 4360,
+            "net_profit_if_hit_yen": 4260,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-7-3",
             "score": 66.24,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 65.4,
+            "market_rank": 14,
+            "break_even_hit_rate_pct": 1.53,
+            "gross_return_if_hit_yen": 6540,
+            "net_profit_if_hit_yen": 6440,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "7-1-4",
@@ -9475,14 +10044,14 @@
             "score": 65.54,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 9.0,
+            "market_rank": 4,
+            "break_even_hit_rate_pct": 11.11,
+            "gross_return_if_hit_yen": 900,
+            "net_profit_if_hit_yen": 800,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           }
         ]
       },
@@ -9499,8 +10068,39 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=12&kaisaiBi=20261015&raceNo=5"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 110.8,
+          "1-2-3": 48.0,
+          "1-2-4": 43.6,
+          "1-3-4": 360.1,
+          "1-2-5": 120.0,
+          "1-3-5": 205.8,
+          "1-2-6": 40.0,
+          "1-3-6": 240.1,
+          "1-2-7": 51.4,
+          "1-3-7": 240.1,
+          "1-4-2": 9.0,
+          "1-5-2": 110.8,
+          "1-4-3": 20.5,
+          "1-5-3": 144.0,
+          "1-5-4": 120.0,
+          "1-4-5": 7.7,
+          "1-4-6": 65.4,
+          "1-5-6": 240.1,
+          "1-4-7": 7.1,
+          "1-5-7": 205.8,
+          "1-6-2": 90.0,
+          "1-7-2": 19.7,
+          "1-6-3": 144.0,
+          "1-7-3": 65.4,
+          "1-6-4": 68.6,
+          "1-7-4": 6.2,
+          "1-6-5": 180.0,
+          "1-7-5": 55.4,
+          "1-7-6": 46.4,
+          "1-6-7": 120.0
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=12&joCode=12&kaisaiBi=20261015&raceNo=5"
       },
       "settlement": {
@@ -10221,8 +10821,33 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=12&kaisaiBi=20261015&raceNo=6"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 336.7,
+          "1-2-3": 168.3,
+          "1-2-4": 673.5,
+          "1-2-5": 224.5,
+          "1-3-5": 449.0,
+          "1-2-6": 673.5,
+          "1-2-7": 673.5,
+          "1-3-7": 1347.0,
+          "1-4-2": 449.0,
+          "1-5-2": 149.6,
+          "1-4-3": 1347.0,
+          "1-5-3": 673.5,
+          "1-5-4": 122.4,
+          "1-4-5": 224.5,
+          "1-4-6": 673.5,
+          "1-5-6": 673.5,
+          "1-4-7": 673.5,
+          "1-7-2": 1347.0,
+          "1-6-3": 1347.0,
+          "1-7-3": 1347.0,
+          "1-6-4": 449.0,
+          "1-7-4": 1347.0,
+          "1-6-5": 673.5,
+          "1-7-5": 336.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=12&joCode=12&kaisaiBi=20261015&raceNo=6"
       },
       "settlement": {
@@ -10595,14 +11220,14 @@
           "score": 79.57,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 1.8,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 55.56,
+          "gross_return_if_hit_yen": 180,
+          "net_profit_if_hit_yen": 80,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-4-3",
@@ -10623,14 +11248,14 @@
           "score": 78.1,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 1.2,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 83.33,
+          "gross_return_if_hit_yen": 120,
+          "net_profit_if_hit_yen": 20,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-4-6",
@@ -10793,14 +11418,14 @@
             "score": 79.57,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 1.8,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 55.56,
+            "gross_return_if_hit_yen": 180,
+            "net_profit_if_hit_yen": 80,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-4-3",
@@ -10821,14 +11446,14 @@
             "score": 78.1,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 1.2,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 83.33,
+            "gross_return_if_hit_yen": 120,
+            "net_profit_if_hit_yen": 20,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-4-6",
@@ -10943,8 +11568,11 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=12&kaisaiBi=20261015&raceNo=7"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-4-2": 1.8,
+          "1-4-5": 1.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=12&joCode=12&kaisaiBi=20261015&raceNo=7"
       },
       "settlement": {
@@ -11574,8 +12202,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=22&kaisaiBi=20261015&raceNo=1"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-4-5": 17.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=22&joCode=22&kaisaiBi=20261015&raceNo=1"
       },
       "settlement": {
@@ -18626,56 +19256,56 @@
           "score": 53.95,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 7.6,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 13.16,
+          "gross_return_if_hit_yen": 760,
+          "net_profit_if_hit_yen": 660,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-2-5",
           "score": 53.02,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 38.2,
+          "market_rank": 8,
+          "break_even_hit_rate_pct": 2.62,
+          "gross_return_if_hit_yen": 3820,
+          "net_profit_if_hit_yen": 3720,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-2-4",
           "score": 52.72,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 7.6,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 13.16,
+          "gross_return_if_hit_yen": 760,
+          "net_profit_if_hit_yen": 660,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-2-6",
           "score": 51.3,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 25.5,
+          "market_rank": 5,
+          "break_even_hit_rate_pct": 3.92,
+          "gross_return_if_hit_yen": 2550,
+          "net_profit_if_hit_yen": 2450,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "2-1-3",
@@ -18696,28 +19326,28 @@
           "score": 50.06,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 76.5,
+          "market_rank": 13,
+          "break_even_hit_rate_pct": 1.31,
+          "gross_return_if_hit_yen": 7650,
+          "net_profit_if_hit_yen": 7550,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-3-2",
           "score": 49.85,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 10.9,
+          "market_rank": 3,
+          "break_even_hit_rate_pct": 9.17,
+          "gross_return_if_hit_yen": 1090,
+          "net_profit_if_hit_yen": 990,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         },
         {
           "ticket": "2-1-5",
@@ -18752,14 +19382,14 @@
           "score": 48.41,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 76.5,
+          "market_rank": 14,
+          "break_even_hit_rate_pct": 1.31,
+          "gross_return_if_hit_yen": 7650,
+          "net_profit_if_hit_yen": 7550,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         }
       ],
       "frozen_prediction": {
@@ -18824,56 +19454,56 @@
             "score": 53.95,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 7.6,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 13.16,
+            "gross_return_if_hit_yen": 760,
+            "net_profit_if_hit_yen": 660,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-2-5",
             "score": 53.02,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 38.2,
+            "market_rank": 8,
+            "break_even_hit_rate_pct": 2.62,
+            "gross_return_if_hit_yen": 3820,
+            "net_profit_if_hit_yen": 3720,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-2-4",
             "score": 52.72,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 7.6,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 13.16,
+            "gross_return_if_hit_yen": 760,
+            "net_profit_if_hit_yen": 660,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-2-6",
             "score": 51.3,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 25.5,
+            "market_rank": 5,
+            "break_even_hit_rate_pct": 3.92,
+            "gross_return_if_hit_yen": 2550,
+            "net_profit_if_hit_yen": 2450,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "2-1-3",
@@ -18894,28 +19524,28 @@
             "score": 50.06,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 76.5,
+            "market_rank": 13,
+            "break_even_hit_rate_pct": 1.31,
+            "gross_return_if_hit_yen": 7650,
+            "net_profit_if_hit_yen": 7550,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-3-2",
             "score": 49.85,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 10.9,
+            "market_rank": 3,
+            "break_even_hit_rate_pct": 9.17,
+            "gross_return_if_hit_yen": 1090,
+            "net_profit_if_hit_yen": 990,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           },
           {
             "ticket": "2-1-5",
@@ -18950,14 +19580,14 @@
             "score": 48.41,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 76.5,
+            "market_rank": 14,
+            "break_even_hit_rate_pct": 1.31,
+            "gross_return_if_hit_yen": 7650,
+            "net_profit_if_hit_yen": 7550,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           }
         ]
       },
@@ -18974,8 +19604,26 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261015&raceNo=1"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 10.9,
+          "1-2-3": 7.6,
+          "1-2-4": 7.6,
+          "1-3-4": 19.1,
+          "1-2-5": 38.2,
+          "1-3-5": 76.5,
+          "1-2-6": 25.5,
+          "1-3-6": 38.2,
+          "1-2-7": 76.5,
+          "1-4-2": 25.5,
+          "1-5-2": 76.5,
+          "1-4-3": 38.2,
+          "1-6-2": 25.5,
+          "1-7-2": 76.5,
+          "1-6-3": 76.5,
+          "1-6-4": 38.2,
+          "1-6-5": 76.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=38&joCode=38&kaisaiBi=20261015&raceNo=1"
       },
       "settlement": {
@@ -19348,98 +19996,98 @@
           "score": 68.91,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 6.3,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 15.87,
+          "gross_return_if_hit_yen": 630,
+          "net_profit_if_hit_yen": 530,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-2-4",
           "score": 68.53,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 6.9,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 14.49,
+          "gross_return_if_hit_yen": 690,
+          "net_profit_if_hit_yen": 590,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "1-2-5",
           "score": 68.01,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 19.1,
+          "market_rank": 6,
+          "break_even_hit_rate_pct": 5.24,
+          "gross_return_if_hit_yen": 1910,
+          "net_profit_if_hit_yen": 1810,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "1-2-7",
           "score": 66.38,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 10.9,
+          "market_rank": 3,
+          "break_even_hit_rate_pct": 9.17,
+          "gross_return_if_hit_yen": 1090,
+          "net_profit_if_hit_yen": 990,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         },
         {
           "ticket": "1-3-2",
           "score": 65.24,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 25.5,
+          "market_rank": 7,
+          "break_even_hit_rate_pct": 3.92,
+          "gross_return_if_hit_yen": 2550,
+          "net_profit_if_hit_yen": 2450,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "1-2-6",
           "score": 65.15,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 38.2,
+          "market_rank": 11,
+          "break_even_hit_rate_pct": 2.62,
+          "gross_return_if_hit_yen": 3820,
+          "net_profit_if_hit_yen": 3720,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-4-2",
           "score": 64.71,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 15.3,
+          "market_rank": 5,
+          "break_even_hit_rate_pct": 6.54,
+          "gross_return_if_hit_yen": 1530,
+          "net_profit_if_hit_yen": 1430,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "1-5-2",
@@ -19460,14 +20108,14 @@
           "score": 62.06,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 12.7,
+          "market_rank": 4,
+          "break_even_hit_rate_pct": 7.87,
+          "gross_return_if_hit_yen": 1270,
+          "net_profit_if_hit_yen": 1170,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         },
         {
           "ticket": "2-1-3",
@@ -19546,98 +20194,98 @@
             "score": 68.91,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 6.3,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 15.87,
+            "gross_return_if_hit_yen": 630,
+            "net_profit_if_hit_yen": 530,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-2-4",
             "score": 68.53,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 6.9,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 14.49,
+            "gross_return_if_hit_yen": 690,
+            "net_profit_if_hit_yen": 590,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "1-2-5",
             "score": 68.01,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 19.1,
+            "market_rank": 6,
+            "break_even_hit_rate_pct": 5.24,
+            "gross_return_if_hit_yen": 1910,
+            "net_profit_if_hit_yen": 1810,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "1-2-7",
             "score": 66.38,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 10.9,
+            "market_rank": 3,
+            "break_even_hit_rate_pct": 9.17,
+            "gross_return_if_hit_yen": 1090,
+            "net_profit_if_hit_yen": 990,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           },
           {
             "ticket": "1-3-2",
             "score": 65.24,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 25.5,
+            "market_rank": 7,
+            "break_even_hit_rate_pct": 3.92,
+            "gross_return_if_hit_yen": 2550,
+            "net_profit_if_hit_yen": 2450,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "1-2-6",
             "score": 65.15,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 38.2,
+            "market_rank": 11,
+            "break_even_hit_rate_pct": 2.62,
+            "gross_return_if_hit_yen": 3820,
+            "net_profit_if_hit_yen": 3720,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-4-2",
             "score": 64.71,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 15.3,
+            "market_rank": 5,
+            "break_even_hit_rate_pct": 6.54,
+            "gross_return_if_hit_yen": 1530,
+            "net_profit_if_hit_yen": 1430,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "1-5-2",
@@ -19658,14 +20306,14 @@
             "score": 62.06,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 12.7,
+            "market_rank": 4,
+            "break_even_hit_rate_pct": 7.87,
+            "gross_return_if_hit_yen": 1270,
+            "net_profit_if_hit_yen": 1170,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           },
           {
             "ticket": "2-1-3",
@@ -19696,8 +20344,32 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261015&raceNo=2"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 25.5,
+          "1-2-3": 6.3,
+          "1-2-4": 6.9,
+          "1-3-4": 38.2,
+          "1-2-5": 19.1,
+          "1-3-5": 76.5,
+          "1-2-6": 38.2,
+          "1-3-6": 76.5,
+          "1-2-7": 10.9,
+          "1-3-7": 76.5,
+          "1-4-2": 15.3,
+          "1-4-3": 76.5,
+          "1-5-4": 76.5,
+          "1-4-7": 76.5,
+          "1-5-7": 76.5,
+          "1-6-2": 76.5,
+          "1-7-2": 12.7,
+          "1-6-3": 76.5,
+          "1-7-3": 25.5,
+          "1-7-4": 25.5,
+          "1-7-5": 38.2,
+          "1-7-6": 38.2,
+          "1-6-7": 76.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=38&joCode=38&kaisaiBi=20261015&raceNo=2"
       },
       "settlement": {
@@ -20140,14 +20812,14 @@
           "score": 108.43,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 13.5,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 7.41,
+          "gross_return_if_hit_yen": 1350,
+          "net_profit_if_hit_yen": 1250,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         },
         {
           "ticket": "1-2-4",
@@ -20338,14 +21010,14 @@
             "score": 108.43,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 13.5,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 7.41,
+            "gross_return_if_hit_yen": 1350,
+            "net_profit_if_hit_yen": 1250,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           },
           {
             "ticket": "1-2-4",
@@ -20418,8 +21090,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261015&raceNo=3"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-4-2": 13.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=38&joCode=38&kaisaiBi=20261015&raceNo=3"
       },
       "settlement": {
@@ -23070,14 +23744,14 @@
           "score": 105.82,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 13.5,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 7.41,
+          "gross_return_if_hit_yen": 1350,
+          "net_profit_if_hit_yen": 1250,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         },
         {
           "ticket": "3-1-2",
@@ -23268,14 +23942,14 @@
             "score": 105.82,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 13.5,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 7.41,
+            "gross_return_if_hit_yen": 1350,
+            "net_profit_if_hit_yen": 1250,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           },
           {
             "ticket": "3-1-2",
@@ -23306,8 +23980,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261015&raceNo=7"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-2-6": 13.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=38&joCode=38&kaisaiBi=20261015&raceNo=7"
       },
       "settlement": {
@@ -23680,14 +24356,14 @@
           "score": 140.51,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 14.2,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 7.04,
+          "gross_return_if_hit_yen": 1420,
+          "net_profit_if_hit_yen": 1320,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         },
         {
           "ticket": "1-3-2",
@@ -23764,14 +24440,14 @@
           "score": 127.9,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 14.2,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 7.04,
+          "gross_return_if_hit_yen": 1420,
+          "net_profit_if_hit_yen": 1320,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         },
         {
           "ticket": "3-1-2",
@@ -23878,14 +24554,14 @@
             "score": 140.51,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 14.2,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 7.04,
+            "gross_return_if_hit_yen": 1420,
+            "net_profit_if_hit_yen": 1320,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           },
           {
             "ticket": "1-3-2",
@@ -23962,14 +24638,14 @@
             "score": 127.9,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 14.2,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 7.04,
+            "gross_return_if_hit_yen": 1420,
+            "net_profit_if_hit_yen": 1320,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           },
           {
             "ticket": "3-1-2",
@@ -24028,8 +24704,11 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=38&kaisaiBi=20261015&raceNo=8"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-2-3": 14.2,
+          "1-2-6": 14.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=38&joCode=38&kaisaiBi=20261015&raceNo=8"
       },
       "settlement": {
@@ -25123,14 +25802,14 @@
           "score": 44.49,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 4.8,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 20.83,
+          "gross_return_if_hit_yen": 480,
+          "net_profit_if_hit_yen": 380,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "2-1-3",
@@ -25151,14 +25830,14 @@
           "score": 43.32,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 8.8,
+          "market_rank": 3,
+          "break_even_hit_rate_pct": 11.36,
+          "gross_return_if_hit_yen": 880,
+          "net_profit_if_hit_yen": 780,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⭐ 適正"
         },
         {
           "ticket": "2-1-4",
@@ -25179,14 +25858,14 @@
           "score": 42.28,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 17.7,
+          "market_rank": 6,
+          "break_even_hit_rate_pct": 5.65,
+          "gross_return_if_hit_yen": 1770,
+          "net_profit_if_hit_yen": 1670,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "2-1-5",
@@ -25221,14 +25900,14 @@
           "score": 40.43,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 6.6,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 15.15,
+          "gross_return_if_hit_yen": 660,
+          "net_profit_if_hit_yen": 560,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "⚠️ 人気"
         },
         {
           "ticket": "2-1-6",
@@ -25249,14 +25928,14 @@
           "score": 39.48,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 53.2,
+          "market_rank": 10,
+          "break_even_hit_rate_pct": 1.88,
+          "gross_return_if_hit_yen": 5320,
+          "net_profit_if_hit_yen": 5220,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         }
       ],
       "frozen_prediction": {
@@ -25321,14 +26000,14 @@
             "score": 44.49,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 4.8,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 20.83,
+            "gross_return_if_hit_yen": 480,
+            "net_profit_if_hit_yen": 380,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "2-1-3",
@@ -25349,14 +26028,14 @@
             "score": 43.32,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 8.8,
+            "market_rank": 3,
+            "break_even_hit_rate_pct": 11.36,
+            "gross_return_if_hit_yen": 880,
+            "net_profit_if_hit_yen": 780,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⭐ 適正"
           },
           {
             "ticket": "2-1-4",
@@ -25377,14 +26056,14 @@
             "score": 42.28,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 17.7,
+            "market_rank": 6,
+            "break_even_hit_rate_pct": 5.65,
+            "gross_return_if_hit_yen": 1770,
+            "net_profit_if_hit_yen": 1670,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "2-1-5",
@@ -25419,14 +26098,14 @@
             "score": 40.43,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 6.6,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 15.15,
+            "gross_return_if_hit_yen": 660,
+            "net_profit_if_hit_yen": 560,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "⚠️ 人気"
           },
           {
             "ticket": "2-1-6",
@@ -25447,14 +26126,14 @@
             "score": 39.48,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 53.2,
+            "market_rank": 10,
+            "break_even_hit_rate_pct": 1.88,
+            "gross_return_if_hit_yen": 5320,
+            "net_profit_if_hit_yen": 5220,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           }
         ]
       },
@@ -25471,8 +26150,28 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=45&kaisaiBi=20261015&raceNo=1"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 6.6,
+          "1-2-3": 4.8,
+          "1-2-4": 8.8,
+          "1-3-4": 13.3,
+          "1-2-5": 17.7,
+          "1-3-5": 17.7,
+          "1-3-6": 53.2,
+          "1-2-7": 53.2,
+          "1-3-7": 26.6,
+          "1-4-2": 13.3,
+          "1-5-2": 53.2,
+          "1-5-3": 53.2,
+          "1-5-4": 53.2,
+          "1-4-7": 53.2,
+          "1-5-7": 53.2,
+          "1-7-2": 53.2,
+          "1-7-3": 53.2,
+          "1-7-4": 53.2,
+          "1-7-5": 53.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=45&joCode=45&kaisaiBi=20261015&raceNo=1"
       },
       "settlement": {
@@ -26607,14 +27306,14 @@
           "score": 88.15,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 26.2,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 3.82,
+          "gross_return_if_hit_yen": 2620,
+          "net_profit_if_hit_yen": 2520,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "3-1-2",
@@ -26635,14 +27334,14 @@
           "score": 86.95,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 26.2,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 3.82,
+          "gross_return_if_hit_yen": 2620,
+          "net_profit_if_hit_yen": 2520,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "2-3-4",
@@ -26805,14 +27504,14 @@
             "score": 88.15,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 26.2,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 3.82,
+            "gross_return_if_hit_yen": 2620,
+            "net_profit_if_hit_yen": 2520,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "3-1-2",
@@ -26833,14 +27532,14 @@
             "score": 86.95,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 26.2,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 3.82,
+            "gross_return_if_hit_yen": 2620,
+            "net_profit_if_hit_yen": 2520,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "2-3-4",
@@ -26913,8 +27612,18 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=45&kaisaiBi=20261015&raceNo=3"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 26.2,
+          "1-2-3": 26.2,
+          "1-3-4": 26.2,
+          "1-2-5": 26.2,
+          "1-3-5": 26.2,
+          "1-3-6": 26.2,
+          "1-3-7": 26.2,
+          "1-5-2": 26.2,
+          "1-5-3": 26.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=45&joCode=45&kaisaiBi=20261015&raceNo=3"
       },
       "settlement": {
@@ -30198,14 +30907,14 @@
           "score": 90.14,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 27.0,
+          "market_rank": 1,
+          "break_even_hit_rate_pct": 3.7,
+          "gross_return_if_hit_yen": 2700,
+          "net_profit_if_hit_yen": 2600,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "2-1-4",
@@ -30268,14 +30977,14 @@
           "score": 84.58,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 27.0,
+          "market_rank": 2,
+          "break_even_hit_rate_pct": 3.7,
+          "gross_return_if_hit_yen": 2700,
+          "net_profit_if_hit_yen": 2600,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "2-1-6",
@@ -30396,14 +31105,14 @@
             "score": 90.14,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 27.0,
+            "market_rank": 1,
+            "break_even_hit_rate_pct": 3.7,
+            "gross_return_if_hit_yen": 2700,
+            "net_profit_if_hit_yen": 2600,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "2-1-4",
@@ -30466,14 +31175,14 @@
             "score": 84.58,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 27.0,
+            "market_rank": 2,
+            "break_even_hit_rate_pct": 3.7,
+            "gross_return_if_hit_yen": 2700,
+            "net_profit_if_hit_yen": 2600,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "2-1-6",
@@ -30518,8 +31227,18 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=45&kaisaiBi=20261015&raceNo=8"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-2-3": 27.0,
+          "1-2-4": 27.0,
+          "1-2-5": 27.0,
+          "1-2-6": 27.0,
+          "1-2-7": 27.0,
+          "1-5-2": 27.0,
+          "1-5-6": 27.0,
+          "1-6-2": 27.0,
+          "1-6-5": 27.0
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=45&joCode=45&kaisaiBi=20261015&raceNo=8"
       },
       "settlement": {
@@ -31239,8 +31958,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=45&kaisaiBi=20261015&raceNo=9"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-5": 15.0
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=45&joCode=45&kaisaiBi=20261015&raceNo=9"
       },
       "settlement": {
@@ -33393,8 +34114,26 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=3"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 200.2,
+          "1-2-3": 400.5,
+          "1-3-5": 80.1,
+          "1-2-6": 400.5,
+          "1-3-6": 100.1,
+          "1-2-7": 400.5,
+          "1-4-2": 400.5,
+          "1-4-3": 400.5,
+          "1-5-3": 80.1,
+          "1-5-4": 28.6,
+          "1-4-5": 80.1,
+          "1-4-6": 400.5,
+          "1-5-6": 66.7,
+          "1-4-7": 400.5,
+          "1-5-7": 200.2,
+          "1-6-3": 100.1,
+          "1-6-5": 100.1
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=3"
       },
       "settlement": {
@@ -34115,8 +34854,20 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=4"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 157.1,
+          "1-2-3": 314.2,
+          "1-2-6": 314.2,
+          "1-4-2": 314.2,
+          "1-5-4": 314.2,
+          "1-4-5": 314.2,
+          "1-5-6": 157.1,
+          "1-5-7": 157.1,
+          "1-6-4": 157.1,
+          "1-6-5": 157.1,
+          "1-7-5": 314.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=4"
       },
       "settlement": {
@@ -34837,8 +35588,22 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=5"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 165.3,
+          "1-2-3": 330.7,
+          "1-3-4": 330.7,
+          "1-3-5": 165.3,
+          "1-2-6": 330.7,
+          "1-3-7": 330.7,
+          "1-5-4": 330.7,
+          "1-4-5": 330.7,
+          "1-5-6": 165.3,
+          "1-5-7": 330.7,
+          "1-6-4": 330.7,
+          "1-7-4": 330.7,
+          "1-7-5": 330.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=5"
       },
       "settlement": {
@@ -35553,8 +36318,20 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=6"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 232.5,
+          "1-2-3": 465.0,
+          "1-2-4": 155.0,
+          "1-2-5": 232.5,
+          "1-3-5": 465.0,
+          "1-2-6": 465.0,
+          "1-4-2": 465.0,
+          "1-5-2": 155.0,
+          "1-5-4": 155.0,
+          "1-4-5": 155.0,
+          "1-5-6": 232.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=6"
       },
       "settlement": {
@@ -36269,8 +37046,23 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=7"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 199.5,
+          "1-2-3": 399.0,
+          "1-3-4": 57.0,
+          "1-3-5": 79.8,
+          "1-2-6": 399.0,
+          "1-3-7": 133.0,
+          "1-4-3": 49.8,
+          "1-5-3": 99.7,
+          "1-5-4": 79.8,
+          "1-4-5": 79.8,
+          "1-5-6": 199.5,
+          "1-4-7": 133.0,
+          "1-7-3": 199.5,
+          "1-7-4": 133.0
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=7"
       },
       "settlement": {
@@ -36637,98 +37429,98 @@
           "score": 121.16,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 39.2,
+          "market_rank": 6,
+          "break_even_hit_rate_pct": 2.55,
+          "gross_return_if_hit_yen": 3920,
+          "net_profit_if_hit_yen": 3820,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-7-4",
           "score": 120.76,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 39.2,
+          "market_rank": 7,
+          "break_even_hit_rate_pct": 2.55,
+          "gross_return_if_hit_yen": 3920,
+          "net_profit_if_hit_yen": 3820,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-4-5",
           "score": 120.29,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 27.4,
+          "market_rank": 3,
+          "break_even_hit_rate_pct": 3.65,
+          "gross_return_if_hit_yen": 2740,
+          "net_profit_if_hit_yen": 2640,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "🎯 中穴"
         },
         {
           "ticket": "1-5-4",
           "score": 119.46,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 68.6,
+          "market_rank": 10,
+          "break_even_hit_rate_pct": 1.46,
+          "gross_return_if_hit_yen": 6860,
+          "net_profit_if_hit_yen": 6760,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-7-5",
           "score": 119.1,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 274.5,
+          "market_rank": 23,
+          "break_even_hit_rate_pct": 0.36,
+          "gross_return_if_hit_yen": 27450,
+          "net_profit_if_hit_yen": 27350,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-5-7",
           "score": 118.67,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 91.5,
+          "market_rank": 15,
+          "break_even_hit_rate_pct": 1.09,
+          "gross_return_if_hit_yen": 9150,
+          "net_profit_if_hit_yen": 9050,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-4-2",
           "score": 117.92,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 39.2,
+          "market_rank": 4,
+          "break_even_hit_rate_pct": 2.55,
+          "gross_return_if_hit_yen": 3920,
+          "net_profit_if_hit_yen": 3820,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "4-1-7",
@@ -36835,98 +37627,98 @@
             "score": 121.16,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 39.2,
+            "market_rank": 6,
+            "break_even_hit_rate_pct": 2.55,
+            "gross_return_if_hit_yen": 3920,
+            "net_profit_if_hit_yen": 3820,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-7-4",
             "score": 120.76,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 39.2,
+            "market_rank": 7,
+            "break_even_hit_rate_pct": 2.55,
+            "gross_return_if_hit_yen": 3920,
+            "net_profit_if_hit_yen": 3820,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-4-5",
             "score": 120.29,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 27.4,
+            "market_rank": 3,
+            "break_even_hit_rate_pct": 3.65,
+            "gross_return_if_hit_yen": 2740,
+            "net_profit_if_hit_yen": 2640,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "🎯 中穴"
           },
           {
             "ticket": "1-5-4",
             "score": 119.46,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 68.6,
+            "market_rank": 10,
+            "break_even_hit_rate_pct": 1.46,
+            "gross_return_if_hit_yen": 6860,
+            "net_profit_if_hit_yen": 6760,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-7-5",
             "score": 119.1,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 274.5,
+            "market_rank": 23,
+            "break_even_hit_rate_pct": 0.36,
+            "gross_return_if_hit_yen": 27450,
+            "net_profit_if_hit_yen": 27350,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-5-7",
             "score": 118.67,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 91.5,
+            "market_rank": 15,
+            "break_even_hit_rate_pct": 1.09,
+            "gross_return_if_hit_yen": 9150,
+            "net_profit_if_hit_yen": 9050,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-4-2",
             "score": 117.92,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 39.2,
+            "market_rank": 4,
+            "break_even_hit_rate_pct": 2.55,
+            "gross_return_if_hit_yen": 3920,
+            "net_profit_if_hit_yen": 3820,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "4-1-7",
@@ -36985,8 +37777,32 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=8"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 91.5,
+          "1-2-3": 91.5,
+          "1-2-4": 27.4,
+          "1-3-4": 274.5,
+          "1-2-5": 274.5,
+          "1-3-5": 274.5,
+          "1-2-6": 45.7,
+          "1-2-7": 274.5,
+          "1-3-7": 274.5,
+          "1-4-2": 39.2,
+          "1-4-3": 68.6,
+          "1-5-4": 68.6,
+          "1-4-5": 27.4,
+          "1-4-6": 39.2,
+          "1-5-6": 137.2,
+          "1-4-7": 39.2,
+          "1-5-7": 91.5,
+          "1-6-2": 68.6,
+          "1-7-2": 274.5,
+          "1-7-3": 19.6,
+          "1-6-4": 68.6,
+          "1-7-4": 39.2,
+          "1-7-5": 274.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=8"
       },
       "settlement": {
@@ -37701,8 +38517,21 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=9"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 112.1,
+          "1-2-3": 112.1,
+          "1-3-5": 112.1,
+          "1-2-6": 224.2,
+          "1-5-2": 224.2,
+          "1-5-3": 224.2,
+          "1-5-4": 112.1,
+          "1-4-5": 224.2,
+          "1-5-6": 112.1,
+          "1-4-7": 224.2,
+          "1-5-7": 112.1,
+          "1-7-4": 224.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=9"
       },
       "settlement": {
@@ -38103,14 +38932,14 @@
           "score": 139.77,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 250.5,
+          "market_rank": 16,
+          "break_even_hit_rate_pct": 0.4,
+          "gross_return_if_hit_yen": 25050,
+          "net_profit_if_hit_yen": 24950,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "7-1-3",
@@ -38145,14 +38974,14 @@
           "score": 136.53,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 38.5,
+          "market_rank": 6,
+          "break_even_hit_rate_pct": 2.6,
+          "gross_return_if_hit_yen": 3850,
+          "net_profit_if_hit_yen": 3750,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "1-7-3",
@@ -38301,14 +39130,14 @@
             "score": 139.77,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 250.5,
+            "market_rank": 16,
+            "break_even_hit_rate_pct": 0.4,
+            "gross_return_if_hit_yen": 25050,
+            "net_profit_if_hit_yen": 24950,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "7-1-3",
@@ -38343,14 +39172,14 @@
             "score": 136.53,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 38.5,
+            "market_rank": 6,
+            "break_even_hit_rate_pct": 2.6,
+            "gross_return_if_hit_yen": 3850,
+            "net_profit_if_hit_yen": 3750,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "1-7-3",
@@ -38423,8 +39252,28 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=10"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 250.5,
+          "1-2-3": 18.5,
+          "1-2-4": 16.7,
+          "1-2-5": 23.8,
+          "1-3-5": 167.0,
+          "1-2-6": 19.2,
+          "1-3-6": 501.0,
+          "1-2-7": 38.5,
+          "1-5-2": 27.8,
+          "1-5-3": 62.6,
+          "1-5-4": 501.0,
+          "1-4-5": 501.0,
+          "1-5-6": 83.5,
+          "1-5-7": 62.6,
+          "1-7-2": 250.5,
+          "1-6-5": 100.2,
+          "1-7-5": 100.2,
+          "1-7-6": 125.2,
+          "1-6-7": 125.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=10"
       },
       "settlement": {
@@ -38923,14 +39772,14 @@
           "score": 129.24,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 585.7,
+          "market_rank": 11,
+          "break_even_hit_rate_pct": 0.17,
+          "gross_return_if_hit_yen": 58570,
+          "net_profit_if_hit_yen": 58470,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         }
       ],
       "frozen_prediction": {
@@ -39121,14 +39970,14 @@
             "score": 129.24,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 585.7,
+            "market_rank": 11,
+            "break_even_hit_rate_pct": 0.17,
+            "gross_return_if_hit_yen": 58570,
+            "net_profit_if_hit_yen": 58470,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           }
         ]
       },
@@ -39145,8 +39994,22 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=11"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 195.2,
+          "1-2-3": 585.7,
+          "1-2-4": 117.1,
+          "1-2-5": 585.7,
+          "1-2-6": 585.7,
+          "1-4-2": 36.6,
+          "1-5-2": 585.7,
+          "1-4-3": 97.6,
+          "1-5-4": 292.8,
+          "1-4-5": 146.4,
+          "1-4-6": 97.6,
+          "1-5-6": 292.8,
+          "1-4-7": 146.4
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=11"
       },
       "settlement": {
@@ -39569,14 +40432,14 @@
           "score": 132.04,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 114.7,
+          "market_rank": 4,
+          "break_even_hit_rate_pct": 0.87,
+          "gross_return_if_hit_yen": 11470,
+          "net_profit_if_hit_yen": 11370,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "4-1-2",
@@ -39625,14 +40488,14 @@
           "score": 131.05,
           "type": "AI総合評価",
           "bet_yen": 100,
-          "odds": null,
-          "market_rank": null,
-          "break_even_hit_rate_pct": null,
-          "gross_return_if_hit_yen": null,
-          "net_profit_if_hit_yen": null,
+          "odds": 459.0,
+          "market_rank": 13,
+          "break_even_hit_rate_pct": 0.22,
+          "gross_return_if_hit_yen": 45900,
+          "net_profit_if_hit_yen": 45800,
           "expected_value_yen": null,
-          "expected_value_status": "オッズ未取得",
-          "value_flag": "オッズ未取得"
+          "expected_value_status": "的中確率モデル未校正",
+          "value_flag": "💎 高配当候補（期待値未確定）"
         },
         {
           "ticket": "2-1-5",
@@ -39767,14 +40630,14 @@
             "score": 132.04,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 114.7,
+            "market_rank": 4,
+            "break_even_hit_rate_pct": 0.87,
+            "gross_return_if_hit_yen": 11470,
+            "net_profit_if_hit_yen": 11370,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "4-1-2",
@@ -39823,14 +40686,14 @@
             "score": 131.05,
             "type": "AI総合評価",
             "bet_yen": 100,
-            "odds": null,
-            "market_rank": null,
-            "break_even_hit_rate_pct": null,
-            "gross_return_if_hit_yen": null,
-            "net_profit_if_hit_yen": null,
+            "odds": 459.0,
+            "market_rank": 13,
+            "break_even_hit_rate_pct": 0.22,
+            "gross_return_if_hit_yen": 45900,
+            "net_profit_if_hit_yen": 45800,
             "expected_value_yen": null,
-            "expected_value_status": "オッズ未取得",
-            "value_flag": "オッズ未取得"
+            "expected_value_status": "的中確率モデル未校正",
+            "value_flag": "💎 高配当候補（期待値未確定）"
           },
           {
             "ticket": "2-1-5",
@@ -39861,8 +40724,23 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=53&kaisaiBi=20261015&raceNo=12"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 229.5,
+          "1-2-3": 459.0,
+          "1-2-4": 114.7,
+          "1-2-5": 459.0,
+          "1-2-6": 459.0,
+          "1-3-6": 229.5,
+          "1-4-2": 459.0,
+          "1-5-2": 459.0,
+          "1-5-3": 114.7,
+          "1-5-4": 91.8,
+          "1-4-5": 114.7,
+          "1-5-6": 229.5,
+          "1-5-7": 45.9,
+          "1-7-5": 91.8
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=53&joCode=53&kaisaiBi=20261015&raceNo=12"
       },
       "settlement": {
@@ -40571,8 +41449,31 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=61&kaisaiBi=20261015&raceNo=1"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 222.2,
+          "1-2-3": 166.6,
+          "1-2-4": 333.3,
+          "1-3-4": 333.3,
+          "1-2-5": 222.2,
+          "1-3-6": 666.7,
+          "1-2-7": 133.3,
+          "1-4-2": 333.3,
+          "1-5-2": 166.6,
+          "1-4-3": 333.3,
+          "1-5-4": 333.3,
+          "1-4-5": 166.6,
+          "1-4-6": 666.7,
+          "1-5-6": 333.3,
+          "1-4-7": 111.1,
+          "1-5-7": 222.2,
+          "1-7-2": 111.1,
+          "1-6-4": 666.7,
+          "1-7-4": 222.2,
+          "1-7-5": 166.6,
+          "1-7-6": 666.7,
+          "1-6-7": 666.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=61&joCode=61&kaisaiBi=20261015&raceNo=1"
       },
       "settlement": {
@@ -48435,8 +49336,12 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=61&kaisaiBi=20261015&raceNo=12"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-2-3": 12.0,
+          "1-2-4": 12.0,
+          "1-2-7": 12.0
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=61&joCode=61&kaisaiBi=20261015&raceNo=12"
       },
       "settlement": {
@@ -49112,8 +50017,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=1"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-4": 16.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=1"
       },
       "settlement": {
@@ -50466,8 +51373,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=3"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-4": 18.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=3"
       },
       "settlement": {
@@ -51143,8 +52052,11 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=4"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-4": 21.7,
+          "1-7-5": 21.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=4"
       },
       "settlement": {
@@ -51820,8 +52732,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=5"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-4": 24.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=5"
       },
       "settlement": {
@@ -52497,8 +53411,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=6"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-4": 21.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=6"
       },
       "settlement": {
@@ -53174,8 +54090,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=7"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-4": 20.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=7"
       },
       "settlement": {
@@ -53851,8 +54769,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=8"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-4": 20.2
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=8"
       },
       "settlement": {
@@ -54528,8 +55448,10 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=9"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-5-4": 54.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=9"
       },
       "settlement": {
@@ -55205,8 +56127,12 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=10"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-5": 23.2,
+          "1-5-3": 23.2,
+          "1-5-4": 69.7
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=10"
       },
       "settlement": {
@@ -55882,8 +56808,21 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=11"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-3-2": 67.5,
+          "1-2-3": 67.5,
+          "1-2-4": 67.5,
+          "1-3-4": 67.5,
+          "1-2-5": 67.5,
+          "1-3-5": 67.5,
+          "1-4-2": 67.5,
+          "1-5-2": 67.5,
+          "1-4-3": 67.5,
+          "1-5-3": 67.5,
+          "1-5-4": 33.7,
+          "1-4-5": 67.5
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=11"
       },
       "settlement": {
@@ -56559,8 +57498,27 @@
         "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=86&kaisaiBi=20261015&raceNo=12"
       },
       "odds": {
-        "available": false,
-        "odds": {},
+        "available": true,
+        "odds": {
+          "1-2-3": 56.2,
+          "1-2-4": 56.2,
+          "1-3-4": 56.2,
+          "1-2-5": 56.2,
+          "1-3-5": 56.2,
+          "1-2-6": 56.2,
+          "1-3-7": 56.2,
+          "1-5-2": 56.2,
+          "1-5-4": 56.2,
+          "1-4-5": 11.2,
+          "1-4-7": 5.1,
+          "1-6-2": 56.2,
+          "1-6-3": 56.2,
+          "1-7-3": 56.2,
+          "1-6-4": 56.2,
+          "1-7-4": 5.1,
+          "1-6-5": 56.2,
+          "1-7-5": 28.1
+        },
         "url": "https://sp.oddspark.com/keirin/SpOddsInfo.do?betType=9&dispMode=1&joCd=86&joCode=86&kaisaiBi=20261015&raceNo=12"
       },
       "settlement": {
