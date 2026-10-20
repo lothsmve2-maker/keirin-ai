@@ -4555,7 +4555,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-21T01:48:00.525283+09:00",
+  "updated_at": "2026-10-21T02:58:33.662200+09:00",
   "target_date": "2026-10-21",
   "data_complete": true,
   "result_complete": false,
@@ -5990,34 +5990,6 @@
       ]
     },
     {
-      "venue_code": "13",
-      "venue_name": "いわき平",
-      "race_count": 7,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ]
-    },
-    {
-      "venue_code": "22",
-      "venue_name": "前橋",
-      "race_count": 7,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ]
-    },
-    {
       "venue_code": "23",
       "venue_name": "取手",
       "race_count": 11,
@@ -6056,6 +6028,34 @@
     {
       "venue_code": "47",
       "venue_name": "松阪",
+      "race_count": 7,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "venue_code": "22",
+      "venue_name": "前橋",
+      "race_count": 7,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "venue_code": "13",
+      "venue_name": "いわき平",
       "race_count": 7,
       "race_numbers": [
         1,
