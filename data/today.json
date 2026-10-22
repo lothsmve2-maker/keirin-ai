@@ -4581,7 +4581,7 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-22T15:54:51.442335+09:00",
+  "updated_at": "2026-10-22T16:42:19.949226+09:00",
   "target_date": "2026-10-22",
   "data_complete": true,
   "result_complete": false,
@@ -4598,11 +4598,11 @@
   "ai_rider_count": 622,
   "frozen_prediction_count": 86,
   "result_count": 0,
-  "result_pending_count": 86,
-  "result_error_count": 0,
+  "result_pending_count": 0,
+  "result_error_count": 86,
   "payout_count": 0,
-  "payout_pending_count": 86,
-  "payout_error_count": 0,
+  "payout_pending_count": 0,
+  "payout_error_count": 86,
   "odds_count": 86,
   "summary": {
     "races": 86,
@@ -6441,83 +6441,8 @@
   },
   "venues": [
     {
-      "venue_code": "87",
-      "venue_name": "熊本",
-      "race_count": 12,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    {
-      "venue_code": "48",
-      "venue_name": "四日市",
-      "race_count": 12,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    {
-      "venue_code": "36",
-      "venue_name": "小田原",
-      "race_count": 12,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
-    },
-    {
-      "venue_code": "34",
-      "venue_name": "川崎",
-      "race_count": 11,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11
-      ]
-    },
-    {
-      "venue_code": "47",
-      "venue_name": "松阪",
+      "venue_code": "13",
+      "venue_name": "いわき平",
       "race_count": 7,
       "race_numbers": [
         1,
@@ -6532,20 +6457,6 @@
     {
       "venue_code": "22",
       "venue_name": "前橋",
-      "race_count": 7,
-      "race_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ]
-    },
-    {
-      "venue_code": "13",
-      "venue_name": "いわき平",
       "race_count": 7,
       "race_numbers": [
         1,
@@ -6576,6 +6487,43 @@
       ]
     },
     {
+      "venue_code": "34",
+      "venue_name": "川崎",
+      "race_count": 11,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "venue_code": "36",
+      "venue_name": "小田原",
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
       "venue_code": "44",
       "venue_name": "大垣",
       "race_count": 7,
@@ -6587,6 +6535,58 @@
         5,
         6,
         7
+      ]
+    },
+    {
+      "venue_code": "47",
+      "venue_name": "松阪",
+      "race_count": 7,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "venue_code": "48",
+      "venue_name": "四日市",
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "venue_code": "87",
+      "venue_name": "熊本",
+      "race_count": 12,
+      "race_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
       ]
     }
   ],
@@ -7244,13 +7244,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=13&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -7940,13 +7939,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=13&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -8600,13 +8598,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=13&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -9249,13 +9246,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=13&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -9944,13 +9940,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=13&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -10650,13 +10645,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=13&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -11355,13 +11349,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=13&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -12061,13 +12054,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=22&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -12769,13 +12761,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=22&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -13477,13 +13468,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=22&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -14182,13 +14172,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=22&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -14887,13 +14876,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=22&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -15591,13 +15579,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=22&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -16294,13 +16281,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=22&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -17041,13 +17027,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -17788,13 +17773,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -18541,13 +18525,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -19294,13 +19277,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -20035,13 +20017,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -20782,13 +20763,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -21529,13 +21509,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -22282,13 +22261,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=8"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -23035,13 +23013,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=9"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -23782,13 +23759,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=10"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -24523,13 +24499,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=25&kaisaiBi=20261022&raceNo=11"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -25276,13 +25251,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -26029,13 +26003,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -26782,13 +26755,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -27535,13 +27507,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -28288,13 +28259,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -29040,13 +29010,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -29791,13 +29760,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -30543,13 +30511,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=8"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -31295,13 +31262,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=9"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -32048,13 +32014,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=10"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -32801,13 +32766,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=34&kaisaiBi=20261022&raceNo=11"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -33554,13 +33518,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -34307,13 +34270,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -35060,13 +35022,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -35813,13 +35774,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -36566,13 +36526,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -37319,13 +37278,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -38072,13 +38030,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -38825,13 +38782,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=8"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -39577,13 +39533,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=9"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -40330,13 +40285,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=10"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -41083,13 +41037,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=11"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -41836,13 +41789,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=36&kaisaiBi=20261022&raceNo=12"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -42589,13 +42541,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=44&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -43342,13 +43293,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=44&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -44095,13 +44045,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=44&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -44864,13 +44813,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=44&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -45617,13 +45565,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=44&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -46370,13 +46317,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=44&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -47141,13 +47087,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=44&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -47849,13 +47794,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=47&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -48556,13 +48500,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=47&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -49263,13 +49206,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=47&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -49968,13 +49910,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=47&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -50675,13 +50616,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=47&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -51382,13 +51322,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=47&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -52087,13 +52026,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=47&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -52795,13 +52733,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -53503,13 +53440,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -54211,13 +54147,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -54919,13 +54854,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -55627,13 +55561,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -56287,13 +56220,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -56939,13 +56871,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -57637,13 +57568,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=8"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -58345,13 +58275,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=9"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -59053,13 +58982,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=10"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -59761,13 +59689,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=11"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -60469,13 +60396,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=48&kaisaiBi=20261022&raceNo=12"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -61302,13 +61228,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=1"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -62173,13 +62098,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=2"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -63032,13 +62956,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=3"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -63897,13 +63820,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=4"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -64780,13 +64702,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=5"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -65667,13 +65588,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=6"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -66538,13 +66458,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=7"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -67409,13 +67328,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=8"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -68274,13 +68192,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=9"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -69145,13 +69062,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=10"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -70016,13 +69932,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=11"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
@@ -70881,13 +70796,12 @@
         "finished": false,
         "result_finished": false,
         "finish": [],
-        "result_status": "pending",
+        "result_status": "error",
         "payout_available": false,
         "payout_3tan": null,
         "payout_3tan_yen": 0,
         "payout_source": "",
-        "payout_status": "pending",
-        "url": "https://www.oddspark.com/keirin/RaceResultInfo.do?joCode=87&kaisaiBi=20261022&raceNo=12"
+        "payout_status": "error"
       },
       "odds": {
         "available": true,
