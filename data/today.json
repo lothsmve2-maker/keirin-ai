@@ -4562,10 +4562,36 @@
           "roi_pct": 0
         }
       }
+    },
+    {
+      "date": "2026-10-24",
+      "races": [],
+      "strategy_lock": {
+        "date": "2026-10-24",
+        "locked_at": "2026-10-24T00:29:53.151043+09:00",
+        "status": "no_eligible_races",
+        "selection_rule": "Aランクのみ・発走2分以上前に時刻確認できたレース・判定スコア上位",
+        "max_races": 3,
+        "points_per_race": 5,
+        "investment_cap_yen": 1500,
+        "eligible_count": 0,
+        "selected_count": 0,
+        "selected": [],
+        "note": "発走時刻を取得できないレース、発走済みレースは選外。選定後の買い目は変更しない。",
+        "settlement_summary": {
+          "settled_races": 0,
+          "hits": 0,
+          "investment_yen": 0,
+          "return_yen": 0,
+          "profit_yen": 0,
+          "hit_rate_pct": 0,
+          "roi_pct": 0
+        }
+      }
     }
   ],
   "performance_history_summary": {
-    "days": 16,
+    "days": 17,
     "settled_races": 73,
     "hits": 13,
     "hit_rate_pct": 17.8,
@@ -4586,8 +4612,8 @@
     "roi_pct": 0
   },
   "daily_strategy_lock": {
-    "date": "2026-10-23",
-    "locked_at": "2026-10-23T00:31:00.702529+09:00",
+    "date": "2026-10-24",
+    "locked_at": "2026-10-24T00:29:53.151043+09:00",
     "status": "no_eligible_races",
     "selection_rule": "Aランクのみ・発走2分以上前に時刻確認できたレース・判定スコア上位",
     "max_races": 3,
@@ -4607,8 +4633,8 @@
       "roi_pct": 0
     }
   },
-  "updated_at": "2026-10-23T23:32:14.280347+09:00",
-  "target_date": "2026-10-23",
+  "updated_at": "2026-10-24T00:29:53.151454+09:00",
+  "target_date": "2026-10-24",
   "data_complete": false,
   "result_complete": true,
   "payout_complete": true,
